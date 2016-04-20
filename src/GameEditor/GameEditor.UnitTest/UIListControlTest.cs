@@ -20,18 +20,20 @@ namespace GameEditor.UnitTest
             Controller.SetView(ListView);
         }
 
-        //[TestMethod]
-        //public void SetupList_Test()
-        //{
-        //    // Arrange
-        //    var list = new List<string> { "First", "Second", "Third" };
+        [TestMethod]
+        public void SetupList_Test()
+        {
+            // Arrange
+            var list = new List<string> { "First", "Second", "Third" };
+            ListView.Items = new List<string>();
 
-        //    // Act
-        //    Controller.SetupList(list);
+            // Act
+            Controller.SetupList(list);
+            Controller.AddItems(list);
 
-        //    // Assert
-        //    CollectionAssert.AreEqual(ListView.Items, list);
-        //}
+            // Assert
+            CollectionAssert.AreEqual(ListView.Items, list);
+        }
 
         [TestMethod]
         public void ItemSelected_Before_Selection_Selected_Is_String_Empty()

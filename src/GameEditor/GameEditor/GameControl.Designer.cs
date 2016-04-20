@@ -1,6 +1,6 @@
 ﻿namespace GameEditor
 {
-    partial class GameControl
+    sealed partial class GameControl
     {
         /// <summary> 
         /// Required designer variable.

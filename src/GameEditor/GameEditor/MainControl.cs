@@ -2,13 +2,12 @@
 using GameEditor.Controllers;
 using GameEditor.Extensions;
 using GameEditor.Views;
-using System.Windows.Forms;
 
 namespace GameEditor
 {
     public partial class MainControl : BaseControl, IMainView
     {
-        private MainController _controller;
+        private readonly MainController _controller;
 
         public new bool CanCreate
         {

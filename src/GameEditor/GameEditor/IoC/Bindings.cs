@@ -1,6 +1,5 @@
 ﻿using GameEditor.Controllers;
 using GameEditor.Controllers.UI;
-using GameEditor.Models;
 using GameEditor.Views;
 using Ninject.Modules;
 

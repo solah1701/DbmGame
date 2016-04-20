@@ -1,5 +1,4 @@
-﻿using System;
-using GameCore;
+﻿using GameCore;
 using GameEditor.Views;
 using GameEditor.Controllers;
 using System.Windows.Forms;
@@ -14,18 +13,13 @@ namespace GameEditor
         private readonly IGoodsListController _controller;
 
         public new string Name { get { return NameTextBox.Text; } set { this.InvokeIfRequired(() => NameTextBox.Text = value); } }
-        public IView SubView { get { return baseControl1; } }
+        public IView SubView => baseControl1;
 
         public GoodsListControl()
         {
             InitializeComponent();
             _controller = IoCContainer.Resolve<IGoodsListController>();
             _controller.SetView(this);
-        }
-
-        public void LoadView()
-        {
-            ClearList();
         }
 
         public void ClearList()

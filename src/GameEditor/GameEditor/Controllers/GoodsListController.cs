@@ -40,7 +40,7 @@ namespace GameEditor.Controllers
             PopulateView();
         }
 
-        public void PopulateView()
+        private void PopulateView()
         {
             _view.ClearList();
             if (_model.Game.GoodsList.Count == 0)

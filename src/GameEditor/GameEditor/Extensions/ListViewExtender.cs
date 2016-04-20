@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System.Linq;
+using System.Windows.Forms;
 
 namespace GameEditor.Extensions
 {
@@ -6,40 +7,34 @@ namespace GameEditor.Extensions
     {
         public static void UpdateItem(this ListView listView, string key)
         {
-            foreach (ListViewItem item in listView.Items)
+            foreach (var item in listView.Items.Cast<ListViewItem>().Where(item => item.Selected))
             {
-                if (item.Selected)
-                {
-                    item.Text = key;
-                    return;
-                }
+                item.Text = key;
+                return;
             }
         }
 
         public static void SelectItem(this ListView listView, string key)
         {
-            foreach (ListViewItem item in listView.Items)
+            foreach (var item in listView.Items.Cast<ListViewItem>().Where(item => item.Text == key))
             {
-                if (item.Text == key) item.Selected = true;
+                item.Selected = true;
             }
         }
 
         public static void RemoveItem(this ListView listView, string key)
         {
-            foreach (ListViewItem item in listView.Items)
+            foreach (var item in listView.Items.Cast<ListViewItem>().Where(item => item.Text == key))
             {
-                if (item.Text == key)
+                if (item.Selected)
                 {
-                    if (item.Selected)
-                    {
-                        var index = item.Index;
-                        listView.Items.Remove(item);
-                        if (listView.Items.Count <= index) index--;
-                        if (listView.Items.Count == 0) return;
-                        listView.Items[index].Selected = true;
-                    }
-                    else listView.Items.Remove(item);
+                    var index = item.Index;
+                    listView.Items.Remove(item);
+                    if (listView.Items.Count <= index) index--;
+                    if (listView.Items.Count == 0) return;
+                    listView.Items[index].Selected = true;
                 }
+                else listView.Items.Remove(item);
             }
         }
 

@@ -15,7 +15,7 @@ namespace GameEditor.Controllers
 
         public override void Create()
         {
-            //throw new System.NotImplementedException();
+            throw new System.NotImplementedException();
         }
 
         public override void Read()

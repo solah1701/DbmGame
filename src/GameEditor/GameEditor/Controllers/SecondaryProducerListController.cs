@@ -23,9 +23,8 @@ namespace GameEditor.Controllers
 
         public void SelectedItemChanged(string value)
         {
-            foreach (var item in _model.Game.SecondaryProducerList)
+            foreach (var item in _model.Game.SecondaryProducerList.Where(item => item.Name == value))
             {
-                if (item.Name != value) continue;
                 _currentItem = item;
                 _view.Name = value;
                 _view.MaxConsumers = item.MaxConsumers;

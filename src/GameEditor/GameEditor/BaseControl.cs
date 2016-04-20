@@ -12,7 +12,7 @@ namespace GameEditor
         public virtual bool CanRead { get; set; }
         public virtual bool CanUpdate { get; set; }
         public virtual bool CanDelete { get; set; }
-        public virtual int BoolValue { private get; set; }
+        public virtual int BoolValue { internal get; set; }
         public bool Button1Visible { set { this.InvokeIfRequired(() => { button1.Visible = value; }); } }
         public bool Button2Visible { set { this.InvokeIfRequired(() => { button2.Visible = value; }); } }
         public bool Button3Visible { set { this.InvokeIfRequired(() => { button3.Visible = value; }); } }

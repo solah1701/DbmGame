@@ -2,7 +2,7 @@
 
 namespace GameEditor.Views.Base
 {
-    public interface IListView<T>
+    public interface IListView<in T>
     {
         string Name { get; set; }
         IView SubView { get; }

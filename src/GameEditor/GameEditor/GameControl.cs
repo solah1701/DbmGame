@@ -7,10 +7,8 @@ using GameEditor.IoC;
 
 namespace GameEditor
 {
-    public partial class GameControl : BaseControl, IGameView
+    public sealed partial class GameControl : BaseControl, IGameView
     {
-        private IGameController _controller;
-
         public string Path
         {
             get { return PathTextBox.Text; }
@@ -34,14 +32,14 @@ namespace GameEditor
         public GameControl()
         {
             InitializeComponent();
-            _controller = IoCContainer.Resolve<IGameController>();
-            _controller.SetView(this);
-            SetController(_controller);
+            var controller = IoCContainer.Resolve<IGameController>();
+            controller.SetView(this);
+            SetController(controller);
             CanCreate = true;
             CanUpdate = true;
             CanDelete = false;
             CanRead = true;
-            _controller.UpdateView();
+            controller.UpdateView();
         }
 
         private void PathButton_Click(object sender, EventArgs e)

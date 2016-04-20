@@ -22,16 +22,13 @@ namespace GameEditor.Controllers
 
         public void SelectedItemChanged(string value)
         {
-            foreach (var item in _model.Game.PrimaryProducerList)
+            foreach (var item in _model.Game.PrimaryProducerList.Where(item => item.Name == value))
             {
-                if (item.Name == value)
-                {
-                    _currentItem = item;
-                    _view.Name = value;
-                    _view.Amount = item.Amount;
-                    _view.Produces = item.Produces.Name;
-                    _view.ProductionRate = item.ProductionRate;
-                }
+                _currentItem = item;
+                _view.Name = value;
+                _view.Amount = item.Amount;
+                _view.Produces = item.Produces.Name;
+                _view.ProductionRate = item.ProductionRate;
             }
         }
 

@@ -14,7 +14,6 @@ namespace GameEditor
         private readonly ISecondaryProducerListController _controller;
 
         public new string Name { get { return NameTextBox.Text; } set { this.InvokeIfRequired(() => NameTextBox.Text = value); } }
-        public List<IGoods> Consumes { get; set; }
         public int MaxConsumers { get { return 0; } set { } }
         public string Produces { get { return ProductComboBox.Text; } set { this.InvokeIfRequired(() => ProductComboBox.Text = value); } }
         public List<string> GoodsList { set { this.InvokeIfRequired(() => PopulateProductList(value)); } }

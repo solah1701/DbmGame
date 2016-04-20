@@ -30,21 +30,16 @@ namespace GameEditor.Controllers
         public override void Create()
         {
             _model.Game.Name = _view.Name;
-            var fileName = string.Format("{0}\\{1}.xml", _view.Path, _view.Name);
+            var fileName = $"{_view.Path}\\{_view.Name}.xml";
             using (var writer = new FileStream(fileName, FileMode.Create))
             {
                 _model.Game.WriteObject(writer);
             }
         }
 
-        //public override void Delete()
-        //{
-        //    throw new NotImplementedException();
-        //}
-
         public override void Read()
         {
-            var fileName = string.Format("{0}\\{1}.xml", _view.Path, _view.Name);
+            var fileName = $"{_view.Path}\\{_view.Name}.xml";
             using (var reader = new FileStream(fileName, FileMode.Open))
             {
                 _model.Game = _model.Game.ReadObject(reader);

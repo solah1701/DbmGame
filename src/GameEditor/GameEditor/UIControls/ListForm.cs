@@ -1,12 +1,5 @@
 ﻿using GameEditor.Extensions;
-using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GameEditor.UIControls
@@ -21,7 +14,7 @@ namespace GameEditor.UIControls
             InitializeComponent();
         }
 
-        public void PopulateList(List<string> items)
+        private void PopulateList(List<string> items)
         {
             listView1.ClearList("Name");
             listView1.Items.Clear();

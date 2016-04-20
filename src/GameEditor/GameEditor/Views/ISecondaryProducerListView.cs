@@ -9,7 +9,6 @@ namespace GameEditor.Views
     {
         IUIListView UIListView { get; }
         List<string> GoodsList { set; }
-        List<IGoods> Consumes { get; set; }
         int MaxConsumers { get; set; }
         string Produces { get; set; }
         int Amount { get; set; }

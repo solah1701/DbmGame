@@ -22,3 +22,6 @@ C:\Users\Stephen\Documents\Visual Studio 2015\Projects\GameEditor\GameEditor\obj
 C:\Users\Stephen\Documents\Visual Studio 2015\Projects\GameEditor\GameEditor\obj\Debug\GameEditor.SecondaryProducerListControl.resources
 C:\Users\Stephen\Documents\Visual Studio 2015\Projects\GameEditor\GameEditor\obj\Debug\GameEditor.UIControls.UserListControl.resources
 C:\Users\Stephen\Documents\Visual Studio 2015\Projects\GameEditor\GameEditor\obj\Debug\GameEditor.UIControls.ListForm.resources
+C:\Users\Stephen\git\GameEditor Repository\src\GameEditor\GameEditor\bin\Debug\GameEditor.exe.config
+C:\Users\Stephen\git\GameEditor Repository\src\GameEditor\GameEditor\obj\Debug\GameEditor.exe
+C:\Users\Stephen\git\GameEditor Repository\src\GameEditor\GameEditor\obj\Debug\GameEditor.pdb

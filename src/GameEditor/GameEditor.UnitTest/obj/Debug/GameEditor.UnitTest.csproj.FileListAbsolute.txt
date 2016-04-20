@@ -1,0 +1,13 @@
+C:\Users\Stephen\Documents\Visual Studio 2015\Projects\GameEditor\GameEditor.UnitTest\bin\Debug\GameEditor.UnitTest.dll
+C:\Users\Stephen\Documents\Visual Studio 2015\Projects\GameEditor\GameEditor.UnitTest\bin\Debug\GameEditor.UnitTest.pdb
+C:\Users\Stephen\Documents\Visual Studio 2015\Projects\GameEditor\GameEditor.UnitTest\bin\Debug\GameCore.dll
+C:\Users\Stephen\Documents\Visual Studio 2015\Projects\GameEditor\GameEditor.UnitTest\bin\Debug\GameEditor.exe
+C:\Users\Stephen\Documents\Visual Studio 2015\Projects\GameEditor\GameEditor.UnitTest\bin\Debug\Ninject.dll
+C:\Users\Stephen\Documents\Visual Studio 2015\Projects\GameEditor\GameEditor.UnitTest\bin\Debug\NSubstitute.dll
+C:\Users\Stephen\Documents\Visual Studio 2015\Projects\GameEditor\GameEditor.UnitTest\bin\Debug\GameCore.pdb
+C:\Users\Stephen\Documents\Visual Studio 2015\Projects\GameEditor\GameEditor.UnitTest\bin\Debug\GameEditor.pdb
+C:\Users\Stephen\Documents\Visual Studio 2015\Projects\GameEditor\GameEditor.UnitTest\bin\Debug\Ninject.xml
+C:\Users\Stephen\Documents\Visual Studio 2015\Projects\GameEditor\GameEditor.UnitTest\bin\Debug\NSubstitute.xml
+C:\Users\Stephen\Documents\Visual Studio 2015\Projects\GameEditor\GameEditor.UnitTest\obj\Debug\GameEditor.UnitTest.csprojResolveAssemblyReference.cache
+C:\Users\Stephen\Documents\Visual Studio 2015\Projects\GameEditor\GameEditor.UnitTest\obj\Debug\GameEditor.UnitTest.dll
+C:\Users\Stephen\Documents\Visual Studio 2015\Projects\GameEditor\GameEditor.UnitTest\obj\Debug\GameEditor.UnitTest.pdb

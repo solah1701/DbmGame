@@ -1,0 +1,1 @@
+<SecondaryProducer xmlns="GameCore" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><Consumes xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays"><a:anyType i:type="Goods"><Name>MyBasalt</Name></a:anyType></Consumes><MaxConsumers>2</MaxConsumers><Name>MyBasaltExtraction</Name><Produces i:type="Goods"><Name>MyGranulate</Name></Produces></SecondaryProducer>

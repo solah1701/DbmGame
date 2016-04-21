@@ -6,7 +6,7 @@ using System;
 namespace GameCore
 {
     [DataContract(Name ="SecondaryProducer", Namespace = "GameCore")]
-    public class SecondaryProducer : SerializerBase<SecondaryProducer>, ISecondaryProducer
+    public class SecondaryProducer : SerializerBase<SecondaryProducer>, ISecondaryProducer, IBuilding
     {
         [DataMember()]
         public string Name { get; set; }
@@ -30,5 +30,10 @@ namespace GameCore
         {
             knownTypes.Add(typeof(Goods));
         }
+
+        [DataMember]
+        public Dictionary<IGoods, int> ConstructionCost { get; set; }
+        [DataMember]
+        public Dictionary<IMaintenance, int> MaintenanceCost { get; set; }
     }
 }

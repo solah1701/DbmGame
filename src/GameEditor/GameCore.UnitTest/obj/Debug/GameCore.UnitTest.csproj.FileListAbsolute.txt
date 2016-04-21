@@ -7,3 +7,12 @@ C:\Users\Stephen\Documents\Visual Studio 2015\Projects\GameEditor\GameCore.UnitT
 C:\Users\Stephen\Documents\Visual Studio 2015\Projects\GameEditor\GameCore.UnitTest\bin\Debug\NSubstitute.xml
 C:\Users\Stephen\Documents\Visual Studio 2015\Projects\GameEditor\GameCore.UnitTest\obj\Debug\GameCore.UnitTest.dll
 C:\Users\Stephen\Documents\Visual Studio 2015\Projects\GameEditor\GameCore.UnitTest\obj\Debug\GameCore.UnitTest.pdb
+C:\Users\Stephen\git\GameEditor Repository\src\GameEditor\GameCore.UnitTest\bin\Debug\GameCore.UnitTest.dll
+C:\Users\Stephen\git\GameEditor Repository\src\GameEditor\GameCore.UnitTest\bin\Debug\GameCore.UnitTest.pdb
+C:\Users\Stephen\git\GameEditor Repository\src\GameEditor\GameCore.UnitTest\bin\Debug\GameCore.dll
+C:\Users\Stephen\git\GameEditor Repository\src\GameEditor\GameCore.UnitTest\bin\Debug\NSubstitute.dll
+C:\Users\Stephen\git\GameEditor Repository\src\GameEditor\GameCore.UnitTest\bin\Debug\GameCore.pdb
+C:\Users\Stephen\git\GameEditor Repository\src\GameEditor\GameCore.UnitTest\bin\Debug\NSubstitute.xml
+C:\Users\Stephen\git\GameEditor Repository\src\GameEditor\GameCore.UnitTest\obj\Debug\GameCore.UnitTest.csprojResolveAssemblyReference.cache
+C:\Users\Stephen\git\GameEditor Repository\src\GameEditor\GameCore.UnitTest\obj\Debug\GameCore.UnitTest.dll
+C:\Users\Stephen\git\GameEditor Repository\src\GameEditor\GameCore.UnitTest\obj\Debug\GameCore.UnitTest.pdb

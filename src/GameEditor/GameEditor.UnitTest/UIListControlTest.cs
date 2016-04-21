@@ -18,133 +18,65 @@ namespace GameEditor.UnitTest
             ListView = Substitute.For<IUIListView>();
             Controller = new UIListController();
             Controller.SetView(ListView);
+            ListView.Items.Returns(new List<string>());
+            ListView.ClearReceivedCalls();
         }
 
         [TestMethod]
-        public void SetupList_Test()
-        {
-            // Arrange
-            var list = new List<string> { "First", "Second", "Third" };
-            ListView.Items = new List<string>();
-
-            // Act
-            Controller.SetupList(list);
-            Controller.AddItems(list);
-
-            // Assert
-            CollectionAssert.AreEqual(ListView.Items, list);
-        }
-
-        [TestMethod]
-        public void ItemSelected_Before_Selection_Selected_Is_String_Empty()
+        public void SetView_View_ClearList_Called()
         {
             // Arrange
 
             // Act
-            var actual = ListView.Selected;
+            Controller.SetView(ListView);
 
             // Assert
-            Assert.AreEqual(string.Empty, actual);
+            ListView.Received(1).ClearList();
         }
 
         [TestMethod]
-        public void ItemSelected_Select_Second_Item()
+        public void AddItem_View_AddItem_Called()
+        {
+            // Arrange
+            const string item = "SomeItem";
+
+            // Act
+            Controller.AddItem(item);
+
+            // Assert
+            ListView.Received(1).AddItem(item);
+        }
+
+        [TestMethod]
+        public void RemoveItem_View_RemoveItem_Called_If_Selected_Exists()
         {
             // Arrange
             var list = new List<string> { "First", "Second", "Third" };
-            var item = "Second";
+            var selected = "Third";
             ListView.Items.Returns(list);
-
-            // Act
-            //Controller.ItemSelected(item);
-            var actual = ListView.Selected;
-
-            // Assert
-            Assert.AreEqual(item, actual);
-        }
-
-        [TestMethod]
-        public void ItemSelected_Select_Invalid_Item_Returns_String_Empty()
-        {
-            // Arrange
-            var list = new List<string> { "First", "Second", "Third" };
-            //var item = "Invalid";
-            ListView.Items.Returns(list);
-
-            // Act
-            //Controller.ItemSelected(item);
-            var actual = ListView.Selected;
-
-            // Assert
-            Assert.AreEqual(string.Empty, actual);
-        }
-
-        [TestMethod]
-        public void ItemSelected_Select_Invalid_Item_Returns_Second()
-        {
-            // Arrange
-            var list = new List<string> { "First", "Second", "Third" };
-            var previousItem = "Second";
-            //var item = "Invalid";
-            ListView.Items.Returns(list);
-            ListView.Selected.Returns(previousItem);
-
-            // Act
-            //Controller.ItemSelected(item);
-            var actual = ListView.Selected;
-
-            // Assert
-            Assert.AreEqual(previousItem, actual);
-        }
-
-        [TestMethod]
-        public void RemoveItem_If_No_Item_Selected_Nothing_Is_Removed()
-        {
-            // Arrange
-            var list = new List<string> { "First", "Second", "Third" };
-            var expected = list.Count;
-            ListView.Items.Returns(list);
-
-            // Act
-            Controller.RemoveItem();
-            var actual = ListView.Items.Count;
-
-            // Assert
-            Assert.AreEqual(expected, actual);
-        }
-
-        [TestMethod]
-        public void RemoveItem_If_Item_Selected_Count_Is_Reduced_By_One()
-        {
-            // Arrange
-            var list = new List<string> { "First", "Second", "Third" };
-            var expected = list.Count - 1;
-            ListView.Items.Returns(list);
-            ListView.Selected.Returns("Second");
-
-            // Act
-            Controller.RemoveItem();
-            var actual = ListView.Items.Count;
-
-            // Assert
-            Assert.AreEqual(expected, actual);
-        }
-
-        [TestMethod]
-        public void RemoveItem_If_Item_Selected_List_No_Longer_Contains_Item()
-        {
-            // Arrange
-            var list = new List<string> { "First", "Second", "Third" };
-            var expected = "Second";
-            ListView.Items.Returns(list);
-            ListView.Selected.Returns(expected);
+            ListView.Selected.Returns(selected);
 
             // Act
             Controller.RemoveItem();
 
             // Assert
-            CollectionAssert.DoesNotContain(ListView.Items, expected);
+            ListView.Received(1).RemoveItem(selected);
         }
 
+        [TestMethod]
+        public void RemoveItem_View_RemoveItem_Not_Called_If_Selected_Does_Not_Exist()
+        {
+            // Arrange
+            var list = new List<string> { "First", "Second", "Third" };
+            var selected = "DoesNotExist";
+            ListView.Items.Returns(list);
+            ListView.Selected.Returns(selected);
+
+            // Act
+            Controller.RemoveItem();
+
+            // Assert
+            ListView.DidNotReceive().RemoveItem(selected);
+        }
     }
 }

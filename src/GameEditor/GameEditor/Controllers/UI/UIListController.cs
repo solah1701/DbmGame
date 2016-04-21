@@ -22,7 +22,6 @@ namespace GameEditor.Controllers.UI
 
         public void AddItems(List<string> items)
         {
-            _view.Items.Clear();
             _view.ClearList();
             foreach (var item in items)
             {
@@ -30,17 +29,20 @@ namespace GameEditor.Controllers.UI
             }
         }
 
+        public void PopulateList(List<string> items)
+        {
+            _view.Items.AddRange(items);
+        }
+
         public void AddItem(string item)
         {
             if (_view.Items.Contains(item)) return;
-            _view.Items.Add(item);
             _view.AddItem(item);
         }
 
         public void RemoveItem()
         {
             if (!_view.Items.Contains(_view.Selected)) return;
-            _view.Items.Remove(_view.Selected);
             _view.RemoveItem(_view.Selected);
         }
 

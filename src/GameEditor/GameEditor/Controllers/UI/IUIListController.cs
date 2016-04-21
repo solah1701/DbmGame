@@ -7,6 +7,7 @@ namespace GameEditor.Controllers.UI
     {
         void SetView(IUIListView view);
         void SetupList(List<string> items);
+        void PopulateList(List<string> items);
         void AddItem(string item);
         void AddItems(List<string> items);
         void RemoveItem();

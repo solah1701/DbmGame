@@ -74,7 +74,7 @@ namespace GameEditor.Controllers
         private void PopulateUIList()
         {
             _view.UIListView.Controller.SetupList(_model.Game.GoodsList.Select(g => g.Name).ToList());
-            _view.UIListView.Items = _currentItem.Consumes.Select(g => g.Name).ToList();
+            _view.UIListView.Controller.PopulateList(_currentItem.Consumes.Select(g => g.Name).ToList());
         }
 
         private void PopulateDropdown()

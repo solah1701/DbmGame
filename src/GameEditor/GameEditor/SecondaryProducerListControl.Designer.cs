@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SecondaryProducerListControl));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.SecondaryProducerListView = new System.Windows.Forms.ListView();
             this.label5 = new System.Windows.Forms.Label();
+            this.userListControl1 = new GameEditor.UIControls.UserListControl();
             this.RateNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.AmountNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
@@ -39,8 +41,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.NameTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.userListControl1 = new GameEditor.UIControls.UserListControl();
             this.baseControl1 = new GameEditor.BaseControl();
+            this.label6 = new System.Windows.Forms.Label();
+            this.BuildListControl = new GameEditor.UIControls.UserListControl();
+            this.label7 = new System.Windows.Forms.Label();
+            this.MaintenanceListControl = new GameEditor.UIControls.UserListControl();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -61,6 +66,10 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.label7);
+            this.splitContainer1.Panel2.Controls.Add(this.MaintenanceListControl);
+            this.splitContainer1.Panel2.Controls.Add(this.label6);
+            this.splitContainer1.Panel2.Controls.Add(this.BuildListControl);
             this.splitContainer1.Panel2.Controls.Add(this.label5);
             this.splitContainer1.Panel2.Controls.Add(this.userListControl1);
             this.splitContainer1.Panel2.Controls.Add(this.RateNumericUpDown);
@@ -72,8 +81,8 @@
             this.splitContainer1.Panel2.Controls.Add(this.NameTextBox);
             this.splitContainer1.Panel2.Controls.Add(this.label1);
             this.splitContainer1.Panel2.Controls.Add(this.baseControl1);
-            this.splitContainer1.Size = new System.Drawing.Size(602, 467);
-            this.splitContainer1.SplitterDistance = 200;
+            this.splitContainer1.Size = new System.Drawing.Size(583, 695);
+            this.splitContainer1.SplitterDistance = 193;
             this.splitContainer1.TabIndex = 0;
             // 
             // SecondaryProducerListView
@@ -83,7 +92,7 @@
             this.SecondaryProducerListView.GridLines = true;
             this.SecondaryProducerListView.Location = new System.Drawing.Point(0, 0);
             this.SecondaryProducerListView.Name = "SecondaryProducerListView";
-            this.SecondaryProducerListView.Size = new System.Drawing.Size(200, 467);
+            this.SecondaryProducerListView.Size = new System.Drawing.Size(193, 695);
             this.SecondaryProducerListView.TabIndex = 0;
             this.SecondaryProducerListView.UseCompatibleStateImageBehavior = false;
             this.SecondaryProducerListView.View = System.Windows.Forms.View.Details;
@@ -97,6 +106,14 @@
             this.label5.Size = new System.Drawing.Size(74, 17);
             this.label5.TabIndex = 18;
             this.label5.Text = "Consumes";
+            // 
+            // userListControl1
+            // 
+            this.userListControl1.Items = ((System.Collections.Generic.List<string>)(resources.GetObject("userListControl1.Items")));
+            this.userListControl1.Location = new System.Drawing.Point(122, 64);
+            this.userListControl1.Name = "userListControl1";
+            this.userListControl1.Size = new System.Drawing.Size(231, 120);
+            this.userListControl1.TabIndex = 17;
             // 
             // RateNumericUpDown
             // 
@@ -163,13 +180,6 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Name";
             // 
-            // userListControl1
-            // 
-            this.userListControl1.Location = new System.Drawing.Point(122, 64);
-            this.userListControl1.Name = "userListControl1";
-            this.userListControl1.Size = new System.Drawing.Size(231, 120);
-            this.userListControl1.TabIndex = 17;
-            // 
             // baseControl1
             // 
             this.baseControl1.BackColor = System.Drawing.SystemColors.Control;
@@ -178,10 +188,44 @@
             this.baseControl1.CanRead = false;
             this.baseControl1.CanUpdate = false;
             this.baseControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.baseControl1.Location = new System.Drawing.Point(0, 427);
+            this.baseControl1.Location = new System.Drawing.Point(0, 655);
             this.baseControl1.Name = "baseControl1";
-            this.baseControl1.Size = new System.Drawing.Size(398, 40);
+            this.baseControl1.Size = new System.Drawing.Size(386, 40);
             this.baseControl1.TabIndex = 0;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(32, 345);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(39, 17);
+            this.label6.TabIndex = 20;
+            this.label6.Text = "Build";
+            // 
+            // BuildListControl
+            // 
+            this.BuildListControl.Items = ((System.Collections.Generic.List<string>)(resources.GetObject("BuildListControl.Items")));
+            this.BuildListControl.Location = new System.Drawing.Point(122, 345);
+            this.BuildListControl.Name = "BuildListControl";
+            this.BuildListControl.Size = new System.Drawing.Size(231, 120);
+            this.BuildListControl.TabIndex = 19;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(32, 471);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(89, 17);
+            this.label7.TabIndex = 22;
+            this.label7.Text = "Maintenance";
+            // 
+            // MaintenanceListControl
+            // 
+            this.MaintenanceListControl.Items = ((System.Collections.Generic.List<string>)(resources.GetObject("MaintenanceListControl.Items")));
+            this.MaintenanceListControl.Location = new System.Drawing.Point(122, 471);
+            this.MaintenanceListControl.Name = "MaintenanceListControl";
+            this.MaintenanceListControl.Size = new System.Drawing.Size(231, 120);
+            this.MaintenanceListControl.TabIndex = 21;
             // 
             // SecondaryProducerListControl
             // 
@@ -189,7 +233,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.splitContainer1);
             this.Name = "SecondaryProducerListControl";
-            this.Size = new System.Drawing.Size(602, 467);
+            this.Size = new System.Drawing.Size(583, 695);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             this.splitContainer1.Panel2.PerformLayout();
@@ -216,5 +260,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label5;
         private UIControls.UserListControl userListControl1;
+        private System.Windows.Forms.Label label7;
+        private UIControls.UserListControl MaintenanceListControl;
+        private System.Windows.Forms.Label label6;
+        private UIControls.UserListControl BuildListControl;
     }
 }

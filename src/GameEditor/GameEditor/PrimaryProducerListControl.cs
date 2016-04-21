@@ -30,7 +30,7 @@ namespace GameEditor
         private void PopulateProductList(List<string> goodsList)
         {
             ProductComboBox.Items.Clear();
-            ProductComboBox.Items.AddRange(new object[] { goodsList.ToArray() });
+            ProductComboBox.Items.AddRange(goodsList.ToArray());
         }
 
         public void AddItem(IPrimaryProducer item)

@@ -19,6 +19,8 @@ namespace GameEditor
         public List<string> GoodsList { set { this.InvokeIfRequired(() => PopulateProductList(value)); } }
         public IView SubView => baseControl1;
         public IUIListView UIListView => userListControl1;
+        public IUIListView UIBuildView => BuildListControl;
+        public IUIListView UIMaintenanceView => MaintenanceListControl;
         public int Amount { get { return (int)AmountNumericUpDown.Value; } set { this.InvokeIfRequired(() => AmountNumericUpDown.Value = value); } }
         public int Rate { get { return (int)RateNumericUpDown.Value; } set { this.InvokeIfRequired(() => RateNumericUpDown.Value = value); } }
 
@@ -32,7 +34,7 @@ namespace GameEditor
         private void PopulateProductList(List<string> goodsList)
         {
             ProductComboBox.Items.Clear();
-            ProductComboBox.Items.AddRange(new object[] { goodsList.ToArray() });
+            ProductComboBox.Items.AddRange(goodsList.ToArray());
         }
 
         public void AddItem(ISecondaryProducer item)

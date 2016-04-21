@@ -8,6 +8,8 @@ namespace GameEditor.Views
     public interface ISecondaryProducerListView : IListView<ISecondaryProducer>
     {
         IUIListView UIListView { get; }
+        IUIListView UIBuildView { get; }
+        IUIListView UIMaintenanceView { get; }
         List<string> GoodsList { set; }
         int MaxConsumers { get; set; }
         string Produces { get; set; }

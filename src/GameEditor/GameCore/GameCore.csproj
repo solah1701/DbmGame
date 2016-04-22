@@ -37,7 +37,9 @@
     <!-- A reference to the entire .NET Framework is automatically included -->
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DebellisMultitudinis\Army.cs" />
     <Compile Include="DebellisMultitudinis\DbmGame.cs" />
+    <Compile Include="DebellisMultitudinis\IArmy.cs" />
     <Compile Include="DebellisMultitudinis\IConstructableUnit.cs" />
     <Compile Include="DebellisMultitudinis\IDbmGame.cs" />
     <Compile Include="Game.cs" />

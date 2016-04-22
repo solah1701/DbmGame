@@ -10,5 +10,6 @@
         int Stamina { get; set; }
         int Level { get; set; }
         int Morale { get; set; }
+        int Upkeep { get; set; }
     }
 }

@@ -158,6 +158,11 @@
             // AttackNumericUpDown
             // 
             this.AttackNumericUpDown.Location = new System.Drawing.Point(88, 31);
+            this.AttackNumericUpDown.Maximum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            0});
             this.AttackNumericUpDown.Name = "AttackNumericUpDown";
             this.AttackNumericUpDown.Size = new System.Drawing.Size(120, 22);
             this.AttackNumericUpDown.TabIndex = 11;
@@ -174,6 +179,11 @@
             // DefenceNumericUpDown
             // 
             this.DefenceNumericUpDown.Location = new System.Drawing.Point(88, 59);
+            this.DefenceNumericUpDown.Maximum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            0});
             this.DefenceNumericUpDown.Name = "DefenceNumericUpDown";
             this.DefenceNumericUpDown.Size = new System.Drawing.Size(120, 22);
             this.DefenceNumericUpDown.TabIndex = 13;
@@ -190,6 +200,11 @@
             // MoveNumericUpDown
             // 
             this.MoveNumericUpDown.Location = new System.Drawing.Point(88, 87);
+            this.MoveNumericUpDown.Maximum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            0});
             this.MoveNumericUpDown.Name = "MoveNumericUpDown";
             this.MoveNumericUpDown.Size = new System.Drawing.Size(120, 22);
             this.MoveNumericUpDown.TabIndex = 15;
@@ -206,6 +221,11 @@
             // RangeNumericUpDown
             // 
             this.RangeNumericUpDown.Location = new System.Drawing.Point(88, 115);
+            this.RangeNumericUpDown.Maximum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            0});
             this.RangeNumericUpDown.Name = "RangeNumericUpDown";
             this.RangeNumericUpDown.Size = new System.Drawing.Size(120, 22);
             this.RangeNumericUpDown.TabIndex = 17;
@@ -222,6 +242,11 @@
             // SpeedNumericUpDown
             // 
             this.SpeedNumericUpDown.Location = new System.Drawing.Point(88, 143);
+            this.SpeedNumericUpDown.Maximum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            0});
             this.SpeedNumericUpDown.Name = "SpeedNumericUpDown";
             this.SpeedNumericUpDown.Size = new System.Drawing.Size(120, 22);
             this.SpeedNumericUpDown.TabIndex = 19;
@@ -238,6 +263,11 @@
             // StaminaNumericUpDown
             // 
             this.StaminaNumericUpDown.Location = new System.Drawing.Point(88, 171);
+            this.StaminaNumericUpDown.Maximum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            0});
             this.StaminaNumericUpDown.Name = "StaminaNumericUpDown";
             this.StaminaNumericUpDown.Size = new System.Drawing.Size(120, 22);
             this.StaminaNumericUpDown.TabIndex = 21;
@@ -254,6 +284,11 @@
             // LevelNumericUpDown
             // 
             this.LevelNumericUpDown.Location = new System.Drawing.Point(88, 199);
+            this.LevelNumericUpDown.Maximum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            0});
             this.LevelNumericUpDown.Name = "LevelNumericUpDown";
             this.LevelNumericUpDown.Size = new System.Drawing.Size(120, 22);
             this.LevelNumericUpDown.TabIndex = 23;
@@ -270,6 +305,11 @@
             // MoraleNumericUpDown
             // 
             this.MoraleNumericUpDown.Location = new System.Drawing.Point(88, 227);
+            this.MoraleNumericUpDown.Maximum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            0});
             this.MoraleNumericUpDown.Name = "MoraleNumericUpDown";
             this.MoraleNumericUpDown.Size = new System.Drawing.Size(120, 22);
             this.MoraleNumericUpDown.TabIndex = 25;
@@ -286,6 +326,11 @@
             // CostNumericUpDown
             // 
             this.CostNumericUpDown.Location = new System.Drawing.Point(88, 255);
+            this.CostNumericUpDown.Maximum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            0});
             this.CostNumericUpDown.Name = "CostNumericUpDown";
             this.CostNumericUpDown.Size = new System.Drawing.Size(120, 22);
             this.CostNumericUpDown.TabIndex = 27;
@@ -302,6 +347,11 @@
             // UpkeepNumericUpDown
             // 
             this.UpkeepNumericUpDown.Location = new System.Drawing.Point(88, 283);
+            this.UpkeepNumericUpDown.Maximum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            0});
             this.UpkeepNumericUpDown.Name = "UpkeepNumericUpDown";
             this.UpkeepNumericUpDown.Size = new System.Drawing.Size(120, 22);
             this.UpkeepNumericUpDown.TabIndex = 29;
@@ -318,6 +368,11 @@
             // BuildNumericUpDown
             // 
             this.BuildNumericUpDown.Location = new System.Drawing.Point(88, 311);
+            this.BuildNumericUpDown.Maximum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            0});
             this.BuildNumericUpDown.Name = "BuildNumericUpDown";
             this.BuildNumericUpDown.Size = new System.Drawing.Size(120, 22);
             this.BuildNumericUpDown.TabIndex = 31;

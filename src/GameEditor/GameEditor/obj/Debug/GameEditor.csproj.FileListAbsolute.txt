@@ -46,3 +46,6 @@ C:\Users\Stephen\git\GameEditor Repository\src\GameEditor\GameEditor\obj\Debug\G
 C:\Users\Stephen\git\GameEditor Repository\src\GameEditor\GameEditor\obj\Debug\GameEditor.UIControls.ListForm.resources
 C:\Users\Stephen\git\GameEditor Repository\src\GameEditor\GameEditor\obj\Debug\GameEditor.UIControls.UserListControl.resources
 C:\Users\Stephen\git\GameEditor Repository\src\GameEditor\GameEditor\obj\Debug\GameEditor.csproj.GenerateResource.Cache
+C:\Users\Stephen\git\GameEditor Repository\src\GameEditor\GameEditor\obj\Debug\GameEditor.DbmGameControl.resources
+C:\Users\Stephen\git\GameEditor Repository\src\GameEditor\GameEditor\obj\Debug\GameEditor.DbmGameForm.resources
+C:\Users\Stephen\git\GameEditor Repository\src\GameEditor\GameEditor\obj\Debug\GameEditor.UnitsControl.resources

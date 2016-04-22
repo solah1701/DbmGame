@@ -16,6 +16,8 @@ namespace GameEditor.IoC
             Bind<ISecondaryProducerListView>().To<SecondaryProducerListControl>();
             Bind<IMainView>().To<MainControl>();
 
+            Bind<IDbmGameController>().To<DbmGameController>();
+            Bind<IUnitsController>().To<UnitsController>();
             Bind<IGameController>().To<GameController>();
             Bind<IGoodsController>().To<GoodsController>();
             Bind<IGoodsListController>().To<GoodsListController>();

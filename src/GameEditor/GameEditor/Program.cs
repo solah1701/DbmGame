@@ -17,7 +17,8 @@ namespace GameEditor
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new GameForm());
+            Application.Run(new DbmGameForm());
+            //Application.Run(new GameForm());
             //Application.Run(new MainForm());
         }
     }

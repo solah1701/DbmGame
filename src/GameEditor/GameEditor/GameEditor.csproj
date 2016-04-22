@@ -60,19 +60,35 @@
     <Compile Include="Controllers\Base\IController.cs" />
     <Compile Include="Controllers\Base\IListController.cs" />
     <Compile Include="Controllers\Base\ListController.cs" />
+    <Compile Include="Controllers\DbmGameController.cs" />
     <Compile Include="Controllers\GameController.cs" />
     <Compile Include="Controllers\GoodsController.cs" />
     <Compile Include="Controllers\GoodsListController.cs" />
+    <Compile Include="Controllers\IDbmGameController.cs" />
     <Compile Include="Controllers\IGameController.cs" />
     <Compile Include="Controllers\IGoodsController.cs" />
     <Compile Include="Controllers\IGoodsListController.cs" />
     <Compile Include="Controllers\ISecondaryProducerListController.cs" />
     <Compile Include="Controllers\IPrimaryProducerListController.cs" />
+    <Compile Include="Controllers\IUnitsController.cs" />
     <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Controllers\PrimaryProducerListController.cs" />
     <Compile Include="Controllers\SecondaryProducerListController.cs" />
     <Compile Include="Controllers\UI\IUIListController.cs" />
     <Compile Include="Controllers\UI\UIListController.cs" />
+    <Compile Include="Controllers\UnitsController.cs" />
+    <Compile Include="DbmGameControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DbmGameControl.Designer.cs">
+      <DependentUpon>DbmGameControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DbmGameForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DbmGameForm.Designer.cs">
+      <DependentUpon>DbmGameForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Extensions\ControlInvokeExtension.cs" />
     <Compile Include="Extensions\EnumerableExtension.cs" />
     <Compile Include="Extensions\EventAggregatorExtensions.cs" />
@@ -124,7 +140,9 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\DbmGameModel.cs" />
     <Compile Include="Models\GameModel.cs" />
+    <Compile Include="Models\IDbmGameModel.cs" />
     <Compile Include="Models\IGameModel.cs" />
     <Compile Include="PrimaryProducerListControl.cs">
       <SubType>UserControl</SubType>
@@ -152,7 +170,14 @@
     <Compile Include="UIControls\UserListControl.Designer.cs">
       <DependentUpon>UserListControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UnitsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UnitsControl.Designer.cs">
+      <DependentUpon>UnitsControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Base\IListView.cs" />
+    <Compile Include="Views\IDbmGameView.cs" />
     <Compile Include="Views\IGameView.cs" />
     <Compile Include="Views\IGoodsListView.cs" />
     <Compile Include="Views\IGoodsView.cs" />
@@ -160,9 +185,16 @@
     <Compile Include="Views\Base\IView.cs" />
     <Compile Include="Views\ISecondaryProducerListView.cs" />
     <Compile Include="Views\IPrimaryProducerListView.cs" />
+    <Compile Include="Views\IUnitsView.cs" />
     <Compile Include="Views\UI\IUIListView.cs" />
     <EmbeddedResource Include="BaseControl.resx">
       <DependentUpon>BaseControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DbmGameControl.resx">
+      <DependentUpon>DbmGameControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DbmGameForm.resx">
+      <DependentUpon>DbmGameForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GameControl.resx">
       <DependentUpon>GameControl.cs</DependentUpon>
@@ -205,6 +237,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UIControls\UserListControl.resx">
       <DependentUpon>UserListControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UnitsControl.resx">
+      <DependentUpon>UnitsControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

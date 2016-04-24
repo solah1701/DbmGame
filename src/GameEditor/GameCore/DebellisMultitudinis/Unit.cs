@@ -1,4 +1,6 @@
-﻿using System.Runtime.Serialization;
+﻿using System.Collections.Generic;
+using System.Runtime.Serialization;
+using GameCore.DebellisMultitudinis.Enumerations;
 
 namespace GameCore.DebellisMultitudinis
 {
@@ -29,5 +31,38 @@ namespace GameCore.DebellisMultitudinis
         public int Upkeep { get; set; }
         [DataMember]
         public int ConstructionTime { get; set; }
+        [DataMember]
+        public UnitTypeEnum UnitType { get; set; }
+        [DataMember]
+        public GradeTypeEnum GradeType { get; set; }
+        public DispositionTypeEnum DispositionType => GetDispositionType();
+
+        private DispositionTypeEnum GetDispositionType()
+        {
+            var table = new Dictionary<UnitTypeEnum, DispositionTypeEnum>
+            {
+                { UnitTypeEnum.Elephants, DispositionTypeEnum.Mounted },
+                { UnitTypeEnum.Knights, DispositionTypeEnum.Mounted },
+                { UnitTypeEnum.Cavalry, DispositionTypeEnum.Mounted },
+                { UnitTypeEnum.LightHorse, DispositionTypeEnum.Mounted },
+                { UnitTypeEnum.Camelry, DispositionTypeEnum.Mounted },
+                { UnitTypeEnum.Expendables, DispositionTypeEnum.Mounted },
+                { UnitTypeEnum.Spear, DispositionTypeEnum.Foot },
+                { UnitTypeEnum.Pike, DispositionTypeEnum.Foot },
+                { UnitTypeEnum.Blades, DispositionTypeEnum.Foot },
+                { UnitTypeEnum.Warband, DispositionTypeEnum.Foot },
+                { UnitTypeEnum.Auxilia, DispositionTypeEnum.Foot },
+                { UnitTypeEnum.Bow, DispositionTypeEnum.Foot },
+                { UnitTypeEnum.Psiloi, DispositionTypeEnum.Foot },
+                { UnitTypeEnum.Artillary, DispositionTypeEnum.Foot },
+                { UnitTypeEnum.WarWagons, DispositionTypeEnum.Foot },
+                { UnitTypeEnum.Hordes, DispositionTypeEnum.Foot },
+                { UnitTypeEnum.Baggage, DispositionTypeEnum.Foot },
+                { UnitTypeEnum.Galleys, DispositionTypeEnum.Naval },
+                { UnitTypeEnum.Ships, DispositionTypeEnum.Naval },
+                { UnitTypeEnum.Boats, DispositionTypeEnum.Naval }
+            };
+            return table[UnitType];
+        }
     }
 }

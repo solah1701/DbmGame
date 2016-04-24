@@ -45,6 +45,7 @@
     <Compile Include="DebellisMultitudinis\IArmy.cs" />
     <Compile Include="DebellisMultitudinis\IConstructableUnit.cs" />
     <Compile Include="DebellisMultitudinis\IDbmGame.cs" />
+    <Compile Include="DebellisMultitudinis\IDbmUnit.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="Goods.cs" />
     <Compile Include="IBuilding.cs" />

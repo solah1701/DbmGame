@@ -1,6 +1,6 @@
 ﻿namespace GameCore.DebellisMultitudinis
 {
-    public interface IConstructableUnit : IUnit, IConstructable
+    public interface IConstructableUnit : IDbmUnit, IUnit, IConstructable
     {
 
     }

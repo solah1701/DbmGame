@@ -39,6 +39,8 @@ namespace GameCore.DebellisMultitudinis
         [DataMember]
         public bool IsMountedInfantry { get; set; }
         [DataMember]
+        public bool IsAlly { get; set; }
+        [DataMember]
         public DisciplineTypeEnum DisciplineType { get; set; }
         [DataMember]
         public UnitTypeEnum UnitType { get; set; }
@@ -299,8 +301,15 @@ namespace GameCore.DebellisMultitudinis
                 { new Tuple<DisciplineTypeEnum, GradeTypeEnum, UnitTypeEnum>(DisciplineTypeEnum.Irregular, GradeTypeEnum.Fast, UnitTypeEnum.Baggage), null },
                 { new Tuple<DisciplineTypeEnum, GradeTypeEnum, UnitTypeEnum>(DisciplineTypeEnum.Irregular, GradeTypeEnum.Exception, UnitTypeEnum.Baggage), null },
             };
+            var additions = 0;
+            if (IsChariot && (UnitType == UnitTypeEnum.Knights || UnitType == UnitTypeEnum.Cavalry)) additions -= 1;
+            if (IsMountedInfantry && DispositionType == DispositionTypeEnum.Foot) additions += 1;
+            if (IsGeneral && !IsAlly && DisciplineType == DisciplineTypeEnum.Regular) additions += 20;
+            if (IsGeneral && !IsAlly && DisciplineType == DisciplineTypeEnum.Irregular) additions += 10;
+            if (IsGeneral && IsAlly && DisciplineType == DisciplineTypeEnum.Regular) additions += 10;
+            if (IsGeneral && IsAlly && DisciplineType == DisciplineTypeEnum.Irregular) additions += 5;
             return
-                table[new Tuple<DisciplineTypeEnum, GradeTypeEnum, UnitTypeEnum>(DisciplineType, GradeType, UnitType)];
+                table[new Tuple<DisciplineTypeEnum, GradeTypeEnum, UnitTypeEnum>(DisciplineType, GradeType, UnitType)] + additions;
         }
     }
 }

@@ -7,6 +7,7 @@ namespace GameCore.DebellisMultitudinis
         bool IsGeneral { get; set; }
         bool IsChariot { get; set; }
         bool IsMountedInfantry { get; set; }
+        bool IsAlly { get; set; }
         DisciplineTypeEnum DisciplineType { get; set; }
         UnitTypeEnum UnitType { get; set; }
         GradeTypeEnum GradeType { get; set; }

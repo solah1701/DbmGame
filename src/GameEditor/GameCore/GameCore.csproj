@@ -39,6 +39,8 @@
   <ItemGroup>
     <Compile Include="DebellisMultitudinis\Army.cs" />
     <Compile Include="DebellisMultitudinis\DbmGame.cs" />
+    <Compile Include="DebellisMultitudinis\Enumerations\DispositionTypeEnum.cs" />
+    <Compile Include="DebellisMultitudinis\Enumerations\GradeTypeEnum.cs" />
     <Compile Include="DebellisMultitudinis\Enumerations\UnitTypeEnum.cs" />
     <Compile Include="DebellisMultitudinis\IArmy.cs" />
     <Compile Include="DebellisMultitudinis\IConstructableUnit.cs" />

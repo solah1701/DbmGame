@@ -2,12 +2,25 @@
 {
     public enum UnitTypeEnum
     {
-        LightInfantry,
-        HeavyInfantry,
+        Elephants,
+        Knights,
+        Cavalry,
+        LightHorse,
+        Camelry,
+        Expendables,
         Spear,
+        Pike,
+        Blades,
+        Warband,
+        Auxilia,
         Bow,
-        LightCavalry,
-        HeavyCavalry,
-        Artillary
+        Psiloi,
+        Artillary,
+        WarWagons,
+        Hordes,
+        Baggage,
+        Galleys,
+        Ships,
+        Boats
     }
 }

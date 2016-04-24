@@ -13,7 +13,7 @@ namespace GameEditor.Views
         int Stamina { get; set; }
         int Level { get; set; }
         int Morale { get; set; }
-        decimal Cost { get; set; }
+        decimal? Cost { get; set; }
         int Upkeep { get; set; }
         int ConstructionTime { get; set; }
     }

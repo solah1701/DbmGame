@@ -27,7 +27,7 @@ namespace GameCore.DebellisMultitudinis
         [DataMember]
         public int Morale { get; set; }
         [DataMember]
-        public decimal Cost { get; set; }
+        public decimal? Cost { get; set; }
         [DataMember]
         public int Upkeep { get; set; }
         [DataMember]

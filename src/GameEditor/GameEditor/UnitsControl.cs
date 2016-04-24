@@ -20,7 +20,7 @@ namespace GameEditor
         public int Stamina { get { return (int)StaminaNumericUpDown.Value; } set { this.InvokeIfRequired(() => StaminaNumericUpDown.Value = value); } }
         public int Level { get { return (int)LevelNumericUpDown.Value; } set { this.InvokeIfRequired(() => LevelNumericUpDown.Value = value); } }
         public int Morale { get { return (int)MoraleNumericUpDown.Value; } set { this.InvokeIfRequired(() => MoraleNumericUpDown.Value = value); } }
-        public int Cost { get { return (int)CostNumericUpDown.Value; } set { this.InvokeIfRequired(() => CostNumericUpDown.Value = value); } }
+        public decimal Cost { get { return (decimal)CostNumericUpDown.Value; } set { this.InvokeIfRequired(() => CostNumericUpDown.Value = value); } }
         public int Upkeep { get { return (int)UpkeepNumericUpDown.Value; } set { this.InvokeIfRequired(() => UpkeepNumericUpDown.Value = value); } }
         public int ConstructionTime { get { return (int)BuildNumericUpDown.Value; } set { this.InvokeIfRequired(() => BuildNumericUpDown.Value = value); } }
         public IView SubView => baseControl1;

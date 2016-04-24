@@ -2,7 +2,7 @@
 {
     public interface IConstructable
     {
-        int Cost { get; set; }
+        decimal Cost { get; set; }
         int ConstructionTime { get; set; } 
     }
 }

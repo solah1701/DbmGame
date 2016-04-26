@@ -40,6 +40,7 @@ namespace GameCore.DebellisMultitudinis
         public bool IsMountedInfantry { get; set; }
         [DataMember]
         public bool IsAlly { get; set; }
+        public bool IsShooting { get; set; }
         [DataMember]
         public DisciplineTypeEnum DisciplineType { get; set; }
         [DataMember]
@@ -310,6 +311,46 @@ namespace GameCore.DebellisMultitudinis
             if (IsGeneral && IsAlly && DisciplineType == DisciplineTypeEnum.Irregular) additions += 5;
             return
                 table[new Tuple<DisciplineTypeEnum, GradeTypeEnum, UnitTypeEnum>(DisciplineType, GradeType, UnitType)] + additions;
+        }
+
+        public int GetAttackValue(IDbmUnit opponentDbmUnit)
+        {
+            var table = new Dictionary<UnitTypeEnum, int>
+            {
+                { UnitTypeEnum.Elephants, UnitAttackValue(opponentDbmUnit, 5, 3, 4, 4) },
+                { UnitTypeEnum.Spear, 4 },
+                { UnitTypeEnum.Expendables, 4 },
+                { UnitTypeEnum.Artillary, 4 },
+                { UnitTypeEnum.Knights, UnitAttackValue(opponentDbmUnit, 4, 4, 4, 3) },
+                { UnitTypeEnum.WarWagons, UnitAttackValue(opponentDbmUnit, 4, 4, 4, 3) },
+                { UnitTypeEnum.Pike, UnitAttackValue(opponentDbmUnit, 4, 4, 3, 3) },
+                { UnitTypeEnum.Bow, UnitAttackValue(opponentDbmUnit, 4, 3, 2, 2) },
+                { UnitTypeEnum.Camelry, UnitAttackValue(opponentDbmUnit, 4, 3, 2, 2) },
+                { UnitTypeEnum.Blades, UnitAttackValue(opponentDbmUnit, 3, 4, 4, 5) },
+                { UnitTypeEnum.Cavalry, 3 },
+                { UnitTypeEnum.Galleys, 3 },
+                { UnitTypeEnum.Ships, 3 },
+                { UnitTypeEnum.Warband, UnitAttackValue(opponentDbmUnit, 2, 3, 3, 3) },
+                { UnitTypeEnum.Auxilia, UnitAttackValue(opponentDbmUnit, 2, 3, 3, 3) },
+                { UnitTypeEnum.LightHorse, 2 },
+                { UnitTypeEnum.Psiloi, 2 },
+                { UnitTypeEnum.Hordes, 2 },
+                { UnitTypeEnum.Boats, 2 },
+                { UnitTypeEnum.Baggage, 1 }
+            };
+            return table[UnitType];
+        }
+
+        private int UnitAttackValue(IDbmUnit opponentDbmUnit, int mounted, int naval, int shooting, int foot)
+        {
+            if (IsShooting) return shooting;
+            var table = new Dictionary<DispositionTypeEnum, int>
+            {
+                { DispositionTypeEnum.Mounted, mounted },
+                { DispositionTypeEnum.Naval, naval },
+                { DispositionTypeEnum.Foot, foot }
+            };
+            return table[opponentDbmUnit.DispositionType];
         }
     }
 }

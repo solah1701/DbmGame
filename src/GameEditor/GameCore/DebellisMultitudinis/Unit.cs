@@ -41,6 +41,13 @@ namespace GameCore.DebellisMultitudinis
         [DataMember]
         public bool IsAlly { get; set; }
         public bool IsShooting { get; set; }
+        public bool IsFortified { get; set; }
+        public bool IsElevated { get; set; }
+        public int EnemyOverlapCount { get; set; }
+        public int EnemyRearSupportCount { get; set; }
+        public int EnemySupportShootingCount { get; set; }
+        public TerrainGoingEnum TerrainGoing { get; set; }
+        public FortificationTypeEnum FortificationType { get; set; }
         [DataMember]
         public DisciplineTypeEnum DisciplineType { get; set; }
         [DataMember]
@@ -341,6 +348,39 @@ namespace GameCore.DebellisMultitudinis
             return table[UnitType];
         }
 
+        public int GetTacticalFactor(IDbmUnit opposingDbmUnit)
+        {
+            var result = 0;
+            if (IsGeneral) result += 1;
+            if (IsElevated && !IsShooting && !opposingDbmUnit.IsShooting) result += 1;
+            if (opposingDbmUnit.IsShooting) result -= Math.Min(EnemySupportShootingCount, 2);
+            if (!opposingDbmUnit.IsShooting) result -= EnemyOverlapCount;
+            if (DispositionType == DispositionTypeEnum.Mounted && (IsFortified || opposingDbmUnit.IsFortified) ||
+                opposingDbmUnit.TerrainGoing != TerrainGoingEnum.Good) result -= 2;
+            if (UnitType == UnitTypeEnum.Blades ||
+                (UnitType == UnitTypeEnum.Warband &&
+                 (GradeType == GradeTypeEnum.Superior || GradeType == GradeTypeEnum.Ordinary)) &&
+                opposingDbmUnit.DispositionType == DispositionTypeEnum.Foot &&
+                opposingDbmUnit.TerrainGoing != TerrainGoingEnum.Good) result -= 2;
+            if (UnitType == UnitTypeEnum.Spear || UnitType == UnitTypeEnum.Pike ||
+                (UnitType == UnitTypeEnum.Hordes && GradeType == GradeTypeEnum.Ordinary) ||
+                UnitType == UnitTypeEnum.WarWagons ||
+                UnitType == UnitTypeEnum.Baggage && TerrainGoing != TerrainGoingEnum.Good) result -= 2;
+            if (DispositionType != DispositionTypeEnum.Foot || !IsFortified) return result;
+            if (UnitType == UnitTypeEnum.WarWagons) return result;
+            if (FortificationType == FortificationTypeEnum.Permanent && opposingDbmUnit.UnitType == UnitTypeEnum.Artillary && opposingDbmUnit.GradeType == GradeTypeEnum.Superior && opposingDbmUnit.IsShooting) return result;
+            if (FortificationType == FortificationTypeEnum.Temporary &&
+                opposingDbmUnit.UnitType == UnitTypeEnum.Artillary ||
+                (opposingDbmUnit.UnitType == UnitTypeEnum.Psiloi && opposingDbmUnit.GradeType == GradeTypeEnum.Exception))
+                return result;
+            if ((opposingDbmUnit.UnitType == UnitTypeEnum.WarWagons &&
+                 opposingDbmUnit.GradeType == GradeTypeEnum.Superior) ||
+                (opposingDbmUnit.UnitType == UnitTypeEnum.Ships && opposingDbmUnit.GradeType == GradeTypeEnum.Exception))
+                return result;
+            result += 2;
+            return result;
+        }
+
         private int UnitAttackValue(IDbmUnit opponentDbmUnit, int mounted, int naval, int shooting, int foot)
         {
             if (IsShooting) return shooting;
@@ -352,5 +392,6 @@ namespace GameCore.DebellisMultitudinis
             };
             return table[opponentDbmUnit.DispositionType];
         }
+
     }
 }

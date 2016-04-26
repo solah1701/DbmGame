@@ -41,7 +41,9 @@
     <Compile Include="DebellisMultitudinis\DbmGame.cs" />
     <Compile Include="DebellisMultitudinis\Enumerations\DisciplineTypeEnum.cs" />
     <Compile Include="DebellisMultitudinis\Enumerations\DispositionTypeEnum.cs" />
+    <Compile Include="DebellisMultitudinis\Enumerations\FortificationTypeEnum.cs" />
     <Compile Include="DebellisMultitudinis\Enumerations\GradeTypeEnum.cs" />
+    <Compile Include="DebellisMultitudinis\Enumerations\TerrainGoingEnum.cs" />
     <Compile Include="DebellisMultitudinis\Enumerations\UnitTypeEnum.cs" />
     <Compile Include="DebellisMultitudinis\IArmy.cs" />
     <Compile Include="DebellisMultitudinis\IConstructableUnit.cs" />

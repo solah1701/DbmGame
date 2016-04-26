@@ -83,5 +83,63 @@ namespace GameCore.UnitTest
             // Assert
             Assert.AreEqual(expected, actual);
         }
+
+
+        [TestMethod]
+        public void When_Unit_Is_Spears_Being_Attack_By_Mounted_Attack_Value_Is_4()
+        {
+            // Arrange
+            const int expected = 4;
+            var opposed = Substitute.For<IDbmUnit>();
+            opposed.DispositionType.Returns(DispositionTypeEnum.Mounted);
+            var unit = new Unit
+            {
+                UnitType = UnitTypeEnum.Spear
+            };
+
+            // Act
+            var actual = unit.GetAttackValue(opposed);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void When_Unit_Is_Spears_Being_Attack_By_Naval_Attack_Value_Is_4()
+        {
+            // Arrange
+            const int expected = 4;
+            var opposed = Substitute.For<IDbmUnit>();
+            opposed.DispositionType.Returns(DispositionTypeEnum.Naval);
+            var unit = new Unit
+            {
+                UnitType = UnitTypeEnum.Spear
+            };
+
+            // Act
+            var actual = unit.GetAttackValue(opposed);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void When_Unit_Is_Spears_Being_Attack_By_Foot_Attack_Value_Is_4()
+        {
+            // Arrange
+            const int expected = 4;
+            var opposed = Substitute.For<IDbmUnit>();
+            opposed.DispositionType.Returns(DispositionTypeEnum.Foot);
+            var unit = new Unit
+            {
+                UnitType = UnitTypeEnum.Spear
+            };
+
+            // Act
+            var actual = unit.GetAttackValue(opposed);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
     }
 }

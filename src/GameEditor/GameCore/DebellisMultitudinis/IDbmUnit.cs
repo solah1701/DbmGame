@@ -11,9 +11,14 @@ namespace GameCore.DebellisMultitudinis
         bool IsShooting { get; set; }
         bool IsFortified { get; set; }
         bool IsElevated { get; set; }
+        bool IsDoubleElement { get; set; }
+        bool IsContactThisRound { get; set; }
+        bool IsMobile { get; set; }
+        bool IsUnladenNaval { get; set; }
         int EnemyOverlapCount { get; set; }
-        int EnemyRearSupportCount { get; set; }
+        int RearSupportCount { get; set; }
         int EnemySupportShootingCount { get; set; }
+        IDbmUnit SupportingDbmUnit { get; set; }
         FortificationTypeEnum FortificationType { get; set; }
         TerrainGoingEnum TerrainGoing { get; set; }
         DisciplineTypeEnum DisciplineType { get; set; }
@@ -21,6 +26,9 @@ namespace GameCore.DebellisMultitudinis
         GradeTypeEnum GradeType { get; set; }
         DispositionTypeEnum DispositionType { get; }
         int GetAttackValue(IDbmUnit opposingDbmUnit);
+        int GetRearSupportingFactor(IDbmUnit opposingDbmUnit);
         int GetTacticalFactor(IDbmUnit opposingDbmUnit);
+        int GetGradingFactor(IDbmUnit opposingDbmUnit, int score, int opponentScore);
+        CombatOutcomeEnum GetCombatOutcome(IDbmUnit opposingDbmUnit, int score, int opponentScore);
     }
 }

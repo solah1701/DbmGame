@@ -43,9 +43,14 @@ namespace GameCore.DebellisMultitudinis
         public bool IsShooting { get; set; }
         public bool IsFortified { get; set; }
         public bool IsElevated { get; set; }
+        public bool IsDoubleElement { get; set; }
+        public bool IsContactThisRound { get; set; }
+        public bool IsMobile { get; set; }
+        public bool IsUnladenNaval { get; set; }
         public int EnemyOverlapCount { get; set; }
-        public int EnemyRearSupportCount { get; set; }
+        public int RearSupportCount { get; set; }
         public int EnemySupportShootingCount { get; set; }
+        public IDbmUnit SupportingDbmUnit { get; set; }
         public TerrainGoingEnum TerrainGoing { get; set; }
         public FortificationTypeEnum FortificationType { get; set; }
         [DataMember]
@@ -348,6 +353,55 @@ namespace GameCore.DebellisMultitudinis
             return table[UnitType];
         }
 
+        public int GetRearSupportingFactor(IDbmUnit opposingDbmUnit)
+        {
+            var result = 0;
+            if (IsDoubleElement && UnitType == UnitTypeEnum.Knights && GradeType == GradeTypeEnum.Inferior &&
+                (opposingDbmUnit.UnitType == UnitTypeEnum.Knights || opposingDbmUnit.UnitType == UnitTypeEnum.Cavalry ||
+                 opposingDbmUnit.UnitType == UnitTypeEnum.LightHorse ||
+                 opposingDbmUnit.DispositionType == DispositionTypeEnum.Foot ||
+                 (opposingDbmUnit.UnitType != UnitTypeEnum.Artillary && opposingDbmUnit.IsShooting)))
+                result += 1;
+            if (UnitType == UnitTypeEnum.Cavalry && SupportingDbmUnit.UnitType == UnitTypeEnum.Cavalry &&
+                (opposingDbmUnit.UnitType == UnitTypeEnum.Cavalry || opposingDbmUnit.UnitType == UnitTypeEnum.LightHorse) &&
+                ((GradeType == GradeTypeEnum.Inferior && SupportingDbmUnit.GradeType == GradeTypeEnum.Inferior) ||
+                 (GradeType != GradeTypeEnum.Inferior && SupportingDbmUnit.GradeType == GradeTypeEnum.Ordinary)))
+                result += Math.Min(RearSupportCount, 1);
+            if (UnitType == UnitTypeEnum.Spear && SupportingDbmUnit.UnitType == UnitTypeEnum.Spear &&
+                GradeType == SupportingDbmUnit.GradeType &&
+                TerrainGoing == TerrainGoingEnum.Good && SupportingDbmUnit.TerrainGoing == TerrainGoingEnum.Good)
+                result += Math.Min(RearSupportCount, 1);
+            if (UnitType == UnitTypeEnum.Pike && SupportingDbmUnit.UnitType == UnitTypeEnum.Pike &&
+                GradeType != GradeTypeEnum.Exception &&
+                GradeType == SupportingDbmUnit.GradeType && TerrainGoing == TerrainGoingEnum.Good
+                && SupportingDbmUnit.TerrainGoing == TerrainGoingEnum.Good)
+                result += Math.Min(RearSupportCount, 3);
+            if (UnitType == UnitTypeEnum.Pike && GradeType == GradeTypeEnum.Exception &&
+                (SupportingDbmUnit.GradeType == GradeTypeEnum.Exception ||
+                 SupportingDbmUnit.GradeType == GradeTypeEnum.Inferior) && TerrainGoing == TerrainGoingEnum.Good &&
+                SupportingDbmUnit.TerrainGoing == TerrainGoingEnum.Good)
+                result += Math.Min(RearSupportCount, 2);
+            if (UnitType == UnitTypeEnum.Blades && SupportingDbmUnit.UnitType == UnitTypeEnum.Blades && opposingDbmUnit.UnitType == UnitTypeEnum.Knights ||
+                (opposingDbmUnit.UnitType == UnitTypeEnum.Camelry && opposingDbmUnit.GradeType == GradeTypeEnum.Superior))
+                result += Math.Min(RearSupportCount, 1);
+            if (UnitType == UnitTypeEnum.Warband && SupportingDbmUnit.UnitType == UnitTypeEnum.Warband)
+                result += Math.Min(RearSupportCount, 1);
+            if (UnitType == UnitTypeEnum.Warband && GradeType == GradeTypeEnum.Superior &&
+                opposingDbmUnit.DispositionType == DispositionTypeEnum.Mounted &&
+                SupportingDbmUnit.UnitType == UnitTypeEnum.Warband &&
+                SupportingDbmUnit.GradeType == GradeTypeEnum.Superior)
+                result += Math.Min(RearSupportCount, 3) - 1;
+            if (UnitType == UnitTypeEnum.Auxilia & GradeType == GradeTypeEnum.Exception &&
+                SupportingDbmUnit.UnitType == UnitTypeEnum.Auxilia &&
+                SupportingDbmUnit.GradeType == GradeTypeEnum.Exception)
+                result += Math.Min(RearSupportCount, 1);
+            if (UnitType == UnitTypeEnum.Psiloi && opposingDbmUnit.UnitType == UnitTypeEnum.Psiloi &&
+                SupportingDbmUnit.UnitType == UnitTypeEnum.Psiloi &&
+                SupportingDbmUnit.GradeType == GradeTypeEnum.Ordinary)
+                result += Math.Min(RearSupportCount, 1);
+            return result;
+        }
+
         public int GetTacticalFactor(IDbmUnit opposingDbmUnit)
         {
             var result = 0;
@@ -356,16 +410,19 @@ namespace GameCore.DebellisMultitudinis
             if (opposingDbmUnit.IsShooting) result -= Math.Min(EnemySupportShootingCount, 2);
             if (!opposingDbmUnit.IsShooting) result -= EnemyOverlapCount;
             if (DispositionType == DispositionTypeEnum.Mounted && (IsFortified || opposingDbmUnit.IsFortified) ||
-                opposingDbmUnit.TerrainGoing != TerrainGoingEnum.Good) result -= 2;
+                opposingDbmUnit.TerrainGoing != TerrainGoingEnum.Good)
+                result -= 2;
             if (UnitType == UnitTypeEnum.Blades ||
                 (UnitType == UnitTypeEnum.Warband &&
                  (GradeType == GradeTypeEnum.Superior || GradeType == GradeTypeEnum.Ordinary)) &&
                 opposingDbmUnit.DispositionType == DispositionTypeEnum.Foot &&
-                opposingDbmUnit.TerrainGoing != TerrainGoingEnum.Good) result -= 2;
+                opposingDbmUnit.TerrainGoing != TerrainGoingEnum.Good)
+                result -= 2;
             if (UnitType == UnitTypeEnum.Spear || UnitType == UnitTypeEnum.Pike ||
                 (UnitType == UnitTypeEnum.Hordes && GradeType == GradeTypeEnum.Ordinary) ||
                 UnitType == UnitTypeEnum.WarWagons ||
-                UnitType == UnitTypeEnum.Baggage && TerrainGoing != TerrainGoingEnum.Good) result -= 2;
+                UnitType == UnitTypeEnum.Baggage && TerrainGoing != TerrainGoingEnum.Good)
+                result -= 2;
             if (DispositionType != DispositionTypeEnum.Foot || !IsFortified) return result;
             if (UnitType == UnitTypeEnum.WarWagons) return result;
             if (FortificationType == FortificationTypeEnum.Permanent && opposingDbmUnit.UnitType == UnitTypeEnum.Artillary && opposingDbmUnit.GradeType == GradeTypeEnum.Superior && opposingDbmUnit.IsShooting) return result;
@@ -379,6 +436,187 @@ namespace GameCore.DebellisMultitudinis
                 return result;
             result += 2;
             return result;
+        }
+
+        public int GetGradingFactor(IDbmUnit opposingDbmUnit, int score, int opponentScore)
+        {
+            var result = 0;
+            if (GradeType == GradeTypeEnum.Superior &&
+                (opposingDbmUnit.GradeType != GradeTypeEnum.Superior || opposingDbmUnit.UnitType != UnitType) &&
+                (opposingDbmUnit.UnitType != UnitTypeEnum.Elephants ||
+                 opposingDbmUnit.UnitType != UnitTypeEnum.Artillary))
+            {
+                if (score < opponentScore && (opposingDbmUnit.IsShooting || !IsShooting)) result += 1;
+                if (score > opponentScore && IsShooting) result += 1;
+            }
+            if (GradeType == GradeTypeEnum.Inferior &&
+                (opposingDbmUnit.IsShooting || !IsShooting && score <= opponentScore))
+                result -= 1;
+            if (GradeType == GradeTypeEnum.Fast && score < opponentScore &&
+                ((opposingDbmUnit.IsShooting && opposingDbmUnit.UnitType != UnitTypeEnum.Artillary) || !IsShooting))
+                result -= 1;
+            return result;
+        }
+
+        public CombatOutcomeEnum GetCombatOutcome(IDbmUnit opposingDbmUnit, int score, int opponentScore)
+        {
+            if (score == opponentScore && UnitType == UnitTypeEnum.Expendables) return CombatOutcomeEnum.Destroyed;
+            if (score < opponentScore && 2 * score > opponentScore)
+            {
+                if (UnitType == UnitTypeEnum.Elephants)
+                {
+                    if (opposingDbmUnit.UnitType == UnitTypeEnum.LightHorse ||
+                        opposingDbmUnit.UnitType == UnitTypeEnum.Auxilia ||
+                        opposingDbmUnit.UnitType == UnitTypeEnum.Psiloi ||
+                        opposingDbmUnit.UnitType == UnitTypeEnum.Artillary ||
+                        (!IsShooting && !opposingDbmUnit.IsShooting && TerrainGoing == TerrainGoingEnum.Difficult))
+                        return CombatOutcomeEnum.Destroyed;
+                    return CombatOutcomeEnum.Recoil;
+                }
+                if (UnitType == UnitTypeEnum.Knights)
+                {
+                    if (opposingDbmUnit.UnitType == UnitTypeEnum.Elephants ||
+                        opposingDbmUnit.UnitType == UnitTypeEnum.Expendables ||
+                        opposingDbmUnit.UnitType == UnitTypeEnum.LightHorse ||
+                        (opposingDbmUnit.UnitType == UnitTypeEnum.Bow &&
+                         opposingDbmUnit.GradeType == GradeTypeEnum.Superior && !opposingDbmUnit.IsShooting &&
+                         IsContactThisRound) ||
+                        (!IsShooting && !opposingDbmUnit.IsShooting && TerrainGoing == TerrainGoingEnum.Difficult))
+                        return CombatOutcomeEnum.Destroyed;
+                    return CombatOutcomeEnum.Recoil;
+                }
+                if (UnitType == UnitTypeEnum.Expendables) return CombatOutcomeEnum.Destroyed;
+                if (DispositionType == DispositionTypeEnum.Mounted)
+                {
+                    if (TerrainGoing == TerrainGoingEnum.Difficult && !IsShooting && !opposingDbmUnit.IsShooting ||
+                        opposingDbmUnit.UnitType == UnitTypeEnum.Expendables)
+                        return CombatOutcomeEnum.Flee;
+                    return CombatOutcomeEnum.Recoil;
+                }
+                if (UnitType == UnitTypeEnum.Spear || UnitType == UnitTypeEnum.Pike || UnitType == UnitTypeEnum.Blades)
+                {
+                    if ((opposingDbmUnit.UnitType == UnitTypeEnum.Knights ||
+                         (opposingDbmUnit.UnitType == UnitTypeEnum.Camelry &&
+                          opposingDbmUnit.GradeType == GradeTypeEnum.Superior) ||
+                         opposingDbmUnit.UnitType == UnitTypeEnum.Expendables) &&
+                        opposingDbmUnit.TerrainGoing == TerrainGoingEnum.Good ||
+                        opposingDbmUnit.UnitType == UnitTypeEnum.Warband)
+                        return CombatOutcomeEnum.Destroyed;
+                    return CombatOutcomeEnum.Recoil;
+                }
+                if (UnitType == UnitTypeEnum.Warband)
+                {
+                    if ((opposingDbmUnit.UnitType == UnitTypeEnum.Knights ||
+                         (opposingDbmUnit.UnitType == UnitTypeEnum.Camelry &&
+                          opposingDbmUnit.GradeType == GradeTypeEnum.Superior) ||
+                         opposingDbmUnit.UnitType == UnitTypeEnum.Expendables) &&
+                        opposingDbmUnit.TerrainGoing == TerrainGoingEnum.Good ||
+                        opposingDbmUnit.UnitType == UnitTypeEnum.Elephants)
+                        return CombatOutcomeEnum.Destroyed;
+                    return CombatOutcomeEnum.Recoil;
+                }
+                if (UnitType == UnitTypeEnum.Auxilia)
+                {
+                    if ((opposingDbmUnit.UnitType == UnitTypeEnum.Knights ||
+                         (opposingDbmUnit.UnitType == UnitTypeEnum.Camelry &&
+                          opposingDbmUnit.GradeType == GradeTypeEnum.Superior)) &&
+                        opposingDbmUnit.TerrainGoing == TerrainGoingEnum.Good)
+                        return CombatOutcomeEnum.Destroyed;
+                    return CombatOutcomeEnum.Recoil;
+                }
+                if (UnitType == UnitTypeEnum.Bow)
+                {
+                    if (opposingDbmUnit.DispositionType == DispositionTypeEnum.Mounted && !IsShooting &&
+                        !opposingDbmUnit.IsShooting)
+                        return CombatOutcomeEnum.Destroyed;
+                    return CombatOutcomeEnum.Recoil;
+                }
+                if (UnitType == UnitTypeEnum.Psiloi)
+                {
+                    if ((opposingDbmUnit.UnitType == UnitTypeEnum.Knights ||
+                         opposingDbmUnit.UnitType == UnitTypeEnum.Cavalry ||
+                         opposingDbmUnit.UnitType == UnitTypeEnum.LightHorse ||
+                         (opposingDbmUnit.UnitType == UnitTypeEnum.Camelry &&
+                          opposingDbmUnit.GradeType == GradeTypeEnum.Superior)) &&
+                        opposingDbmUnit.TerrainGoing == TerrainGoingEnum.Good)
+                        return CombatOutcomeEnum.Destroyed;
+                    if (opposingDbmUnit.UnitType == UnitTypeEnum.Elephants ||
+                        opposingDbmUnit.UnitType == UnitTypeEnum.Expendables || opposingDbmUnit.IsShooting ||
+                        (TerrainGoing != TerrainGoingEnum.Good && opposingDbmUnit.TerrainGoing != TerrainGoingEnum.Good))
+                        return CombatOutcomeEnum.Recoil;
+                    return CombatOutcomeEnum.Flee;
+                }
+                if (UnitType == UnitTypeEnum.Artillary)
+                {
+                    if (!IsShooting && !opposingDbmUnit.IsShooting) return CombatOutcomeEnum.Destroyed;
+                    if (!IsFortified) return CombatOutcomeEnum.Recoil;
+                }
+                if (UnitType == UnitTypeEnum.WarWagons)
+                {
+                    if ((opposingDbmUnit.UnitType == UnitTypeEnum.Artillary &&
+                         opposingDbmUnit.GradeType != GradeTypeEnum.Exception) ||
+                        opposingDbmUnit.UnitType == UnitTypeEnum.Elephants)
+                        return CombatOutcomeEnum.Destroyed;
+                    if (GradeType == GradeTypeEnum.Superior && opposingDbmUnit.IsFortified)
+                        return CombatOutcomeEnum.Recoil;
+                }
+                if (UnitType == UnitTypeEnum.Hordes)
+                {
+                    if ((opposingDbmUnit.UnitType == UnitTypeEnum.Knights ||
+                         (opposingDbmUnit.UnitType == UnitTypeEnum.Camelry &&
+                          opposingDbmUnit.GradeType == GradeTypeEnum.Superior) ||
+                         opposingDbmUnit.UnitType == UnitTypeEnum.Expendables) &&
+                        opposingDbmUnit.TerrainGoing == TerrainGoingEnum.Good ||
+                        opposingDbmUnit.UnitType == UnitTypeEnum.Elephants ||
+                        opposingDbmUnit.UnitType == UnitTypeEnum.Warband)
+                        return CombatOutcomeEnum.Destroyed;
+                    return CombatOutcomeEnum.Recoil;
+                }
+                if (DispositionType == DispositionTypeEnum.Naval)
+                {
+                    if(!IsUnladenNaval)return CombatOutcomeEnum.Recoil;
+                    if (IsUnladenNaval && opposingDbmUnit.UnitType != UnitTypeEnum.Expendables)
+                        return CombatOutcomeEnum.Destroyed;
+                }
+                if (UnitType == UnitTypeEnum.Baggage) return IsMobile ? CombatOutcomeEnum.Flee : CombatOutcomeEnum.Destroyed;
+            }
+            if (2*score > opponentScore) return CombatOutcomeEnum.Continue;
+            if (UnitType == UnitTypeEnum.Cavalry)
+            {
+                if (TerrainGoing == TerrainGoingEnum.Good &&
+                    (opposingDbmUnit.UnitType == UnitTypeEnum.Spear || opposingDbmUnit.UnitType == UnitTypeEnum.Pike) ||
+                    opposingDbmUnit.DispositionType == DispositionTypeEnum.Naval) return CombatOutcomeEnum.Flee;
+                return CombatOutcomeEnum.Destroyed;
+            }
+            if (UnitType == UnitTypeEnum.LightHorse)
+            {
+                if ((opposingDbmUnit.DispositionType == DispositionTypeEnum.Mounted ||
+                     opposingDbmUnit.UnitType == UnitTypeEnum.Bow ||
+                     opposingDbmUnit.UnitType == UnitTypeEnum.WarWagons ||
+                     TerrainGoing == TerrainGoingEnum.Difficult) && !IsShooting && !opposingDbmUnit.IsShooting)
+                    return CombatOutcomeEnum.Destroyed;
+                return CombatOutcomeEnum.Flee;
+            }
+            if (UnitType == UnitTypeEnum.Psiloi)
+            {
+                if ((opposingDbmUnit.DispositionType == DispositionTypeEnum.Mounted &&
+                     opposingDbmUnit.TerrainGoing == TerrainGoingEnum.Good) ||
+                    opposingDbmUnit.UnitType == UnitTypeEnum.Bow ||
+                    opposingDbmUnit.UnitType == UnitTypeEnum.Auxilia |
+                    opposingDbmUnit.UnitType == UnitTypeEnum.Psiloi || GradeType == GradeTypeEnum.Exception)
+                    return CombatOutcomeEnum.Destroyed;
+                return CombatOutcomeEnum.Flee;
+            }
+            if (DispositionType != DispositionTypeEnum.Naval)
+                return opposingDbmUnit.DispositionType == DispositionTypeEnum.Naval
+                    ? CombatOutcomeEnum.Flee
+                    : CombatOutcomeEnum.Destroyed;
+            if (!IsUnladenNaval && opposingDbmUnit.UnitType == UnitTypeEnum.Artillary ||
+                (opposingDbmUnit.UnitType != UnitTypeEnum.Expendables &&
+                 !opposingDbmUnit.IsShooting)) return CombatOutcomeEnum.Destroyed;
+            if (!IsUnladenNaval && opposingDbmUnit.IsShooting) return CombatOutcomeEnum.Flee;
+            if (opposingDbmUnit.UnitType != UnitTypeEnum.Expendables) return CombatOutcomeEnum.Destroyed;
+            return opposingDbmUnit.DispositionType == DispositionTypeEnum.Naval ? CombatOutcomeEnum.Flee : CombatOutcomeEnum.Destroyed;
         }
 
         private int UnitAttackValue(IDbmUnit opponentDbmUnit, int mounted, int naval, int shooting, int foot)

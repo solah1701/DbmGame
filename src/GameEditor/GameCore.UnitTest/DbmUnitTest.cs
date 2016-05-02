@@ -141,5 +141,45 @@ namespace GameCore.UnitTest
             // Assert
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public void When_Overlapped_Spear_3_Units_Deep_Is_Attacked_By_Cavalry()
+        {
+            // Arrange
+            const int diceAttack = 1;
+            const int diceDefense = 6;
+            var support = new Unit
+            {
+                UnitType = UnitTypeEnum.Bow,
+                GradeType=GradeTypeEnum.Superior
+            };
+            var opposed = new Unit
+            {
+                UnitType = UnitTypeEnum.Bow,
+                GradeType = GradeTypeEnum.Superior,
+                SupportingDbmUnit = support,
+                IsShooting = false,
+                RearSupportCount = 2
+            };
+            var unit = new Unit
+            {
+                UnitType = UnitTypeEnum.Cavalry,
+                GradeType = GradeTypeEnum.Superior,
+                EnemyOverlapCount = 1,
+                EnemySupportShootingCount = 1
+            };
+
+            // Act
+            var attackValue = unit.GetAttackValue(opposed) + unit.GetRearSupportingFactor(opposed) +
+                              unit.GetTacticalFactor(opposed) + diceAttack;
+            var defenseValue = opposed.GetAttackValue(unit) + opposed.GetRearSupportingFactor(unit) +
+                               opposed.GetTacticalFactor(unit) + diceDefense;
+            var finalAttackValue = unit.GetGradingFactor(opposed, attackValue, defenseValue) + attackValue;
+            var finalDefenseValue = opposed.GetGradingFactor(unit, defenseValue, attackValue) + defenseValue;
+            var outcomeAttack = unit.GetCombatOutcome(opposed, finalAttackValue, finalDefenseValue);
+            var outcomeDefense = opposed.GetCombatOutcome(unit, finalDefenseValue, finalAttackValue);
+
+            // Assert
+        }
     }
 }

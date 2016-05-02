@@ -356,6 +356,7 @@ namespace GameCore.DebellisMultitudinis
         public int GetRearSupportingFactor(IDbmUnit opposingDbmUnit)
         {
             var result = 0;
+            if (RearSupportCount == 0) return result;
             if (IsDoubleElement && UnitType == UnitTypeEnum.Knights && GradeType == GradeTypeEnum.Inferior &&
                 (opposingDbmUnit.UnitType == UnitTypeEnum.Knights || opposingDbmUnit.UnitType == UnitTypeEnum.Cavalry ||
                  opposingDbmUnit.UnitType == UnitTypeEnum.LightHorse ||
@@ -418,10 +419,10 @@ namespace GameCore.DebellisMultitudinis
                 opposingDbmUnit.DispositionType == DispositionTypeEnum.Foot &&
                 opposingDbmUnit.TerrainGoing != TerrainGoingEnum.Good)
                 result -= 2;
-            if (UnitType == UnitTypeEnum.Spear || UnitType == UnitTypeEnum.Pike ||
+            if ((UnitType == UnitTypeEnum.Spear || UnitType == UnitTypeEnum.Pike ||
                 (UnitType == UnitTypeEnum.Hordes && GradeType == GradeTypeEnum.Ordinary) ||
                 UnitType == UnitTypeEnum.WarWagons ||
-                UnitType == UnitTypeEnum.Baggage && TerrainGoing != TerrainGoingEnum.Good)
+                UnitType == UnitTypeEnum.Baggage) && TerrainGoing != TerrainGoingEnum.Good)
                 result -= 2;
             if (DispositionType != DispositionTypeEnum.Foot || !IsFortified) return result;
             if (UnitType == UnitTypeEnum.WarWagons) return result;

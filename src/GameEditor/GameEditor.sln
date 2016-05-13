@@ -11,6 +11,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameCore.UnitTest", "GameCo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameEditor.UnitTest", "GameEditor.UnitTest\GameEditor.UnitTest.csproj", "{D8C00242-6E09-4D0E-827A-119019E4D4DF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameCore.Wcf", "GameCore.Wcf\GameCore.Wcf.csproj", "{A09C89A6-B9D3-4B7D-A20B-01FEB45553FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameEditor.Wcf.Harness", "GameEditor.Wcf.Harness\GameEditor.Wcf.Harness.csproj", "{EAC7FA09-327A-40B1-814A-FCFFB11EDE32}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A09C89A6-B9D3-4B7D-A20B-01FEB45553FF} = {A09C89A6-B9D3-4B7D-A20B-01FEB45553FF}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +40,14 @@ Global
 		{D8C00242-6E09-4D0E-827A-119019E4D4DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D8C00242-6E09-4D0E-827A-119019E4D4DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D8C00242-6E09-4D0E-827A-119019E4D4DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A09C89A6-B9D3-4B7D-A20B-01FEB45553FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A09C89A6-B9D3-4B7D-A20B-01FEB45553FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A09C89A6-B9D3-4B7D-A20B-01FEB45553FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A09C89A6-B9D3-4B7D-A20B-01FEB45553FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAC7FA09-327A-40B1-814A-FCFFB11EDE32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAC7FA09-327A-40B1-814A-FCFFB11EDE32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAC7FA09-327A-40B1-814A-FCFFB11EDE32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAC7FA09-327A-40B1-814A-FCFFB11EDE32}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

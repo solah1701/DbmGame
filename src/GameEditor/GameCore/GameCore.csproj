@@ -35,6 +35,7 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .NET Framework is automatically included -->
+    <Folder Include="User\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DebellisMultitudinis\Army.cs" />

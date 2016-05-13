@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="BookmarkService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/GameCore.Wcf" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IBookmarkService_DoWork_InputMessage">
+    <wsdl:part name="parameters" element="tns:DoWork" />
+  </wsdl:message>
+  <wsdl:message name="IBookmarkService_DoWork_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DoWorkResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBookmarkService_GetPublicBookmarks_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPublicBookmarks" />
+  </wsdl:message>
+  <wsdl:message name="IBookmarkService_GetPublicBookmarks_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPublicBookmarksResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBookmarkService_GetUserPublicBookmarks_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserPublicBookmarks" />
+  </wsdl:message>
+  <wsdl:message name="IBookmarkService_GetUserPublicBookmarks_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserPublicBookmarksResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBookmarkService_GetUserBookmarks_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserBookmarks" />
+  </wsdl:message>
+  <wsdl:message name="IBookmarkService_GetUserBookmarks_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserBookmarksResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBookmarkService_GetUserProfile_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserProfile" />
+  </wsdl:message>
+  <wsdl:message name="IBookmarkService_GetUserProfile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserProfileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBookmarkService_GetUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUser" />
+  </wsdl:message>
+  <wsdl:message name="IBookmarkService_GetUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBookmarkService_PutUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:PutUser" />
+  </wsdl:message>
+  <wsdl:message name="IBookmarkService_PutUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PutUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBookmarkService_DeleteUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUser" />
+  </wsdl:message>
+  <wsdl:message name="IBookmarkService_DeleteUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBookmarkService_GetBookmark_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBookmark" />
+  </wsdl:message>
+  <wsdl:message name="IBookmarkService_GetBookmark_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBookmarkResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBookmarkService_PostBookmark_InputMessage">
+    <wsdl:part name="parameters" element="tns:PostBookmark" />
+  </wsdl:message>
+  <wsdl:message name="IBookmarkService_PostBookmark_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PostBookmarkResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBookmarkService_PutBookmark_InputMessage">
+    <wsdl:part name="parameters" element="tns:PutBookmark" />
+  </wsdl:message>
+  <wsdl:message name="IBookmarkService_PutBookmark_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PutBookmarkResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBookmarkService_DeleteBookmark_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBookmark" />
+  </wsdl:message>
+  <wsdl:message name="IBookmarkService_DeleteBookmark_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBookmarkResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IBookmarkService">
+    <wsdl:operation name="DoWork">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBookmarkService/DoWork" message="tns:IBookmarkService_DoWork_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBookmarkService/DoWorkResponse" message="tns:IBookmarkService_DoWork_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPublicBookmarks">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBookmarkService/GetPublicBookmarks" message="tns:IBookmarkService_GetPublicBookmarks_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBookmarkService/GetPublicBookmarksResponse" message="tns:IBookmarkService_GetPublicBookmarks_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserPublicBookmarks">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBookmarkService/GetUserPublicBookmarks" message="tns:IBookmarkService_GetUserPublicBookmarks_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBookmarkService/GetUserPublicBookmarksResponse" message="tns:IBookmarkService_GetUserPublicBookmarks_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserBookmarks">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBookmarkService/GetUserBookmarks" message="tns:IBookmarkService_GetUserBookmarks_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBookmarkService/GetUserBookmarksResponse" message="tns:IBookmarkService_GetUserBookmarks_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserProfile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBookmarkService/GetUserProfile" message="tns:IBookmarkService_GetUserProfile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBookmarkService/GetUserProfileResponse" message="tns:IBookmarkService_GetUserProfile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBookmarkService/GetUser" message="tns:IBookmarkService_GetUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBookmarkService/GetUserResponse" message="tns:IBookmarkService_GetUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PutUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBookmarkService/PutUser" message="tns:IBookmarkService_PutUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBookmarkService/PutUserResponse" message="tns:IBookmarkService_PutUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBookmarkService/DeleteUser" message="tns:IBookmarkService_DeleteUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBookmarkService/DeleteUserResponse" message="tns:IBookmarkService_DeleteUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBookmark">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBookmarkService/GetBookmark" message="tns:IBookmarkService_GetBookmark_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBookmarkService/GetBookmarkResponse" message="tns:IBookmarkService_GetBookmark_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PostBookmark">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBookmarkService/PostBookmark" message="tns:IBookmarkService_PostBookmark_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBookmarkService/PostBookmarkResponse" message="tns:IBookmarkService_PostBookmark_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PutBookmark">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBookmarkService/PutBookmark" message="tns:IBookmarkService_PutBookmark_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBookmarkService/PutBookmarkResponse" message="tns:IBookmarkService_PutBookmark_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBookmark">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBookmarkService/DeleteBookmark" message="tns:IBookmarkService_DeleteBookmark_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBookmarkService/DeleteBookmarkResponse" message="tns:IBookmarkService_DeleteBookmark_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IBookmarkService" type="tns:IBookmarkService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="DoWork">
+      <soap:operation soapAction="http://tempuri.org/IBookmarkService/DoWork" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPublicBookmarks">
+      <soap:operation soapAction="http://tempuri.org/IBookmarkService/GetPublicBookmarks" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserPublicBookmarks">
+      <soap:operation soapAction="http://tempuri.org/IBookmarkService/GetUserPublicBookmarks" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserBookmarks">
+      <soap:operation soapAction="http://tempuri.org/IBookmarkService/GetUserBookmarks" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserProfile">
+      <soap:operation soapAction="http://tempuri.org/IBookmarkService/GetUserProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <soap:operation soapAction="http://tempuri.org/IBookmarkService/GetUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PutUser">
+      <soap:operation soapAction="http://tempuri.org/IBookmarkService/PutUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <soap:operation soapAction="http://tempuri.org/IBookmarkService/DeleteUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBookmark">
+      <soap:operation soapAction="http://tempuri.org/IBookmarkService/GetBookmark" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostBookmark">
+      <soap:operation soapAction="http://tempuri.org/IBookmarkService/PostBookmark" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PutBookmark">
+      <soap:operation soapAction="http://tempuri.org/IBookmarkService/PutBookmark" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBookmark">
+      <soap:operation soapAction="http://tempuri.org/IBookmarkService/DeleteBookmark" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BookmarkService">
+    <wsdl:port name="BasicHttpBinding_IBookmarkService" binding="tns:BasicHttpBinding_IBookmarkService">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/GameCore.Wcf/BookmarkService/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

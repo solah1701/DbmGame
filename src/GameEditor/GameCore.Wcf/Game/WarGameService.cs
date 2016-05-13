@@ -45,7 +45,7 @@ namespace GameCore.Wcf.Game
             throw new NotImplementedException();
         }
 
-        public ArmyCommand GetArmyGroup(string username, string armyId, string commandId, string id)
+        public ArmyGroup GetArmyGroup(string username, string armyId, string commandId, string id)
         {
             throw new NotImplementedException();
         }
@@ -70,7 +70,7 @@ namespace GameCore.Wcf.Game
             throw new NotImplementedException();
         }
 
-        public ArmyCommands GetUserArmyGroups(string username, string armyId, string commandId, string tag)
+        public ArmyGroups GetUserArmyGroups(string username, string armyId, string commandId, string tag)
         {
             throw new NotImplementedException();
         }

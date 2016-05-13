@@ -77,11 +77,11 @@ namespace GameCore.Wcf.Game
         #region ArmyGroup
         [WebGet(UriTemplate = "users/{username}/Armies/{armyId}/ArmyCommands/{commandId}/ArmyGroups?tag={tag}")]
         [OperationContract]
-        ArmyCommands GetUserArmyGroups(string username, string armyId, string commandId, string tag);
+        ArmyGroups GetUserArmyGroups(string username, string armyId, string commandId, string tag);
 
         [WebGet(UriTemplate = "users/{username}/Armies/{armyId}/ArmyCommands/{commandId}/ArmyGroups/{id}")]
         [OperationContract]
-        ArmyCommand GetArmyGroup(string username, string armyId, string commandId, string id);
+        ArmyGroup GetArmyGroup(string username, string armyId, string commandId, string id);
 
         [WebInvoke(Method = "POST", UriTemplate = "users/{username}/Armies/{armyId}/ArmyCommands/{commandId}/ArmyGroups")]
         [OperationContract]

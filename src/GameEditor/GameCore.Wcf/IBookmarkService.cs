@@ -18,39 +18,51 @@ namespace GameCore.Wcf
         [WebGet(UriTemplate = "?tag={tag}")]
         [OperationContract]
         Bookmarks GetPublicBookmarks(string tag);
+
         [WebGet(UriTemplate = "{username}?tag={tag}")]
         [OperationContract]
         Bookmarks GetUserPublicBookmarks(string username, string tag);
+
         [WebGet(UriTemplate = "users/{username}/bookmarks?tag={tag}")]
         [OperationContract]
         Bookmarks GetUserBookmarks(string username, string tag);
+
         [WebGet(UriTemplate = "users/{username}/profile")]
         [OperationContract]
         UserProfile GetUserProfile(string username);
+
         [WebGet(UriTemplate = "users/{username}")]
         [OperationContract]
         User GetUser(string username);
+
         [WebGet(ResponseFormat = WebMessageFormat.Json,UriTemplate = "users/{username}?format=json")]
         [OperationContract]
         User GetUserAsJson(string username);
+
         [WebInvoke(Method = "PUT", UriTemplate = "users/{username}")]
         [OperationContract]
         void PutUser(string username, User user);
+
         [WebInvoke(Method = "PUT", RequestFormat = WebMessageFormat.Json, UriTemplate = "users/{username}?format=json")]
         [OperationContract]
         void PutUserAsJson(string username, User user);
+
         [WebInvoke(Method = "DELETE", UriTemplate = "users/{username}")]
         [OperationContract]
         void DeleteUser(string username);
+
         [WebGet(UriTemplate = "users/{username}/bookmarks/{id}")]
         [OperationContract]
         Bookmark GetBookmark(string username, string id);
+
         [WebInvoke(Method = "POST", UriTemplate = "users/{username}/bookmarks")]
         [OperationContract]
         void PostBookmark(string username, Bookmark newValue);
+
         [WebInvoke(Method = "PUT", UriTemplate = "users/{username}/bookmarks/{id}")]
         [OperationContract]
         void PutBookmark(string username, string id, Bookmark bm);
+
         [WebInvoke(Method = "DELETE", UriTemplate = "users/{username}/bookmarks/{id}")]
         [OperationContract]
         void DeleteBookmark(string username, string id);

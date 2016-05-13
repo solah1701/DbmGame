@@ -44,9 +44,7 @@ namespace GameCore.Wcf.Game
     {
         public Uri Id { get; set; }
         public string Title { get; set; }
-        public Uri Units { get; set; }
-        public bool IsFlankMarch { get; set; }
-        public bool IsBroken { get; set; }
+        public Uri ArmyCommands { get; set; }
     }
 
     [CollectionDataContract]
@@ -54,6 +52,38 @@ namespace GameCore.Wcf.Game
     {
         public Armies() { }
         public Armies(List<Army> armies) : base(armies) { }
+    }
+
+    public class ArmyCommand
+    {
+        public Uri Id { get; set; }
+        public string Title { get; set; }
+        public Uri ArmyGroups { get; set; }
+        public Uri Units { get; set; }
+        public bool IsFlankMarch { get; set; }
+        public bool IsBroken { get; set; }
+    }
+
+    [CollectionDataContract]
+    public class ArmyCommands : List<ArmyCommand>
+    {
+        public ArmyCommands() { }
+        public ArmyCommands(List<ArmyCommand> armyCommands) : base(armyCommands) { }
+    }
+
+    public class ArmyGroup
+    {
+        public Uri Id { get; set; }
+        public Uri Units { get; set; }
+        public Uri ArmyCommand { get; set; }
+        public int UnitFrontage { get; set; }
+    }
+
+    [CollectionDataContract]
+    public class ArmyGroups : List<ArmyGroup>
+    {
+        public ArmyGroups() { }
+        public ArmyGroups(List<ArmyGroup> armyGroups) : base(armyGroups) { }
     }
 
     public class Unit

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
+using System.ServiceModel.Web;
 using System.Text;
 
 namespace GameCore.Wcf.Game
@@ -11,8 +12,115 @@ namespace GameCore.Wcf.Game
     [ServiceContract]
     public interface IWarGameService
     {
+        #region User
+        [WebGet(UriTemplate = "users/{username}")]
         [OperationContract]
-        void DoWork();
+        User GetUser(string username);
+
+        [WebInvoke(Method = "PUT", UriTemplate = "users/{username}")]
+        [OperationContract]
+        void PutUser(string username, User user);
+
+        [WebInvoke(Method = "DELETE", UriTemplate = "users/{username}")]
+        [OperationContract]
+        void DeleteUser(string username, User user);
+
+        [WebGet(UriTemplate = "users/{username}/profile")]
+        [OperationContract]
+        UserProfile GetUserProfile(string username);
+        #endregion
+
+        #region Army
+        [WebGet(UriTemplate = "users/{username}/Armies?tag={tag}")]
+        [OperationContract]
+        Armies GetUserArmies(string username, string tag);
+
+        [WebGet(UriTemplate = "users/{username}/Armies/{id}")]
+        [OperationContract]
+        Army GetArmy(string username, string id);
+
+        [WebInvoke(Method = "POST", UriTemplate = "users/{username}/Armies")]
+        [OperationContract]
+        void PostArmy(string username, Army army);
+
+        [WebInvoke(Method = "PUT", UriTemplate = "users/{username}/Armies/{id}")]
+        [OperationContract]
+        void PutArmy(string username, string id, Army army);
+
+        [WebInvoke(Method = "DELETE", UriTemplate = "users/{username}/Armies/{id}")]
+        [OperationContract]
+        void DeleteArmy(string username, string id, Army army);
+        #endregion
+
+        #region ArmyCommand
+        [WebGet(UriTemplate = "users/{username}/Armies/{armyId}/ArmyCommands?tag={tag}")]
+        [OperationContract]
+        ArmyCommands GetUserArmyCommands(string username, string armyId, string tag);
+
+        [WebGet(UriTemplate = "users/{username}/Armies/{armyId}/ArmyCommands/{id}")]
+        [OperationContract]
+        ArmyCommand GetArmyCommand(string username, string armyId, string id);
+
+        [WebInvoke(Method = "POST", UriTemplate = "users/{username}/Armies/{armyId}/ArmyCommands")]
+        [OperationContract]
+        void PostArmyCommand(string username, string armyId, ArmyCommand armyCommand);
+
+        [WebInvoke(Method = "PUT", UriTemplate = "users/{username}/Armies/{armyId}/ArmyCommands/{id}")]
+        [OperationContract]
+        void PutArmyCommand(string username, string armyId, string id, ArmyCommand armyCommand);
+
+        [WebInvoke(Method = "DELETE", UriTemplate = "users/{username}/Armies/{armyId}/ArmyCommands/{id}")]
+        [OperationContract]
+        void DeleteArmyCommand(string username, string armyId, string id, ArmyCommand armyCommand);
+        #endregion
+
+        #region ArmyGroup
+        [WebGet(UriTemplate = "users/{username}/Armies/{armyId}/ArmyCommands/{commandId}/ArmyGroups?tag={tag}")]
+        [OperationContract]
+        ArmyCommands GetUserArmyGroups(string username, string armyId, string commandId, string tag);
+
+        [WebGet(UriTemplate = "users/{username}/Armies/{armyId}/ArmyCommands/{commandId}/ArmyGroups/{id}")]
+        [OperationContract]
+        ArmyCommand GetArmyGroup(string username, string armyId, string commandId, string id);
+
+        [WebInvoke(Method = "POST", UriTemplate = "users/{username}/Armies/{armyId}/ArmyCommands/{commandId}/ArmyGroups")]
+        [OperationContract]
+        void PostArmyGroup(string username, string armyId, string commandId, ArmyGroup armyGroup);
+
+        [WebInvoke(Method = "PUT", UriTemplate = "users/{username}/Armies/{armyId}/ArmyCommands/{commandId}/ArmyGroups/{id}")]
+        [OperationContract]
+        void PutArmyGroup(string username, string armyId, string commandId, string id, ArmyGroup armyGroup);
+
+        [WebInvoke(Method = "DELETE", UriTemplate = "users/{username}/Armies/{armyId}/ArmyCommands/{commandId}/ArmyGroups/{id}")]
+        [OperationContract]
+        void DeleteArmyGroup(string username, string armyId, string commandId, string id, ArmyGroup armyGroup);
+        #endregion
+
+        #region ArmyUnit
+        [WebGet(UriTemplate = "users/{username}/Armies/{armyId}/ArmyCommands/{commandId}/Units?tag={tag}")]
+        [OperationContract]
+        Units GetUserArmyUnits(string username, string armyId, string commandId, string tag);
+
+        [WebGet(UriTemplate = "users/{username}/Armies/{armyId}/ArmyCommands/{commandId}/ArmyGroups/{groupId}/Units?tag={tag}")]
+        [OperationContract]
+        Units GetUserArmyGroupUnits(string username, string armyId, string commandId, string tag);
+
+        [WebGet(UriTemplate = "users/{username}/Armies/{armyId}/ArmyCommands/{commandId}/Units/{id}")]
+        [OperationContract]
+        Unit GetArmyUnit(string username, string armyId, string commandId, string id);
+
+        [WebInvoke(Method = "POST", UriTemplate = "users/{username}/Armies/{armyId}/ArmyCommands/{commandId}/Units")]
+        [OperationContract]
+        void PostArmyUnit(string username, string armyId, string commandId, Unit unit);
+
+        [WebInvoke(Method = "PUT", UriTemplate = "users/{username}/Armies/{armyId}/ArmyCommands/{commandId}/Units/{id}")]
+        [OperationContract]
+        void PutArmyUnit(string username, string armyId, string commandId, string id, Unit unit);
+
+        [WebInvoke(Method = "DELETE", UriTemplate = "users/{username}/Armies/{armyId}/ArmyCommands/{commandId}/Units/{id}")]
+        [OperationContract]
+        void DeleteArmyUnit(string username, string armyId, string commandId, string id, Unit unit);
+        #endregion
     }
 
 

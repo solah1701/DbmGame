@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Runtime.Serialization;
 using System.ServiceModel;
+using System.ServiceModel.Web;
 using System.Text;
+using GameCore.Wcf.Helpers;
 
 namespace GameCore.Wcf.Game
 {
@@ -11,21 +14,53 @@ namespace GameCore.Wcf.Game
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single, ConcurrencyMode = ConcurrencyMode.Single)]
     public class WarGameService : IWarGameService
     {
-        private readonly Dictionary<string, User> _users;
-        private readonly Dictionary<string, Army> _armies;
-        private readonly Dictionary<string, ArmyCommand> _armyCommands;
-        private readonly Dictionary<string, ArmyGroup> _armyGroups;
-        private readonly Dictionary<string, Unit> _units;
-        private readonly Dictionary<string, Battle> _battles;
+        private readonly IWarGameModel _model;
+
+        public WarGameService()
+        {
+            _model = new WarGameModel();
+        }
+
+        public WarGameService(IWarGameModel model)
+        {
+            _model = model;
+        }
 
         public User GetUser(string username)
         {
-            throw new NotImplementedException();
+            username = username.ToLower();
+            if (!IsUserAuthorized(username))
+            {
+                if (WebOperationContext.Current != null)
+                    WebOperationContext.Current.OutgoingResponse.StatusCode = HttpStatusCode.Unauthorized;
+                return null;
+            }
+            var user = Find(username);
+            if (user != null) return user;
+            if (WebOperationContext.Current != null)
+                WebOperationContext.Current.OutgoingResponse.SetStatusAsNotFound();
+            return null;
         }
 
         public void PutUser(string username, User user)
         {
-            throw new NotImplementedException();
+            username = username.ToLower();
+            User aUser = Find(username);
+            if (aUser == null)
+            {
+                if (WebOperationContext.Current != null)
+                    WebOperationContext.Current.OutgoingResponse.SetStatusAsCreated(GetUserLink(username));
+            }
+            else if (!IsUserAuthorized(username))
+            {
+                if (WebOperationContext.Current != null)
+                    WebOperationContext.Current.OutgoingResponse.StatusCode = HttpStatusCode.Unauthorized;
+                return;
+            }
+            user.Id = GetUserLink(username);
+            user.Battles = GetUserBattlesLink(username);
+            user.Armies = GetUserArmiesLink(username);
+            _model.Users[username] = user;
         }
 
         public void DeleteUser(string username, User user)
@@ -162,5 +197,42 @@ namespace GameCore.Wcf.Game
         {
             throw new NotImplementedException();
         }
+
+        private bool IsUserAuthorized(string username)
+        {
+            var ctx = WebOperationContext.Current;
+            if (ctx == null) return false;
+            var requestUri = ctx.IncomingRequest.UriTemplateMatch.RequestUri.ToString();
+            var authorizationHeader = ctx.IncomingRequest.Headers[HttpRequestHeader.Authorization];
+            return IsValidUserKey(authorizationHeader, requestUri);
+        }
+
+        private bool IsValidUserKey(string key, string urit)
+        {
+            return true;
+            throw new NotImplementedException();
+        }
+
+        private User Find(string username)
+        {
+            return _model.Users.ContainsKey(username) ? _model.Users[username] : null;
+        }
+
+        #region Get Uri Links
+        private Uri GetUserLink(string username)
+        {
+            return new Uri($"http://localhost/users/{username}");
+        }
+
+        private Uri GetUserArmiesLink(string username)
+        {
+            return new Uri($"http://localhost/users/{username}/armies");
+        }
+
+        private Uri GetUserBattlesLink(string username)
+        {
+            return new Uri($"http://localhost/users/{username}/battles");
+        }
+        #endregion
     }
 }

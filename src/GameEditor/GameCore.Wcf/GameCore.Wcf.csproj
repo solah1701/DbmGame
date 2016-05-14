@@ -51,8 +51,10 @@
   <ItemGroup>
     <Compile Include="BookmarkService.cs" />
     <Compile Include="Helpers\BookmarkExtender.cs" />
+    <Compile Include="Helpers\IWarGameModel.cs" />
     <Compile Include="Helpers\MyAuthorizationManager.cs" />
     <Compile Include="Helpers\MyMembershipProvider.cs" />
+    <Compile Include="Helpers\WarGameModel.cs" />
     <Compile Include="IBookmarkService.cs" />
     <Compile Include="IGameCoreService.cs" />
     <Compile Include="IService1.cs" />

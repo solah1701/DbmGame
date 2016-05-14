@@ -145,7 +145,8 @@ namespace GameCore.Wcf.Game
 
     public class User
     {
-        public Uri Id { get; set; }
+        public Uri IdLink { get; set; }
+        public string Id { get; set; }
         public string Username { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
@@ -157,13 +158,15 @@ namespace GameCore.Wcf.Game
     {
         public UserProfile(User user)
         {
+            IdLink = user.IdLink;
             Id = user.Id;
             Name = user.Name;
             ArmiesLink = user.ArmiesLink;
             BattlesLink = user.BattlesLink;
         }
 
-        public Uri Id { get; set; }
+        public Uri IdLink { get; set; }
+        public string Id { get; set; }
         public string Name { get; set; }
         public Uri ArmiesLink { get; set; }
         public Uri BattlesLink { get; set; }
@@ -171,7 +174,8 @@ namespace GameCore.Wcf.Game
 
     public class Army
     {
-        public Uri Id { get; set; }
+        public Uri IdLink { get; set; }
+        public string Id { get; set; }
         public string Title { get; set; }
         public Uri ArmyCommandsLink { get; set; }
         public Uri UserLink { get; set; }
@@ -187,7 +191,8 @@ namespace GameCore.Wcf.Game
 
     public class ArmyCommand
     {
-        public Uri Id { get; set; }
+        public Uri IdLink { get; set; }
+        public string Id { get; set; }
         public string Title { get; set; }
         public Uri ArmyGroupsLink { get; set; }
         public Uri UnitsLink { get; set; }
@@ -208,7 +213,8 @@ namespace GameCore.Wcf.Game
 
     public class ArmyGroup
     {
-        public Uri Id { get; set; }
+        public Uri IdLink { get; set; }
+        public string Id { get; set; }
         public int UnitFrontage { get; set; }
         public Uri UnitsLink { get; set; }
         public Uri UserLink { get; set; }
@@ -226,7 +232,8 @@ namespace GameCore.Wcf.Game
 
     public class Unit
     {
-        public Uri Id { get; set; }
+        public Uri IdLink { get; set; }
+        public string Id { get; set; }
         public string Name { get; set; }
         public string UnitType { get; set; }
         public Uri UserLink { get; set; }
@@ -246,7 +253,8 @@ namespace GameCore.Wcf.Game
 
     public class Battle
     {
-        public Uri Id { get; set; }
+        public Uri IdLink { get; set; }
+        public string Id { get; set; }
         public string Name { get; set; }
         public DateTime Date { get; set; }
         public Uri AttackerUserLink { get; set; }

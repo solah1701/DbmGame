@@ -57,7 +57,7 @@ namespace GameCore.Wcf.Game
                     WebOperationContext.Current.OutgoingResponse.StatusCode = HttpStatusCode.Unauthorized;
                 return;
             }
-            user.Id = GetUserLink(username);
+            user.IdLink = GetUserLink(username);
             user.BattlesLink = GetUserBattlesLink(username);
             user.ArmiesLink = GetUserArmiesLink(username);
             _model.Users[username] = user;
@@ -80,11 +80,19 @@ namespace GameCore.Wcf.Game
 
         public Battle GetBattle(string username, string id)
         {
-            throw new NotImplementedException();
+            if (_model.Battles.ContainsKey(id))
+            {
+                var battle = _model.Battles[id];
+                if (battle.AttackerUser == username || battle.DefenderUser == username) return battle;
+            }
+            if (WebOperationContext.Current != null)
+                WebOperationContext.Current.OutgoingResponse.SetStatusAsNotFound();
+            return null;
         }
 
         public void PostBattle(string username, Battle battle)
         {
+            if(_model.Battles.ContainsKey(battle.Id))
             throw new NotImplementedException();
         }
 

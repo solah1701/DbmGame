@@ -31,14 +31,16 @@ namespace GameCore.Wcf.Game
             username = username.ToLower();
             if (!IsUserAuthorized(username))
             {
-                if (WebOperationContext.Current != null)
-                    WebOperationContext.Current.OutgoingResponse.StatusCode = HttpStatusCode.Unauthorized;
+                SetStatusCode(HttpStatusCode.Unauthorized);
                 return null;
             }
             var user = Find(username);
-            if (user != null) return user;
-            if (WebOperationContext.Current != null)
-                WebOperationContext.Current.OutgoingResponse.SetStatusAsNotFound();
+            if (user != null)
+            {
+                SetStatusOk();
+                return user;
+            }
+            SetStatusNotFound();
             return null;
         }
 
@@ -47,14 +49,10 @@ namespace GameCore.Wcf.Game
             username = username.ToLower();
             var aUser = Find(username);
             if (aUser == null)
-            {
-                if (WebOperationContext.Current != null)
-                    WebOperationContext.Current.OutgoingResponse.SetStatusAsCreated(GetUserLink(username));
-            }
+                SetStatusCreated(GetUserLink(username));
             else if (!IsUserAuthorized(username))
             {
-                if (WebOperationContext.Current != null)
-                    WebOperationContext.Current.OutgoingResponse.StatusCode = HttpStatusCode.Unauthorized;
+                SetStatusCode(HttpStatusCode.Unauthorized);
                 return;
             }
             user.IdLink = GetUserLink(username);
@@ -72,9 +70,12 @@ namespace GameCore.Wcf.Game
         {
             username = username.ToLower();
             var user = Find(username);
-            if (user != null) return new UserProfile(user);
-            if (WebOperationContext.Current != null)
-                WebOperationContext.Current.OutgoingResponse.SetStatusAsNotFound();
+            if (user != null)
+            {
+                SetStatusOk();
+                return new UserProfile(user);
+            }
+            SetStatusNotFound();
             return null;
         }
 
@@ -83,27 +84,50 @@ namespace GameCore.Wcf.Game
             if (_model.Battles.ContainsKey(id))
             {
                 var battle = _model.Battles[id];
-                if (battle.AttackerUser == username || battle.DefenderUser == username) return battle;
+                if (battle.AttackerUser == username || battle.DefenderUser == username)
+                {
+                    SetStatusOk();
+                    return battle;
+                }
             }
-            if (WebOperationContext.Current != null)
-                WebOperationContext.Current.OutgoingResponse.SetStatusAsNotFound();
+            SetStatusNotFound();
             return null;
         }
 
-        public void PostBattle(string username, Battle battle)
+        public void PostBattle(string username, string defendername, Battle battle)
         {
-            if(_model.Battles.ContainsKey(battle.Id))
-            throw new NotImplementedException();
+            if (!_model.Battles.ContainsKey(battle.Id) && _model.Users.ContainsKey(username) && _model.Users.ContainsKey(defendername))
+            {
+                battle.AttackerUser = username;
+                battle.DefenderUser = defendername;
+                _model.Battles.Add(battle.Id, battle);
+                SetStatusOk();
+                return;
+            }
+            SetStatusCode(HttpStatusCode.NotModified);
         }
 
-        public void PutBattle(string username, string id, Battle battle)
+        public void PutBattle(string username, string defendername, string id, Battle battle)
         {
-            throw new NotImplementedException();
+            if (_model.Battles.ContainsKey(id) && _model.Battles[id].AttackerUser == username &&
+                _model.Battles[id].DefenderUser == defendername)
+            {
+                _model.Battles[id] = battle;
+                SetStatusOk();
+                return;
+            }
+            SetStatusCode(HttpStatusCode.NotModified);
         }
 
-        public void DeleteBattle(string username, string id)
+        public void DeleteBattle(string username, string defendername, string id)
         {
-            throw new NotImplementedException();
+            if (_model.Battles.ContainsKey(id))
+            {
+                _model.Battles.Remove(id);
+                SetStatusOk();
+                return;
+            }
+            SetStatusCode(HttpStatusCode.NotModified);
         }
 
         public Armies GetUserArmies(string username, string tag)
@@ -245,6 +269,31 @@ namespace GameCore.Wcf.Game
         private static Uri GetUserBattlesLink(string username)
         {
             return new Uri($"http://localhost/users/{username}/battles");
+        }
+        #endregion
+
+        #region Web Response Status
+        private static void SetStatusNotFound()
+        {
+            if (WebOperationContext.Current != null)
+                WebOperationContext.Current.OutgoingResponse.SetStatusAsNotFound();
+        }
+
+        private static void SetStatusOk()
+        {
+            SetStatusCode(HttpStatusCode.OK);
+        }
+
+        private static void SetStatusCreated(Uri link)
+        {
+            if (WebOperationContext.Current != null)
+                WebOperationContext.Current.OutgoingResponse.SetStatusAsCreated(link);
+        }
+
+        private static void SetStatusCode(HttpStatusCode code)
+        {
+            if (WebOperationContext.Current != null)
+                WebOperationContext.Current.OutgoingResponse.StatusCode = code;
         }
         #endregion
     }

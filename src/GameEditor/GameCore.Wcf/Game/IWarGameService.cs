@@ -35,17 +35,17 @@ namespace GameCore.Wcf.Game
         [OperationContract]
         Battle GetBattle(string username, string id);
 
-        [WebInvoke(Method = "POST", UriTemplate = "users/{username}/battles")]
+        [WebInvoke(Method = "POST", UriTemplate = "users/{username}/defender/{defendername}/battles")]
         [OperationContract]
-        void PostBattle(string username, Battle battle);
+        void PostBattle(string username, string defendername, Battle battle);
 
-        [WebInvoke(Method = "PUT", UriTemplate = "users/{username}/battles/{id}")]
+        [WebInvoke(Method = "PUT", UriTemplate = "users/{username}/defender/{defendername}/battles/{id}")]
         [OperationContract]
-        void PutBattle(string username, string id, Battle battle);
+        void PutBattle(string username, string defendername, string id, Battle battle);
 
-        [WebInvoke(Method = "DELETE", UriTemplate = "users/{username}/battles/{id}")]
+        [WebInvoke(Method = "DELETE", UriTemplate = "users/{username}/defender/{defendername}/battles/{id}")]
         [OperationContract]
-        void DeleteBattle(string username, string id);
+        void DeleteBattle(string username, string defendername, string id);
         #endregion
 
         #region Army

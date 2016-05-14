@@ -136,12 +136,12 @@ namespace GameCore.Wcf
         {
             if (_bookmarks.ContainsKey(newValue.Url.ToString())) return;
             newValue.User = username;
-            _bookmarks.Add(newValue.Id.ToString(),newValue);
+            _bookmarks.Add(newValue.Id.ToString(), newValue);
         }
 
         public void PutBookmark(string username, string id, Bookmark bm)
         {
-            if (!_bookmarks.ContainsKey(id)||_bookmarks[id].User!=username) return;
+            if (!_bookmarks.ContainsKey(id) || _bookmarks[id].User != username) return;
             _bookmarks[id] = bm;
         }
 

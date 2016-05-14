@@ -30,6 +30,24 @@ namespace GameCore.Wcf.Game
         UserProfile GetUserProfile(string username);
         #endregion
 
+        #region Battle
+        [WebGet(UriTemplate = "users/{username}/battles/{id}")]
+        [OperationContract]
+        Battle GetBattle(string username, string id);
+
+        [WebInvoke(Method = "POST", UriTemplate = "users/{username}/battles")]
+        [OperationContract]
+        void PostBattle(string username, Battle battle);
+
+        [WebInvoke(Method = "PUT", UriTemplate = "users/{username}/battles/{id}")]
+        [OperationContract]
+        void PutBattle(string username, string id, Battle battle);
+
+        [WebInvoke(Method = "DELETE", UriTemplate = "users/{username}/battles/{id}")]
+        [OperationContract]
+        void DeleteBattle(string username, string id, Battle battle);
+        #endregion
+
         #region Army
         [WebGet(UriTemplate = "users/{username}/Armies?tag={tag}")]
         [OperationContract]
@@ -132,6 +150,7 @@ namespace GameCore.Wcf.Game
         public string Name { get; set; }
         public string Email { get; set; }
         public Uri Armies { get; set; }
+        public Uri Battles { get; set; }
     }
 
     public class UserProfile
@@ -141,11 +160,13 @@ namespace GameCore.Wcf.Game
             Id = user.Id;
             Name = user.Name;
             Armies = user.Armies;
+            Battles = user.Battles;
         }
 
         public Uri Id { get; set; }
         public string Name { get; set; }
         public Uri Armies { get; set; }
+        public Uri Battles { get; set; }
     }
 
     public class Army
@@ -206,5 +227,21 @@ namespace GameCore.Wcf.Game
     {
         public Units() { }
         public Units(List<Unit> units) : base(units) { }
+    }
+
+    public class Battle
+    {
+        public Uri Id { get; set; }
+        public string Name { get; set; }
+        public DateTime Date { get; set; }
+        public Uri AttackerUser { get; set; }
+        public Uri DefenderUser { get; set; }
+    }
+
+    [CollectionDataContract]
+    public class Battles : List<Battle>
+    {
+        public Battles() { }
+        public Battles(List<Battle> battles) : base(battles) { }
     }
 }

@@ -58,8 +58,8 @@ namespace GameCore.Wcf.Game
                 return;
             }
             user.Id = GetUserLink(username);
-            user.Battles = GetUserBattlesLink(username);
-            user.Armies = GetUserArmiesLink(username);
+            user.BattlesLink = GetUserBattlesLink(username);
+            user.ArmiesLink = GetUserArmiesLink(username);
             _model.Users[username] = user;
         }
 
@@ -70,7 +70,12 @@ namespace GameCore.Wcf.Game
 
         public UserProfile GetUserProfile(string username)
         {
-            throw new NotImplementedException();
+            username = username.ToLower();
+            var user = Find(username);
+            if (user != null) return new UserProfile(user);
+            if (WebOperationContext.Current != null)
+                WebOperationContext.Current.OutgoingResponse.SetStatusAsNotFound();
+            return null;
         }
 
         public Battle GetBattle(string username, string id)

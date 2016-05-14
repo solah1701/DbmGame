@@ -149,8 +149,8 @@ namespace GameCore.Wcf.Game
         public string Username { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
-        public Uri Armies { get; set; }
-        public Uri Battles { get; set; }
+        public Uri ArmiesLink { get; set; }
+        public Uri BattlesLink { get; set; }
     }
 
     public class UserProfile
@@ -159,21 +159,23 @@ namespace GameCore.Wcf.Game
         {
             Id = user.Id;
             Name = user.Name;
-            Armies = user.Armies;
-            Battles = user.Battles;
+            ArmiesLink = user.ArmiesLink;
+            BattlesLink = user.BattlesLink;
         }
 
         public Uri Id { get; set; }
         public string Name { get; set; }
-        public Uri Armies { get; set; }
-        public Uri Battles { get; set; }
+        public Uri ArmiesLink { get; set; }
+        public Uri BattlesLink { get; set; }
     }
 
     public class Army
     {
         public Uri Id { get; set; }
         public string Title { get; set; }
-        public Uri ArmyCommands { get; set; }
+        public Uri ArmyCommandsLink { get; set; }
+        public Uri UserLink { get; set; }
+        public string User { get; set; }
     }
 
     [CollectionDataContract]
@@ -187,10 +189,14 @@ namespace GameCore.Wcf.Game
     {
         public Uri Id { get; set; }
         public string Title { get; set; }
-        public Uri ArmyGroups { get; set; }
-        public Uri Units { get; set; }
+        public Uri ArmyGroupsLink { get; set; }
+        public Uri UnitsLink { get; set; }
         public bool IsFlankMarch { get; set; }
         public bool IsBroken { get; set; }
+        public Uri UserLink { get; set; }
+        public string User { get; set; }
+        public Uri ArmyLink { get; set; }
+        public string Army { get; set; }
     }
 
     [CollectionDataContract]
@@ -203,9 +209,12 @@ namespace GameCore.Wcf.Game
     public class ArmyGroup
     {
         public Uri Id { get; set; }
-        public Uri Units { get; set; }
-        public Uri ArmyCommand { get; set; }
         public int UnitFrontage { get; set; }
+        public Uri UnitsLink { get; set; }
+        public Uri UserLink { get; set; }
+        public string User { get; set; }
+        public Uri ArmyCommandLink { get; set; }
+        public string ArmyCommand { get; set; }
     }
 
     [CollectionDataContract]
@@ -220,6 +229,12 @@ namespace GameCore.Wcf.Game
         public Uri Id { get; set; }
         public string Name { get; set; }
         public string UnitType { get; set; }
+        public Uri UserLink { get; set; }
+        public string User { get; set; }
+        public Uri ArmyLink { get; set; }
+        public string Army { get; set; }
+        public Uri ArmyCommandLink { get; set; }
+        public string ArmyCommand { get; set; }
     }
 
     [CollectionDataContract]
@@ -234,8 +249,10 @@ namespace GameCore.Wcf.Game
         public Uri Id { get; set; }
         public string Name { get; set; }
         public DateTime Date { get; set; }
-        public Uri AttackerUser { get; set; }
-        public Uri DefenderUser { get; set; }
+        public Uri AttackerUserLink { get; set; }
+        public string AttackerUser { get; set; }
+        public Uri DefenderUserLink { get; set; }
+        public string DefenderUser { get; set; }
     }
 
     [CollectionDataContract]

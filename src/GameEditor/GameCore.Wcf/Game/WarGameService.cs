@@ -45,7 +45,7 @@ namespace GameCore.Wcf.Game
         public void PutUser(string username, User user)
         {
             username = username.ToLower();
-            User aUser = Find(username);
+            var aUser = Find(username);
             if (aUser == null)
             {
                 if (WebOperationContext.Current != null)
@@ -63,9 +63,9 @@ namespace GameCore.Wcf.Game
             _model.Users[username] = user;
         }
 
-        public void DeleteUser(string username, User user)
+        public void DeleteUser(string username)
         {
-            throw new NotImplementedException();
+            if (_model.Users.ContainsKey(username)) _model.Users.Remove(username);
         }
 
         public UserProfile GetUserProfile(string username)
@@ -88,7 +88,7 @@ namespace GameCore.Wcf.Game
             throw new NotImplementedException();
         }
 
-        public void DeleteBattle(string username, string id, Battle battle)
+        public void DeleteBattle(string username, string id)
         {
             throw new NotImplementedException();
         }
@@ -113,7 +113,7 @@ namespace GameCore.Wcf.Game
             throw new NotImplementedException();
         }
 
-        public void DeleteArmy(string username, string id, Army army)
+        public void DeleteArmy(string username, string id)
         {
             throw new NotImplementedException();
         }
@@ -138,7 +138,7 @@ namespace GameCore.Wcf.Game
             throw new NotImplementedException();
         }
 
-        public void DeleteArmyCommand(string username, string armyId, string id, ArmyCommand armyCommand)
+        public void DeleteArmyCommand(string username, string armyId, string id)
         {
             throw new NotImplementedException();
         }
@@ -163,7 +163,7 @@ namespace GameCore.Wcf.Game
             throw new NotImplementedException();
         }
 
-        public void DeleteArmyGroup(string username, string armyId, string commandId, string id, ArmyGroup armyGroup)
+        public void DeleteArmyGroup(string username, string armyId, string commandId, string id)
         {
             throw new NotImplementedException();
         }
@@ -193,7 +193,7 @@ namespace GameCore.Wcf.Game
             throw new NotImplementedException();
         }
 
-        public void DeleteArmyUnit(string username, string armyId, string commandId, string id, Unit unit)
+        public void DeleteArmyUnit(string username, string armyId, string commandId, string id)
         {
             throw new NotImplementedException();
         }
@@ -219,17 +219,17 @@ namespace GameCore.Wcf.Game
         }
 
         #region Get Uri Links
-        private Uri GetUserLink(string username)
+        private static Uri GetUserLink(string username)
         {
             return new Uri($"http://localhost/users/{username}");
         }
 
-        private Uri GetUserArmiesLink(string username)
+        private static Uri GetUserArmiesLink(string username)
         {
             return new Uri($"http://localhost/users/{username}/armies");
         }
 
-        private Uri GetUserBattlesLink(string username)
+        private static Uri GetUserBattlesLink(string username)
         {
             return new Uri($"http://localhost/users/{username}/battles");
         }

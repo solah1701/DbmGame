@@ -23,7 +23,7 @@ namespace GameCore.Wcf.Game
 
         [WebInvoke(Method = "DELETE", UriTemplate = "users/{username}")]
         [OperationContract]
-        void DeleteUser(string username, User user);
+        void DeleteUser(string username);
 
         [WebGet(UriTemplate = "users/{username}/profile")]
         [OperationContract]
@@ -45,7 +45,7 @@ namespace GameCore.Wcf.Game
 
         [WebInvoke(Method = "DELETE", UriTemplate = "users/{username}/battles/{id}")]
         [OperationContract]
-        void DeleteBattle(string username, string id, Battle battle);
+        void DeleteBattle(string username, string id);
         #endregion
 
         #region Army
@@ -67,7 +67,7 @@ namespace GameCore.Wcf.Game
 
         [WebInvoke(Method = "DELETE", UriTemplate = "users/{username}/Armies/{id}")]
         [OperationContract]
-        void DeleteArmy(string username, string id, Army army);
+        void DeleteArmy(string username, string id);
         #endregion
 
         #region ArmyCommand
@@ -89,7 +89,7 @@ namespace GameCore.Wcf.Game
 
         [WebInvoke(Method = "DELETE", UriTemplate = "users/{username}/Armies/{armyId}/ArmyCommands/{id}")]
         [OperationContract]
-        void DeleteArmyCommand(string username, string armyId, string id, ArmyCommand armyCommand);
+        void DeleteArmyCommand(string username, string armyId, string id);
         #endregion
 
         #region ArmyGroup
@@ -111,7 +111,7 @@ namespace GameCore.Wcf.Game
 
         [WebInvoke(Method = "DELETE", UriTemplate = "users/{username}/Armies/{armyId}/ArmyCommands/{commandId}/ArmyGroups/{id}")]
         [OperationContract]
-        void DeleteArmyGroup(string username, string armyId, string commandId, string id, ArmyGroup armyGroup);
+        void DeleteArmyGroup(string username, string armyId, string commandId, string id);
         #endregion
 
         #region ArmyUnit
@@ -137,7 +137,7 @@ namespace GameCore.Wcf.Game
 
         [WebInvoke(Method = "DELETE", UriTemplate = "users/{username}/Armies/{armyId}/ArmyCommands/{commandId}/Units/{id}")]
         [OperationContract]
-        void DeleteArmyUnit(string username, string armyId, string commandId, string id, Unit unit);
+        void DeleteArmyUnit(string username, string armyId, string commandId, string id);
         #endregion
     }
 

@@ -34,7 +34,7 @@ namespace GameCore.Wcf.Game
                 SetStatusCode(HttpStatusCode.Unauthorized);
                 return null;
             }
-            var user = Find(username);
+            var user = _model.FindUser(username);
             if (user != null)
             {
                 SetStatusOk();
@@ -47,29 +47,31 @@ namespace GameCore.Wcf.Game
         public void PutUser(string username, User user)
         {
             username = username.ToLower();
-            var aUser = Find(username);
+            var userLink = GetUserLink(username);
+            var aUser = _model.FindUser(username);
             if (aUser == null)
-                SetStatusCreated(GetUserLink(username));
+                SetStatusCreated(userLink);
             else if (!IsUserAuthorized(username))
             {
                 SetStatusCode(HttpStatusCode.Unauthorized);
                 return;
             }
-            user.IdLink = GetUserLink(username);
+            user.IdLink = userLink;
             user.BattlesLink = GetUserBattlesLink(username);
             user.ArmiesLink = GetUserArmiesLink(username);
-            _model.Users[username] = user;
+            _model.SetUser(username, user);
+            SetStatusOk();
         }
 
         public void DeleteUser(string username)
         {
-            if (_model.Users.ContainsKey(username)) _model.Users.Remove(username);
+            if (_model.UsersContainsKey(username)) _model.UsersRemove(username);
         }
 
         public UserProfile GetUserProfile(string username)
         {
             username = username.ToLower();
-            var user = Find(username);
+            var user = _model.FindUser(username);
             if (user != null)
             {
                 SetStatusOk();
@@ -81,26 +83,23 @@ namespace GameCore.Wcf.Game
 
         public Battle GetBattle(string username, string id)
         {
-            if (_model.Battles.ContainsKey(id))
+            var battle = _model.GetUserBattle(username, id);
+            if (battle == null)
             {
-                var battle = _model.Battles[id];
-                if (battle.AttackerUser == username || battle.DefenderUser == username)
-                {
-                    SetStatusOk();
-                    return battle;
-                }
+                SetStatusNotFound();
+                return null;
             }
-            SetStatusNotFound();
-            return null;
+            SetStatusOk();
+            return battle;
         }
 
         public void PostBattle(string username, string defendername, Battle battle)
         {
-            if (!_model.Battles.ContainsKey(battle.Id) && _model.Users.ContainsKey(username) && _model.Users.ContainsKey(defendername))
+            if (!_model.BattleContainsKey(battle.Id) && _model.UsersContainsKey(username) && _model.UsersContainsKey(defendername))
             {
                 battle.AttackerUser = username;
                 battle.DefenderUser = defendername;
-                _model.Battles.Add(battle.Id, battle);
+                _model.BattlesAdd(battle.Id, battle);
                 SetStatusOk();
                 return;
             }
@@ -109,10 +108,10 @@ namespace GameCore.Wcf.Game
 
         public void PutBattle(string username, string defendername, string id, Battle battle)
         {
-            if (_model.Battles.ContainsKey(id) && _model.Battles[id].AttackerUser == username &&
-                _model.Battles[id].DefenderUser == defendername)
+            if (_model.BattleContainsKey(id) && _model.IsBattleAttacker(id, username) &&
+                _model.IsBattleDefender(id, defendername))
             {
-                _model.Battles[id] = battle;
+                _model.SetBattle(id, battle);
                 SetStatusOk();
                 return;
             }
@@ -121,9 +120,9 @@ namespace GameCore.Wcf.Game
 
         public void DeleteBattle(string username, string defendername, string id)
         {
-            if (_model.Battles.ContainsKey(id))
+            if (_model.BattleContainsKey(id))
             {
-                _model.Battles.Remove(id);
+                _model.BattlesRemove(id);
                 SetStatusOk();
                 return;
             }
@@ -132,27 +131,98 @@ namespace GameCore.Wcf.Game
 
         public Armies GetUserArmies(string username, string tag)
         {
-            throw new NotImplementedException();
+            var armies = _model.ArmiesFindFromUser(username);
+            if (!armies.Any())
+            {
+                SetStatusNotFound();
+                return null;
+            }
+            SetStatusOk();
+            return new Armies(armies);
         }
 
         public Army GetArmy(string username, string id)
         {
-            throw new NotImplementedException();
+            var armies = _model.GetUserArmy(username, id);
+            if (armies == null)
+            {
+                SetStatusNotFound();
+                return null;
+            }
+            SetStatusOk();
+            return armies;
         }
 
         public void PostArmy(string username, Army army)
         {
-            throw new NotImplementedException();
+            username = username.ToLower();
+            var userLink = GetUserLink(username);
+            var armyLink = GetUserArmiesLink(username, army.Id);
+            var aArmy = _model.FindArmy(army.Id);
+            if (aArmy == null)
+                SetStatusCreated(armyLink);
+            else if (!IsUserAuthorized(username))
+            {
+                SetStatusCode(HttpStatusCode.Unauthorized);
+                return;
+            }
+            army.User = username;
+            army.UserLink = userLink;
+            army.IdLink = armyLink;
+            army.ArmyCommandsLink = GetUserArmyCommandsLink(username, army.Id);
+            if (_model.ArmiesContainsKey(army.Id))
+                _model.SetArmy(army.Id, army);
+            else
+                _model.ArmiesAdd(army.Id, army);
+            SetStatusOk();
         }
 
         public void PutArmy(string username, string id, Army army)
         {
-            throw new NotImplementedException();
+            username = username.ToLower();
+            var userLink = GetUserLink(username);
+            var armyLink = GetUserArmiesLink(username, id);
+            var aArmy = _model.FindArmy(id);
+            if (aArmy == null)
+            {
+                SetStatusNotFound();
+                return;
+            }
+            if (!IsUserAuthorized(username))
+            {
+                SetStatusCode(HttpStatusCode.Unauthorized);
+                return;
+            }
+            aArmy.User = username;
+            aArmy.UserLink = userLink;
+            aArmy.IdLink = armyLink;
+            aArmy.ArmyCommandsLink = GetUserArmyCommandsLink(username, id);
+            if (_model.ArmiesContainsKey(id))
+                _model.SetArmy(id, army);
+            else
+            {
+                SetStatusNotFound();
+                return;
+            }
+            SetStatusOk();
         }
 
         public void DeleteArmy(string username, string id)
         {
-            throw new NotImplementedException();
+            username = username.ToLower();
+            var army = _model.FindArmy(id);
+            if (army == null)
+            {
+                SetStatusNotFound();
+                return;
+            }
+            if (!IsUserAuthorized(username) || !_model.IsArmiesUser(username, id))
+            {
+                SetStatusCode(HttpStatusCode.Unauthorized);
+                return;
+            }
+            _model.ArmiesRemove(id);
+            SetStatusOk();
         }
 
         public ArmyCommands GetUserArmyCommands(string username, string armyId, string tag)
@@ -250,20 +320,26 @@ namespace GameCore.Wcf.Game
             throw new NotImplementedException();
         }
 
-        private User Find(string username)
-        {
-            return _model.Users.ContainsKey(username) ? _model.Users[username] : null;
-        }
-
         #region Get Uri Links
         private static Uri GetUserLink(string username)
         {
             return new Uri($"http://localhost/users/{username}");
         }
 
-        private static Uri GetUserArmiesLink(string username)
+        private static Uri GetUserArmiesLink(string username, string id = "")
         {
-            return new Uri($"http://localhost/users/{username}/armies");
+            var template = id == ""
+                ? $"http://localhost/users/{username}/armies"
+                : $"http://localhost/users/{username}/armies/{id}";
+            return new Uri(template);
+        }
+
+        private static Uri GetUserArmyCommandsLink(string username, string armyid, string tag = "")
+        {
+            var template = tag == ""
+                ? $"http://localhost/users/{username}/armies/{armyid}/armycommands"
+                : $"http://localhost/users/{username}/armies/{armyid}/armycommands?tag={tag}";
+            return new Uri(template);
         }
 
         private static Uri GetUserBattlesLink(string username)

@@ -37,8 +37,8 @@ namespace GameCore.Wcf.Helpers
         void ArmiesRemove(string id);
 
         // ArmyCommands
-        ArmyCommand FindArmyCommand(string id);
-        ArmyCommands FindUserArmyCommands(string username);
+        ArmyCommand FindUserArmyCommandForArmy(string username, string id, string armyId);
+        ArmyCommands FindUserArmyCommandsForArmy(string username, string armyId);
         bool ArmyCommandsContainsKey(string id);
         void SetArmyCommand(string id, ArmyCommand armyCommand);
         void ArmyCommandsAdd(string id, ArmyCommand armyCommand);

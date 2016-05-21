@@ -15,6 +15,7 @@ namespace GameCore.Wcf.Game
     public class WarGameService : IWarGameService
     {
         private readonly IWarGameModel _model;
+        private const string Host = "localhost";
 
         public WarGameService()
         {
@@ -143,14 +144,14 @@ namespace GameCore.Wcf.Game
 
         public Army GetArmy(string username, string id)
         {
-            var armies = _model.GetUserArmy(username, id);
-            if (armies == null)
+            var army = _model.GetUserArmy(username, id);
+            if (army == null)
             {
                 SetStatusNotFound();
                 return null;
             }
             SetStatusOk();
-            return armies;
+            return army;
         }
 
         public void PostArmy(string username, Army army)
@@ -227,27 +228,100 @@ namespace GameCore.Wcf.Game
 
         public ArmyCommands GetUserArmyCommands(string username, string armyId, string tag)
         {
-            throw new NotImplementedException();
+            var armyCommands = _model.FindUserArmyCommandsForArmy(username, armyId);
+            if (armyCommands != null && !armyCommands.Any())
+            {
+                SetStatusNotFound();
+                return null;
+            }
+            SetStatusOk();
+            return new ArmyCommands(armyCommands);
         }
 
         public ArmyCommand GetArmyCommand(string username, string armyId, string id)
         {
-            throw new NotImplementedException();
+            var armyCommand = _model.FindUserArmyCommandForArmy(username, id, armyId);
+            if (armyCommand == null)
+            {
+                SetStatusNotFound();
+                return null;
+            }
+            SetStatusOk();
+            return armyCommand;
         }
 
         public void PostArmyCommand(string username, string armyId, ArmyCommand armyCommand)
         {
-            throw new NotImplementedException();
+            username = username.ToLower();
+            var userLink = GetUserLink(username);
+            var armyLink = GetUserArmiesLink(username, armyId);
+            var armyGroupsLink = GetUserArmyGroupsLink(username, armyId, armyCommand.Id);
+            var armyCommandLink = GetUserArmyCommandsLink(username, armyId, armyCommand.Id);
+            var command = _model.FindUserArmyCommandForArmy(username, armyCommand.Id, armyId);
+            if(command==null) SetStatusCreated(armyCommandLink);
+            else if (!IsUserAuthorized(username))
+            {
+                SetStatusCode(HttpStatusCode.Unauthorized);
+                return;
+            }
+            armyCommand.User = username;
+            armyCommand.UserLink = userLink;
+            armyCommand.IdLink = armyCommandLink;
+            armyCommand.ArmyLink = armyLink;
+            armyCommand.ArmyGroupsLink = armyGroupsLink;
+            if(_model.ArmyCommandsContainsKey(armyCommand.Id))_model.SetArmyCommand(armyCommand.Id,armyCommand);
+            else _model.ArmyCommandsAdd(armyCommand.Id, armyCommand);
+            SetStatusOk();
         }
 
         public void PutArmyCommand(string username, string armyId, string id, ArmyCommand armyCommand)
         {
-            throw new NotImplementedException();
+            username = username.ToLower();
+            var userLink = GetUserLink(username);
+            var armyLink = GetUserArmiesLink(username, armyId);
+            var armyGroupsLink = GetUserArmyGroupsLink(username, armyId, armyCommand.Id);
+            var armyCommandLink = GetUserArmyCommandsLink(username, armyId, armyCommand.Id);
+            var command = _model.FindUserArmyCommandForArmy(username, armyCommand.Id, armyId);
+            if (command == null)
+            {
+                SetStatusNotFound();
+                return;
+            }
+            else if (!IsUserAuthorized(username))
+            {
+                SetStatusCode(HttpStatusCode.Unauthorized);
+                return;
+            }
+            armyCommand.User = username;
+            armyCommand.UserLink = userLink;
+            armyCommand.IdLink = armyCommandLink;
+            armyCommand.ArmyLink = armyLink;
+            armyCommand.ArmyGroupsLink = armyGroupsLink;
+            if (_model.ArmyCommandsContainsKey(armyCommand.Id)) _model.SetArmyCommand(armyCommand.Id, armyCommand);
+            else
+            {
+                SetStatusNotFound();
+                return;
+            }
+            SetStatusOk();
         }
 
         public void DeleteArmyCommand(string username, string armyId, string id)
         {
-            throw new NotImplementedException();
+            username = username.ToLower();
+            var armyCommand = _model.FindUserArmyCommandForArmy(username, id, armyId);
+            if (armyCommand == null)
+            {
+                SetStatusNotFound();
+                return;
+            }
+            if (!IsUserAuthorized(username))
+            {
+                SetStatusCode(HttpStatusCode.Unauthorized);
+                return;
+            }
+            _model.ArmyCommandsRemove(id);
+            SetStatusOk();
         }
 
         public ArmyGroups GetUserArmyGroups(string username, string armyId, string commandId, string tag)
@@ -323,29 +397,35 @@ namespace GameCore.Wcf.Game
         #region Get Uri Links
         private static Uri GetUserLink(string username)
         {
-            return new Uri($"http://localhost/users/{username}");
+            return new Uri($"http://{Host}/users/{username}");
         }
 
         private static Uri GetUserArmiesLink(string username, string id = "")
         {
             var template = id == ""
-                ? $"http://localhost/users/{username}/armies"
-                : $"http://localhost/users/{username}/armies/{id}";
+                ? $"http://{Host}/users/{username}/armies"
+                : $"http://{Host}/users/{username}/armies/{id}";
             return new Uri(template);
         }
 
         private static Uri GetUserArmyCommandsLink(string username, string armyid, string tag = "")
         {
             var template = tag == ""
-                ? $"http://localhost/users/{username}/armies/{armyid}/armycommands"
-                : $"http://localhost/users/{username}/armies/{armyid}/armycommands?tag={tag}";
+                ? $"http://{Host}/users/{username}/armies/{armyid}/armycommands"
+                : $"http://{Host}/users/{username}/armies/{armyid}/armycommands?tag={tag}";
             return new Uri(template);
         }
 
         private static Uri GetUserBattlesLink(string username)
         {
-            return new Uri($"http://localhost/users/{username}/battles");
+            return new Uri($"http://{Host}/users/{username}/battles");
         }
+
+        private static Uri GetUserArmyGroupsLink(string username, string armyid, string armycommandsid)
+        {
+            return new Uri($"http://{Host}/user/{username}/armies/{armyid}/armycommands/{armycommandsid}/armygroups");
+        }
+
         #endregion
 
         #region Web Response Status

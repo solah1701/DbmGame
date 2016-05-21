@@ -113,14 +113,14 @@ namespace GameCore.Wcf.Helpers
             Armies[id] = army;
         }
 
-        public ArmyCommand FindArmyCommand(string id)
+        public ArmyCommand FindUserArmyCommandForArmy(string username, string id, string armyId)
         {
-            return ArmyCommandsContainsKey(id) ? ArmyCommands[id] : null;
+            return ArmyCommandsContainsKey(id) && ArmyCommands[id].User == username && ArmyCommands[id].Army == armyId ? ArmyCommands[id] : null;
         }
 
-        public ArmyCommands FindUserArmyCommands(string username)
+        public ArmyCommands FindUserArmyCommandsForArmy(string username, string armyId)
         {
-            return new ArmyCommands(ArmyCommands.Values.Where(ac => ac.User == username).ToList());
+            return new ArmyCommands(ArmyCommands.Values.Where(ac => ac.User == username && ac.Army == armyId).ToList());
         }
 
         public bool ArmyCommandsContainsKey(string id)

@@ -95,7 +95,7 @@ namespace GameCore.Wcf.Game
 
         public void PostBattle(string username, string defendername, Battle battle)
         {
-            if (!_model.BattleContainsKey(battle.Id) && _model.UsersContainsKey(username) && _model.UsersContainsKey(defendername))
+            if (!_model.BattlesContainsKey(battle.Id) && _model.UsersContainsKey(username) && _model.UsersContainsKey(defendername))
             {
                 battle.AttackerUser = username;
                 battle.DefenderUser = defendername;
@@ -108,7 +108,7 @@ namespace GameCore.Wcf.Game
 
         public void PutBattle(string username, string defendername, string id, Battle battle)
         {
-            if (_model.BattleContainsKey(id) && _model.IsBattleAttacker(id, username) &&
+            if (_model.BattlesContainsKey(id) && _model.IsBattleAttacker(id, username) &&
                 _model.IsBattleDefender(id, defendername))
             {
                 _model.SetBattle(id, battle);
@@ -120,7 +120,7 @@ namespace GameCore.Wcf.Game
 
         public void DeleteBattle(string username, string defendername, string id)
         {
-            if (_model.BattleContainsKey(id))
+            if (_model.BattlesContainsKey(id))
             {
                 _model.BattlesRemove(id);
                 SetStatusOk();
@@ -131,7 +131,7 @@ namespace GameCore.Wcf.Game
 
         public Armies GetUserArmies(string username, string tag)
         {
-            var armies = _model.ArmiesFindFromUser(username);
+            var armies = _model.FindUserArmies(username);
             if (!armies.Any())
             {
                 SetStatusNotFound();

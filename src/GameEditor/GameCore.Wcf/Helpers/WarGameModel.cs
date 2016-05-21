@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using GameCore.Wcf.Game;
 
@@ -52,7 +53,7 @@ namespace GameCore.Wcf.Helpers
             Battles.Add(id, battle);
         }
 
-        public bool BattleContainsKey(string id)
+        public bool BattlesContainsKey(string id)
         {
             return Battles.ContainsKey(id);
         }
@@ -82,7 +83,7 @@ namespace GameCore.Wcf.Helpers
             return ArmiesContainsKey(id) ? Armies[id] : null;
         }
 
-        public Armies ArmiesFindFromUser(string username)
+        public Armies FindUserArmies(string username)
         {
             return new Armies(Armies.Values.Where(a => a.User == username).ToList());
         }
@@ -112,5 +113,94 @@ namespace GameCore.Wcf.Helpers
             Armies[id] = army;
         }
 
+        public ArmyCommand FindArmyCommand(string id)
+        {
+            return ArmyCommandsContainsKey(id) ? ArmyCommands[id] : null;
+        }
+
+        public ArmyCommands FindUserArmyCommands(string username)
+        {
+            return new ArmyCommands(ArmyCommands.Values.Where(ac => ac.User == username).ToList());
+        }
+
+        public bool ArmyCommandsContainsKey(string id)
+        {
+            return ArmyCommands.ContainsKey(id);
+        }
+
+        public void SetArmyCommand(string id, ArmyCommand armyCommand)
+        {
+            ArmyCommands[id] = armyCommand;
+        }
+
+        public void ArmyCommandsAdd(string id, ArmyCommand armyCommand)
+        {
+            ArmyCommands.Add(id, armyCommand);
+        }
+
+        public void ArmyCommandsRemove(string id)
+        {
+            ArmyCommands.Remove(id);
+        }
+
+        public ArmyGroup FindArmyGroup(string id)
+        {
+            return ArmyGroupsContainsKey(id) ? ArmyGroups[id] : null;
+        }
+
+        public ArmyGroups FindUserArmyGroups(string username)
+        {
+            return new ArmyGroups(ArmyGroups.Values.Where(ag => ag.User == username).ToList());
+        }
+
+        public bool ArmyGroupsContainsKey(string id)
+        {
+            return ArmyGroups.ContainsKey(id);
+        }
+
+        public void SetArmyGroup(string id, ArmyGroup armyGroup)
+        {
+            ArmyGroups[id] = armyGroup;
+        }
+
+        public void ArmyGroupsAdd(string id, ArmyGroup armyGroup)
+        {
+            ArmyGroups.Add(id, armyGroup);
+        }
+
+        public void ArmyGroupsRemove(string id)
+        {
+            ArmyGroups.Remove(id);
+        }
+
+        public Unit FindArmyUnit(string id)
+        {
+            return ArmyUnitsContainsKey(id) ? Units[id] : null;
+        }
+
+        public Units FindUserArmyUnits(string username)
+        {
+            return new Units(Units.Values.Where(au => au.User == username).ToList());
+        }
+
+        public bool ArmyUnitsContainsKey(string id)
+        {
+            return Units.ContainsKey(id);
+        }
+
+        public void SetArmyUnit(string id, Unit armyUnit)
+        {
+            Units[id] = armyUnit;
+        }
+
+        public void ArmyUnitsAdd(string id, Unit armyUnit)
+        {
+            Units.Add(id, armyUnit);
+        }
+
+        public void ArmyUnitsRemove(string id)
+        {
+            Units.Remove(id);
+        }
     }
 }

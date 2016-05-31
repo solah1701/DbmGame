@@ -45,16 +45,17 @@ namespace GameCore.Wcf.Helpers
         void ArmyCommandsRemove(string id);
 
         // ArmyGroups
-        ArmyGroup FindArmyGroup(string id);
-        ArmyGroups FindUserArmyGroups(string username);
+        ArmyGroup FindUserArmyGroupForArmyCommand(string username, string id, string armyId, string commandId);
+        ArmyGroups FindUserArmyGroupsForArmyCommand(string username, string armyId, string commandId);
         bool ArmyGroupsContainsKey(string id);
         void SetArmyGroup(string id, ArmyGroup armyGroup);
         void ArmyGroupsAdd(string id, ArmyGroup armyGroup);
         void ArmyGroupsRemove(string id);
 
         // ArmyUnits
-        Unit FindArmyUnit(string id);
-        Units FindUserArmyUnits(string username);
+        Unit FindUserArmyUnitForArmyCommand(string username, string id, string armyId, string commandId);
+        Units FindUserArmyUnitsForArmyCommand(string username, string armyId, string commandId);
+        Units FindUserArmyUnitsForArmyCommandGroup(string username, string armyId, string commandId, string groupId);
         bool ArmyUnitsContainsKey(string id);
         void SetArmyUnit(string id, Unit armyUnit);
         void ArmyUnitsAdd(string id, Unit armyUnit);

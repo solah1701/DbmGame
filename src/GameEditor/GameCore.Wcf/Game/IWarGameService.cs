@@ -121,7 +121,7 @@ namespace GameCore.Wcf.Game
 
         [WebGet(UriTemplate = "users/{username}/Armies/{armyId}/ArmyCommands/{commandId}/ArmyGroups/{groupId}/Units?tag={tag}")]
         [OperationContract]
-        Units GetUserArmyGroupUnits(string username, string armyId, string commandId, string tag);
+        Units GetUserArmyGroupUnits(string username, string armyId, string commandId, string groupId, string tag);
 
         [WebGet(UriTemplate = "users/{username}/Armies/{armyId}/ArmyCommands/{commandId}/Units/{id}")]
         [OperationContract]
@@ -219,6 +219,8 @@ namespace GameCore.Wcf.Game
         public Uri UnitsLink { get; set; }
         public Uri UserLink { get; set; }
         public string User { get; set; }
+        public Uri ArmyLink { get; set; }
+        public string Army { get; set; }
         public Uri ArmyCommandLink { get; set; }
         public string ArmyCommand { get; set; }
     }
@@ -242,6 +244,8 @@ namespace GameCore.Wcf.Game
         public string Army { get; set; }
         public Uri ArmyCommandLink { get; set; }
         public string ArmyCommand { get; set; }
+        public Uri ArmyGroupLink { get; set; }
+        public string ArmyGroup { get; set; }
     }
 
     [CollectionDataContract]

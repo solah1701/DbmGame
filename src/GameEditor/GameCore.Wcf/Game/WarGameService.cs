@@ -258,7 +258,7 @@ namespace GameCore.Wcf.Game
             var armyGroupsLink = GetUserArmyGroupsLink(username, armyId, armyCommand.Id);
             var armyCommandLink = GetUserArmyCommandsLink(username, armyId, armyCommand.Id);
             var command = _model.FindUserArmyCommandForArmy(username, armyCommand.Id, armyId);
-            if(command==null) SetStatusCreated(armyCommandLink);
+            if (command == null) SetStatusCreated(armyCommandLink);
             else if (!IsUserAuthorized(username))
             {
                 SetStatusCode(HttpStatusCode.Unauthorized);
@@ -269,7 +269,7 @@ namespace GameCore.Wcf.Game
             armyCommand.IdLink = armyCommandLink;
             armyCommand.ArmyLink = armyLink;
             armyCommand.ArmyGroupsLink = armyGroupsLink;
-            if(_model.ArmyCommandsContainsKey(armyCommand.Id))_model.SetArmyCommand(armyCommand.Id,armyCommand);
+            if (_model.ArmyCommandsContainsKey(armyCommand.Id)) _model.SetArmyCommand(armyCommand.Id, armyCommand);
             else _model.ArmyCommandsAdd(armyCommand.Id, armyCommand);
             SetStatusOk();
         }
@@ -287,7 +287,7 @@ namespace GameCore.Wcf.Game
                 SetStatusNotFound();
                 return;
             }
-            else if (!IsUserAuthorized(username))
+            if (!IsUserAuthorized(username))
             {
                 SetStatusCode(HttpStatusCode.Unauthorized);
                 return;
@@ -326,57 +326,220 @@ namespace GameCore.Wcf.Game
 
         public ArmyGroups GetUserArmyGroups(string username, string armyId, string commandId, string tag)
         {
-            throw new NotImplementedException();
+            var armyGroups = _model.FindUserArmyGroupsForArmyCommand(username, armyId, commandId);
+            if (armyGroups != null && !armyGroups.Any())
+            {
+                SetStatusNotFound();
+                return null;
+            }
+            SetStatusOk();
+            return new ArmyGroups(armyGroups);
         }
 
         public ArmyGroup GetArmyGroup(string username, string armyId, string commandId, string id)
         {
-            throw new NotImplementedException();
+            var armyGroup = _model.FindUserArmyGroupForArmyCommand(username, id, armyId, commandId);
+            if (armyGroup == null)
+            {
+                SetStatusNotFound();
+                return null;
+            }
+            SetStatusOk();
+            return armyGroup;
         }
 
         public void PostArmyGroup(string username, string armyId, string commandId, ArmyGroup armyGroup)
         {
-            throw new NotImplementedException();
+            username = username.ToLower();
+            var userLink = GetUserLink(username);
+            var armyLink = GetUserArmiesLink(username, armyId);
+            var armyGroupLink = GetUserArmyGroupsLink(username, armyId, armyGroup.Id);
+            var armyCommandsLink = GetUserArmyCommandsLink(username, armyId, armyGroup.ArmyCommand);
+            var group = _model.FindUserArmyGroupForArmyCommand(username, armyGroup.Id, armyId, commandId);
+            if (group == null) SetStatusCreated(armyGroupLink);
+            else if (!IsUserAuthorized(username))
+            {
+                SetStatusCode(HttpStatusCode.Unauthorized);
+                return;
+            }
+            armyGroup.User = username;
+            armyGroup.UserLink = userLink;
+            armyGroup.Army = armyId;
+            armyGroup.ArmyLink = armyLink;
+            armyGroup.ArmyCommand = commandId;
+            armyGroup.ArmyCommandLink = armyCommandsLink;
+            armyGroup.IdLink = armyGroupLink;
+            if (_model.ArmyGroupsContainsKey(armyGroup.Id)) _model.SetArmyGroup(armyGroup.Id, armyGroup);
+            else _model.ArmyGroupsAdd(armyGroup.Id, armyGroup);
+            SetStatusOk();
         }
 
         public void PutArmyGroup(string username, string armyId, string commandId, string id, ArmyGroup armyGroup)
         {
-            throw new NotImplementedException();
+            username = username.ToLower();
+            var userLink = GetUserLink(username);
+            var armyLink = GetUserArmiesLink(username, armyId);
+            var armyGroupLink = GetUserArmyGroupsLink(username, armyId, armyGroup.Id);
+            var armyCommandsLink = GetUserArmyCommandsLink(username, armyId, armyGroup.ArmyCommand);
+            var group = _model.FindUserArmyGroupForArmyCommand(username, armyGroup.Id, armyId, commandId);
+            if (group == null)
+            {
+                SetStatusNotFound();
+                return;
+            }
+            if (!IsUserAuthorized(username))
+            {
+                SetStatusCode(HttpStatusCode.Unauthorized);
+                return;
+            }
+            armyGroup.User = username;
+            armyGroup.UserLink = userLink;
+            armyGroup.Army = armyId;
+            armyGroup.ArmyLink = armyLink;
+            armyGroup.ArmyCommand = commandId;
+            armyGroup.ArmyCommandLink = armyCommandsLink;
+            armyGroup.IdLink = armyGroupLink;
+            if (_model.ArmyGroupsContainsKey(armyGroup.Id)) _model.SetArmyGroup(armyGroup.Id, armyGroup);
+            else
+            {
+                SetStatusNotFound();
+                return;
+            }
+            SetStatusOk();
         }
 
         public void DeleteArmyGroup(string username, string armyId, string commandId, string id)
         {
-            throw new NotImplementedException();
+            username = username.ToLower();
+            var armyGroup = _model.FindUserArmyGroupForArmyCommand(username, id, armyId, commandId);
+            if (armyGroup == null)
+            {
+                SetStatusNotFound();
+                return;
+            }
+            if (!IsUserAuthorized(username))
+            {
+                SetStatusCode(HttpStatusCode.Unauthorized);
+                return;
+            }
+            _model.ArmyGroupsRemove(id);
+            SetStatusOk();
         }
 
         public Units GetUserArmyUnits(string username, string armyId, string commandId, string tag)
         {
-            throw new NotImplementedException();
+            var armyUnits = _model.FindUserArmyUnitsForArmyCommand(username, armyId, commandId);
+            if (armyUnits != null && !armyUnits.Any())
+            {
+                SetStatusNotFound();
+                return null;
+            }
+            SetStatusOk();
+            return new Units(armyUnits);
         }
 
-        public Units GetUserArmyGroupUnits(string username, string armyId, string commandId, string tag)
+        public Units GetUserArmyGroupUnits(string username, string armyId, string commandId, string groupId, string tag)
         {
-            throw new NotImplementedException();
+            var armyUnits = _model.FindUserArmyUnitsForArmyCommandGroup(username, armyId, commandId, groupId);
+            if (armyUnits != null && !armyUnits.Any())
+            {
+                SetStatusNotFound();
+                return null;
+            }
+            SetStatusOk();
+            return new Units(armyUnits);
         }
 
         public Unit GetArmyUnit(string username, string armyId, string commandId, string id)
         {
-            throw new NotImplementedException();
+            var armyUnit = _model.FindUserArmyUnitForArmyCommand(username, id, armyId, commandId);
+            if (armyUnit == null)
+            {
+                SetStatusNotFound();
+                return null;
+            }
+            SetStatusOk();
+            return armyUnit;
         }
 
         public void PostArmyUnit(string username, string armyId, string commandId, Unit unit)
         {
-            throw new NotImplementedException();
+            username = username.ToLower();
+            var userLink = GetUserLink(username);
+            var armyLink = GetUserArmiesLink(username, armyId);
+            //var armyGroupLink = GetUserArmyGroupsLink(username, armyId, armyGroup.Id);
+            var armyUnitLink = GetUnitLink(username, armyId, commandId, unit.Id);
+            var armyCommandsLink = GetUserArmyCommandsLink(username, armyId,commandId);
+            var armyUnit = _model.FindUserArmyUnitForArmyCommand(username, unit.Id, armyId, commandId);
+            if (armyUnit == null) SetStatusCreated(armyUnitLink);
+            else if (!IsUserAuthorized(username))
+            {
+                SetStatusCode(HttpStatusCode.Unauthorized);
+                return;
+            }
+            unit.User = username;
+            unit.UserLink = userLink;
+            unit.Army = armyId;
+            unit.ArmyLink = armyLink;
+            unit.ArmyCommand = commandId;
+            unit.ArmyCommandLink = armyCommandsLink;
+            unit.IdLink = armyUnitLink;
+            if (_model.ArmyUnitsContainsKey(unit.Id)) _model.SetArmyUnit(unit.Id, armyUnit);
+            else _model.ArmyUnitsAdd(unit.Id, armyUnit);
+            SetStatusOk();
         }
 
         public void PutArmyUnit(string username, string armyId, string commandId, string id, Unit unit)
         {
-            throw new NotImplementedException();
+            username = username.ToLower();
+            var userLink = GetUserLink(username);
+            var armyLink = GetUserArmiesLink(username, armyId);
+            //var armyGroupLink = GetUserArmyGroupsLink(username, armyId, armyGroup.Id);
+            var armyUnitLink = GetUnitLink(username, armyId, commandId, unit.Id);
+            var armyCommandsLink = GetUserArmyCommandsLink(username, armyId, commandId);
+            var armyUnit = _model.FindUserArmyUnitForArmyCommand(username, unit.Id, armyId, commandId);
+            if (armyUnit == null)
+            {
+                SetStatusNotFound();
+                return;
+            }
+            if (!IsUserAuthorized(username))
+            {
+                SetStatusCode(HttpStatusCode.Unauthorized);
+                return;
+            }
+            unit.User = username;
+            unit.UserLink = userLink;
+            unit.Army = armyId;
+            unit.ArmyLink = armyLink;
+            unit.ArmyCommand = commandId;
+            unit.ArmyCommandLink = armyCommandsLink;
+            unit.IdLink = armyUnitLink;
+            if (_model.ArmyUnitsContainsKey(unit.Id)) _model.SetArmyUnit(unit.Id, armyUnit);
+            else
+            {
+                SetStatusNotFound();
+                return;
+            }
+            SetStatusOk();
         }
 
         public void DeleteArmyUnit(string username, string armyId, string commandId, string id)
         {
-            throw new NotImplementedException();
+            username = username.ToLower();
+            var armyUnit = _model.FindUserArmyUnitForArmyCommand(username, id, armyId, commandId);
+            if (armyUnit == null)
+            {
+                SetStatusNotFound();
+                return;
+            }
+            if (!IsUserAuthorized(username))
+            {
+                SetStatusCode(HttpStatusCode.Unauthorized);
+                return;
+            }
+            _model.ArmyUnitsRemove(id);
+            SetStatusOk();
         }
 
         private bool IsUserAuthorized(string username)
@@ -424,6 +587,11 @@ namespace GameCore.Wcf.Game
         private static Uri GetUserArmyGroupsLink(string username, string armyid, string armycommandsid)
         {
             return new Uri($"http://{Host}/user/{username}/armies/{armyid}/armycommands/{armycommandsid}/armygroups");
+        }
+
+        private static Uri GetUnitLink(string username, string armyid, string armycommandsid, string id)
+        {
+            return new Uri($"http://{Host}/user/{username}/armies/{armyid}/armycommands/{armycommandsid}/armyunit/{id}");
         }
 
         #endregion

@@ -143,14 +143,15 @@ namespace GameCore.Wcf.Helpers
             ArmyCommands.Remove(id);
         }
 
-        public ArmyGroup FindArmyGroup(string id)
+        public ArmyGroup FindUserArmyGroupForArmyCommand(string username, string id, string armyId, string commandId)
         {
-            return ArmyGroupsContainsKey(id) ? ArmyGroups[id] : null;
+            return ArmyGroupsContainsKey(id) && ArmyGroups[id].User == username && ArmyGroups[id].Army == armyId &&
+                   ArmyGroups[id].ArmyCommand == commandId ? ArmyGroups[id] : null;
         }
 
-        public ArmyGroups FindUserArmyGroups(string username)
+        public ArmyGroups FindUserArmyGroupsForArmyCommand(string username, string armyId, string commandId)
         {
-            return new ArmyGroups(ArmyGroups.Values.Where(ag => ag.User == username).ToList());
+            return new ArmyGroups(ArmyGroups.Values.Where(ag => ag.User == username && ag.Army == armyId && ag.ArmyCommand == commandId).ToList());
         }
 
         public bool ArmyGroupsContainsKey(string id)
@@ -173,14 +174,19 @@ namespace GameCore.Wcf.Helpers
             ArmyGroups.Remove(id);
         }
 
-        public Unit FindArmyUnit(string id)
+        public Unit FindUserArmyUnitForArmyCommand(string username, string id, string armyId, string commandId)
         {
-            return ArmyUnitsContainsKey(id) ? Units[id] : null;
+            return ArmyUnitsContainsKey(id) && Units[id].User == username && Units[id].Army == armyId && Units[id].ArmyCommand == commandId ? Units[id] : null;
         }
 
-        public Units FindUserArmyUnits(string username)
+        public Units FindUserArmyUnitsForArmyCommand(string username, string armyId, string commandId)
         {
-            return new Units(Units.Values.Where(au => au.User == username).ToList());
+            return new Units(Units.Values.Where(au => au.User == username && au.Army == armyId && au.ArmyCommand == commandId).ToList());
+        }
+
+        public Units FindUserArmyUnitsForArmyCommandGroup(string username, string armyId, string commandId, string groupId)
+        {
+            return new Units(Units.Values.Where(au => au.User == username && au.Army == armyId && au.ArmyCommand == commandId && au.ArmyGroup == groupId).ToList());
         }
 
         public bool ArmyUnitsContainsKey(string id)

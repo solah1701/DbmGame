@@ -9,8 +9,8 @@
     <ProjectGuid>{A09C89A6-B9D3-4B7D-A20B-01FEB45553FF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GameCore.Wcf</RootNamespace>
-    <AssemblyName>GameCore.Wcf</AssemblyName>
+    <RootNamespace>GameCore.Wcf.x</RootNamespace>
+    <AssemblyName>GameCore.Wcf.x</AssemblyName>
     <ProjectTypeGuids>{3D9AD99F-2412-4246-B90B-4EAA41C64699};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <StartArguments>/client:"WcfTestClient.exe"</StartArguments>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
@@ -35,8 +35,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
@@ -50,6 +59,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BookmarkService.cs" />
+    <Compile Include="DebellisMultitudinis\Army.cs" />
+    <Compile Include="DebellisMultitudinis\ArmyCommand.cs" />
+    <Compile Include="DebellisMultitudinis\ArmyCommandGroup.cs" />
+    <Compile Include="DebellisMultitudinis\Battle.cs" />
+    <Compile Include="DebellisMultitudinis\DbmGame.cs" />
+    <Compile Include="Game\DbmModel.cs" />
+    <Compile Include="DebellisMultitudinis\Enumerations\CombatOutcomeEnum.cs" />
+    <Compile Include="DebellisMultitudinis\Enumerations\DisciplineTypeEnum.cs" />
+    <Compile Include="DebellisMultitudinis\Enumerations\DispositionTypeEnum.cs" />
+    <Compile Include="DebellisMultitudinis\Enumerations\FortificationTypeEnum.cs" />
+    <Compile Include="DebellisMultitudinis\Enumerations\GradeTypeEnum.cs" />
+    <Compile Include="DebellisMultitudinis\Enumerations\TerrainGoingEnum.cs" />
+    <Compile Include="DebellisMultitudinis\Enumerations\UnitTypeEnum.cs" />
+    <Compile Include="DebellisMultitudinis\ArmyUnit.cs" />
     <Compile Include="Helpers\BookmarkExtender.cs" />
     <Compile Include="Helpers\IWarGameModel.cs" />
     <Compile Include="Helpers\MyAuthorizationManager.cs" />
@@ -65,6 +88,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GameCore\GameCore.csproj">

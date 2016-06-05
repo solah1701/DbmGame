@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using GameEditor.Wcf.Harness.BookmarkServiceReference;
+using GameEditor.Wcf.Harness.ServiceReference1;
 
 namespace GameEditor.Wcf.Harness
 {
@@ -29,7 +30,9 @@ namespace GameEditor.Wcf.Harness
 
         private void button2_Click(object sender, EventArgs e)
         {
-            var user = service.GetUser(textBox1.Text);
+            //var user = service.GetUser(textBox1.Text);
+            var service = new Service1Client();
+            service.GenerateDatabase();
         }
     }
 }

@@ -10,6 +10,8 @@ namespace GameCore.WcfService.DebellisMultitudinis
         public int ArmyListDefinitionId { get; set; }
         [StringLength(255)]
         public string Name { get; set; }
+        public int Book { get; set; }
+        public int List { get; set; }
         public int MinYear { get; set; }
         public int MaxYear { get; set; }
         public string Notes { get; set; }

@@ -114,6 +114,10 @@
     <Compile Include="Migrations\201606070339099_DBM_ArmyLists_1.Designer.cs">
       <DependentUpon>201606070339099_DBM_ArmyLists_1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201606070347233_DBM_ArmyLists_2.cs" />
+    <Compile Include="Migrations\201606070347233_DBM_ArmyLists_2.Designer.cs">
+      <DependentUpon>201606070347233_DBM_ArmyLists_2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Service1.svc.cs">
       <DependentUpon>Service1.svc</DependentUpon>
@@ -152,6 +156,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201606070339099_DBM_ArmyLists_1.resx">
       <DependentUpon>201606070339099_DBM_ArmyLists_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606070347233_DBM_ArmyLists_2.resx">
+      <DependentUpon>201606070347233_DBM_ArmyLists_2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

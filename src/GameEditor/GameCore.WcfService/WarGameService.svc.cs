@@ -543,6 +543,56 @@ namespace GameCore.WcfService
             SetStatusOk();
         }
 
+        public ArmyDefinitions GetArmyDefinitions()
+        {
+            throw new NotImplementedException();
+        }
+
+        public ArmyDefinition GetArmyDefinition(string id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void PostArmyDefinition(ArmyDefinition armyDefinition)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void PutArmyDefinition(string id, ArmyDefinition armyDefinition)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteArmyDefinition(string id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ArmyDefinitions GetArmyUnitDefinitions(string armyDefinitionId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ArmyDefinition GetArmyUnitDefinition(string armyDefinitionId, string id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void PostArmyUnitDefinition(string armyDefinitionId, ArmyDefinition armyDefinition)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void PutArmyUnitDefinition(string armyDefinitionId, string id, ArmyDefinition armyDefinition)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteArmyUnitDefinition(string armyDefinitionId, string id)
+        {
+            throw new NotImplementedException();
+        }
+
         private bool IsUserAuthorized(string username)
         {
             var ctx = WebOperationContext.Current;

@@ -11,6 +11,8 @@ namespace GameCore.WcfService.Helpers
         private Dictionary<string, ArmyGroup> ArmyGroups { get; set; }
         private Dictionary<string, Unit> Units { get; set; }
         private Dictionary<string, Battle> Battles { get; set; }
+        private Dictionary<string, ArmyDefinition> ArmyDefinitions { get; set; } 
+        private Dictionary<string, ArmyUnitDefinition> ArmyUnitDefinitions { get; set; } 
 
         public User FindUser(string username)
         {
@@ -205,6 +207,66 @@ namespace GameCore.WcfService.Helpers
         public void ArmyUnitsRemove(string id)
         {
             Units.Remove(id);
+        }
+
+        public ArmyDefinition FindArmyDefinition(string id)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public ArmyDefinitions FindArmyDefinitions()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public bool ArmyDefinitionsContainsKey(string id)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void SetArmyDefinition(string id, ArmyDefinition armyDefinition)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void ArmyDefinitionsAdd(string id, ArmyDefinition armyDefinition)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void ArmyDefinitionsRemove(string id)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public ArmyUnitDefinition FindArmyUnitDefinition(string id, string armyDefinitionId)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public ArmyUnitDefinitions FindArmyUnitDefinitions(string armyDefinitionId)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public bool ArmyUnitDefinitionsContainsKey(string id)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void SetArmyUnitDefinition(string id, ArmyDefinition armyDefinition)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void ArmyUnitDefinitionsAdd(string id, ArmyDefinition armyDefinition)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void ArmyUnitDefinitionsRemove(string id)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

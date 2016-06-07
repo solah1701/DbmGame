@@ -59,5 +59,21 @@ namespace GameCore.WcfService.Helpers
         void SetArmyUnit(string id, Unit armyUnit);
         void ArmyUnitsAdd(string id, Unit armyUnit);
         void ArmyUnitsRemove(string id);
+
+        // ArmyDefinitions
+        ArmyDefinition FindArmyDefinition(string id);
+        ArmyDefinitions FindArmyDefinitions();
+        bool ArmyDefinitionsContainsKey(string id);
+        void SetArmyDefinition(string id, ArmyDefinition armyDefinition);
+        void ArmyDefinitionsAdd(string id, ArmyDefinition armyDefinition);
+        void ArmyDefinitionsRemove(string id);
+
+        // ArmyUnitDefinitions
+        ArmyUnitDefinition FindArmyUnitDefinition(string id, string armyDefinitionId);
+        ArmyUnitDefinitions FindArmyUnitDefinitions(string armyDefinitionId);
+        bool ArmyUnitDefinitionsContainsKey(string id);
+        void SetArmyUnitDefinition(string id, ArmyDefinition armyDefinition);
+        void ArmyUnitDefinitionsAdd(string id, ArmyDefinition armyDefinition);
+        void ArmyUnitDefinitionsRemove(string id);
     }
 }

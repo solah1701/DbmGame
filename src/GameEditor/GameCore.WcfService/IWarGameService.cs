@@ -139,9 +139,83 @@ namespace GameCore.WcfService
         [OperationContract]
         void DeleteArmyUnit(string username, string armyId, string commandId, string id);
         #endregion
+
+        #region ArmyDefinition
+
+        [WebGet(UriTemplate = "ArmyDefinitions")]
+        [OperationContract]
+        ArmyDefinitions GetArmyDefinitions();
+
+        [WebGet(UriTemplate = "ArmyDefinitions/{id}")]
+        [OperationContract]
+        ArmyDefinition GetArmyDefinition(string id);
+
+        [WebInvoke(Method = "POST", UriTemplate = "ArmyDefinitions")]
+        [OperationContract]
+        void PostArmyDefinition(ArmyDefinition armyDefinition);
+
+        [WebInvoke(Method = "PUT", UriTemplate = "ArmyDefinitions/{id}")]
+        [OperationContract]
+        void PutArmyDefinition(string id, ArmyDefinition armyDefinition);
+
+        [WebInvoke(Method = "Delete", UriTemplate = "ArmyDefinitions/{id}")]
+        [OperationContract]
+        void DeleteArmyDefinition(string id);
+
+        #endregion
+
+        #region ArmyUnitDefinition
+
+        [WebGet(UriTemplate = "ArmyDefinitions/{armyDefinitionId}/ArmyUnitDefinitions")]
+        [OperationContract]
+        ArmyDefinitions GetArmyUnitDefinitions(string armyDefinitionId);
+
+        [WebGet(UriTemplate = "ArmyDefinitions/{armyDefinitionId}/ArmyUnitDefinitions/{id}")]
+        [OperationContract]
+        ArmyDefinition GetArmyUnitDefinition(string armyDefinitionId, string id);
+
+        [WebInvoke(Method = "POST", UriTemplate = "ArmyDefinitions/{armyDefinitionId}/ArmyUnitDefinitions")]
+        [OperationContract]
+        void PostArmyUnitDefinition(string armyDefinitionId, ArmyDefinition armyDefinition);
+
+        [WebInvoke(Method = "PUT", UriTemplate = "ArmyDefinitions/{armyDefinitionId}/ArmyUnitDefinitions/{id}")]
+        [OperationContract]
+        void PutArmyUnitDefinition(string armyDefinitionId, string id, ArmyDefinition armyDefinition);
+
+        [WebInvoke(Method = "Delete", UriTemplate = "ArmyDefinitions/{armyDefinitionId}/ArmyUnitDefinitions/{id}")]
+        [OperationContract]
+        void DeleteArmyUnitDefinition(string armyDefinitionId, string id);
+
+        #endregion
     }
 
+    public class ArmyDefinition
+    {
+        public Uri IdLink { get; set; }
+        public string Id { get; set; }
+        public string ArmyName { get; set; }
+        public string ArmyBook { get; set; }
+        public string ArmyList { get; set; }
+    }
 
+    [CollectionDataContract]
+    public class ArmyDefinitions : List<ArmyDefinition>
+    {
+        public ArmyDefinitions() { }
+        public ArmyDefinitions(List<ArmyDefinition> armyDefinitions) : base(armyDefinitions) { }
+    }
+
+    public class ArmyUnitDefinition
+    {
+
+    }
+
+    [CollectionDataContract]
+    public class ArmyUnitDefinitions : List<ArmyUnitDefinition>
+    {
+        public ArmyUnitDefinitions() { }
+        public ArmyUnitDefinitions(List<ArmyUnitDefinition> armyUnitDefinitions) : base(armyUnitDefinitions) { }
+    }
 
     public class User
     {

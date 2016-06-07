@@ -16,5 +16,7 @@ namespace GameCore.WcfService.DebellisMultitudinis
         public virtual DbSet<Battle> Battles { get; set; }
         public virtual DbSet<DbmGame> DbmGames { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<ArmyListDefinition> ArmyListDefinitions { get; set; }
+        public virtual DbSet<ArmyUnitDefinition> ArmyUnitDefinitions { get; set; } 
     }
 }

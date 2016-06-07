@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using GameCore.Wcf.DebellisMultitudinis;
 
 namespace GameCore.WcfService.DebellisMultitudinis
 {
@@ -13,7 +12,6 @@ namespace GameCore.WcfService.DebellisMultitudinis
 
         [StringLength(255)]
         public string Name { get; set; }
-        public int DbmGameId { get; set; }
 
         public virtual DbmGame DbmGame { get; set; }
         public virtual List<Army> Armies { get; set; }

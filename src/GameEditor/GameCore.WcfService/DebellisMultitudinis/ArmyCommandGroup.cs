@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using GameCore.WcfService.DebellisMultitudinis;
 
-namespace GameCore.Wcf.DebellisMultitudinis
+namespace GameCore.WcfService.DebellisMultitudinis
 {
     [Table("ArmyCommandGroup")]
     public class ArmyCommandGroup
@@ -12,9 +11,8 @@ namespace GameCore.Wcf.DebellisMultitudinis
         public int ArmyCommandGroupId { get; set; }
         [StringLength(255)]
         public string Name { get; set; }
-        public int ArmyCommandId { get; set; }
 
         public virtual ArmyCommand ArmyCommand { get; set; }
-        //public virtual List<ArmyUnit> Units { get; set; }
+        public virtual List<ArmyUnit> ArmyUnits { get; set; }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using System.Data.Entity;
-using GameCore.Wcf.DebellisMultitudinis;
 
 namespace GameCore.WcfService.DebellisMultitudinis
 {

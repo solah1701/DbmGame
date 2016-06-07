@@ -92,6 +92,14 @@
     <Compile Include="Migrations\201606051011560_Initial.Designer.cs">
       <DependentUpon>201606051011560_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201606070013199_ArmyCommandGroupReference.cs" />
+    <Compile Include="Migrations\201606070013199_ArmyCommandGroupReference.Designer.cs">
+      <DependentUpon>201606070013199_ArmyCommandGroupReference.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606070025594_CleanUpReferences.cs" />
+    <Compile Include="Migrations\201606070025594_CleanUpReferences.Designer.cs">
+      <DependentUpon>201606070025594_CleanUpReferences.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Service1.svc.cs">
       <DependentUpon>Service1.svc</DependentUpon>
@@ -115,6 +123,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201606051011560_Initial.resx">
       <DependentUpon>201606051011560_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606070013199_ArmyCommandGroupReference.resx">
+      <DependentUpon>201606070013199_ArmyCommandGroupReference.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606070025594_CleanUpReferences.resx">
+      <DependentUpon>201606070025594_CleanUpReferences.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

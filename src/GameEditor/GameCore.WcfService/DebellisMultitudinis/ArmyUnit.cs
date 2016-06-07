@@ -1,7 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using GameCore.DebellisMultitudinis.Enumerations;
-using GameCore.Wcf.DebellisMultitudinis;
 
 namespace GameCore.WcfService.DebellisMultitudinis
 {
@@ -44,11 +43,9 @@ namespace GameCore.WcfService.DebellisMultitudinis
         public int UnitTypeId { get; set; }
         public int GradeTypeId { get; set; }
         public int DispositionTypeId { get; set; }
-        //public int ArmyCommandId { get; set; }
-        //public int ArmyCommandGroupId { get; set; }
 
-        //public virtual ArmyCommand ArmyCommand { get; set; }
-        //public virtual ArmyCommandGroup ArmyCommandGroup { get; set; }
+        public virtual ArmyCommand ArmyCommand { get; set; }
+        public virtual ArmyCommandGroup ArmyCommandGroup { get; set; }
         public virtual ArmyUnit SupportingDbmUnit { get; set; }
         public virtual TerrainGoingEnum TerrainGoing { get; set; }
         public virtual FortificationTypeEnum FortificationType { get; set; }

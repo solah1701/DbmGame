@@ -70,18 +70,18 @@ namespace GameCore.WcfService
             if (_model.UsersContainsKey(username)) _model.UsersRemove(username);
         }
 
-        public UserProfile GetUserProfile(string username)
-        {
-            username = username.ToLower();
-            var user = _model.FindUser(username);
-            if (user != null)
-            {
-                SetStatusOk();
-                return new UserProfile(user);
-            }
-            SetStatusNotFound();
-            return null;
-        }
+        //public UserProfile GetUserProfile(string username)
+        //{
+        //    username = username.ToLower();
+        //    var user = _model.FindUser(username);
+        //    if (user != null)
+        //    {
+        //        SetStatusOk();
+        //        return new UserProfile(user);
+        //    }
+        //    SetStatusNotFound();
+        //    return null;
+        //}
 
         public Battle GetBattle(string username, string id)
         {

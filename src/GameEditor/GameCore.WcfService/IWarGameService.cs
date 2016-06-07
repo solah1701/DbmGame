@@ -25,9 +25,9 @@ namespace GameCore.WcfService
         [OperationContract]
         void DeleteUser(string username);
 
-        [WebGet(UriTemplate = "users/{username}/profile")]
-        [OperationContract]
-        UserProfile GetUserProfile(string username);
+        //[WebGet(UriTemplate = "users/{username}/profile")]
+        //[OperationContract]
+        //UserProfile GetUserProfile(string username);
         #endregion
 
         #region Battle
@@ -246,23 +246,23 @@ namespace GameCore.WcfService
         public Uri BattlesLink { get; set; }
     }
 
-    public class UserProfile
-    {
-        public UserProfile(User user)
-        {
-            IdLink = user.IdLink;
-            Id = user.Id;
-            Name = user.Name;
-            ArmiesLink = user.ArmiesLink;
-            BattlesLink = user.BattlesLink;
-        }
+    //public class UserProfile
+    //{
+    //    public UserProfile(User user)
+    //    {
+    //        IdLink = user.IdLink;
+    //        Id = user.Id;
+    //        Name = user.Name;
+    //        ArmiesLink = user.ArmiesLink;
+    //        BattlesLink = user.BattlesLink;
+    //    }
 
-        public Uri IdLink { get; set; }
-        public string Id { get; set; }
-        public string Name { get; set; }
-        public Uri ArmiesLink { get; set; }
-        public Uri BattlesLink { get; set; }
-    }
+    //    public Uri IdLink { get; set; }
+    //    public string Id { get; set; }
+    //    public string Name { get; set; }
+    //    public Uri ArmiesLink { get; set; }
+    //    public Uri BattlesLink { get; set; }
+    //}
 
     public class Army
     {

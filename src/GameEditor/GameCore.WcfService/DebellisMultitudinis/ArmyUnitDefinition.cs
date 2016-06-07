@@ -5,7 +5,7 @@ using GameCore.DebellisMultitudinis.Enumerations;
 namespace GameCore.WcfService.DebellisMultitudinis
 {
     [Table("ArmyUnitDefinition")]
-    public class ArmyUnitDefinition
+    public class ArmyListUnitDefinition
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ArmyUnitDefinitionId { get; set; }

@@ -1,5 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using GameCore.WcfService.DebellisMultitudinis;
+using GameCore.WcfService.Exceptions;
 
 namespace GameCore.WcfService.Helpers
 {
@@ -11,8 +14,17 @@ namespace GameCore.WcfService.Helpers
         private Dictionary<string, ArmyGroup> ArmyGroups { get; set; }
         private Dictionary<string, Unit> Units { get; set; }
         private Dictionary<string, Battle> Battles { get; set; }
-        private Dictionary<string, ArmyDefinition> ArmyDefinitions { get; set; } 
-        private Dictionary<string, ArmyUnitDefinition> ArmyUnitDefinitions { get; set; } 
+        private Dictionary<string, ArmyDefinition> ArmyDefinitions { get; set; }
+        private Dictionary<string, ArmyUnitDefinition> ArmyUnitDefinitions { get; set; }
+
+        private IDbmModel _model;
+
+        public WarGameModel() : this(new DbmModel()) { }
+
+        public WarGameModel(IDbmModel model)
+        {
+            _model = model;
+        }
 
         public User FindUser(string username)
         {
@@ -211,62 +223,87 @@ namespace GameCore.WcfService.Helpers
 
         public ArmyDefinition FindArmyDefinition(string id)
         {
-            throw new System.NotImplementedException();
+            if (!ArmyDefinitionsContainsKey(id)) throw new RecordNotFoundException($"ArmyDefinition with id = {id} does not exist");
+            var definition = _model.ArmyListDefinitions.First(ald => ald.ArmyListDefinitionId.ToString() == id);
+            return definition.GetArmyDefinition();
         }
 
         public ArmyDefinitions FindArmyDefinitions()
         {
-            throw new System.NotImplementedException();
+            var definitions = _model.ArmyListDefinitions.ToList();
+            return definitions.GetArmyDefinitions();
         }
 
         public bool ArmyDefinitionsContainsKey(string id)
         {
-            throw new System.NotImplementedException();
+            int localId;
+            if (int.TryParse(id, out localId))
+                return _model.ArmyListDefinitions.Any(ald => ald.ArmyListDefinitionId == localId);
+            throw new InvalidCastException($"parameter id = {id} does not cast to an integer type");
         }
 
         public void SetArmyDefinition(string id, ArmyDefinition armyDefinition)
         {
-            throw new System.NotImplementedException();
+            if (!ArmyDefinitionsContainsKey(id)) throw new RecordNotFoundException($"ArmyDefinition with id = {id} does not exist");
+            _model.ArmyListDefinitions.Find(int.Parse(id)).SetArmyListDefinition(armyDefinition);
+            _model.SaveDbChanges();
         }
 
         public void ArmyDefinitionsAdd(string id, ArmyDefinition armyDefinition)
         {
-            throw new System.NotImplementedException();
+            if (ArmyCommandsContainsKey(armyDefinition.Id)) throw new PrimaryKeyViolationException($"ArmyDefinition with id = {armyDefinition.Id} already exists");
+            _model.ArmyListDefinitions.Add(armyDefinition.GetArmyListDefinition());
+            _model.SaveDbChanges();
         }
 
         public void ArmyDefinitionsRemove(string id)
         {
-            throw new System.NotImplementedException();
+            var definition = FindArmyDefinition(id);
+            _model.ArmyListDefinitions.Remove(definition.GetArmyListDefinition());
+            _model.SaveDbChanges();
         }
 
         public ArmyUnitDefinition FindArmyUnitDefinition(string id, string armyDefinitionId)
         {
-            throw new System.NotImplementedException();
+            if (!ArmyUnitDefinitionsContainsKey(id)) throw new RecordNotFoundException($"ArmyUnitDefinition with id = {id} does not exist");
+            var definition = _model.ArmyUnitDefinitions.First(ald => ald.ArmyUnitDefinitionId.ToString() == id && ald.ArmyListDefinition.ArmyListDefinitionId.ToString() == armyDefinitionId);
+            return definition.GetArmyUnitDefinition();
         }
 
         public ArmyUnitDefinitions FindArmyUnitDefinitions(string armyDefinitionId)
         {
-            throw new System.NotImplementedException();
+            var definitions = _model.ArmyUnitDefinitions.Where(aud => aud.ArmyListDefinition.ArmyListDefinitionId.ToString() == armyDefinitionId).ToList();
+            return definitions.GetArmyUnitDefinitions();
         }
 
         public bool ArmyUnitDefinitionsContainsKey(string id)
         {
-            throw new System.NotImplementedException();
+            int localId;
+            if (int.TryParse(id, out localId))
+                return _model.ArmyUnitDefinitions.Any(ald => ald.ArmyUnitDefinitionId == localId);
+            throw new InvalidCastException($"parameter id = {id} does not cast to an integer type");
         }
 
-        public void SetArmyUnitDefinition(string id, ArmyDefinition armyDefinition)
+        public void SetArmyUnitDefinition(string id, ArmyUnitDefinition armyUnitDefinition)
         {
-            throw new System.NotImplementedException();
+            if (!ArmyUnitDefinitionsContainsKey(id)) throw new RecordNotFoundException($"ArmyUnitDefinition with id = {id} does not exist");
+            _model.ArmyUnitDefinitions.Find(int.Parse(id)).SetArmyListUnitDefinition(armyUnitDefinition);
+            _model.SaveDbChanges();
         }
 
-        public void ArmyUnitDefinitionsAdd(string id, ArmyDefinition armyDefinition)
+        public void ArmyUnitDefinitionsAdd(string id, ArmyUnitDefinition armyUnitDefinition)
         {
-            throw new System.NotImplementedException();
+            if (ArmyUnitDefinitionsContainsKey(armyUnitDefinition.Id)) throw new PrimaryKeyViolationException($"ArmyUnitDefinition with id = {armyUnitDefinition.Id} already exists");
+            _model.ArmyUnitDefinitions.Add(armyUnitDefinition.GetArmyUnitDefinition());
+            _model.SaveDbChanges();
         }
 
         public void ArmyUnitDefinitionsRemove(string id)
         {
-            throw new System.NotImplementedException();
+            if (!ArmyUnitDefinitionsContainsKey(id)) throw new RecordNotFoundException($"ArmyUnitDefinition with id = {id} does not exist");
+            var definition = _model.ArmyUnitDefinitions.First(ald => ald.ArmyUnitDefinitionId.ToString() == id);
+            _model.ArmyUnitDefinitions.Remove(definition);
+            _model.SaveDbChanges();
         }
     }
 }

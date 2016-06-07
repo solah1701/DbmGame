@@ -207,7 +207,25 @@ namespace GameCore.WcfService
 
     public class ArmyUnitDefinition
     {
+        public Uri IdLink { get; set; }
+        public string Id { get; set; }
+        public string UnitName { get; set; }
+        public decimal? Cost { get; set; }
+        public bool IsGeneral { get; set; }
+        public bool IsChariot { get; set; }
+        public bool IsMountedInfantry { get; set; }
+        public bool IsAlly { get; set; }
+        public bool IsDoubleElement { get; set; }
+        public int MinCount { get; set; }
+        public int MaxCount { get; set; }
+        public int MinYear { get; set; }
+        public int MaxYear { get; set; }
+        //public DisciplineTypeEnum DisciplineType { get; set; }
+        //public UnitTypeEnum UnitType { get; set; }
+        //public GradeTypeEnum GradeType { get; set; }
+        //public DispositionTypeEnum DispositionType { get; set; }
 
+        //public virtual ArmyListDefinition ArmyListDefinition { get; set; }
     }
 
     [CollectionDataContract]

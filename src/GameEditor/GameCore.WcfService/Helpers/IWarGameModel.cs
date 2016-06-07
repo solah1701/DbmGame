@@ -72,8 +72,8 @@ namespace GameCore.WcfService.Helpers
         ArmyUnitDefinition FindArmyUnitDefinition(string id, string armyDefinitionId);
         ArmyUnitDefinitions FindArmyUnitDefinitions(string armyDefinitionId);
         bool ArmyUnitDefinitionsContainsKey(string id);
-        void SetArmyUnitDefinition(string id, ArmyDefinition armyDefinition);
-        void ArmyUnitDefinitionsAdd(string id, ArmyDefinition armyDefinition);
+        void SetArmyUnitDefinition(string id, ArmyUnitDefinition armyUnitDefinition);
+        void ArmyUnitDefinitionsAdd(string id, ArmyUnitDefinition armyUnitDefinition);
         void ArmyUnitDefinitionsRemove(string id);
     }
 }

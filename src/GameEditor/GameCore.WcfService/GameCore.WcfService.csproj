@@ -70,10 +70,14 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="WarGameService.svc" />
     <Content Include="Service1.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="WarGameService.svc.cs">
+      <DependentUpon>WarGameService.svc</DependentUpon>
+    </Compile>
     <Compile Include="DebellisMultitudinis\Army.cs" />
     <Compile Include="DebellisMultitudinis\ArmyCommand.cs" />
     <Compile Include="DebellisMultitudinis\ArmyCommandGroup.cs" />
@@ -90,6 +94,7 @@
     <Compile Include="DebellisMultitudinis\Enumerations\GradeTypeEnum.cs" />
     <Compile Include="DebellisMultitudinis\Enumerations\TerrainGoingEnum.cs" />
     <Compile Include="DebellisMultitudinis\Enumerations\UnitTypeEnum.cs" />
+    <Compile Include="IWarGameService.cs" />
     <Compile Include="Migrations\201606051011560_Initial.cs" />
     <Compile Include="Migrations\201606051011560_Initial.Designer.cs">
       <DependentUpon>201606051011560_Initial.cs</DependentUpon>
@@ -125,9 +130,12 @@
     <Compile Include="IService1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DebellisMultitudinis\User.cs" />
+    <Compile Include="Helpers\IWarGameModel.cs" />
+    <Compile Include="Helpers\WarGameModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Temp\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

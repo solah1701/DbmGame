@@ -77,6 +77,8 @@
     <Compile Include="DebellisMultitudinis\Army.cs" />
     <Compile Include="DebellisMultitudinis\ArmyCommand.cs" />
     <Compile Include="DebellisMultitudinis\ArmyCommandGroup.cs" />
+    <Compile Include="DebellisMultitudinis\ArmyListDefinition.cs" />
+    <Compile Include="DebellisMultitudinis\ArmyUnitDefinition.cs" />
     <Compile Include="DebellisMultitudinis\ArmyUnit.cs" />
     <Compile Include="DebellisMultitudinis\Battle.cs" />
     <Compile Include="DebellisMultitudinis\DbmGame.cs" />
@@ -99,6 +101,14 @@
     <Compile Include="Migrations\201606070025594_CleanUpReferences.cs" />
     <Compile Include="Migrations\201606070025594_CleanUpReferences.Designer.cs">
       <DependentUpon>201606070025594_CleanUpReferences.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606070305150_Enumerations.cs" />
+    <Compile Include="Migrations\201606070305150_Enumerations.Designer.cs">
+      <DependentUpon>201606070305150_Enumerations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606070335187_DBM_ArmyLists.cs" />
+    <Compile Include="Migrations\201606070335187_DBM_ArmyLists.Designer.cs">
+      <DependentUpon>201606070335187_DBM_ArmyLists.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Service1.svc.cs">
@@ -129,6 +139,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201606070025594_CleanUpReferences.resx">
       <DependentUpon>201606070025594_CleanUpReferences.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606070305150_Enumerations.resx">
+      <DependentUpon>201606070305150_Enumerations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606070335187_DBM_ArmyLists.resx">
+      <DependentUpon>201606070335187_DBM_ArmyLists.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -4,7 +4,7 @@ using GameEditor.Wcf.Harness.Vews;
 
 namespace GameEditor.Wcf.Harness
 {
-    public partial class ArmyListControl : UserControl, IArmyListView
+    public partial class ArmyListControl : UserControl, IArmyDetailView
     {
         public ArmyListControl()
         {

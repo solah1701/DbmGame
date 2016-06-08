@@ -192,12 +192,13 @@ namespace GameCore.WcfService
     public class ArmyDefinition
     {
         public Uri IdLink { get; set; }
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string ArmyName { get; set; }
-        public string ArmyBook { get; set; }
-        public string ArmyList { get; set; }
+        public int ArmyBook { get; set; }
+        public int ArmyList { get; set; }
         public int MinYear { get; set; }
         public int MaxYear { get; set; }
+        public string Notes { get; set; }
     }
 
     [CollectionDataContract]

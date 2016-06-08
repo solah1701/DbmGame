@@ -560,7 +560,7 @@ namespace GameCore.WcfService
 
         public ArmyDefinition GetArmyDefinition(string id)
         {
-            var armyDefinition = _db.ArmyListDefinitions.Find(id).GetArmyDefinition();
+            var armyDefinition = _db.ArmyListDefinitions.Find(int.Parse(id)).GetArmyDefinition();
             if (armyDefinition == null)
             {
                 SetStatusNotFound();

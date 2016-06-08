@@ -54,6 +54,7 @@
     <Compile Include="ArmyListControl.Designer.cs">
       <DependentUpon>ArmyListControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\ArmyDetailController.cs" />
     <Compile Include="Controllers\ArmyListController.cs" />
     <Compile Include="DbmArmyListEditor.cs">
       <SubType>Form</SubType>
@@ -67,6 +68,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\ArmyDefinitionsExtension.cs" />
     <Compile Include="Helpers\InvokeHelper.cs" />
     <Compile Include="Models\GameModel.cs" />
     <Compile Include="Models\IGameModel.cs" />
@@ -77,6 +79,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Vews\IArmyDetailView.cs" />
     <Compile Include="Vews\IArmyListView.cs" />
     <EmbeddedResource Include="ArmyListControl.resx">
       <DependentUpon>ArmyListControl.cs</DependentUpon>

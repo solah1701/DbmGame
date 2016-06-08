@@ -18,33 +18,10 @@ namespace GameEditor.Wcf.Harness.Controllers
             _model = model;
         }
 
-        public void AddList()
+        public void PopulateList()
         {
-            var definition = new ArmyDefinition
-            {
-                ArmyName = _view.ArmyName,
-                ArmyBook = _view.ArmyBook.ToString(),
-                ArmyList = _view.ArmyList.ToString(),
-                MinYear = _view.MinYear,
-                MaxYear = _view.MaxYear
-            };
-            _model.AddArmyDefinition(definition);
-        }
-
-        public void DeleteList()
-        {
-
-        }
-
-        public void SelectList(int id)
-        {
-            var item = _model.GetArmyDefinition(id.ToString());
-            _view.ArmyId = int.Parse(item.Id);
-            _view.ArmyName = item.ArmyName;
-            _view.ArmyBook = int.Parse(item.ArmyBook);
-            _view.ArmyList = int.Parse(item.ArmyList);
-            _view.MinYear = item.MinYear;
-            _view.MaxYear = item.MaxYear;
+            var items = _model.GetArmyDefinitions();
+            _view.ArmyDefinitions = items;
         }
     }
 }

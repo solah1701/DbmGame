@@ -1,12 +1,9 @@
-﻿namespace GameEditor.Wcf.Harness.Vews
+﻿using GameEditor.Wcf.Harness.WarGameServiceReference;
+
+namespace GameEditor.Wcf.Harness.Vews
 {
     public interface IArmyListView
     {
-        int ArmyId { get; set; } 
-        string ArmyName { get; set; }
-        int ArmyBook { get; set; }
-        int ArmyList { get; set; }
-        int MinYear { get; set; }
-        int MaxYear { get; set; }
+         ArmyDefinitions ArmyDefinitions { set; }
     }
 }

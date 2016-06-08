@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using GameCore.WcfService.DebellisMultitudinis;
 
@@ -18,12 +17,13 @@ namespace GameCore.WcfService.Helpers
         {
             return new ArmyDefinition
             {
-                Id = definition.ArmyListDefinitionId.ToString(),
+                Id = definition.ArmyListDefinitionId,
                 ArmyName = definition.Name,
-                ArmyBook = definition.Book.ToString(),
-                ArmyList = definition.List.ToString(),
+                ArmyBook = definition.Book,
+                ArmyList = definition.List,
                 MinYear = definition.MinYear,
-                MaxYear = definition.MaxYear
+                MaxYear = definition.MaxYear,
+                Notes = definition.Notes
             };
         }
 
@@ -31,23 +31,25 @@ namespace GameCore.WcfService.Helpers
         {
             return new ArmyListDefinition
             {
-                ArmyListDefinitionId = definition.Id == null ? 0 : int.Parse(definition.Id),
+                ArmyListDefinitionId = definition.Id,
                 Name = definition.ArmyName,
-                Book = int.Parse(definition.ArmyBook),
-                List = int.Parse(definition.ArmyList),
+                Book = definition.ArmyBook,
+                List = definition.ArmyList,
                 MinYear = definition.MinYear,
-                MaxYear = definition.MaxYear
+                MaxYear = definition.MaxYear,
+                Notes = definition.Notes
             };
         }
 
         public static void SetArmyListDefinition(this ArmyListDefinition definition, ArmyDefinition item)
         {
-            definition.ArmyListDefinitionId = int.Parse(item.Id);
+            definition.ArmyListDefinitionId = item.Id;
             definition.Name = item.ArmyName;
-            definition.Book = int.Parse(item.ArmyBook);
-            definition.List = int.Parse(item.ArmyList);
+            definition.Book = item.ArmyBook;
+            definition.List = item.ArmyList;
             definition.MinYear = item.MinYear;
             definition.MaxYear = item.MaxYear;
+            definition.Notes = item.Notes;
         }
     }
 }

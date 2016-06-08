@@ -40,6 +40,7 @@
             // 
             // listView1
             // 
+            this.listView1.Activation = System.Windows.Forms.ItemActivation.OneClick;
             this.listView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -48,6 +49,7 @@
             this.Book,
             this.List});
             this.listView1.Location = new System.Drawing.Point(12, 12);
+            this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(373, 481);
             this.listView1.TabIndex = 0;
@@ -100,6 +102,7 @@
             this.armyListControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.armyListControl1.ArmyName = "";
             this.armyListControl1.Location = new System.Drawing.Point(391, 12);
             this.armyListControl1.Name = "armyListControl1";
             this.armyListControl1.Size = new System.Drawing.Size(473, 491);

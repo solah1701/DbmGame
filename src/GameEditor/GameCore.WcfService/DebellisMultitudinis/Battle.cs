@@ -8,6 +8,7 @@ namespace GameCore.WcfService.DebellisMultitudinis
     public class Battle
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Key]
         public int BattleId { get; set; }
 
         [StringLength(255)]

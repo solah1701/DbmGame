@@ -1,0 +1,742 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="WarGameService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:52965/WarGameService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:52965/WarGameService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:52965/WarGameService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/GameCore.WcfService" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IWarGameService_GetUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUser" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_GetUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_PutUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:PutUser" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_PutUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PutUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_DeleteUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUser" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_DeleteUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_GetBattle_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBattle" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_GetBattle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBattleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_PostBattle_InputMessage">
+    <wsdl:part name="parameters" element="tns:PostBattle" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_PostBattle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PostBattleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_PutBattle_InputMessage">
+    <wsdl:part name="parameters" element="tns:PutBattle" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_PutBattle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PutBattleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_DeleteBattle_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBattle" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_DeleteBattle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBattleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_GetUserArmies_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserArmies" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_GetUserArmies_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserArmiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_GetArmy_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetArmy" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_GetArmy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetArmyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_PostArmy_InputMessage">
+    <wsdl:part name="parameters" element="tns:PostArmy" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_PostArmy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PostArmyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_PutArmy_InputMessage">
+    <wsdl:part name="parameters" element="tns:PutArmy" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_PutArmy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PutArmyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_DeleteArmy_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteArmy" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_DeleteArmy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteArmyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_GetUserArmyCommands_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserArmyCommands" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_GetUserArmyCommands_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserArmyCommandsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_GetArmyCommand_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetArmyCommand" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_GetArmyCommand_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetArmyCommandResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_PostArmyCommand_InputMessage">
+    <wsdl:part name="parameters" element="tns:PostArmyCommand" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_PostArmyCommand_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PostArmyCommandResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_PutArmyCommand_InputMessage">
+    <wsdl:part name="parameters" element="tns:PutArmyCommand" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_PutArmyCommand_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PutArmyCommandResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_DeleteArmyCommand_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteArmyCommand" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_DeleteArmyCommand_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteArmyCommandResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_GetUserArmyGroups_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserArmyGroups" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_GetUserArmyGroups_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserArmyGroupsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_GetArmyGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetArmyGroup" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_GetArmyGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetArmyGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_PostArmyGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:PostArmyGroup" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_PostArmyGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PostArmyGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_PutArmyGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:PutArmyGroup" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_PutArmyGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PutArmyGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_DeleteArmyGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteArmyGroup" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_DeleteArmyGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteArmyGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_GetUserArmyUnits_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserArmyUnits" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_GetUserArmyUnits_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserArmyUnitsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_GetUserArmyGroupUnits_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserArmyGroupUnits" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_GetUserArmyGroupUnits_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserArmyGroupUnitsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_GetArmyUnit_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetArmyUnit" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_GetArmyUnit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetArmyUnitResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_PostArmyUnit_InputMessage">
+    <wsdl:part name="parameters" element="tns:PostArmyUnit" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_PostArmyUnit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PostArmyUnitResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_PutArmyUnit_InputMessage">
+    <wsdl:part name="parameters" element="tns:PutArmyUnit" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_PutArmyUnit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PutArmyUnitResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_DeleteArmyUnit_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteArmyUnit" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_DeleteArmyUnit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteArmyUnitResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_GetArmyDefinitions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetArmyDefinitions" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_GetArmyDefinitions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetArmyDefinitionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_GetArmyDefinition_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetArmyDefinition" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_GetArmyDefinition_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetArmyDefinitionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_PostArmyDefinition_InputMessage">
+    <wsdl:part name="parameters" element="tns:PostArmyDefinition" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_PostArmyDefinition_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PostArmyDefinitionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_PutArmyDefinition_InputMessage">
+    <wsdl:part name="parameters" element="tns:PutArmyDefinition" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_PutArmyDefinition_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PutArmyDefinitionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_DeleteArmyDefinition_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteArmyDefinition" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_DeleteArmyDefinition_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteArmyDefinitionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_GetArmyUnitDefinitions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetArmyUnitDefinitions" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_GetArmyUnitDefinitions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetArmyUnitDefinitionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_GetArmyUnitDefinition_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetArmyUnitDefinition" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_GetArmyUnitDefinition_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetArmyUnitDefinitionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_PostArmyUnitDefinition_InputMessage">
+    <wsdl:part name="parameters" element="tns:PostArmyUnitDefinition" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_PostArmyUnitDefinition_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PostArmyUnitDefinitionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_PutArmyUnitDefinition_InputMessage">
+    <wsdl:part name="parameters" element="tns:PutArmyUnitDefinition" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_PutArmyUnitDefinition_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PutArmyUnitDefinitionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_DeleteArmyUnitDefinition_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteArmyUnitDefinition" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_DeleteArmyUnitDefinition_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteArmyUnitDefinitionResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IWarGameService">
+    <wsdl:operation name="GetUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWarGameService/GetUser" message="tns:IWarGameService_GetUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWarGameService/GetUserResponse" message="tns:IWarGameService_GetUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PutUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWarGameService/PutUser" message="tns:IWarGameService_PutUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWarGameService/PutUserResponse" message="tns:IWarGameService_PutUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWarGameService/DeleteUser" message="tns:IWarGameService_DeleteUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWarGameService/DeleteUserResponse" message="tns:IWarGameService_DeleteUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBattle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWarGameService/GetBattle" message="tns:IWarGameService_GetBattle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWarGameService/GetBattleResponse" message="tns:IWarGameService_GetBattle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PostBattle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWarGameService/PostBattle" message="tns:IWarGameService_PostBattle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWarGameService/PostBattleResponse" message="tns:IWarGameService_PostBattle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PutBattle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWarGameService/PutBattle" message="tns:IWarGameService_PutBattle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWarGameService/PutBattleResponse" message="tns:IWarGameService_PutBattle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBattle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWarGameService/DeleteBattle" message="tns:IWarGameService_DeleteBattle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWarGameService/DeleteBattleResponse" message="tns:IWarGameService_DeleteBattle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserArmies">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWarGameService/GetUserArmies" message="tns:IWarGameService_GetUserArmies_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWarGameService/GetUserArmiesResponse" message="tns:IWarGameService_GetUserArmies_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetArmy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWarGameService/GetArmy" message="tns:IWarGameService_GetArmy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWarGameService/GetArmyResponse" message="tns:IWarGameService_GetArmy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PostArmy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWarGameService/PostArmy" message="tns:IWarGameService_PostArmy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWarGameService/PostArmyResponse" message="tns:IWarGameService_PostArmy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PutArmy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWarGameService/PutArmy" message="tns:IWarGameService_PutArmy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWarGameService/PutArmyResponse" message="tns:IWarGameService_PutArmy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteArmy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWarGameService/DeleteArmy" message="tns:IWarGameService_DeleteArmy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWarGameService/DeleteArmyResponse" message="tns:IWarGameService_DeleteArmy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserArmyCommands">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWarGameService/GetUserArmyCommands" message="tns:IWarGameService_GetUserArmyCommands_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWarGameService/GetUserArmyCommandsResponse" message="tns:IWarGameService_GetUserArmyCommands_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetArmyCommand">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWarGameService/GetArmyCommand" message="tns:IWarGameService_GetArmyCommand_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWarGameService/GetArmyCommandResponse" message="tns:IWarGameService_GetArmyCommand_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PostArmyCommand">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWarGameService/PostArmyCommand" message="tns:IWarGameService_PostArmyCommand_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWarGameService/PostArmyCommandResponse" message="tns:IWarGameService_PostArmyCommand_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PutArmyCommand">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWarGameService/PutArmyCommand" message="tns:IWarGameService_PutArmyCommand_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWarGameService/PutArmyCommandResponse" message="tns:IWarGameService_PutArmyCommand_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteArmyCommand">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWarGameService/DeleteArmyCommand" message="tns:IWarGameService_DeleteArmyCommand_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWarGameService/DeleteArmyCommandResponse" message="tns:IWarGameService_DeleteArmyCommand_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserArmyGroups">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWarGameService/GetUserArmyGroups" message="tns:IWarGameService_GetUserArmyGroups_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWarGameService/GetUserArmyGroupsResponse" message="tns:IWarGameService_GetUserArmyGroups_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetArmyGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWarGameService/GetArmyGroup" message="tns:IWarGameService_GetArmyGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWarGameService/GetArmyGroupResponse" message="tns:IWarGameService_GetArmyGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PostArmyGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWarGameService/PostArmyGroup" message="tns:IWarGameService_PostArmyGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWarGameService/PostArmyGroupResponse" message="tns:IWarGameService_PostArmyGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PutArmyGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWarGameService/PutArmyGroup" message="tns:IWarGameService_PutArmyGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWarGameService/PutArmyGroupResponse" message="tns:IWarGameService_PutArmyGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteArmyGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWarGameService/DeleteArmyGroup" message="tns:IWarGameService_DeleteArmyGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWarGameService/DeleteArmyGroupResponse" message="tns:IWarGameService_DeleteArmyGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserArmyUnits">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWarGameService/GetUserArmyUnits" message="tns:IWarGameService_GetUserArmyUnits_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWarGameService/GetUserArmyUnitsResponse" message="tns:IWarGameService_GetUserArmyUnits_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserArmyGroupUnits">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWarGameService/GetUserArmyGroupUnits" message="tns:IWarGameService_GetUserArmyGroupUnits_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWarGameService/GetUserArmyGroupUnitsResponse" message="tns:IWarGameService_GetUserArmyGroupUnits_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetArmyUnit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWarGameService/GetArmyUnit" message="tns:IWarGameService_GetArmyUnit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWarGameService/GetArmyUnitResponse" message="tns:IWarGameService_GetArmyUnit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PostArmyUnit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWarGameService/PostArmyUnit" message="tns:IWarGameService_PostArmyUnit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWarGameService/PostArmyUnitResponse" message="tns:IWarGameService_PostArmyUnit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PutArmyUnit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWarGameService/PutArmyUnit" message="tns:IWarGameService_PutArmyUnit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWarGameService/PutArmyUnitResponse" message="tns:IWarGameService_PutArmyUnit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteArmyUnit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWarGameService/DeleteArmyUnit" message="tns:IWarGameService_DeleteArmyUnit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWarGameService/DeleteArmyUnitResponse" message="tns:IWarGameService_DeleteArmyUnit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetArmyDefinitions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWarGameService/GetArmyDefinitions" message="tns:IWarGameService_GetArmyDefinitions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWarGameService/GetArmyDefinitionsResponse" message="tns:IWarGameService_GetArmyDefinitions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetArmyDefinition">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWarGameService/GetArmyDefinition" message="tns:IWarGameService_GetArmyDefinition_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWarGameService/GetArmyDefinitionResponse" message="tns:IWarGameService_GetArmyDefinition_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PostArmyDefinition">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWarGameService/PostArmyDefinition" message="tns:IWarGameService_PostArmyDefinition_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWarGameService/PostArmyDefinitionResponse" message="tns:IWarGameService_PostArmyDefinition_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PutArmyDefinition">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWarGameService/PutArmyDefinition" message="tns:IWarGameService_PutArmyDefinition_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWarGameService/PutArmyDefinitionResponse" message="tns:IWarGameService_PutArmyDefinition_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteArmyDefinition">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWarGameService/DeleteArmyDefinition" message="tns:IWarGameService_DeleteArmyDefinition_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWarGameService/DeleteArmyDefinitionResponse" message="tns:IWarGameService_DeleteArmyDefinition_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetArmyUnitDefinitions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWarGameService/GetArmyUnitDefinitions" message="tns:IWarGameService_GetArmyUnitDefinitions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWarGameService/GetArmyUnitDefinitionsResponse" message="tns:IWarGameService_GetArmyUnitDefinitions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetArmyUnitDefinition">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWarGameService/GetArmyUnitDefinition" message="tns:IWarGameService_GetArmyUnitDefinition_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWarGameService/GetArmyUnitDefinitionResponse" message="tns:IWarGameService_GetArmyUnitDefinition_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PostArmyUnitDefinition">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWarGameService/PostArmyUnitDefinition" message="tns:IWarGameService_PostArmyUnitDefinition_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWarGameService/PostArmyUnitDefinitionResponse" message="tns:IWarGameService_PostArmyUnitDefinition_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PutArmyUnitDefinition">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWarGameService/PutArmyUnitDefinition" message="tns:IWarGameService_PutArmyUnitDefinition_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWarGameService/PutArmyUnitDefinitionResponse" message="tns:IWarGameService_PutArmyUnitDefinition_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteArmyUnitDefinition">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWarGameService/DeleteArmyUnitDefinition" message="tns:IWarGameService_DeleteArmyUnitDefinition_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWarGameService/DeleteArmyUnitDefinitionResponse" message="tns:IWarGameService_DeleteArmyUnitDefinition_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IWarGameService" type="tns:IWarGameService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetUser">
+      <soap:operation soapAction="http://tempuri.org/IWarGameService/GetUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PutUser">
+      <soap:operation soapAction="http://tempuri.org/IWarGameService/PutUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <soap:operation soapAction="http://tempuri.org/IWarGameService/DeleteUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBattle">
+      <soap:operation soapAction="http://tempuri.org/IWarGameService/GetBattle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostBattle">
+      <soap:operation soapAction="http://tempuri.org/IWarGameService/PostBattle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PutBattle">
+      <soap:operation soapAction="http://tempuri.org/IWarGameService/PutBattle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBattle">
+      <soap:operation soapAction="http://tempuri.org/IWarGameService/DeleteBattle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserArmies">
+      <soap:operation soapAction="http://tempuri.org/IWarGameService/GetUserArmies" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetArmy">
+      <soap:operation soapAction="http://tempuri.org/IWarGameService/GetArmy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostArmy">
+      <soap:operation soapAction="http://tempuri.org/IWarGameService/PostArmy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PutArmy">
+      <soap:operation soapAction="http://tempuri.org/IWarGameService/PutArmy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteArmy">
+      <soap:operation soapAction="http://tempuri.org/IWarGameService/DeleteArmy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserArmyCommands">
+      <soap:operation soapAction="http://tempuri.org/IWarGameService/GetUserArmyCommands" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetArmyCommand">
+      <soap:operation soapAction="http://tempuri.org/IWarGameService/GetArmyCommand" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostArmyCommand">
+      <soap:operation soapAction="http://tempuri.org/IWarGameService/PostArmyCommand" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PutArmyCommand">
+      <soap:operation soapAction="http://tempuri.org/IWarGameService/PutArmyCommand" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteArmyCommand">
+      <soap:operation soapAction="http://tempuri.org/IWarGameService/DeleteArmyCommand" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserArmyGroups">
+      <soap:operation soapAction="http://tempuri.org/IWarGameService/GetUserArmyGroups" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetArmyGroup">
+      <soap:operation soapAction="http://tempuri.org/IWarGameService/GetArmyGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostArmyGroup">
+      <soap:operation soapAction="http://tempuri.org/IWarGameService/PostArmyGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PutArmyGroup">
+      <soap:operation soapAction="http://tempuri.org/IWarGameService/PutArmyGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteArmyGroup">
+      <soap:operation soapAction="http://tempuri.org/IWarGameService/DeleteArmyGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserArmyUnits">
+      <soap:operation soapAction="http://tempuri.org/IWarGameService/GetUserArmyUnits" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserArmyGroupUnits">
+      <soap:operation soapAction="http://tempuri.org/IWarGameService/GetUserArmyGroupUnits" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetArmyUnit">
+      <soap:operation soapAction="http://tempuri.org/IWarGameService/GetArmyUnit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostArmyUnit">
+      <soap:operation soapAction="http://tempuri.org/IWarGameService/PostArmyUnit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PutArmyUnit">
+      <soap:operation soapAction="http://tempuri.org/IWarGameService/PutArmyUnit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteArmyUnit">
+      <soap:operation soapAction="http://tempuri.org/IWarGameService/DeleteArmyUnit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetArmyDefinitions">
+      <soap:operation soapAction="http://tempuri.org/IWarGameService/GetArmyDefinitions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetArmyDefinition">
+      <soap:operation soapAction="http://tempuri.org/IWarGameService/GetArmyDefinition" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostArmyDefinition">
+      <soap:operation soapAction="http://tempuri.org/IWarGameService/PostArmyDefinition" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PutArmyDefinition">
+      <soap:operation soapAction="http://tempuri.org/IWarGameService/PutArmyDefinition" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteArmyDefinition">
+      <soap:operation soapAction="http://tempuri.org/IWarGameService/DeleteArmyDefinition" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetArmyUnitDefinitions">
+      <soap:operation soapAction="http://tempuri.org/IWarGameService/GetArmyUnitDefinitions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetArmyUnitDefinition">
+      <soap:operation soapAction="http://tempuri.org/IWarGameService/GetArmyUnitDefinition" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostArmyUnitDefinition">
+      <soap:operation soapAction="http://tempuri.org/IWarGameService/PostArmyUnitDefinition" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PutArmyUnitDefinition">
+      <soap:operation soapAction="http://tempuri.org/IWarGameService/PutArmyUnitDefinition" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteArmyUnitDefinition">
+      <soap:operation soapAction="http://tempuri.org/IWarGameService/DeleteArmyUnitDefinition" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WarGameService">
+    <wsdl:port name="BasicHttpBinding_IWarGameService" binding="tns:BasicHttpBinding_IWarGameService">
+      <soap:address location="http://localhost:52965/WarGameService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

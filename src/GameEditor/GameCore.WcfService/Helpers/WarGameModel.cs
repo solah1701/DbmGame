@@ -236,6 +236,7 @@ namespace GameCore.WcfService.Helpers
 
         public bool ArmyDefinitionsContainsKey(string id)
         {
+            if (id == null) return false;
             int localId;
             if (int.TryParse(id, out localId))
                 return _model.ArmyListDefinitions.Any(ald => ald.ArmyListDefinitionId == localId);
@@ -249,9 +250,9 @@ namespace GameCore.WcfService.Helpers
             _model.SaveDbChanges();
         }
 
-        public void ArmyDefinitionsAdd(string id, ArmyDefinition armyDefinition)
+        public void ArmyDefinitionsAdd(ArmyDefinition armyDefinition)
         {
-            if (ArmyCommandsContainsKey(armyDefinition.Id)) throw new PrimaryKeyViolationException($"ArmyDefinition with id = {armyDefinition.Id} already exists");
+            //if (ArmyCommandsContainsKey(armyDefinition.Id)) throw new PrimaryKeyViolationException($"ArmyDefinition with id = {armyDefinition.Id} already exists");
             _model.ArmyListDefinitions.Add(armyDefinition.GetArmyListDefinition());
             _model.SaveDbChanges();
         }

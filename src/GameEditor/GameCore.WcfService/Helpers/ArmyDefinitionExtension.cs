@@ -21,7 +21,9 @@ namespace GameCore.WcfService.Helpers
                 Id = definition.ArmyListDefinitionId.ToString(),
                 ArmyName = definition.Name,
                 ArmyBook = definition.Book.ToString(),
-                ArmyList = definition.List.ToString()
+                ArmyList = definition.List.ToString(),
+                MinYear = definition.MinYear,
+                MaxYear = definition.MaxYear
             };
         }
 
@@ -29,10 +31,12 @@ namespace GameCore.WcfService.Helpers
         {
             return new ArmyListDefinition
             {
-                ArmyListDefinitionId = int.Parse(definition.Id),
+                ArmyListDefinitionId = definition.Id == null ? 0 : int.Parse(definition.Id),
                 Name = definition.ArmyName,
                 Book = int.Parse(definition.ArmyBook),
-                List = int.Parse(definition.ArmyList)
+                List = int.Parse(definition.ArmyList),
+                MinYear = definition.MinYear,
+                MaxYear = definition.MaxYear
             };
         }
 
@@ -42,6 +46,8 @@ namespace GameCore.WcfService.Helpers
             definition.Name = item.ArmyName;
             definition.Book = int.Parse(item.ArmyBook);
             definition.List = int.Parse(item.ArmyList);
+            definition.MinYear = item.MinYear;
+            definition.MaxYear = item.MaxYear;
         }
     }
 }

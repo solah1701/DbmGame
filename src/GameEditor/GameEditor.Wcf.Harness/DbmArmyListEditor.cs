@@ -17,8 +17,8 @@ namespace GameEditor.Wcf.Harness
 
         public DbmArmyListEditor()
         {
-            _controller = new ArmyListController(armyListControl1);
             InitializeComponent();
+            _controller = new ArmyListController(armyListControl1);
         }
 
         private void AddButton_Click(object sender, EventArgs e)

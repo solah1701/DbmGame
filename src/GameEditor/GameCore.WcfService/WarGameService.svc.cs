@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using GameCore.WcfService.DebellisMultitudinis;
 using GameCore.WcfService.Helpers;
 
 namespace GameCore.WcfService
@@ -17,6 +19,7 @@ namespace GameCore.WcfService
     {
         private readonly IWarGameModel _model;
         private const string Host = "localhost";
+        private DbmModel _db = new DbmModel();
 
         public WarGameService()
         {
@@ -545,52 +548,124 @@ namespace GameCore.WcfService
 
         public ArmyDefinitions GetArmyDefinitions()
         {
-            throw new NotImplementedException();
+            var armyDefinitions = _db.ArmyListDefinitions.ToList().GetArmyDefinitions();
+            if (!armyDefinitions.Any())
+            {
+                SetStatusNotFound();
+                return null;
+            }
+            SetStatusOk();
+            return new ArmyDefinitions(armyDefinitions);
         }
 
         public ArmyDefinition GetArmyDefinition(string id)
         {
-            throw new NotImplementedException();
+            var armyDefinition = _db.ArmyListDefinitions.Find(id).GetArmyDefinition();
+            if (armyDefinition == null)
+            {
+                SetStatusNotFound();
+                return null;
+            }
+            SetStatusOk();
+            return armyDefinition;
         }
 
         public void PostArmyDefinition(ArmyDefinition armyDefinition)
         {
-            throw new NotImplementedException();
+            var armyList = armyDefinition.GetArmyListDefinition();
+            _db.ArmyListDefinitions.Add(armyList);
+            _db.SaveChanges();
+            SetStatusOk();
         }
 
-        public void PutArmyDefinition(string id, ArmyDefinition armyDefinition)
+        public void PutArmyDefinition(ArmyDefinition armyDefinition)
         {
-            throw new NotImplementedException();
+            var armyDef = armyDefinition.GetArmyListDefinition();
+            if (armyDef.ArmyListDefinitionId == 0)
+            {
+                PostArmyDefinition(armyDefinition);
+                return;
+            }
+            _db.ArmyListDefinitions.Attach(armyDef);
+            var entry = _db.Entry(armyDef);
+            entry.State = EntityState.Modified;
+            _db.SaveChanges();
+            SetStatusOk();
         }
 
         public void DeleteArmyDefinition(string id)
         {
-            throw new NotImplementedException();
+            var item = _db.ArmyListDefinitions.Find(id);
+            _db.ArmyListDefinitions.Remove(item);
+            _db.SaveChanges();
+            SetStatusOk();
         }
 
-        public ArmyDefinitions GetArmyUnitDefinitions(string armyDefinitionId)
+        public ArmyUnitDefinitions GetArmyUnitDefinitions(string armyDefinitionId)
         {
-            throw new NotImplementedException();
+            var armyUnitDefinitions = _model.FindArmyUnitDefinitions(armyDefinitionId);
+            if (armyUnitDefinitions != null && !armyUnitDefinitions.Any())
+            {
+                SetStatusNotFound();
+                return null;
+            }
+            SetStatusOk();
+            return new ArmyUnitDefinitions(armyUnitDefinitions);
         }
 
-        public ArmyDefinition GetArmyUnitDefinition(string armyDefinitionId, string id)
+        public ArmyUnitDefinition GetArmyUnitDefinition(string armyDefinitionId, string id)
         {
-            throw new NotImplementedException();
+            var armyUnitDefinitions = _model.FindArmyUnitDefinition(id, armyDefinitionId);
+            if (armyUnitDefinitions == null)
+            {
+                SetStatusNotFound();
+                return null;
+            }
+            SetStatusOk();
+            return armyUnitDefinitions;
         }
 
-        public void PostArmyUnitDefinition(string armyDefinitionId, ArmyDefinition armyDefinition)
+        public void PostArmyUnitDefinition(string armyDefinitionId, ArmyUnitDefinition armyUnitDefinition)
         {
-            throw new NotImplementedException();
+            var armyDef = _model.FindArmyUnitDefinition(armyUnitDefinition.Id, armyDefinitionId);
+            var armyDefLink = GetArmyUnitDefinitionLink(armyDefinitionId, armyUnitDefinition.Id);
+            if (armyDef == null) SetStatusCreated(armyDefLink);
+            armyUnitDefinition.IdLink = armyDefLink;
+            if (_model.ArmyUnitDefinitionsContainsKey(armyUnitDefinition.Id)) _model.SetArmyUnitDefinition(armyUnitDefinition.Id, armyDef);
+            else _model.ArmyUnitDefinitionsAdd(armyUnitDefinition.Id, armyDef);
+            SetStatusOk();
         }
 
-        public void PutArmyUnitDefinition(string armyDefinitionId, string id, ArmyDefinition armyDefinition)
+        public void PutArmyUnitDefinition(string armyDefinitionId, string id, ArmyUnitDefinition armyUnitDefinition)
         {
-            throw new NotImplementedException();
+            var armyDef = _model.FindArmyUnitDefinition(armyUnitDefinition.Id, armyDefinitionId);
+            var armyDefLink = GetArmyUnitDefinitionLink(armyDefinitionId, armyUnitDefinition.Id);
+            if (armyDef == null)
+            {
+                SetStatusNotFound();
+                return;
+            }
+            armyUnitDefinition.IdLink = armyDefLink;
+            if (_model.ArmyUnitDefinitionsContainsKey(armyUnitDefinition.Id))
+                _model.SetArmyUnitDefinition(armyUnitDefinition.Id, armyDef);
+            else
+            {
+                SetStatusNotFound();
+                return;
+            }
+            SetStatusOk();
         }
 
         public void DeleteArmyUnitDefinition(string armyDefinitionId, string id)
         {
-            throw new NotImplementedException();
+            var armyDef = _model.FindArmyUnitDefinition(id, armyDefinitionId);
+            if (armyDef == null)
+            {
+                SetStatusNotFound();
+                return;
+            }
+            _model.ArmyUnitDefinitionsRemove(id);
+            SetStatusOk();
         }
 
         private bool IsUserAuthorized(string username)
@@ -643,6 +718,16 @@ namespace GameCore.WcfService
         private static Uri GetUnitLink(string username, string armyid, string armycommandsid, string id)
         {
             return new Uri($"http://{Host}/user/{username}/armies/{armyid}/armycommands/{armycommandsid}/armyunit/{id}");
+        }
+
+        private Uri GetArmyDefinitionLink(string id)
+        {
+            return new Uri($"http://{Host}/armydefinitions/{id}");
+        }
+
+        private Uri GetArmyUnitDefinitionLink(string armyDefinitionId, string id)
+        {
+            return new Uri($"http://{Host}/armydefinitions/{armyDefinitionId}/armyunitdefinitions/{id}");
         }
 
         #endregion

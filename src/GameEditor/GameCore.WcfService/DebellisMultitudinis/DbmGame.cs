@@ -8,6 +8,7 @@ namespace GameCore.WcfService.DebellisMultitudinis
     public class DbmGame
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Key]
         public int DbmGameId { get; set; }
         [StringLength(255)]
         public string Name { get; set; }

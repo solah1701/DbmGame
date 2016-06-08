@@ -156,7 +156,7 @@ namespace GameCore.WcfService
 
         [WebInvoke(Method = "PUT", UriTemplate = "ArmyDefinitions/{id}")]
         [OperationContract]
-        void PutArmyDefinition(string id, ArmyDefinition armyDefinition);
+        void PutArmyDefinition(ArmyDefinition armyDefinition);
 
         [WebInvoke(Method = "Delete", UriTemplate = "ArmyDefinitions/{id}")]
         [OperationContract]
@@ -168,19 +168,19 @@ namespace GameCore.WcfService
 
         [WebGet(UriTemplate = "ArmyDefinitions/{armyDefinitionId}/ArmyUnitDefinitions")]
         [OperationContract]
-        ArmyDefinitions GetArmyUnitDefinitions(string armyDefinitionId);
+        ArmyUnitDefinitions GetArmyUnitDefinitions(string armyDefinitionId);
 
         [WebGet(UriTemplate = "ArmyDefinitions/{armyDefinitionId}/ArmyUnitDefinitions/{id}")]
         [OperationContract]
-        ArmyDefinition GetArmyUnitDefinition(string armyDefinitionId, string id);
+        ArmyUnitDefinition GetArmyUnitDefinition(string armyDefinitionId, string id);
 
         [WebInvoke(Method = "POST", UriTemplate = "ArmyDefinitions/{armyDefinitionId}/ArmyUnitDefinitions")]
         [OperationContract]
-        void PostArmyUnitDefinition(string armyDefinitionId, ArmyDefinition armyDefinition);
+        void PostArmyUnitDefinition(string armyDefinitionId, ArmyUnitDefinition armyUnitDefinition);
 
         [WebInvoke(Method = "PUT", UriTemplate = "ArmyDefinitions/{armyDefinitionId}/ArmyUnitDefinitions/{id}")]
         [OperationContract]
-        void PutArmyUnitDefinition(string armyDefinitionId, string id, ArmyDefinition armyDefinition);
+        void PutArmyUnitDefinition(string armyDefinitionId, string id, ArmyUnitDefinition armyUnitDefinition);
 
         [WebInvoke(Method = "Delete", UriTemplate = "ArmyDefinitions/{armyDefinitionId}/ArmyUnitDefinitions/{id}")]
         [OperationContract]
@@ -196,6 +196,8 @@ namespace GameCore.WcfService
         public string ArmyName { get; set; }
         public string ArmyBook { get; set; }
         public string ArmyList { get; set; }
+        public int MinYear { get; set; }
+        public int MaxYear { get; set; }
     }
 
     [CollectionDataContract]

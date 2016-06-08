@@ -6,6 +6,7 @@ namespace GameCore.WcfService.DebellisMultitudinis
     [Table("User")]
     public partial class User
     {
+        [Key]
         public int UserId { get; set; }
 
         [StringLength(255)]

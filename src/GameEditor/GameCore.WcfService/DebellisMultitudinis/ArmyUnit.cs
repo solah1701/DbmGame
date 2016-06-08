@@ -8,6 +8,7 @@ namespace GameCore.WcfService.DebellisMultitudinis
     public class ArmyUnit
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Key]
         public int ArmyUnitId { get; set; }
         [StringLength(255)]
         public string Name { get; set; }

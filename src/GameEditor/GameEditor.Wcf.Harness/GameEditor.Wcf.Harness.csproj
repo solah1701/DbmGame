@@ -67,11 +67,16 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\ArmyDefinition.cs" />
-    <Compile Include="Models\ArmyDefinitions.cs" />
-    <Compile Include="Models\IArmyDefinition.cs" />
+    <Compile Include="Helpers\InvokeHelper.cs" />
+    <Compile Include="Models\GameModel.cs" />
+    <Compile Include="Models\IGameModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\WarGameServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Vews\IArmyListView.cs" />
     <EmbeddedResource Include="ArmyListControl.resx">
       <DependentUpon>ArmyListControl.cs</DependentUpon>
@@ -100,12 +105,82 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Service References\WarGameServiceReference\GameEditor.Wcf.Harness.WarGameServiceReference.Armies.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WarGameServiceReference\GameEditor.Wcf.Harness.WarGameServiceReference.Army.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WarGameServiceReference\GameEditor.Wcf.Harness.WarGameServiceReference.ArmyCommand.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WarGameServiceReference\GameEditor.Wcf.Harness.WarGameServiceReference.ArmyCommands.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WarGameServiceReference\GameEditor.Wcf.Harness.WarGameServiceReference.ArmyDefinition.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WarGameServiceReference\GameEditor.Wcf.Harness.WarGameServiceReference.ArmyDefinitions.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WarGameServiceReference\GameEditor.Wcf.Harness.WarGameServiceReference.ArmyGroup.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WarGameServiceReference\GameEditor.Wcf.Harness.WarGameServiceReference.ArmyGroups.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WarGameServiceReference\GameEditor.Wcf.Harness.WarGameServiceReference.ArmyUnitDefinition.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WarGameServiceReference\GameEditor.Wcf.Harness.WarGameServiceReference.ArmyUnitDefinitions.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WarGameServiceReference\GameEditor.Wcf.Harness.WarGameServiceReference.Battle.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WarGameServiceReference\GameEditor.Wcf.Harness.WarGameServiceReference.Unit.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WarGameServiceReference\GameEditor.Wcf.Harness.WarGameServiceReference.Units.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WarGameServiceReference\GameEditor.Wcf.Harness.WarGameServiceReference.User.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WarGameServiceReference\WarGameService.wsdl" />
+    <None Include="Service References\WarGameServiceReference\WarGameService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WarGameServiceReference\WarGameService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WarGameServiceReference\WarGameService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\WarGameServiceReference\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WarGameServiceReference\WarGameService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WarGameServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WarGameServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WarGameServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

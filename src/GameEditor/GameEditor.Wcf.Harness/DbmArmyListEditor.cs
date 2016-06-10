@@ -41,6 +41,7 @@ namespace GameEditor.Wcf.Harness
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (listView1.SelectedItems.Count == 0) return;
             var selectedId = int.Parse(listView1.SelectedItems[0].SubItems[0].Text);
             _detailController.SelectList(selectedId);
         }

@@ -21,12 +21,13 @@ namespace GameEditor.Wcf.Harness.Controllers
         {
             var definition = new ArmyDefinition
             {
-                Id = _view.ArmyId.ToString(),
+                Id = _view.ArmyId,
                 ArmyName = _view.ArmyName,
-                ArmyBook = _view.ArmyBook.ToString(),
-                ArmyList = _view.ArmyList.ToString(),
+                ArmyBook = _view.ArmyBook,
+                ArmyList = _view.ArmyList,
                 MinYear = _view.MinYear,
-                MaxYear = _view.MaxYear
+                MaxYear = _view.MaxYear,
+                Notes = _view.Notes
             };
             _model.AddArmyDefinition(definition);
         }
@@ -39,12 +40,13 @@ namespace GameEditor.Wcf.Harness.Controllers
         public void SelectList(int id)
         {
             var item = _model.GetArmyDefinition(id.ToString());
-            _view.ArmyId = int.Parse(item.Id);
+            _view.ArmyId = item.Id;
             _view.ArmyName = item.ArmyName;
-            _view.ArmyBook = int.Parse(item.ArmyBook);
-            _view.ArmyList = int.Parse(item.ArmyList);
+            _view.ArmyBook = item.ArmyBook;
+            _view.ArmyList = item.ArmyList;
             _view.MinYear = item.MinYear;
             _view.MaxYear = item.MaxYear;
+            _view.Notes = item.Notes;
         }
 
 

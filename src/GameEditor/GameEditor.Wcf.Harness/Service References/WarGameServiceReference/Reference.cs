@@ -1096,16 +1096,16 @@ namespace GameEditor.Wcf.Harness.WarGameServiceReference {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ArmyBookField;
+        private int ArmyBookField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ArmyListField;
+        private int ArmyListField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ArmyNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string IdField;
+        private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Uri IdLinkField;
@@ -1115,6 +1115,9 @@ namespace GameEditor.Wcf.Harness.WarGameServiceReference {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int MinYearField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NotesField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -1127,12 +1130,12 @@ namespace GameEditor.Wcf.Harness.WarGameServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ArmyBook {
+        public int ArmyBook {
             get {
                 return this.ArmyBookField;
             }
             set {
-                if ((object.ReferenceEquals(this.ArmyBookField, value) != true)) {
+                if ((this.ArmyBookField.Equals(value) != true)) {
                     this.ArmyBookField = value;
                     this.RaisePropertyChanged("ArmyBook");
                 }
@@ -1140,12 +1143,12 @@ namespace GameEditor.Wcf.Harness.WarGameServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ArmyList {
+        public int ArmyList {
             get {
                 return this.ArmyListField;
             }
             set {
-                if ((object.ReferenceEquals(this.ArmyListField, value) != true)) {
+                if ((this.ArmyListField.Equals(value) != true)) {
                     this.ArmyListField = value;
                     this.RaisePropertyChanged("ArmyList");
                 }
@@ -1166,12 +1169,12 @@ namespace GameEditor.Wcf.Harness.WarGameServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Id {
+        public int Id {
             get {
                 return this.IdField;
             }
             set {
-                if ((object.ReferenceEquals(this.IdField, value) != true)) {
+                if ((this.IdField.Equals(value) != true)) {
                     this.IdField = value;
                     this.RaisePropertyChanged("Id");
                 }
@@ -1213,6 +1216,19 @@ namespace GameEditor.Wcf.Harness.WarGameServiceReference {
                 if ((this.MinYearField.Equals(value) != true)) {
                     this.MinYearField = value;
                     this.RaisePropertyChanged("MinYear");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Notes {
+            get {
+                return this.NotesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NotesField, value) != true)) {
+                    this.NotesField = value;
+                    this.RaisePropertyChanged("Notes");
                 }
             }
         }

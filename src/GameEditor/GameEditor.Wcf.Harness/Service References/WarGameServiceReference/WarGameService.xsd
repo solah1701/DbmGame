@@ -116,13 +116,14 @@
   <xs:element name="ArmyDefinitions" nillable="true" type="tns:ArmyDefinitions" />
   <xs:complexType name="ArmyDefinition">
     <xs:sequence>
-      <xs:element minOccurs="0" name="ArmyBook" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="ArmyList" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ArmyBook" type="xs:int" />
+      <xs:element minOccurs="0" name="ArmyList" type="xs:int" />
       <xs:element minOccurs="0" name="ArmyName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="IdLink" nillable="true" type="xs:anyURI" />
       <xs:element minOccurs="0" name="MaxYear" type="xs:int" />
       <xs:element minOccurs="0" name="MinYear" type="xs:int" />
+      <xs:element minOccurs="0" name="Notes" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArmyDefinition" nillable="true" type="tns:ArmyDefinition" />

@@ -36,6 +36,13 @@ namespace GameEditor.Wcf.Harness
             get { return int.Parse(MaxYearTextBox.Text); }
             set { this.InvokeIfRequired(() => MaxYearTextBox.Text = value.ToString()); }
         }
+
+        public string Notes
+        {
+            get { return NotesTextBox.Text; }
+            set { this.InvokeIfRequired(() => NotesTextBox.Text = value); }
+        }
+
         public int MinYear
         {
             get { return int.Parse(MinYearTextBox.Text); }

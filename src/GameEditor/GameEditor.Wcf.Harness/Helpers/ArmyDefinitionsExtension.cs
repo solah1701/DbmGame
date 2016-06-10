@@ -11,7 +11,7 @@ namespace GameEditor.Wcf.Harness.Helpers
         {
             return definitions.Select(armyDefinition => new[]
             {
-                armyDefinition.Id, armyDefinition.ArmyName, armyDefinition.ArmyBook, armyDefinition.ArmyList
+                armyDefinition.Id.ToString(), armyDefinition.ArmyName, armyDefinition.ArmyBook.ToString(), armyDefinition.ArmyList.ToString()
             }).Select(subItem => new ListViewItem(subItem)).ToArray();
         }
     }

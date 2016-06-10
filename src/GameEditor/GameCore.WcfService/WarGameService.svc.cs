@@ -580,12 +580,12 @@ namespace GameCore.WcfService
 
         public void PutArmyDefinition(ArmyDefinition armyDefinition)
         {
-            var armyDef = armyDefinition.GetArmyListDefinition();
-            if (armyDef.ArmyListDefinitionId == 0)
+            if (armyDefinition.Id == 0)
             {
                 PostArmyDefinition(armyDefinition);
                 return;
             }
+            var armyDef = armyDefinition.UpdateArmyListDefinition(_db.ArmyListDefinitions.Find(armyDefinition.Id));
             _db.ArmyListDefinitions.Attach(armyDef);
             var entry = _db.Entry(armyDef);
             entry.State = EntityState.Modified;

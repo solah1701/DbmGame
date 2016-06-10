@@ -41,6 +41,19 @@ namespace GameCore.WcfService.Helpers
             };
         }
 
+        public static ArmyListDefinition UpdateArmyListDefinition(this ArmyDefinition definition,
+            ArmyListDefinition original)
+        {
+            original.ArmyListDefinitionId = definition.Id;
+            original.Name = definition.ArmyName;
+            original.Book = definition.ArmyBook;
+            original.List = definition.ArmyList;
+            original.MinYear = definition.MinYear;
+            original.MaxYear = definition.MaxYear;
+            original.Notes = definition.Notes;
+            return original;
+        }
+
         public static void SetArmyListDefinition(this ArmyListDefinition definition, ArmyDefinition item)
         {
             definition.ArmyListDefinitionId = item.Id;

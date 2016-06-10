@@ -27,15 +27,20 @@ namespace GameEditor.Wcf.Harness
             _controller.PopulateList();
         }
 
-        private void AddButton_Click(object sender, EventArgs e)
+        private void UpdateButton_Click(object sender, EventArgs e)
         {
-            _detailController.AddList();
+            _detailController.UpdateArmyDetail();
             _controller.PopulateList();
+        }
+
+        private void CreateButton_Click(object sender, EventArgs e)
+        {
+            _detailController.ClearArmyDetail();
         }
 
         private void DeleteButton_Click(object sender, EventArgs e)
         {
-            _detailController.DeleteList();
+            _detailController.DeleteArmyDetail();
             _controller.PopulateList();
         }
 
@@ -43,7 +48,7 @@ namespace GameEditor.Wcf.Harness
         {
             if (listView1.SelectedItems.Count == 0) return;
             var selectedId = int.Parse(listView1.SelectedItems[0].SubItems[0].Text);
-            _detailController.SelectList(selectedId);
+            _detailController.SelectArmyDetail(selectedId);
         }
 
         public ArmyDefinitions ArmyDefinitions

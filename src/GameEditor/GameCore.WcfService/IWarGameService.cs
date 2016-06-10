@@ -148,19 +148,19 @@ namespace GameCore.WcfService
 
         [WebGet(UriTemplate = "ArmyDefinitions/{id}")]
         [OperationContract]
-        ArmyDefinition GetArmyDefinition(string id);
+        ArmyDefinition GetArmyDefinition(int id);
 
         [WebInvoke(Method = "POST", UriTemplate = "ArmyDefinitions")]
         [OperationContract]
-        void PostArmyDefinition(ArmyDefinition armyDefinition);
+        int PostArmyDefinition(ArmyDefinition armyDefinition);
 
         [WebInvoke(Method = "PUT", UriTemplate = "ArmyDefinitions/{id}")]
         [OperationContract]
-        void PutArmyDefinition(ArmyDefinition armyDefinition);
+        int PutArmyDefinition(ArmyDefinition armyDefinition);
 
         [WebInvoke(Method = "Delete", UriTemplate = "ArmyDefinitions/{id}")]
         [OperationContract]
-        void DeleteArmyDefinition(string id);
+        void DeleteArmyDefinition(int id);
 
         #endregion
 

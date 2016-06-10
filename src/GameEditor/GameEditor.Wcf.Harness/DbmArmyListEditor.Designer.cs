@@ -33,9 +33,10 @@
             this.ArmyName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Book = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.List = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.AddButton = new System.Windows.Forms.Button();
+            this.UpdateButton = new System.Windows.Forms.Button();
             this.DeleteButton = new System.Windows.Forms.Button();
             this.armyListControl1 = new GameEditor.Wcf.Harness.ArmyListControl();
+            this.ClearButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listView1
@@ -75,21 +76,21 @@
             // 
             this.List.Text = "List";
             // 
-            // AddButton
+            // UpdateButton
             // 
-            this.AddButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.AddButton.Location = new System.Drawing.Point(12, 499);
-            this.AddButton.Name = "AddButton";
-            this.AddButton.Size = new System.Drawing.Size(75, 23);
-            this.AddButton.TabIndex = 1;
-            this.AddButton.Text = "Add";
-            this.AddButton.UseVisualStyleBackColor = true;
-            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
+            this.UpdateButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.UpdateButton.Location = new System.Drawing.Point(93, 499);
+            this.UpdateButton.Name = "UpdateButton";
+            this.UpdateButton.Size = new System.Drawing.Size(75, 23);
+            this.UpdateButton.TabIndex = 1;
+            this.UpdateButton.Text = "Update";
+            this.UpdateButton.UseVisualStyleBackColor = true;
+            this.UpdateButton.Click += new System.EventHandler(this.UpdateButton_Click);
             // 
             // DeleteButton
             // 
             this.DeleteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.DeleteButton.Location = new System.Drawing.Point(93, 499);
+            this.DeleteButton.Location = new System.Drawing.Point(174, 499);
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Size = new System.Drawing.Size(75, 23);
             this.DeleteButton.TabIndex = 2;
@@ -105,17 +106,30 @@
             this.armyListControl1.ArmyName = "";
             this.armyListControl1.Location = new System.Drawing.Point(391, 12);
             this.armyListControl1.Name = "armyListControl1";
+            this.armyListControl1.Notes = "";
             this.armyListControl1.Size = new System.Drawing.Size(473, 491);
             this.armyListControl1.TabIndex = 3;
+            // 
+            // ClearButton
+            // 
+            this.ClearButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.ClearButton.Location = new System.Drawing.Point(12, 499);
+            this.ClearButton.Name = "ClearButton";
+            this.ClearButton.Size = new System.Drawing.Size(75, 23);
+            this.ClearButton.TabIndex = 4;
+            this.ClearButton.Text = "Clear";
+            this.ClearButton.UseVisualStyleBackColor = true;
+            this.ClearButton.Click += new System.EventHandler(this.CreateButton_Click);
             // 
             // DbmArmyListEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(901, 540);
+            this.Controls.Add(this.ClearButton);
             this.Controls.Add(this.armyListControl1);
             this.Controls.Add(this.DeleteButton);
-            this.Controls.Add(this.AddButton);
+            this.Controls.Add(this.UpdateButton);
             this.Controls.Add(this.listView1);
             this.Name = "DbmArmyListEditor";
             this.Text = "DbmArmyListEditor";
@@ -130,8 +144,9 @@
         private System.Windows.Forms.ColumnHeader ArmyName;
         private System.Windows.Forms.ColumnHeader Book;
         private System.Windows.Forms.ColumnHeader List;
-        private System.Windows.Forms.Button AddButton;
+        private System.Windows.Forms.Button UpdateButton;
         private System.Windows.Forms.Button DeleteButton;
         private ArmyListControl armyListControl1;
+        private System.Windows.Forms.Button ClearButton;
     }
 }

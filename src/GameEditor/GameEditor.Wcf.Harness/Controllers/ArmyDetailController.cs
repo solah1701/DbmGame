@@ -17,7 +17,18 @@ namespace GameEditor.Wcf.Harness.Controllers
             _model = model;
         }
 
-        public void AddList()
+        public void ClearArmyDetail()
+        {
+            _view.ArmyId = 0;
+            _view.ArmyName = string.Empty;
+            _view.ArmyBook = 0;
+            _view.ArmyList = 0;
+            _view.MinYear = 0;
+            _view.MaxYear = 0;
+            _view.Notes = string.Empty;
+        }
+
+        public void UpdateArmyDetail()
         {
             var definition = new ArmyDefinition
             {
@@ -29,17 +40,18 @@ namespace GameEditor.Wcf.Harness.Controllers
                 MaxYear = _view.MaxYear,
                 Notes = _view.Notes
             };
-            _model.AddArmyDefinition(definition);
+            _view.ArmyId = _model.AddArmyDefinition(definition);
         }
 
-        public void DeleteList()
+        public void DeleteArmyDetail()
         {
-
+            _model.DeleteArmyDefinition(_view.ArmyId);
+            ClearArmyDetail();
         }
 
-        public void SelectList(int id)
+        public void SelectArmyDetail(int id)
         {
-            var item = _model.GetArmyDefinition(id.ToString());
+            var item = _model.GetArmyDefinition(id);
             _view.ArmyId = item.Id;
             _view.ArmyName = item.ArmyName;
             _view.ArmyBook = item.ArmyBook;
@@ -48,7 +60,5 @@ namespace GameEditor.Wcf.Harness.Controllers
             _view.MaxYear = item.MaxYear;
             _view.Notes = item.Notes;
         }
-
-
     }
 }

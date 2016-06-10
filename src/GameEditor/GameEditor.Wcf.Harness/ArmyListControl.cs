@@ -23,7 +23,12 @@ namespace GameEditor.Wcf.Harness
         }
         public int ArmyId
         {
-            get { return int.Parse(IdTextBox.Text); }
+            get
+            {
+                int result;
+                if (!int.TryParse(IdTextBox.Text, out result)) result = 0;
+                return result;
+            }
             set { this.InvokeIfRequired(() => IdTextBox.Text = value.ToString()); }
         }
         public int ArmyList

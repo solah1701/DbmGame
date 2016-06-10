@@ -16,14 +16,19 @@ namespace GameEditor.Wcf.Harness.Models
             return _client.GetArmyDefinitions();
         }
 
-        public ArmyDefinition GetArmyDefinition(string id)
+        public ArmyDefinition GetArmyDefinition(int id)
         {
             return _client.GetArmyDefinition(id);
         }
 
-        public void AddArmyDefinition(ArmyDefinition definition)
+        public int AddArmyDefinition(ArmyDefinition definition)
         {
-            _client.PutArmyDefinition(definition);
+            return _client.PutArmyDefinition(definition);
+        }
+
+        public void DeleteArmyDefinition(int id)
+        {
+            _client.DeleteArmyDefinition(id);
         }
     }
 }

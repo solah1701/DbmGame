@@ -557,11 +557,11 @@ namespace GameCore.WcfService
             }
         }
 
-        public ArmyDefinition GetArmyDefinition(string id)
+        public ArmyDefinition GetArmyDefinition(int id)
         {
             using (var db = new DbmModel())
             {
-                var armyDefinition = db.ArmyListDefinitions.Find(int.Parse(id)).GetArmyDefinition();
+                var armyDefinition = db.ArmyListDefinitions.Find(id).GetArmyDefinition();
                 if (armyDefinition == null)
                 {
                     SetStatusNotFound();
@@ -572,7 +572,7 @@ namespace GameCore.WcfService
             }
         }
 
-        public void PostArmyDefinition(ArmyDefinition armyDefinition)
+        public int PostArmyDefinition(ArmyDefinition armyDefinition)
         {
             using (var db = new DbmModel())
             {
@@ -580,16 +580,13 @@ namespace GameCore.WcfService
                 db.ArmyListDefinitions.Add(armyList);
                 db.SaveChanges();
                 SetStatusOk();
+                return armyList.ArmyListDefinitionId;
             }
         }
 
-        public void PutArmyDefinition(ArmyDefinition armyDefinition)
+        public int PutArmyDefinition(ArmyDefinition armyDefinition)
         {
-            if (armyDefinition.Id == 0)
-            {
-                PostArmyDefinition(armyDefinition);
-                return;
-            }
+            if (armyDefinition.Id == 0) return PostArmyDefinition(armyDefinition);
             using (var db = new DbmModel())
             {
                 var armyDef = armyDefinition.UpdateArmyListDefinition(db.ArmyListDefinitions.Find(armyDefinition.Id));
@@ -597,14 +594,16 @@ namespace GameCore.WcfService
                 db.Entry(armyDef).State = EntityState.Modified;
                 db.SaveChanges();
                 SetStatusOk();
+                return armyDef.ArmyListDefinitionId;
             }
         }
 
-        public void DeleteArmyDefinition(string id)
+        public void DeleteArmyDefinition(int id)
         {
             using (var db = new DbmModel())
             {
                 var item = db.ArmyListDefinitions.Find(id);
+                if (item == null) return;
                 db.ArmyListDefinitions.Remove(item);
                 db.SaveChanges();
                 SetStatusOk();

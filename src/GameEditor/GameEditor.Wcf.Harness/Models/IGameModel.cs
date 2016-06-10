@@ -4,8 +4,9 @@ namespace GameEditor.Wcf.Harness.Models
 {
     public interface IGameModel
     {
-        ArmyDefinition GetArmyDefinition(string id);
+        ArmyDefinition GetArmyDefinition(int id);
         ArmyDefinitions GetArmyDefinitions();
-        void AddArmyDefinition(ArmyDefinition definition);
+        int AddArmyDefinition(ArmyDefinition definition);
+        void DeleteArmyDefinition(int id);
     }
 }

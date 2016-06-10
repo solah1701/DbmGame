@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
-using System.Text;
 using GameCore.WcfService.DebellisMultitudinis;
 using GameCore.WcfService.Helpers;
 
@@ -19,7 +16,6 @@ namespace GameCore.WcfService
     {
         private readonly IWarGameModel _model;
         private const string Host = "localhost";
-        private DbmModel _db = new DbmModel();
 
         public WarGameService()
         {
@@ -548,34 +544,43 @@ namespace GameCore.WcfService
 
         public ArmyDefinitions GetArmyDefinitions()
         {
-            var armyDefinitions = _db.ArmyListDefinitions.ToList().GetArmyDefinitions();
-            if (!armyDefinitions.Any())
+            using (var db = new DbmModel())
             {
-                SetStatusNotFound();
-                return null;
+                var armyDefinitions = db.ArmyListDefinitions.ToList().GetArmyDefinitions();
+                if (!armyDefinitions.Any())
+                {
+                    SetStatusNotFound();
+                    return null;
+                }
+                SetStatusOk();
+                return new ArmyDefinitions(armyDefinitions);
             }
-            SetStatusOk();
-            return new ArmyDefinitions(armyDefinitions);
         }
 
         public ArmyDefinition GetArmyDefinition(string id)
         {
-            var armyDefinition = _db.ArmyListDefinitions.Find(int.Parse(id)).GetArmyDefinition();
-            if (armyDefinition == null)
+            using (var db = new DbmModel())
             {
-                SetStatusNotFound();
-                return null;
+                var armyDefinition = db.ArmyListDefinitions.Find(int.Parse(id)).GetArmyDefinition();
+                if (armyDefinition == null)
+                {
+                    SetStatusNotFound();
+                    return null;
+                }
+                SetStatusOk();
+                return armyDefinition;
             }
-            SetStatusOk();
-            return armyDefinition;
         }
 
         public void PostArmyDefinition(ArmyDefinition armyDefinition)
         {
-            var armyList = armyDefinition.GetArmyListDefinition();
-            _db.ArmyListDefinitions.Add(armyList);
-            _db.SaveChanges();
-            SetStatusOk();
+            using (var db = new DbmModel())
+            {
+                var armyList = armyDefinition.GetArmyListDefinition();
+                db.ArmyListDefinitions.Add(armyList);
+                db.SaveChanges();
+                SetStatusOk();
+            }
         }
 
         public void PutArmyDefinition(ArmyDefinition armyDefinition)
@@ -585,20 +590,25 @@ namespace GameCore.WcfService
                 PostArmyDefinition(armyDefinition);
                 return;
             }
-            var armyDef = armyDefinition.UpdateArmyListDefinition(_db.ArmyListDefinitions.Find(armyDefinition.Id));
-            _db.ArmyListDefinitions.Attach(armyDef);
-            var entry = _db.Entry(armyDef);
-            entry.State = EntityState.Modified;
-            _db.SaveChanges();
-            SetStatusOk();
+            using (var db = new DbmModel())
+            {
+                var armyDef = armyDefinition.UpdateArmyListDefinition(db.ArmyListDefinitions.Find(armyDefinition.Id));
+                db.ArmyListDefinitions.Attach(armyDef);
+                db.Entry(armyDef).State = EntityState.Modified;
+                db.SaveChanges();
+                SetStatusOk();
+            }
         }
 
         public void DeleteArmyDefinition(string id)
         {
-            var item = _db.ArmyListDefinitions.Find(id);
-            _db.ArmyListDefinitions.Remove(item);
-            _db.SaveChanges();
-            SetStatusOk();
+            using (var db = new DbmModel())
+            {
+                var item = db.ArmyListDefinitions.Find(id);
+                db.ArmyListDefinitions.Remove(item);
+                db.SaveChanges();
+                SetStatusOk();
+            }
         }
 
         public ArmyUnitDefinitions GetArmyUnitDefinitions(string armyDefinitionId)

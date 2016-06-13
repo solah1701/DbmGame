@@ -1,27 +1,43 @@
 ﻿using System.Collections.Generic;
+using GameEditor.Wcf.Harness.Helpers;
 using GameEditor.Wcf.Harness.Models;
 using GameEditor.Wcf.Harness.Vews;
 using GameEditor.Wcf.Harness.WarGameServiceReference;
 
 namespace GameEditor.Wcf.Harness.Controllers
 {
-    public class ArmyListController
+    public class ArmyListController : IArmyListController
     {
         private readonly IGameModel _model;
-        private readonly IArmyListView _view;
+        private IArmyListView _view;
+        private readonly IEventAggregator _event;
 
-        public ArmyListController(IArmyListView view) : this(view, new GameModel()) { }
-
-        public ArmyListController(IArmyListView view, IGameModel model)
+          public ArmyListController(IEventAggregator eventAggregator, IArmyListView view, IGameModel model)
         {
             _view = view;
             _model = model;
+            _event = eventAggregator;
         }
 
         public void PopulateList()
         {
             var items = _model.GetArmyDefinitions();
             _view.ArmyDefinitions = items;
+        }
+
+        public void SetView(IArmyListView view)
+        {
+            _view = view;
+        }
+
+        public void AddArmy()
+        {
+            // Navigate to Detail page
+        }
+
+        public void SelectArmy()
+        {
+            // Navigate to Detail page
         }
     }
 }

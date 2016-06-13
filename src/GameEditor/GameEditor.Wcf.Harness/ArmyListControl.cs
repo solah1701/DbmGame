@@ -1,57 +1,56 @@
-﻿using System.Windows.Forms;
+﻿//#define DESIGNMODE
+
+using System;
+using System.Windows.Forms;
+using GameEditor.Wcf.Harness.Controllers;
+using GameEditor.Wcf.Harness.Extensions;
 using GameEditor.Wcf.Harness.Helpers;
 using GameEditor.Wcf.Harness.Vews;
+using GameEditor.Wcf.Harness.WarGameServiceReference;
 
 namespace GameEditor.Wcf.Harness
 {
-    public partial class ArmyListControl : UserControl, IArmyDetailView
+    public partial class ArmyListControl : UserControl, IArmyListView
     {
+
+        private IArmyListController _controller;
+
         public ArmyListControl()
         {
             InitializeComponent();
+            _controller = IoC.IoCContainer.Resolve<IArmyListController>();
+            _controller.SetView(this);
+            _controller.PopulateList();
         }
 
-        public string ArmyName
+        public ArmyDefinitions ArmyDefinitions
         {
-            get { return NameTextBox.Text; }
-            set { this.InvokeIfRequired(() => NameTextBox.Text = value); }
-        }
-        public int ArmyBook
-        {
-            get { return int.Parse(BookTextBox.Text); }
-            set { this.InvokeIfRequired(() => BookTextBox.Text = value.ToString()); }
-        }
-        public int ArmyId
-        {
-            get
+            set
             {
-                int result;
-                if (!int.TryParse(IdTextBox.Text, out result)) result = 0;
-                return result;
+                this.InvokeIfRequired(() =>
+                {
+                    ArmyListView.Items.Clear();
+                    ArmyListView.Items.AddRange(value.ConvertToListViewItems());
+                });
             }
-            set { this.InvokeIfRequired(() => IdTextBox.Text = value.ToString()); }
-        }
-        public int ArmyList
-        {
-            get { return int.Parse(ListTextBox.Text); }
-            set { this.InvokeIfRequired(() => ListTextBox.Text = value.ToString()); }
-        }
-        public int MaxYear
-        {
-            get { return int.Parse(MaxYearTextBox.Text); }
-            set { this.InvokeIfRequired(() => MaxYearTextBox.Text = value.ToString()); }
         }
 
-        public string Notes
+        private void AddButton_Click(object sender, EventArgs e)
         {
-            get { return NotesTextBox.Text; }
-            set { this.InvokeIfRequired(() => NotesTextBox.Text = value); }
+            _controller.AddArmy();
         }
 
-        public int MinYear
+        private void ArmyListView_SelectedIndexChanged(object sender, EventArgs e)
         {
-            get { return int.Parse(MinYearTextBox.Text); }
-            set { this.InvokeIfRequired(() => MinYearTextBox.Text = value.ToString()); }
+            _controller.SelectArmy();
+        }
+
+        private void ArmyListControl_Load(object sender, EventArgs e)
+        {
+#if !DESIGNMODE
+            //_controller = new ArmyListController(this);
+            //_controller.PopulateList();
+#endif
         }
     }
 }

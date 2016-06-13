@@ -1,20 +1,26 @@
-﻿using GameEditor.Wcf.Harness.Models;
+﻿using GameEditor.Wcf.Harness.Helpers;
+using GameEditor.Wcf.Harness.Models;
 using GameEditor.Wcf.Harness.Vews;
 using GameEditor.Wcf.Harness.WarGameServiceReference;
 
 namespace GameEditor.Wcf.Harness.Controllers
 {
-    public class ArmyDetailController
+    public class ArmyDetailController : IArmyDetailController
     {
         private readonly IGameModel _model;
-        private readonly IArmyDetailView _view;
+        private IArmyDetailView _view;
+        private readonly IEventAggregator _event;
 
-        public ArmyDetailController(IArmyDetailView view) : this(view, new GameModel()) { }
-
-        public ArmyDetailController(IArmyDetailView view, IGameModel model)
+        public ArmyDetailController(IEventAggregator eventAggregator, IArmyDetailView view, IGameModel model)
         {
             _view = view;
             _model = model;
+            _event = eventAggregator;
+        }
+
+        public void SetView(IArmyDetailView view)
+        {
+            _view = view;
         }
 
         public void ClearArmyDetail()

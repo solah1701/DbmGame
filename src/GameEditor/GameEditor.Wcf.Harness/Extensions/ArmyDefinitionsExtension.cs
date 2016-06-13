@@ -1,9 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Windows.Forms;
 using GameEditor.Wcf.Harness.WarGameServiceReference;
 
-namespace GameEditor.Wcf.Harness.Helpers
+namespace GameEditor.Wcf.Harness.Extensions
 {
     public static class ArmyDefinitionsExtension
     {

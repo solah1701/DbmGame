@@ -28,125 +28,131 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.Id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ArmyName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Book = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.List = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.UpdateButton = new System.Windows.Forms.Button();
-            this.DeleteButton = new System.Windows.Forms.Button();
-            this.armyListControl1 = new GameEditor.Wcf.Harness.ArmyListControl();
-            this.ClearButton = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MainTabControl = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.menuStrip1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
+            this.MainTabControl.SuspendLayout();
             this.SuspendLayout();
             // 
-            // listView1
+            // menuStrip1
             // 
-            this.listView1.Activation = System.Windows.Forms.ItemActivation.OneClick;
-            this.listView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Id,
-            this.ArmyName,
-            this.Book,
-            this.List});
-            this.listView1.Location = new System.Drawing.Point(12, 12);
-            this.listView1.MultiSelect = false;
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(373, 481);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(673, 28);
+            this.menuStrip1.TabIndex = 0;
+            this.menuStrip1.Text = "menuStrip1";
             // 
-            // Id
+            // statusStrip1
             // 
-            this.Id.Text = "Id";
-            this.Id.Width = 58;
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 430);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(673, 25);
+            this.statusStrip1.TabIndex = 1;
+            this.statusStrip1.Text = "statusStrip1";
             // 
-            // ArmyName
+            // toolStripStatusLabel1
             // 
-            this.ArmyName.Text = "Name";
-            this.ArmyName.Width = 190;
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(151, 20);
+            this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
             // 
-            // Book
+            // fileToolStripMenuItem
             // 
-            this.Book.Text = "Book";
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.loadToolStripMenuItem,
+            this.saveToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 24);
+            this.fileToolStripMenuItem.Text = "File";
             // 
-            // List
+            // loadToolStripMenuItem
             // 
-            this.List.Text = "List";
+            this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
+            this.loadToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.loadToolStripMenuItem.Text = "Load";
             // 
-            // UpdateButton
+            // saveToolStripMenuItem
             // 
-            this.UpdateButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.UpdateButton.Location = new System.Drawing.Point(93, 499);
-            this.UpdateButton.Name = "UpdateButton";
-            this.UpdateButton.Size = new System.Drawing.Size(75, 23);
-            this.UpdateButton.TabIndex = 1;
-            this.UpdateButton.Text = "Update";
-            this.UpdateButton.UseVisualStyleBackColor = true;
-            this.UpdateButton.Click += new System.EventHandler(this.UpdateButton_Click);
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.saveToolStripMenuItem.Text = "Save";
             // 
-            // DeleteButton
+            // MainTabControl
             // 
-            this.DeleteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.DeleteButton.Location = new System.Drawing.Point(174, 499);
-            this.DeleteButton.Name = "DeleteButton";
-            this.DeleteButton.Size = new System.Drawing.Size(75, 23);
-            this.DeleteButton.TabIndex = 2;
-            this.DeleteButton.Text = "Delete";
-            this.DeleteButton.UseVisualStyleBackColor = true;
-            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
+            this.MainTabControl.Controls.Add(this.tabPage1);
+            this.MainTabControl.Controls.Add(this.tabPage2);
+            this.MainTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MainTabControl.Location = new System.Drawing.Point(0, 28);
+            this.MainTabControl.Name = "MainTabControl";
+            this.MainTabControl.SelectedIndex = 0;
+            this.MainTabControl.Size = new System.Drawing.Size(673, 402);
+            this.MainTabControl.TabIndex = 2;
             // 
-            // armyListControl1
+            // tabPage1
             // 
-            this.armyListControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.armyListControl1.ArmyName = "";
-            this.armyListControl1.Location = new System.Drawing.Point(391, 12);
-            this.armyListControl1.Name = "armyListControl1";
-            this.armyListControl1.Notes = "";
-            this.armyListControl1.Size = new System.Drawing.Size(473, 491);
-            this.armyListControl1.TabIndex = 3;
+            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(665, 373);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // ClearButton
+            // tabPage2
             // 
-            this.ClearButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.ClearButton.Location = new System.Drawing.Point(12, 499);
-            this.ClearButton.Name = "ClearButton";
-            this.ClearButton.Size = new System.Drawing.Size(75, 23);
-            this.ClearButton.TabIndex = 4;
-            this.ClearButton.Text = "Clear";
-            this.ClearButton.UseVisualStyleBackColor = true;
-            this.ClearButton.Click += new System.EventHandler(this.CreateButton_Click);
+            this.tabPage2.Location = new System.Drawing.Point(4, 25);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(192, 71);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // DbmArmyListEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(901, 540);
-            this.Controls.Add(this.ClearButton);
-            this.Controls.Add(this.armyListControl1);
-            this.Controls.Add(this.DeleteButton);
-            this.Controls.Add(this.UpdateButton);
-            this.Controls.Add(this.listView1);
+            this.ClientSize = new System.Drawing.Size(673, 455);
+            this.Controls.Add(this.MainTabControl);
+            this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "DbmArmyListEditor";
             this.Text = "DbmArmyListEditor";
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
+            this.MainTabControl.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ColumnHeader Id;
-        private System.Windows.Forms.ColumnHeader ArmyName;
-        private System.Windows.Forms.ColumnHeader Book;
-        private System.Windows.Forms.ColumnHeader List;
-        private System.Windows.Forms.Button UpdateButton;
-        private System.Windows.Forms.Button DeleteButton;
-        private ArmyListControl armyListControl1;
-        private System.Windows.Forms.Button ClearButton;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem loadToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.TabControl MainTabControl;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
     }
 }

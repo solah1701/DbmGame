@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
@@ -48,6 +52,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArmyDetailControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ArmyDetailControl.Designer.cs">
+      <DependentUpon>ArmyDetailControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="ArmyListControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -56,20 +66,37 @@
     </Compile>
     <Compile Include="Controllers\ArmyDetailController.cs" />
     <Compile Include="Controllers\ArmyListController.cs" />
+    <Compile Include="Controllers\IArmyDetailController.cs" />
+    <Compile Include="Controllers\IArmyListController.cs" />
+    <Compile Include="Controllers\IMainPageController.cs" />
+    <Compile Include="Controllers\MainPageController.cs" />
     <Compile Include="DbmArmyListEditor.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DbmArmyListEditor.Designer.cs">
       <DependentUpon>DbmArmyListEditor.cs</DependentUpon>
     </Compile>
+    <Compile Include="DbmArmyListEditor_1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DbmArmyListEditor_1.Designer.cs">
+      <DependentUpon>DbmArmyListEditor_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extensions\EnumerableExtension.cs" />
+    <Compile Include="Extensions\EventAggregatorExtensions.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\ArmyDefinitionsExtension.cs" />
+    <Compile Include="Extensions\ArmyDefinitionsExtension.cs" />
+    <Compile Include="Helpers\EventAggregator.cs" />
+    <Compile Include="Helpers\IEventAggregator.cs" />
     <Compile Include="Helpers\InvokeHelper.cs" />
+    <Compile Include="IoC\Bindings.cs" />
+    <Compile Include="IoC\IoCContainer.cs" />
+    <Compile Include="IoC\StaticBindings.cs" />
     <Compile Include="Models\GameModel.cs" />
     <Compile Include="Models\IGameModel.cs" />
     <Compile Include="Program.cs" />
@@ -81,11 +108,18 @@
     </Compile>
     <Compile Include="Vews\IArmyDetailView.cs" />
     <Compile Include="Vews\IArmyListView.cs" />
+    <Compile Include="Vews\IMainPageView.cs" />
+    <EmbeddedResource Include="ArmyDetailControl.resx">
+      <DependentUpon>ArmyDetailControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ArmyListControl.resx">
       <DependentUpon>ArmyListControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DbmArmyListEditor.resx">
       <DependentUpon>DbmArmyListEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DbmArmyListEditor_1.resx">
+      <DependentUpon>DbmArmyListEditor_1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -99,6 +133,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

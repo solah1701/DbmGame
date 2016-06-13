@@ -5,6 +5,5 @@ C:\Users\Stephen\Documents\Visual Studio 2015\Projects\GameEditor\GameCore\obj\D
 C:\Users\Stephen\Documents\Visual Studio 2015\Projects\GameEditor\GameCore\obj\Debug\GameCore.pdb
 C:\Users\Stephen\git\GameEditor Repository\src\GameEditor\GameCore\bin\Debug\GameCore.dll
 C:\Users\Stephen\git\GameEditor Repository\src\GameEditor\GameCore\bin\Debug\GameCore.pdb
-C:\Users\Stephen\git\GameEditor Repository\src\GameEditor\GameCore\obj\Debug\GameCore.csprojResolveAssemblyReference.cache
 C:\Users\Stephen\git\GameEditor Repository\src\GameEditor\GameCore\obj\Debug\GameCore.dll
 C:\Users\Stephen\git\GameEditor Repository\src\GameEditor\GameCore\obj\Debug\GameCore.pdb

@@ -12,9 +12,8 @@ namespace GameEditor.Wcf.Harness.Controllers
         private IArmyListView _view;
         private readonly IEventAggregator _event;
 
-          public ArmyListController(IEventAggregator eventAggregator, IArmyListView view, IGameModel model)
+          public ArmyListController(IEventAggregator eventAggregator, IGameModel model)
         {
-            _view = view;
             _model = model;
             _event = eventAggregator;
         }

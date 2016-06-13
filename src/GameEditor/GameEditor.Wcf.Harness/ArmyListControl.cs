@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using GameEditor.Wcf.Harness.Controllers;
 using GameEditor.Wcf.Harness.Extensions;
 using GameEditor.Wcf.Harness.Helpers;
+using GameEditor.Wcf.Harness.IoC;
 using GameEditor.Wcf.Harness.Vews;
 using GameEditor.Wcf.Harness.WarGameServiceReference;
 
@@ -18,7 +19,7 @@ namespace GameEditor.Wcf.Harness
         public ArmyListControl()
         {
             InitializeComponent();
-            _controller = IoC.IoCContainer.Resolve<IArmyListController>();
+            _controller = IoCContainer.Resolve<IArmyListController>();
             _controller.SetView(this);
             _controller.PopulateList();
         }
@@ -43,14 +44,6 @@ namespace GameEditor.Wcf.Harness
         private void ArmyListView_SelectedIndexChanged(object sender, EventArgs e)
         {
             _controller.SelectArmy();
-        }
-
-        private void ArmyListControl_Load(object sender, EventArgs e)
-        {
-#if !DESIGNMODE
-            //_controller = new ArmyListController(this);
-            //_controller.PopulateList();
-#endif
         }
     }
 }

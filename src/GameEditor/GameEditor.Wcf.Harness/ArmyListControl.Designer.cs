@@ -111,7 +111,6 @@
             this.Controls.Add(this.panel1);
             this.Name = "ArmyListControl";
             this.Size = new System.Drawing.Size(453, 303);
-            this.Load += new System.EventHandler(this.ArmyListControl_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);

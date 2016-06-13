@@ -11,9 +11,8 @@ namespace GameEditor.Wcf.Harness.Controllers
         private IArmyDetailView _view;
         private readonly IEventAggregator _event;
 
-        public ArmyDetailController(IEventAggregator eventAggregator, IArmyDetailView view, IGameModel model)
+        public ArmyDetailController(IEventAggregator eventAggregator, IGameModel model)
         {
-            _view = view;
             _model = model;
             _event = eventAggregator;
         }

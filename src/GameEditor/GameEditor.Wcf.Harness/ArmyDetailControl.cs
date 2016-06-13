@@ -13,8 +13,8 @@ namespace GameEditor.Wcf.Harness
         public ArmyDetailControl()
         {
             InitializeComponent();
-            _controller = IoCContainer.Resolve<IArmyDetailController>();
-            _controller.SetView(this);
+            //_controller = IoCContainer.Resolve<IArmyDetailController>();
+            //_controller.SetView(this);
         }
 
         public string ArmyName

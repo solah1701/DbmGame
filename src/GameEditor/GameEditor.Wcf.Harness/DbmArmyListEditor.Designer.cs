@@ -29,17 +29,21 @@
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.MainTabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.ArmyListControl = new GameEditor.Wcf.Harness.ArmyListControl();
+            this.ArmyDetailControl = new GameEditor.Wcf.Harness.ArmyDetailControl();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.MainTabControl.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -52,6 +56,27 @@
             this.menuStrip1.Size = new System.Drawing.Size(673, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.loadToolStripMenuItem,
+            this.saveToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 24);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // loadToolStripMenuItem
+            // 
+            this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
+            this.loadToolStripMenuItem.Size = new System.Drawing.Size(117, 26);
+            this.loadToolStripMenuItem.Text = "Load";
+            // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(117, 26);
+            this.saveToolStripMenuItem.Text = "Save";
             // 
             // statusStrip1
             // 
@@ -70,27 +95,6 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(151, 20);
             this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
             // 
-            // fileToolStripMenuItem
-            // 
-            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.loadToolStripMenuItem,
-            this.saveToolStripMenuItem});
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 24);
-            this.fileToolStripMenuItem.Text = "File";
-            // 
-            // loadToolStripMenuItem
-            // 
-            this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
-            this.loadToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
-            this.loadToolStripMenuItem.Text = "Load";
-            // 
-            // saveToolStripMenuItem
-            // 
-            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
-            this.saveToolStripMenuItem.Text = "Save";
-            // 
             // MainTabControl
             // 
             this.MainTabControl.Controls.Add(this.tabPage1);
@@ -104,6 +108,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.ArmyListControl);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -114,13 +119,33 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.ArmyDetailControl);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(192, 71);
+            this.tabPage2.Size = new System.Drawing.Size(665, 373);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // ArmyListControl
+            // 
+            this.ArmyListControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ArmyListControl.Location = new System.Drawing.Point(3, 3);
+            this.ArmyListControl.Name = "ArmyListControl";
+            this.ArmyListControl.Size = new System.Drawing.Size(659, 367);
+            this.ArmyListControl.TabIndex = 0;
+            // 
+            // ArmyDetailControl
+            // 
+            this.ArmyDetailControl.ArmyId = 0;
+            this.ArmyDetailControl.ArmyName = "";
+            this.ArmyDetailControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ArmyDetailControl.Location = new System.Drawing.Point(3, 3);
+            this.ArmyDetailControl.Name = "ArmyDetailControl";
+            this.ArmyDetailControl.Notes = "";
+            this.ArmyDetailControl.Size = new System.Drawing.Size(659, 367);
+            this.ArmyDetailControl.TabIndex = 0;
             // 
             // DbmArmyListEditor
             // 
@@ -138,6 +163,8 @@
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.MainTabControl.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -154,5 +181,7 @@
         private System.Windows.Forms.TabControl MainTabControl;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
+        private ArmyListControl ArmyListControl;
+        private ArmyDetailControl ArmyDetailControl;
     }
 }

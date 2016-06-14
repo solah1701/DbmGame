@@ -11,8 +11,7 @@ namespace GameEditor.Wcf.Harness
 {
     public partial class ArmyListControl : UserControl, IArmyListView
     {
-
-        private IArmyListController _controller;
+        private readonly IArmyListController _controller;
 
         public ArmyListControl()
         {

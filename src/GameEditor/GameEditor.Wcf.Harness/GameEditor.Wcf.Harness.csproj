@@ -99,12 +99,6 @@
     <Compile Include="IoC\StaticBindings.cs" />
     <Compile Include="Models\GameModel.cs" />
     <Compile Include="Models\IGameModel.cs" />
-    <Compile Include="Mvc\BaseControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Mvc\BaseControl.Designer.cs">
-      <DependentUpon>BaseControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="Mvc\Controller.cs" />
     <Compile Include="Mvc\IController.cs" />
     <Compile Include="Program.cs" />

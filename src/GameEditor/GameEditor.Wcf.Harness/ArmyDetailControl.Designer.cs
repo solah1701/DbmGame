@@ -42,22 +42,26 @@
             this.label6 = new System.Windows.Forms.Label();
             this.NotesTextBox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.TopPanel = new System.Windows.Forms.Panel();
+            this.LeftPanel = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.TopPanel.SuspendLayout();
+            this.LeftPanel.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(5, 11);
+            this.label1.Location = new System.Drawing.Point(3, 6);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(19, 17);
+            this.label1.Size = new System.Drawing.Size(51, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "ArmyId";
             // 
             // IdTextBox
             // 
-            this.IdTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.IdTextBox.Location = new System.Drawing.Point(75, 8);
+            this.IdTextBox.Location = new System.Drawing.Point(73, 3);
             this.IdTextBox.Name = "IdTextBox";
             this.IdTextBox.ReadOnly = true;
             this.IdTextBox.Size = new System.Drawing.Size(196, 22);
@@ -66,9 +70,7 @@
             // 
             // NameTextBox
             // 
-            this.NameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.NameTextBox.Location = new System.Drawing.Point(75, 36);
+            this.NameTextBox.Location = new System.Drawing.Point(73, 31);
             this.NameTextBox.Name = "NameTextBox";
             this.NameTextBox.Size = new System.Drawing.Size(196, 22);
             this.NameTextBox.TabIndex = 3;
@@ -76,7 +78,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(5, 39);
+            this.label2.Location = new System.Drawing.Point(3, 34);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(45, 17);
             this.label2.TabIndex = 2;
@@ -84,9 +86,7 @@
             // 
             // BookTextBox
             // 
-            this.BookTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.BookTextBox.Location = new System.Drawing.Point(75, 64);
+            this.BookTextBox.Location = new System.Drawing.Point(73, 59);
             this.BookTextBox.Name = "BookTextBox";
             this.BookTextBox.Size = new System.Drawing.Size(196, 22);
             this.BookTextBox.TabIndex = 5;
@@ -94,17 +94,15 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(5, 67);
+            this.label3.Location = new System.Drawing.Point(3, 62);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(40, 17);
+            this.label3.Size = new System.Drawing.Size(72, 17);
             this.label3.TabIndex = 4;
             this.label3.Text = "ArmyBook";
             // 
             // ListTextBox
             // 
-            this.ListTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ListTextBox.Location = new System.Drawing.Point(75, 92);
+            this.ListTextBox.Location = new System.Drawing.Point(73, 87);
             this.ListTextBox.Name = "ListTextBox";
             this.ListTextBox.Size = new System.Drawing.Size(196, 22);
             this.ListTextBox.TabIndex = 7;
@@ -112,17 +110,15 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(5, 95);
+            this.label4.Location = new System.Drawing.Point(3, 90);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(30, 17);
+            this.label4.Size = new System.Drawing.Size(62, 17);
             this.label4.TabIndex = 6;
             this.label4.Text = "ArmyList";
             // 
             // MinYearTextBox
             // 
-            this.MinYearTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.MinYearTextBox.Location = new System.Drawing.Point(75, 120);
+            this.MinYearTextBox.Location = new System.Drawing.Point(73, 115);
             this.MinYearTextBox.Name = "MinYearTextBox";
             this.MinYearTextBox.Size = new System.Drawing.Size(196, 22);
             this.MinYearTextBox.TabIndex = 9;
@@ -130,7 +126,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(5, 123);
+            this.label5.Location = new System.Drawing.Point(3, 118);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(64, 17);
             this.label5.TabIndex = 8;
@@ -138,9 +134,7 @@
             // 
             // MaxYearTextBox
             // 
-            this.MaxYearTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.MaxYearTextBox.Location = new System.Drawing.Point(75, 148);
+            this.MaxYearTextBox.Location = new System.Drawing.Point(73, 143);
             this.MaxYearTextBox.Name = "MaxYearTextBox";
             this.MaxYearTextBox.Size = new System.Drawing.Size(196, 22);
             this.MaxYearTextBox.TabIndex = 11;
@@ -148,7 +142,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(5, 151);
+            this.label6.Location = new System.Drawing.Point(3, 146);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(67, 17);
             this.label6.TabIndex = 10;
@@ -156,10 +150,7 @@
             // 
             // NotesTextBox
             // 
-            this.NotesTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.NotesTextBox.Location = new System.Drawing.Point(75, 176);
+            this.NotesTextBox.Location = new System.Drawing.Point(35, 41);
             this.NotesTextBox.Multiline = true;
             this.NotesTextBox.Name = "NotesTextBox";
             this.NotesTextBox.Size = new System.Drawing.Size(196, 127);
@@ -168,34 +159,65 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(5, 179);
+            this.label7.Location = new System.Drawing.Point(3, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(45, 17);
             this.label7.TabIndex = 12;
             this.label7.Text = "Notes";
             // 
-            // ArmyListControl
+            // TopPanel
+            // 
+            this.TopPanel.Controls.Add(this.BookTextBox);
+            this.TopPanel.Controls.Add(this.label1);
+            this.TopPanel.Controls.Add(this.IdTextBox);
+            this.TopPanel.Controls.Add(this.MaxYearTextBox);
+            this.TopPanel.Controls.Add(this.label2);
+            this.TopPanel.Controls.Add(this.label6);
+            this.TopPanel.Controls.Add(this.NameTextBox);
+            this.TopPanel.Controls.Add(this.MinYearTextBox);
+            this.TopPanel.Controls.Add(this.label3);
+            this.TopPanel.Controls.Add(this.label5);
+            this.TopPanel.Controls.Add(this.label4);
+            this.TopPanel.Controls.Add(this.ListTextBox);
+            this.TopPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.TopPanel.Location = new System.Drawing.Point(0, 0);
+            this.TopPanel.Name = "TopPanel";
+            this.TopPanel.Size = new System.Drawing.Size(776, 170);
+            this.TopPanel.TabIndex = 14;
+            // 
+            // LeftPanel
+            // 
+            this.LeftPanel.Controls.Add(this.label7);
+            this.LeftPanel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.LeftPanel.Location = new System.Drawing.Point(0, 170);
+            this.LeftPanel.Name = "LeftPanel";
+            this.LeftPanel.Size = new System.Drawing.Size(70, 465);
+            this.LeftPanel.TabIndex = 16;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.NotesTextBox);
+            this.panel1.Location = new System.Drawing.Point(198, 361);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(430, 222);
+            this.panel1.TabIndex = 17;
+            // 
+            // ArmyDetailControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.NotesTextBox);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.MaxYearTextBox);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.MinYearTextBox);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.ListTextBox);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.BookTextBox);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.NameTextBox);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.IdTextBox);
-            this.Controls.Add(this.label1);
-            this.Name = "ArmyListControl";
-            this.Size = new System.Drawing.Size(304, 315);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.LeftPanel);
+            this.Controls.Add(this.TopPanel);
+            this.Name = "ArmyDetailControl";
+            this.Size = new System.Drawing.Size(776, 635);
+            this.TopPanel.ResumeLayout(false);
+            this.TopPanel.PerformLayout();
+            this.LeftPanel.ResumeLayout(false);
+            this.LeftPanel.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -215,5 +237,8 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox NotesTextBox;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Panel TopPanel;
+        private System.Windows.Forms.Panel LeftPanel;
+        private System.Windows.Forms.Panel panel1;
     }
 }

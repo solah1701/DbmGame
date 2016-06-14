@@ -1,6 +1,4 @@
-﻿//#define DESIGNMODE
-
-using System;
+﻿using System;
 using System.Windows.Forms;
 using GameEditor.Wcf.Harness.Controllers;
 using GameEditor.Wcf.Harness.Extensions;

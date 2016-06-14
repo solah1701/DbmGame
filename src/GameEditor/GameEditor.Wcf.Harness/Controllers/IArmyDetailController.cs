@@ -1,10 +1,10 @@
-﻿using GameEditor.Wcf.Harness.Vews;
+﻿using GameEditor.Wcf.Harness.Mvc;
+using GameEditor.Wcf.Harness.Vews;
 
 namespace GameEditor.Wcf.Harness.Controllers
 {
-    public interface IArmyDetailController
+    public interface IArmyDetailController : IController<IArmyDetailView>
     {
-        void SetView(IArmyDetailView view);
         void ClearArmyDetail();
         void DeleteArmyDetail();
         void SelectArmyDetail(int id);

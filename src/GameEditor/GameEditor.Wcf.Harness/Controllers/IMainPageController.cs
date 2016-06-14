@@ -1,10 +1,10 @@
-﻿using GameEditor.Wcf.Harness.Vews;
+﻿using GameEditor.Wcf.Harness.Mvc;
+using GameEditor.Wcf.Harness.Vews;
 
 namespace GameEditor.Wcf.Harness.Controllers
 {
-    public interface IMainPageController
+    public interface IMainPageController : IController<IMainPageView>
     {
         void SelectTab(string tabName);
-        void SetView(IMainPageView view);
     }
 }

@@ -1,18 +1,12 @@
 ﻿using System;
 using GameEditor.Wcf.Harness.Helpers;
+using GameEditor.Wcf.Harness.Mvc;
 using GameEditor.Wcf.Harness.Vews;
 
 namespace GameEditor.Wcf.Harness.Controllers
 {
-    public class MainPageController : IHandle<string>, IMainPageController
+    public class MainPageController : Controller<IMainPageView>, IHandle<string>, IMainPageController
     {
-        private IMainPageView _view;
-
-        public void SetView(IMainPageView view)
-        {
-            _view = view;
-        }
-
         public void Handle(string message)
         {
             SelectTab(message);
@@ -20,7 +14,7 @@ namespace GameEditor.Wcf.Harness.Controllers
 
         public void SelectTab(string tabName)
         {
-            _view.SelectTab(tabName);
+            View.SelectTab(tabName);
         }
     }
 }

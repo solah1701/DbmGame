@@ -1,14 +1,14 @@
 ﻿using GameEditor.Wcf.Harness.Helpers;
 using GameEditor.Wcf.Harness.Models;
+using GameEditor.Wcf.Harness.Mvc;
 using GameEditor.Wcf.Harness.Vews;
 using GameEditor.Wcf.Harness.WarGameServiceReference;
 
 namespace GameEditor.Wcf.Harness.Controllers
 {
-    public class ArmyDetailController : IArmyDetailController
+    public class ArmyDetailController : Controller<IArmyDetailView>, IArmyDetailController
     {
         private readonly IGameModel _model;
-        private IArmyDetailView _view;
         private readonly IEventAggregator _event;
 
         public ArmyDetailController(IEventAggregator eventAggregator, IGameModel model)
@@ -17,53 +17,48 @@ namespace GameEditor.Wcf.Harness.Controllers
             _event = eventAggregator;
         }
 
-        public void SetView(IArmyDetailView view)
-        {
-            _view = view;
-        }
-
         public void ClearArmyDetail()
         {
-            _view.ArmyId = 0;
-            _view.ArmyName = string.Empty;
-            _view.ArmyBook = 0;
-            _view.ArmyList = 0;
-            _view.MinYear = 0;
-            _view.MaxYear = 0;
-            _view.Notes = string.Empty;
+            View.ArmyId = 0;
+            View.ArmyName = string.Empty;
+            View.ArmyBook = 0;
+            View.ArmyList = 0;
+            View.MinYear = 0;
+            View.MaxYear = 0;
+            View.Notes = string.Empty;
         }
 
         public void UpdateArmyDetail()
         {
             var definition = new ArmyDefinition
             {
-                Id = _view.ArmyId,
-                ArmyName = _view.ArmyName,
-                ArmyBook = _view.ArmyBook,
-                ArmyList = _view.ArmyList,
-                MinYear = _view.MinYear,
-                MaxYear = _view.MaxYear,
-                Notes = _view.Notes
+                Id = View.ArmyId,
+                ArmyName = View.ArmyName,
+                ArmyBook = View.ArmyBook,
+                ArmyList = View.ArmyList,
+                MinYear = View.MinYear,
+                MaxYear = View.MaxYear,
+                Notes = View.Notes
             };
-            _view.ArmyId = _model.AddArmyDefinition(definition);
+            View.ArmyId = _model.AddArmyDefinition(definition);
         }
 
         public void DeleteArmyDetail()
         {
-            _model.DeleteArmyDefinition(_view.ArmyId);
+            _model.DeleteArmyDefinition(View.ArmyId);
             ClearArmyDetail();
         }
 
         public void SelectArmyDetail(int id)
         {
             var item = _model.GetArmyDefinition(id);
-            _view.ArmyId = item.Id;
-            _view.ArmyName = item.ArmyName;
-            _view.ArmyBook = item.ArmyBook;
-            _view.ArmyList = item.ArmyList;
-            _view.MinYear = item.MinYear;
-            _view.MaxYear = item.MaxYear;
-            _view.Notes = item.Notes;
+            View.ArmyId = item.Id;
+            View.ArmyName = item.ArmyName;
+            View.ArmyBook = item.ArmyBook;
+            View.ArmyList = item.ArmyList;
+            View.MinYear = item.MinYear;
+            View.MaxYear = item.MaxYear;
+            View.Notes = item.Notes;
         }
     }
 }

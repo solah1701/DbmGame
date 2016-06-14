@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/GameCore.WcfService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/GameCore.WcfService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:52965/WarGameService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/GameCore.WcfService.DebellisMultitudinis.Enumerations" />
   <xs:complexType name="User">
     <xs:sequence>
       <xs:element minOccurs="0" name="ArmiesLink" nillable="true" type="xs:anyURI" />
       <xs:element minOccurs="0" name="BattlesLink" nillable="true" type="xs:anyURI" />
       <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="IdLink" nillable="true" type="xs:anyURI" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
@@ -19,7 +20,7 @@
       <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
       <xs:element minOccurs="0" name="DefenderUser" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="DefenderUserLink" nillable="true" type="xs:anyURI" />
-      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="IdLink" nillable="true" type="xs:anyURI" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
     </xs:sequence>
@@ -34,7 +35,7 @@
   <xs:complexType name="Army">
     <xs:sequence>
       <xs:element minOccurs="0" name="ArmyCommandsLink" nillable="true" type="xs:anyURI" />
-      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="IdLink" nillable="true" type="xs:anyURI" />
       <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="User" nillable="true" type="xs:string" />
@@ -50,10 +51,10 @@
   <xs:element name="ArmyCommands" nillable="true" type="tns:ArmyCommands" />
   <xs:complexType name="ArmyCommand">
     <xs:sequence>
-      <xs:element minOccurs="0" name="Army" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Army" type="xs:int" />
       <xs:element minOccurs="0" name="ArmyGroupsLink" nillable="true" type="xs:anyURI" />
       <xs:element minOccurs="0" name="ArmyLink" nillable="true" type="xs:anyURI" />
-      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="IdLink" nillable="true" type="xs:anyURI" />
       <xs:element minOccurs="0" name="IsBroken" type="xs:boolean" />
       <xs:element minOccurs="0" name="IsFlankMarch" type="xs:boolean" />
@@ -72,11 +73,11 @@
   <xs:element name="ArmyGroups" nillable="true" type="tns:ArmyGroups" />
   <xs:complexType name="ArmyGroup">
     <xs:sequence>
-      <xs:element minOccurs="0" name="Army" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="ArmyCommand" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Army" type="xs:int" />
+      <xs:element minOccurs="0" name="ArmyCommand" type="xs:int" />
       <xs:element minOccurs="0" name="ArmyCommandLink" nillable="true" type="xs:anyURI" />
       <xs:element minOccurs="0" name="ArmyLink" nillable="true" type="xs:anyURI" />
-      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="IdLink" nillable="true" type="xs:anyURI" />
       <xs:element minOccurs="0" name="UnitFrontage" type="xs:int" />
       <xs:element minOccurs="0" name="UnitsLink" nillable="true" type="xs:anyURI" />
@@ -93,13 +94,13 @@
   <xs:element name="Units" nillable="true" type="tns:Units" />
   <xs:complexType name="Unit">
     <xs:sequence>
-      <xs:element minOccurs="0" name="Army" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="ArmyCommand" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Army" type="xs:int" />
+      <xs:element minOccurs="0" name="ArmyCommand" type="xs:int" />
       <xs:element minOccurs="0" name="ArmyCommandLink" nillable="true" type="xs:anyURI" />
-      <xs:element minOccurs="0" name="ArmyGroup" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ArmyGroup" type="xs:int" />
       <xs:element minOccurs="0" name="ArmyGroupLink" nillable="true" type="xs:anyURI" />
       <xs:element minOccurs="0" name="ArmyLink" nillable="true" type="xs:anyURI" />
-      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="IdLink" nillable="true" type="xs:anyURI" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="UnitType" nillable="true" type="xs:string" />
@@ -136,7 +137,10 @@
   <xs:complexType name="ArmyUnitDefinition">
     <xs:sequence>
       <xs:element minOccurs="0" name="Cost" nillable="true" type="xs:decimal" />
-      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/GameCore.WcfService.DebellisMultitudinis.Enumerations" minOccurs="0" name="DisciplineType" type="q1:DisciplineTypeEnum" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/GameCore.WcfService.DebellisMultitudinis.Enumerations" minOccurs="0" name="DispositionType" type="q2:DispositionTypeEnum" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/GameCore.WcfService.DebellisMultitudinis.Enumerations" minOccurs="0" name="GradeType" type="q3:GradeTypeEnum" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="IdLink" nillable="true" type="xs:anyURI" />
       <xs:element minOccurs="0" name="IsAlly" type="xs:boolean" />
       <xs:element minOccurs="0" name="IsChariot" type="xs:boolean" />
@@ -148,6 +152,7 @@
       <xs:element minOccurs="0" name="MinCount" type="xs:int" />
       <xs:element minOccurs="0" name="MinYear" type="xs:int" />
       <xs:element minOccurs="0" name="UnitName" nillable="true" type="xs:string" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/GameCore.WcfService.DebellisMultitudinis.Enumerations" minOccurs="0" name="UnitType" type="q4:UnitTypeEnum" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArmyUnitDefinition" nillable="true" type="tns:ArmyUnitDefinition" />

@@ -17,7 +17,7 @@ namespace GameCore.WcfService.Helpers
         {
             return new ArmyUnitDefinition
             {
-                Id = definition.ArmyUnitDefinitionId.ToString(),
+                Id = definition.ArmyUnitDefinitionId,
                 UnitName = definition.Name,
                 Cost = definition.Cost,
                 IsGeneral = definition.IsGeneral,
@@ -36,7 +36,7 @@ namespace GameCore.WcfService.Helpers
         {
             return new ArmyListUnitDefinition
             {
-                ArmyUnitDefinitionId = int.Parse(definition.Id),
+                ArmyUnitDefinitionId = definition.Id,
                 Name = definition.UnitName,
                 Cost = definition.Cost,
                 IsGeneral = definition.IsGeneral,
@@ -53,7 +53,7 @@ namespace GameCore.WcfService.Helpers
 
         public static void SetArmyListUnitDefinition(this ArmyListUnitDefinition definition, ArmyUnitDefinition item)
         {
-            definition.ArmyUnitDefinitionId = int.Parse(item.Id);
+            definition.ArmyUnitDefinitionId = item.Id;
             definition.Name = item.UnitName;
             definition.Cost = item.Cost;
             definition.IsGeneral = item.IsGeneral;

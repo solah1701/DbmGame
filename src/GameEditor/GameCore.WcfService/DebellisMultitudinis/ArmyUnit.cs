@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using GameCore.DebellisMultitudinis.Enumerations;
+using GameCore.WcfService.DebellisMultitudinis.Enumerations;
 
 namespace GameCore.WcfService.DebellisMultitudinis
 {

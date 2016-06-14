@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using GameEditor.Wcf.Harness.Controllers;
 using GameEditor.Wcf.Harness.IoC;
-using GameEditor.Wcf.Harness.Vews;
+using GameEditor.Wcf.Harness.Views;
 
 namespace GameEditor.Wcf.Harness
 {

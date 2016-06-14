@@ -9,13 +9,13 @@ namespace GameCore.WcfService.Helpers
     public class WarGameModel : IWarGameModel
     {
         private Dictionary<string, User> Users { get; set; }
-        private Dictionary<string, Army> Armies { get; set; }
-        private Dictionary<string, ArmyCommand> ArmyCommands { get; set; }
-        private Dictionary<string, ArmyGroup> ArmyGroups { get; set; }
-        private Dictionary<string, Unit> Units { get; set; }
-        private Dictionary<string, Battle> Battles { get; set; }
-        private Dictionary<string, ArmyDefinition> ArmyDefinitions { get; set; }
-        private Dictionary<string, ArmyUnitDefinition> ArmyUnitDefinitions { get; set; }
+        private Dictionary<int, Army> Armies { get; set; }
+        private Dictionary<int, ArmyCommand> ArmyCommands { get; set; }
+        private Dictionary<int, ArmyGroup> ArmyGroups { get; set; }
+        private Dictionary<int, Unit> Units { get; set; }
+        private Dictionary<int, Battle> Battles { get; set; }
+        private Dictionary<int, ArmyDefinition> ArmyDefinitions { get; set; }
+        private Dictionary<int, ArmyUnitDefinition> ArmyUnitDefinitions { get; set; }
 
         private IDbmModel _model;
 
@@ -46,13 +46,13 @@ namespace GameCore.WcfService.Helpers
             Users.Remove(username);
         }
 
-        public Army GetUserArmy(string username, string id)
+        public Army GetUserArmy(string username, int id)
         {
             if (!Armies.ContainsKey(id) || Armies[id].User != username) return null;
             return Armies[id];
         }
 
-        public Battle GetUserBattle(string username, string id)
+        public Battle GetUserBattle(string username, int id)
         {
             if (!Battles.ContainsKey(id) ||
                 (Battles[id].AttackerUser != username && Battles[id].DefenderUser != username))
@@ -60,37 +60,37 @@ namespace GameCore.WcfService.Helpers
             return Battles[id];
         }
 
-        public void BattlesAdd(string id, Battle battle)
+        public void BattlesAdd(int id, Battle battle)
         {
             Battles.Add(id, battle);
         }
 
-        public bool BattlesContainsKey(string id)
+        public bool BattlesContainsKey(int id)
         {
             return Battles.ContainsKey(id);
         }
 
-        public bool IsBattleAttacker(string id, string username)
+        public bool IsBattleAttacker(int id, string username)
         {
             return Battles[id].AttackerUser == username;
         }
 
-        public bool IsBattleDefender(string id, string username)
+        public bool IsBattleDefender(int id, string username)
         {
             return Battles[id].DefenderUser == username;
         }
 
-        public void SetBattle(string id, Battle battle)
+        public void SetBattle(int id, Battle battle)
         {
             Battles[id] = battle;
         }
 
-        public void BattlesRemove(string id)
+        public void BattlesRemove(int id)
         {
             Battles.Remove(id);
         }
 
-        public Army FindArmy(string id)
+        public Army FindArmy(int id)
         {
             return ArmiesContainsKey(id) ? Armies[id] : null;
         }
@@ -100,131 +100,131 @@ namespace GameCore.WcfService.Helpers
             return new Armies(Armies.Values.Where(a => a.User == username).ToList());
         }
 
-        public bool ArmiesContainsKey(string id)
+        public bool ArmiesContainsKey(int id)
         {
             return Armies.ContainsKey(id);
         }
 
-        public bool IsArmiesUser(string username, string id)
+        public bool IsArmiesUser(string username, int id)
         {
             return Armies[id].User == username;
         }
 
-        public void ArmiesAdd(string id, Army army)
+        public void ArmiesAdd(int id, Army army)
         {
             Armies.Add(id, army);
         }
 
-        public void ArmiesRemove(string id)
+        public void ArmiesRemove(int id)
         {
             Armies.Remove(id);
         }
 
-        public void SetArmy(string id, Army army)
+        public void SetArmy(int id, Army army)
         {
             Armies[id] = army;
         }
 
-        public ArmyCommand FindUserArmyCommandForArmy(string username, string id, string armyId)
+        public ArmyCommand FindUserArmyCommandForArmy(string username, int id, int armyId)
         {
             return ArmyCommandsContainsKey(id) && ArmyCommands[id].User == username && ArmyCommands[id].Army == armyId ? ArmyCommands[id] : null;
         }
 
-        public ArmyCommands FindUserArmyCommandsForArmy(string username, string armyId)
+        public ArmyCommands FindUserArmyCommandsForArmy(string username, int armyId)
         {
             return new ArmyCommands(ArmyCommands.Values.Where(ac => ac.User == username && ac.Army == armyId).ToList());
         }
 
-        public bool ArmyCommandsContainsKey(string id)
+        public bool ArmyCommandsContainsKey(int id)
         {
             return ArmyCommands.ContainsKey(id);
         }
 
-        public void SetArmyCommand(string id, ArmyCommand armyCommand)
+        public void SetArmyCommand(int id, ArmyCommand armyCommand)
         {
             ArmyCommands[id] = armyCommand;
         }
 
-        public void ArmyCommandsAdd(string id, ArmyCommand armyCommand)
+        public void ArmyCommandsAdd(int id, ArmyCommand armyCommand)
         {
             ArmyCommands.Add(id, armyCommand);
         }
 
-        public void ArmyCommandsRemove(string id)
+        public void ArmyCommandsRemove(int id)
         {
             ArmyCommands.Remove(id);
         }
 
-        public ArmyGroup FindUserArmyGroupForArmyCommand(string username, string id, string armyId, string commandId)
+        public ArmyGroup FindUserArmyGroupForArmyCommand(string username, int id, int armyId, int commandId)
         {
             return ArmyGroupsContainsKey(id) && ArmyGroups[id].User == username && ArmyGroups[id].Army == armyId &&
                    ArmyGroups[id].ArmyCommand == commandId ? ArmyGroups[id] : null;
         }
 
-        public ArmyGroups FindUserArmyGroupsForArmyCommand(string username, string armyId, string commandId)
+        public ArmyGroups FindUserArmyGroupsForArmyCommand(string username, int armyId, int commandId)
         {
             return new ArmyGroups(ArmyGroups.Values.Where(ag => ag.User == username && ag.Army == armyId && ag.ArmyCommand == commandId).ToList());
         }
 
-        public bool ArmyGroupsContainsKey(string id)
+        public bool ArmyGroupsContainsKey(int id)
         {
             return ArmyGroups.ContainsKey(id);
         }
 
-        public void SetArmyGroup(string id, ArmyGroup armyGroup)
+        public void SetArmyGroup(int id, ArmyGroup armyGroup)
         {
             ArmyGroups[id] = armyGroup;
         }
 
-        public void ArmyGroupsAdd(string id, ArmyGroup armyGroup)
+        public void ArmyGroupsAdd(int id, ArmyGroup armyGroup)
         {
             ArmyGroups.Add(id, armyGroup);
         }
 
-        public void ArmyGroupsRemove(string id)
+        public void ArmyGroupsRemove(int id)
         {
             ArmyGroups.Remove(id);
         }
 
-        public Unit FindUserArmyUnitForArmyCommand(string username, string id, string armyId, string commandId)
+        public Unit FindUserArmyUnitForArmyCommand(string username, int id, int armyId, int commandId)
         {
             return ArmyUnitsContainsKey(id) && Units[id].User == username && Units[id].Army == armyId && Units[id].ArmyCommand == commandId ? Units[id] : null;
         }
 
-        public Units FindUserArmyUnitsForArmyCommand(string username, string armyId, string commandId)
+        public Units FindUserArmyUnitsForArmyCommand(string username, int armyId, int commandId)
         {
             return new Units(Units.Values.Where(au => au.User == username && au.Army == armyId && au.ArmyCommand == commandId).ToList());
         }
 
-        public Units FindUserArmyUnitsForArmyCommandGroup(string username, string armyId, string commandId, string groupId)
+        public Units FindUserArmyUnitsForArmyCommandGroup(string username, int armyId, int commandId, int groupId)
         {
             return new Units(Units.Values.Where(au => au.User == username && au.Army == armyId && au.ArmyCommand == commandId && au.ArmyGroup == groupId).ToList());
         }
 
-        public bool ArmyUnitsContainsKey(string id)
+        public bool ArmyUnitsContainsKey(int id)
         {
             return Units.ContainsKey(id);
         }
 
-        public void SetArmyUnit(string id, Unit armyUnit)
+        public void SetArmyUnit(int id, Unit armyUnit)
         {
             Units[id] = armyUnit;
         }
 
-        public void ArmyUnitsAdd(string id, Unit armyUnit)
+        public void ArmyUnitsAdd(int id, Unit armyUnit)
         {
             Units.Add(id, armyUnit);
         }
 
-        public void ArmyUnitsRemove(string id)
+        public void ArmyUnitsRemove(int id)
         {
             Units.Remove(id);
         }
 
-        public ArmyDefinition FindArmyDefinition(string id)
+        public ArmyDefinition FindArmyDefinition(int id)
         {
             if (!ArmyDefinitionsContainsKey(id)) throw new RecordNotFoundException($"ArmyDefinition with id = {id} does not exist");
-            var definition = _model.ArmyListDefinitions.First(ald => ald.ArmyListDefinitionId.ToString() == id);
+            var definition = _model.ArmyListDefinitions.First(ald => ald.ArmyListDefinitionId == id);
             return definition.GetArmyDefinition();
         }
 
@@ -234,19 +234,15 @@ namespace GameCore.WcfService.Helpers
             return definitions.GetArmyDefinitions();
         }
 
-        public bool ArmyDefinitionsContainsKey(string id)
+        public bool ArmyDefinitionsContainsKey(int id)
         {
-            if (id == null) return false;
-            int localId;
-            if (int.TryParse(id, out localId))
-                return _model.ArmyListDefinitions.Any(ald => ald.ArmyListDefinitionId == localId);
-            throw new InvalidCastException($"parameter id = {id} does not cast to an integer type");
+            return _model.ArmyListDefinitions.Any(ald => ald.ArmyListDefinitionId == id);
         }
 
-        public void SetArmyDefinition(string id, ArmyDefinition armyDefinition)
+        public void SetArmyDefinition(int id, ArmyDefinition armyDefinition)
         {
             if (!ArmyDefinitionsContainsKey(id)) throw new RecordNotFoundException($"ArmyDefinition with id = {id} does not exist");
-            _model.ArmyListDefinitions.Find(int.Parse(id)).SetArmyListDefinition(armyDefinition);
+            _model.ArmyListDefinitions.Find(id).SetArmyListDefinition(armyDefinition);
             _model.SaveDbChanges();
         }
 
@@ -257,52 +253,49 @@ namespace GameCore.WcfService.Helpers
             _model.SaveDbChanges();
         }
 
-        public void ArmyDefinitionsRemove(string id)
+        public void ArmyDefinitionsRemove(int id)
         {
             var definition = FindArmyDefinition(id);
             _model.ArmyListDefinitions.Remove(definition.GetArmyListDefinition());
             _model.SaveDbChanges();
         }
 
-        public ArmyUnitDefinition FindArmyUnitDefinition(string id, string armyDefinitionId)
+        public ArmyUnitDefinition FindArmyUnitDefinition(int id, int armyDefinitionId)
         {
             if (!ArmyUnitDefinitionsContainsKey(id)) throw new RecordNotFoundException($"ArmyUnitDefinition with id = {id} does not exist");
-            var definition = _model.ArmyUnitDefinitions.First(ald => ald.ArmyUnitDefinitionId.ToString() == id && ald.ArmyListDefinition.ArmyListDefinitionId.ToString() == armyDefinitionId);
+            var definition = _model.ArmyUnitDefinitions.First(ald => ald.ArmyUnitDefinitionId == id && ald.ArmyListDefinition.ArmyListDefinitionId == armyDefinitionId);
             return definition.GetArmyUnitDefinition();
         }
 
-        public ArmyUnitDefinitions FindArmyUnitDefinitions(string armyDefinitionId)
+        public ArmyUnitDefinitions FindArmyUnitDefinitions(int armyDefinitionId)
         {
-            var definitions = _model.ArmyUnitDefinitions.Where(aud => aud.ArmyListDefinition.ArmyListDefinitionId.ToString() == armyDefinitionId).ToList();
+            var definitions = _model.ArmyUnitDefinitions.Where(aud => aud.ArmyListDefinition.ArmyListDefinitionId == armyDefinitionId).ToList();
             return definitions.GetArmyUnitDefinitions();
         }
 
-        public bool ArmyUnitDefinitionsContainsKey(string id)
+        public bool ArmyUnitDefinitionsContainsKey(int id)
         {
-            int localId;
-            if (int.TryParse(id, out localId))
-                return _model.ArmyUnitDefinitions.Any(ald => ald.ArmyUnitDefinitionId == localId);
-            throw new InvalidCastException($"parameter id = {id} does not cast to an integer type");
+            return _model.ArmyUnitDefinitions.Any(ald => ald.ArmyUnitDefinitionId == id);
         }
 
-        public void SetArmyUnitDefinition(string id, ArmyUnitDefinition armyUnitDefinition)
+        public void SetArmyUnitDefinition(int id, ArmyUnitDefinition armyUnitDefinition)
         {
             if (!ArmyUnitDefinitionsContainsKey(id)) throw new RecordNotFoundException($"ArmyUnitDefinition with id = {id} does not exist");
-            _model.ArmyUnitDefinitions.Find(int.Parse(id)).SetArmyListUnitDefinition(armyUnitDefinition);
+            _model.ArmyUnitDefinitions.Find(id).SetArmyListUnitDefinition(armyUnitDefinition);
             _model.SaveDbChanges();
         }
 
-        public void ArmyUnitDefinitionsAdd(string id, ArmyUnitDefinition armyUnitDefinition)
+        public void ArmyUnitDefinitionsAdd(int id, ArmyUnitDefinition armyUnitDefinition)
         {
             if (ArmyUnitDefinitionsContainsKey(armyUnitDefinition.Id)) throw new PrimaryKeyViolationException($"ArmyUnitDefinition with id = {armyUnitDefinition.Id} already exists");
             _model.ArmyUnitDefinitions.Add(armyUnitDefinition.GetArmyUnitDefinition());
             _model.SaveDbChanges();
         }
 
-        public void ArmyUnitDefinitionsRemove(string id)
+        public void ArmyUnitDefinitionsRemove(int id)
         {
             if (!ArmyUnitDefinitionsContainsKey(id)) throw new RecordNotFoundException($"ArmyUnitDefinition with id = {id} does not exist");
-            var definition = _model.ArmyUnitDefinitions.First(ald => ald.ArmyUnitDefinitionId.ToString() == id);
+            var definition = _model.ArmyUnitDefinitions.First(ald => ald.ArmyUnitDefinitionId == id);
             _model.ArmyUnitDefinitions.Remove(definition);
             _model.SaveDbChanges();
         }

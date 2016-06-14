@@ -1,4 +1,4 @@
-﻿namespace GameEditor.Wcf.Harness.Vews
+﻿namespace GameEditor.Wcf.Harness.Views
 {
     public interface IArmyDetailView
     {

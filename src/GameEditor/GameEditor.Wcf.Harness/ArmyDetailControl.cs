@@ -2,7 +2,7 @@
 using GameEditor.Wcf.Harness.Controllers;
 using GameEditor.Wcf.Harness.Helpers;
 using GameEditor.Wcf.Harness.IoC;
-using GameEditor.Wcf.Harness.Vews;
+using GameEditor.Wcf.Harness.Views;
 
 namespace GameEditor.Wcf.Harness
 {

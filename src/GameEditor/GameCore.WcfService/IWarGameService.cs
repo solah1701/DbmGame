@@ -5,6 +5,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using GameCore.WcfService.DebellisMultitudinis.Enumerations;
 
 namespace GameCore.WcfService
 {
@@ -33,7 +34,7 @@ namespace GameCore.WcfService
         #region Battle
         [WebGet(UriTemplate = "users/{username}/battles/{id}")]
         [OperationContract]
-        Battle GetBattle(string username, string id);
+        Battle GetBattle(string username, int id);
 
         [WebInvoke(Method = "POST", UriTemplate = "users/{username}/defender/{defendername}/battles")]
         [OperationContract]
@@ -41,11 +42,11 @@ namespace GameCore.WcfService
 
         [WebInvoke(Method = "PUT", UriTemplate = "users/{username}/defender/{defendername}/battles/{id}")]
         [OperationContract]
-        void PutBattle(string username, string defendername, string id, Battle battle);
+        void PutBattle(string username, string defendername, int id, Battle battle);
 
         [WebInvoke(Method = "DELETE", UriTemplate = "users/{username}/defender/{defendername}/battles/{id}")]
         [OperationContract]
-        void DeleteBattle(string username, string defendername, string id);
+        void DeleteBattle(string username, string defendername, int id);
         #endregion
 
         #region Army
@@ -55,7 +56,7 @@ namespace GameCore.WcfService
 
         [WebGet(UriTemplate = "users/{username}/Armies/{id}")]
         [OperationContract]
-        Army GetArmy(string username, string id);
+        Army GetArmy(string username, int id);
 
         [WebInvoke(Method = "POST", UriTemplate = "users/{username}/Armies")]
         [OperationContract]
@@ -63,81 +64,81 @@ namespace GameCore.WcfService
 
         [WebInvoke(Method = "PUT", UriTemplate = "users/{username}/Armies/{id}")]
         [OperationContract]
-        void PutArmy(string username, string id, Army army);
+        void PutArmy(string username, int id, Army army);
 
         [WebInvoke(Method = "DELETE", UriTemplate = "users/{username}/Armies/{id}")]
         [OperationContract]
-        void DeleteArmy(string username, string id);
+        void DeleteArmy(string username, int id);
         #endregion
 
         #region ArmyCommand
         [WebGet(UriTemplate = "users/{username}/Armies/{armyId}/ArmyCommands?tag={tag}")]
         [OperationContract]
-        ArmyCommands GetUserArmyCommands(string username, string armyId, string tag);
+        ArmyCommands GetUserArmyCommands(string username, int armyId, string tag);
 
         [WebGet(UriTemplate = "users/{username}/Armies/{armyId}/ArmyCommands/{id}")]
         [OperationContract]
-        ArmyCommand GetArmyCommand(string username, string armyId, string id);
+        ArmyCommand GetArmyCommand(string username, int armyId, int id);
 
         [WebInvoke(Method = "POST", UriTemplate = "users/{username}/Armies/{armyId}/ArmyCommands")]
         [OperationContract]
-        void PostArmyCommand(string username, string armyId, ArmyCommand armyCommand);
+        void PostArmyCommand(string username, int armyId, ArmyCommand armyCommand);
 
         [WebInvoke(Method = "PUT", UriTemplate = "users/{username}/Armies/{armyId}/ArmyCommands/{id}")]
         [OperationContract]
-        void PutArmyCommand(string username, string armyId, string id, ArmyCommand armyCommand);
+        void PutArmyCommand(string username, int armyId, int id, ArmyCommand armyCommand);
 
         [WebInvoke(Method = "DELETE", UriTemplate = "users/{username}/Armies/{armyId}/ArmyCommands/{id}")]
         [OperationContract]
-        void DeleteArmyCommand(string username, string armyId, string id);
+        void DeleteArmyCommand(string username, int armyId, int id);
         #endregion
 
         #region ArmyGroup
         [WebGet(UriTemplate = "users/{username}/Armies/{armyId}/ArmyCommands/{commandId}/ArmyGroups?tag={tag}")]
         [OperationContract]
-        ArmyGroups GetUserArmyGroups(string username, string armyId, string commandId, string tag);
+        ArmyGroups GetUserArmyGroups(string username, int armyId, int commandId, string tag);
 
         [WebGet(UriTemplate = "users/{username}/Armies/{armyId}/ArmyCommands/{commandId}/ArmyGroups/{id}")]
         [OperationContract]
-        ArmyGroup GetArmyGroup(string username, string armyId, string commandId, string id);
+        ArmyGroup GetArmyGroup(string username, int armyId, int commandId, int id);
 
         [WebInvoke(Method = "POST", UriTemplate = "users/{username}/Armies/{armyId}/ArmyCommands/{commandId}/ArmyGroups")]
         [OperationContract]
-        void PostArmyGroup(string username, string armyId, string commandId, ArmyGroup armyGroup);
+        void PostArmyGroup(string username, int armyId, int commandId, ArmyGroup armyGroup);
 
         [WebInvoke(Method = "PUT", UriTemplate = "users/{username}/Armies/{armyId}/ArmyCommands/{commandId}/ArmyGroups/{id}")]
         [OperationContract]
-        void PutArmyGroup(string username, string armyId, string commandId, string id, ArmyGroup armyGroup);
+        void PutArmyGroup(string username, int armyId, int commandId, int id, ArmyGroup armyGroup);
 
         [WebInvoke(Method = "DELETE", UriTemplate = "users/{username}/Armies/{armyId}/ArmyCommands/{commandId}/ArmyGroups/{id}")]
         [OperationContract]
-        void DeleteArmyGroup(string username, string armyId, string commandId, string id);
+        void DeleteArmyGroup(string username, int armyId, int commandId, int id);
         #endregion
 
         #region ArmyUnit
         [WebGet(UriTemplate = "users/{username}/Armies/{armyId}/ArmyCommands/{commandId}/Units?tag={tag}")]
         [OperationContract]
-        Units GetUserArmyUnits(string username, string armyId, string commandId, string tag);
+        Units GetUserArmyUnits(string username, int armyId, int commandId, string tag);
 
         [WebGet(UriTemplate = "users/{username}/Armies/{armyId}/ArmyCommands/{commandId}/ArmyGroups/{groupId}/Units?tag={tag}")]
         [OperationContract]
-        Units GetUserArmyGroupUnits(string username, string armyId, string commandId, string groupId, string tag);
+        Units GetUserArmyGroupUnits(string username, int armyId, int commandId, int groupId, string tag);
 
         [WebGet(UriTemplate = "users/{username}/Armies/{armyId}/ArmyCommands/{commandId}/Units/{id}")]
         [OperationContract]
-        Unit GetArmyUnit(string username, string armyId, string commandId, string id);
+        Unit GetArmyUnit(string username, int armyId, int commandId, int id);
 
         [WebInvoke(Method = "POST", UriTemplate = "users/{username}/Armies/{armyId}/ArmyCommands/{commandId}/Units")]
         [OperationContract]
-        void PostArmyUnit(string username, string armyId, string commandId, Unit unit);
+        void PostArmyUnit(string username, int armyId, int commandId, Unit unit);
 
         [WebInvoke(Method = "PUT", UriTemplate = "users/{username}/Armies/{armyId}/ArmyCommands/{commandId}/Units/{id}")]
         [OperationContract]
-        void PutArmyUnit(string username, string armyId, string commandId, string id, Unit unit);
+        void PutArmyUnit(string username, int armyId, int commandId, int id, Unit unit);
 
         [WebInvoke(Method = "DELETE", UriTemplate = "users/{username}/Armies/{armyId}/ArmyCommands/{commandId}/Units/{id}")]
         [OperationContract]
-        void DeleteArmyUnit(string username, string armyId, string commandId, string id);
+        void DeleteArmyUnit(string username, int armyId, int commandId, int id);
         #endregion
 
         #region ArmyDefinition
@@ -168,23 +169,23 @@ namespace GameCore.WcfService
 
         [WebGet(UriTemplate = "ArmyDefinitions/{armyDefinitionId}/ArmyUnitDefinitions")]
         [OperationContract]
-        ArmyUnitDefinitions GetArmyUnitDefinitions(string armyDefinitionId);
+        ArmyUnitDefinitions GetArmyUnitDefinitions(int armyDefinitionId);
 
         [WebGet(UriTemplate = "ArmyDefinitions/{armyDefinitionId}/ArmyUnitDefinitions/{id}")]
         [OperationContract]
-        ArmyUnitDefinition GetArmyUnitDefinition(string armyDefinitionId, string id);
+        ArmyUnitDefinition GetArmyUnitDefinition(int armyDefinitionId, int id);
 
         [WebInvoke(Method = "POST", UriTemplate = "ArmyDefinitions/{armyDefinitionId}/ArmyUnitDefinitions")]
         [OperationContract]
-        void PostArmyUnitDefinition(string armyDefinitionId, ArmyUnitDefinition armyUnitDefinition);
+        void PostArmyUnitDefinition(int armyDefinitionId, ArmyUnitDefinition armyUnitDefinition);
 
         [WebInvoke(Method = "PUT", UriTemplate = "ArmyDefinitions/{armyDefinitionId}/ArmyUnitDefinitions/{id}")]
         [OperationContract]
-        void PutArmyUnitDefinition(string armyDefinitionId, string id, ArmyUnitDefinition armyUnitDefinition);
+        void PutArmyUnitDefinition(int armyDefinitionId, int id, ArmyUnitDefinition armyUnitDefinition);
 
         [WebInvoke(Method = "Delete", UriTemplate = "ArmyDefinitions/{armyDefinitionId}/ArmyUnitDefinitions/{id}")]
         [OperationContract]
-        void DeleteArmyUnitDefinition(string armyDefinitionId, string id);
+        void DeleteArmyUnitDefinition(int armyDefinitionId, int id);
 
         #endregion
     }
@@ -211,7 +212,7 @@ namespace GameCore.WcfService
     public class ArmyUnitDefinition
     {
         public Uri IdLink { get; set; }
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string UnitName { get; set; }
         public decimal? Cost { get; set; }
         public bool IsGeneral { get; set; }
@@ -223,10 +224,10 @@ namespace GameCore.WcfService
         public int MaxCount { get; set; }
         public int MinYear { get; set; }
         public int MaxYear { get; set; }
-        //public DisciplineTypeEnum DisciplineType { get; set; }
-        //public UnitTypeEnum UnitType { get; set; }
-        //public GradeTypeEnum GradeType { get; set; }
-        //public DispositionTypeEnum DispositionType { get; set; }
+        public DisciplineTypeEnum DisciplineType { get; set; }
+        public UnitTypeEnum UnitType { get; set; }
+        public GradeTypeEnum GradeType { get; set; }
+        public DispositionTypeEnum DispositionType { get; set; }
 
         //public virtual ArmyListDefinition ArmyListDefinition { get; set; }
     }
@@ -241,7 +242,7 @@ namespace GameCore.WcfService
     public class User
     {
         public Uri IdLink { get; set; }
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string Username { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
@@ -261,7 +262,7 @@ namespace GameCore.WcfService
     //    }
 
     //    public Uri IdLink { get; set; }
-    //    public string Id { get; set; }
+    //    public int id { get; set; }
     //    public string Name { get; set; }
     //    public Uri ArmiesLink { get; set; }
     //    public Uri BattlesLink { get; set; }
@@ -270,7 +271,7 @@ namespace GameCore.WcfService
     public class Army
     {
         public Uri IdLink { get; set; }
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string Title { get; set; }
         public Uri ArmyCommandsLink { get; set; }
         public Uri UserLink { get; set; }
@@ -287,7 +288,7 @@ namespace GameCore.WcfService
     public class ArmyCommand
     {
         public Uri IdLink { get; set; }
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string Title { get; set; }
         public Uri ArmyGroupsLink { get; set; }
         public Uri UnitsLink { get; set; }
@@ -296,7 +297,7 @@ namespace GameCore.WcfService
         public Uri UserLink { get; set; }
         public string User { get; set; }
         public Uri ArmyLink { get; set; }
-        public string Army { get; set; }
+        public int Army { get; set; }
     }
 
     [CollectionDataContract]
@@ -309,15 +310,15 @@ namespace GameCore.WcfService
     public class ArmyGroup
     {
         public Uri IdLink { get; set; }
-        public string Id { get; set; }
+        public int Id { get; set; }
         public int UnitFrontage { get; set; }
         public Uri UnitsLink { get; set; }
         public Uri UserLink { get; set; }
         public string User { get; set; }
         public Uri ArmyLink { get; set; }
-        public string Army { get; set; }
+        public int Army { get; set; }
         public Uri ArmyCommandLink { get; set; }
-        public string ArmyCommand { get; set; }
+        public int ArmyCommand { get; set; }
     }
 
     [CollectionDataContract]
@@ -330,17 +331,17 @@ namespace GameCore.WcfService
     public class Unit
     {
         public Uri IdLink { get; set; }
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public string UnitType { get; set; }
         public Uri UserLink { get; set; }
         public string User { get; set; }
         public Uri ArmyLink { get; set; }
-        public string Army { get; set; }
+        public int Army { get; set; }
         public Uri ArmyCommandLink { get; set; }
-        public string ArmyCommand { get; set; }
+        public int ArmyCommand { get; set; }
         public Uri ArmyGroupLink { get; set; }
-        public string ArmyGroup { get; set; }
+        public int ArmyGroup { get; set; }
     }
 
     [CollectionDataContract]
@@ -353,7 +354,7 @@ namespace GameCore.WcfService
     public class Battle
     {
         public Uri IdLink { get; set; }
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public DateTime Date { get; set; }
         public Uri AttackerUserLink { get; set; }

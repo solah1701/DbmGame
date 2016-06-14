@@ -43,5 +43,25 @@ namespace GameEditor.Wcf.Harness.Models
                 CurrentArmyUnitDefinitionId = 0;
             }
         }
+
+        public ArmyUnitDefinition GetArmyUnitDefinition(int id)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public ArmyUnitDefinitions GetArmyUnitDefinitions()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public int AddArmyUnitDefinitino(ArmyUnitDefinition definition)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void DeleteArmyUnitDefinition(int id)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

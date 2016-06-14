@@ -9,12 +9,12 @@ using GameEditor.Wcf.Harness.Views;
 
 namespace GameEditor.Wcf.Harness.Controllers
 {
-    public class ArmyListController : Controller<IArmyListView>, IArmyListController, IHandle<UpdateView>
+    public class ArmyUnitListController : Controller<IArmyListView>, IArmyListController, IHandle<UpdateView>
     {
         private readonly IGameModel _model;
         private readonly IEventAggregator _event;
 
-        public ArmyListController(IEventAggregator eventAggregator, IGameModel model)
+        public ArmyUnitListController(IEventAggregator eventAggregator, IGameModel model)
         {
             _model = model;
             _event = eventAggregator;

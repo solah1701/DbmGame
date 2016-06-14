@@ -3,10 +3,10 @@ using GameEditor.Wcf.Harness.Views;
 
 namespace GameEditor.Wcf.Harness.Controllers
 {
-    public interface IArmyListController : IController<IArmyListView>
+    public interface IArmyUnitListController : IController<IArmyUnitListView>
     {
-        void AddArmy();
+        void AddArmyUnit();
         void PopulateList();
-        void SelectArmy(int armyId);
+        void SelectUnitArmy(int armyUnitId);
     }
 }

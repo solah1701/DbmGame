@@ -22,11 +22,12 @@
     <MetadataSource Address="http://localhost:52965/WarGameService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="WarGameService.xsd" MetadataType="Schema" ID="d103c7ee-8d95-47cf-a36a-409f7d504fa1" SourceId="1" SourceUrl="http://localhost:52965/WarGameService.svc?xsd=xsd2" />
     <MetadataFile FileName="WarGameService.wsdl" MetadataType="Wsdl" ID="a3056ab2-d584-4bb2-a5cc-598c21bc9086" SourceId="1" SourceUrl="http://localhost:52965/WarGameService.svc?wsdl" />
-    <MetadataFile FileName="WarGameService1.xsd" MetadataType="Schema" ID="2b75ef2d-bdf4-4713-a77a-41690a505431" SourceId="1" SourceUrl="http://localhost:52965/WarGameService.svc?xsd=xsd0" />
     <MetadataFile FileName="WarGameService.disco" MetadataType="Disco" ID="0c512439-51ee-4c65-a545-2832e8fd5dba" SourceId="1" SourceUrl="http://localhost:52965/WarGameService.svc?disco" />
     <MetadataFile FileName="WarGameService2.xsd" MetadataType="Schema" ID="44ef08a1-2250-4246-9456-ca5e4f7038ba" SourceId="1" SourceUrl="http://localhost:52965/WarGameService.svc?xsd=xsd1" />
+    <MetadataFile FileName="WarGameService.xsd" MetadataType="Schema" ID="d103c7ee-8d95-47cf-a36a-409f7d504fa1" SourceId="1" SourceUrl="http://localhost:52965/WarGameService.svc?xsd=xsd2" />
+    <MetadataFile FileName="WarGameService3.xsd" MetadataType="Schema" ID="6d62ee41-92a6-4bde-9f69-fc1a9a67fae9" SourceId="1" SourceUrl="http://localhost:52965/WarGameService.svc?xsd=xsd3" />
+    <MetadataFile FileName="WarGameService1.xsd" MetadataType="Schema" ID="2b75ef2d-bdf4-4713-a77a-41690a505431" SourceId="1" SourceUrl="http://localhost:52965/WarGameService.svc?xsd=xsd0" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

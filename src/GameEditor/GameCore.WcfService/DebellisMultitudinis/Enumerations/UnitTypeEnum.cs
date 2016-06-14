@@ -1,26 +1,49 @@
-﻿namespace GameCore.DebellisMultitudinis.Enumerations
+﻿using System.Runtime.Serialization;
+
+namespace GameCore.WcfService.DebellisMultitudinis.Enumerations
 {
+    [DataContract]
     public enum UnitTypeEnum
     {
+        [EnumMember]
         Elephants,
+        [EnumMember]
         Knights,
+        [EnumMember]
         Cavalry,
+        [EnumMember]
         LightHorse,
+        [EnumMember]
         Camelry,
+        [EnumMember]
         Expendables,
+        [EnumMember]
         Spear,
+        [EnumMember]
         Pike,
+        [EnumMember]
         Blades,
+        [EnumMember]
         Warband,
+        [EnumMember]
         Auxilia,
+        [EnumMember]
         Bow,
+        [EnumMember]
         Psiloi,
+        [EnumMember]
         Artillary,
+        [EnumMember]
         WarWagons,
+        [EnumMember]
         Hordes,
+        [EnumMember]
         Baggage,
+        [EnumMember]
         Galleys,
+        [EnumMember]
         Ships,
+        [EnumMember]
         Boats
     }
 }

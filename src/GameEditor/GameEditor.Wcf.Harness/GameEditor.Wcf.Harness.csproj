@@ -19,7 +19,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;DESIGNMODEX</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;DESIGNMODE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -64,9 +64,13 @@
     <Compile Include="ArmyListControl.Designer.cs">
       <DependentUpon>ArmyListControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\ArmyUnitDetailController.cs" />
     <Compile Include="Controllers\ArmyDetailController.cs" />
+    <Compile Include="Controllers\ArmyUnitListController.cs" />
     <Compile Include="Controllers\ArmyListController.cs" />
+    <Compile Include="Controllers\IArmyUnitDetailController.cs" />
     <Compile Include="Controllers\IArmyDetailController.cs" />
+    <Compile Include="Controllers\IArmyUnitListController.cs" />
     <Compile Include="Controllers\IArmyListController.cs" />
     <Compile Include="Controllers\IMainPageController.cs" />
     <Compile Include="Controllers\MainPageController.cs" />
@@ -110,9 +114,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Vews\IArmyDetailView.cs" />
-    <Compile Include="Vews\IArmyListView.cs" />
-    <Compile Include="Vews\IMainPageView.cs" />
+    <Compile Include="Views\IArmyUnitDetailView.cs" />
+    <Compile Include="Views\IArmyDetailView.cs" />
+    <Compile Include="Views\IArmyUnitListView.cs" />
+    <Compile Include="Views\IArmyListView.cs" />
+    <Compile Include="Views\IMainPageView.cs" />
     <EmbeddedResource Include="ArmyDetailControl.resx">
       <DependentUpon>ArmyDetailControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -197,6 +203,9 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\WarGameServiceReference\WarGameService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WarGameServiceReference\WarGameService3.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>

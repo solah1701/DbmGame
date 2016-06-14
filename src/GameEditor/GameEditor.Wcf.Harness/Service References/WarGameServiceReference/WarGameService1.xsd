@@ -44,7 +44,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="id" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -74,7 +74,7 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="defendername" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="id" type="xs:int" />
         <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/GameCore.WcfService" minOccurs="0" name="battle" nillable="true" type="q5:Battle" />
       </xs:sequence>
     </xs:complexType>
@@ -89,7 +89,7 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="defendername" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="id" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -117,7 +117,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="id" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -145,7 +145,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="id" type="xs:int" />
         <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/GameCore.WcfService" minOccurs="0" name="army" nillable="true" type="q9:Army" />
       </xs:sequence>
     </xs:complexType>
@@ -159,7 +159,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="id" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -172,7 +172,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="armyId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="armyId" type="xs:int" />
         <xs:element minOccurs="0" name="tag" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -188,8 +188,8 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="armyId" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="armyId" type="xs:int" />
+        <xs:element minOccurs="0" name="id" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -204,7 +204,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="armyId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="armyId" type="xs:int" />
         <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/GameCore.WcfService" minOccurs="0" name="armyCommand" nillable="true" type="q12:ArmyCommand" />
       </xs:sequence>
     </xs:complexType>
@@ -218,8 +218,8 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="armyId" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="armyId" type="xs:int" />
+        <xs:element minOccurs="0" name="id" type="xs:int" />
         <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/GameCore.WcfService" minOccurs="0" name="armyCommand" nillable="true" type="q13:ArmyCommand" />
       </xs:sequence>
     </xs:complexType>
@@ -233,8 +233,8 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="armyId" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="armyId" type="xs:int" />
+        <xs:element minOccurs="0" name="id" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -247,8 +247,8 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="armyId" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="commandId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="armyId" type="xs:int" />
+        <xs:element minOccurs="0" name="commandId" type="xs:int" />
         <xs:element minOccurs="0" name="tag" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -264,9 +264,9 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="armyId" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="commandId" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="armyId" type="xs:int" />
+        <xs:element minOccurs="0" name="commandId" type="xs:int" />
+        <xs:element minOccurs="0" name="id" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -281,8 +281,8 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="armyId" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="commandId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="armyId" type="xs:int" />
+        <xs:element minOccurs="0" name="commandId" type="xs:int" />
         <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/GameCore.WcfService" minOccurs="0" name="armyGroup" nillable="true" type="q16:ArmyGroup" />
       </xs:sequence>
     </xs:complexType>
@@ -296,9 +296,9 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="armyId" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="commandId" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="armyId" type="xs:int" />
+        <xs:element minOccurs="0" name="commandId" type="xs:int" />
+        <xs:element minOccurs="0" name="id" type="xs:int" />
         <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/GameCore.WcfService" minOccurs="0" name="armyGroup" nillable="true" type="q17:ArmyGroup" />
       </xs:sequence>
     </xs:complexType>
@@ -312,9 +312,9 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="armyId" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="commandId" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="armyId" type="xs:int" />
+        <xs:element minOccurs="0" name="commandId" type="xs:int" />
+        <xs:element minOccurs="0" name="id" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -327,8 +327,8 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="armyId" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="commandId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="armyId" type="xs:int" />
+        <xs:element minOccurs="0" name="commandId" type="xs:int" />
         <xs:element minOccurs="0" name="tag" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -344,9 +344,9 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="armyId" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="commandId" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="groupId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="armyId" type="xs:int" />
+        <xs:element minOccurs="0" name="commandId" type="xs:int" />
+        <xs:element minOccurs="0" name="groupId" type="xs:int" />
         <xs:element minOccurs="0" name="tag" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -362,9 +362,9 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="armyId" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="commandId" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="armyId" type="xs:int" />
+        <xs:element minOccurs="0" name="commandId" type="xs:int" />
+        <xs:element minOccurs="0" name="id" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -379,8 +379,8 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="armyId" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="commandId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="armyId" type="xs:int" />
+        <xs:element minOccurs="0" name="commandId" type="xs:int" />
         <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/GameCore.WcfService" minOccurs="0" name="unit" nillable="true" type="q21:Unit" />
       </xs:sequence>
     </xs:complexType>
@@ -394,9 +394,9 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="armyId" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="commandId" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="armyId" type="xs:int" />
+        <xs:element minOccurs="0" name="commandId" type="xs:int" />
+        <xs:element minOccurs="0" name="id" type="xs:int" />
         <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/GameCore.WcfService" minOccurs="0" name="unit" nillable="true" type="q22:Unit" />
       </xs:sequence>
     </xs:complexType>
@@ -410,9 +410,9 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="armyId" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="commandId" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="armyId" type="xs:int" />
+        <xs:element minOccurs="0" name="commandId" type="xs:int" />
+        <xs:element minOccurs="0" name="id" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -490,7 +490,7 @@
   <xs:element name="GetArmyUnitDefinitions">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="armyDefinitionId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="armyDefinitionId" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -504,8 +504,8 @@
   <xs:element name="GetArmyUnitDefinition">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="armyDefinitionId" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="armyDefinitionId" type="xs:int" />
+        <xs:element minOccurs="0" name="id" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -519,7 +519,7 @@
   <xs:element name="PostArmyUnitDefinition">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="armyDefinitionId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="armyDefinitionId" type="xs:int" />
         <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/GameCore.WcfService" minOccurs="0" name="armyUnitDefinition" nillable="true" type="q29:ArmyUnitDefinition" />
       </xs:sequence>
     </xs:complexType>
@@ -532,8 +532,8 @@
   <xs:element name="PutArmyUnitDefinition">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="armyDefinitionId" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="armyDefinitionId" type="xs:int" />
+        <xs:element minOccurs="0" name="id" type="xs:int" />
         <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/GameCore.WcfService" minOccurs="0" name="armyUnitDefinition" nillable="true" type="q30:ArmyUnitDefinition" />
       </xs:sequence>
     </xs:complexType>
@@ -546,8 +546,8 @@
   <xs:element name="DeleteArmyUnitDefinition">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="armyDefinitionId" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="armyDefinitionId" type="xs:int" />
+        <xs:element minOccurs="0" name="id" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

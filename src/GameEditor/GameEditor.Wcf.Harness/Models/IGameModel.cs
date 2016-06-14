@@ -10,5 +10,10 @@ namespace GameEditor.Wcf.Harness.Models
         ArmyDefinitions GetArmyDefinitions();
         int AddArmyDefinition(ArmyDefinition definition);
         void DeleteArmyDefinition(int id);
+
+        ArmyUnitDefinition GetArmyUnitDefinition(int id);
+        ArmyUnitDefinitions GetArmyUnitDefinitions();
+        int AddArmyUnitDefinitino(ArmyUnitDefinition definition);
+        void DeleteArmyUnitDefinition(int id);
     }
 }

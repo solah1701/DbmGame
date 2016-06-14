@@ -1,7 +1,7 @@
 ﻿using GameEditor.Wcf.Harness.EventAggregators;
 using GameEditor.Wcf.Harness.Helpers;
 using GameEditor.Wcf.Harness.Mvc;
-using GameEditor.Wcf.Harness.Vews;
+using GameEditor.Wcf.Harness.Views;
 
 namespace GameEditor.Wcf.Harness.Controllers
 {

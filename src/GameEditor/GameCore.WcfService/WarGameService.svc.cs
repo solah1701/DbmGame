@@ -82,7 +82,7 @@ namespace GameCore.WcfService
         //    return null;
         //}
 
-        public Battle GetBattle(string username, string id)
+        public Battle GetBattle(string username, int id)
         {
             var battle = _model.GetUserBattle(username, id);
             if (battle == null)
@@ -107,7 +107,7 @@ namespace GameCore.WcfService
             SetStatusCode(HttpStatusCode.NotModified);
         }
 
-        public void PutBattle(string username, string defendername, string id, Battle battle)
+        public void PutBattle(string username, string defendername, int id, Battle battle)
         {
             if (_model.BattlesContainsKey(id) && _model.IsBattleAttacker(id, username) &&
                 _model.IsBattleDefender(id, defendername))
@@ -119,7 +119,7 @@ namespace GameCore.WcfService
             SetStatusCode(HttpStatusCode.NotModified);
         }
 
-        public void DeleteBattle(string username, string defendername, string id)
+        public void DeleteBattle(string username, string defendername, int id)
         {
             if (_model.BattlesContainsKey(id))
             {
@@ -142,7 +142,7 @@ namespace GameCore.WcfService
             return new Armies(armies);
         }
 
-        public Army GetArmy(string username, string id)
+        public Army GetArmy(string username, int id)
         {
             var army = _model.GetUserArmy(username, id);
             if (army == null)
@@ -178,7 +178,7 @@ namespace GameCore.WcfService
             SetStatusOk();
         }
 
-        public void PutArmy(string username, string id, Army army)
+        public void PutArmy(string username, int id, Army army)
         {
             username = username.ToLower();
             var userLink = GetUserLink(username);
@@ -208,7 +208,7 @@ namespace GameCore.WcfService
             SetStatusOk();
         }
 
-        public void DeleteArmy(string username, string id)
+        public void DeleteArmy(string username, int id)
         {
             username = username.ToLower();
             var army = _model.FindArmy(id);
@@ -226,7 +226,7 @@ namespace GameCore.WcfService
             SetStatusOk();
         }
 
-        public ArmyCommands GetUserArmyCommands(string username, string armyId, string tag)
+        public ArmyCommands GetUserArmyCommands(string username,int armyId, string tag)
         {
             var armyCommands = _model.FindUserArmyCommandsForArmy(username, armyId);
             if (armyCommands != null && !armyCommands.Any())
@@ -238,7 +238,7 @@ namespace GameCore.WcfService
             return new ArmyCommands(armyCommands);
         }
 
-        public ArmyCommand GetArmyCommand(string username, string armyId, string id)
+        public ArmyCommand GetArmyCommand(string username,int armyId, int id)
         {
             var armyCommand = _model.FindUserArmyCommandForArmy(username, id, armyId);
             if (armyCommand == null)
@@ -250,7 +250,7 @@ namespace GameCore.WcfService
             return armyCommand;
         }
 
-        public void PostArmyCommand(string username, string armyId, ArmyCommand armyCommand)
+        public void PostArmyCommand(string username,int armyId, ArmyCommand armyCommand)
         {
             username = username.ToLower();
             var userLink = GetUserLink(username);
@@ -274,7 +274,7 @@ namespace GameCore.WcfService
             SetStatusOk();
         }
 
-        public void PutArmyCommand(string username, string armyId, string id, ArmyCommand armyCommand)
+        public void PutArmyCommand(string username,int armyId, int id, ArmyCommand armyCommand)
         {
             username = username.ToLower();
             var userLink = GetUserLink(username);
@@ -306,7 +306,7 @@ namespace GameCore.WcfService
             SetStatusOk();
         }
 
-        public void DeleteArmyCommand(string username, string armyId, string id)
+        public void DeleteArmyCommand(string username,int armyId, int id)
         {
             username = username.ToLower();
             var armyCommand = _model.FindUserArmyCommandForArmy(username, id, armyId);
@@ -324,7 +324,7 @@ namespace GameCore.WcfService
             SetStatusOk();
         }
 
-        public ArmyGroups GetUserArmyGroups(string username, string armyId, string commandId, string tag)
+        public ArmyGroups GetUserArmyGroups(string username,int armyId, int commandId, string tag)
         {
             var armyGroups = _model.FindUserArmyGroupsForArmyCommand(username, armyId, commandId);
             if (armyGroups != null && !armyGroups.Any())
@@ -336,7 +336,7 @@ namespace GameCore.WcfService
             return new ArmyGroups(armyGroups);
         }
 
-        public ArmyGroup GetArmyGroup(string username, string armyId, string commandId, string id)
+        public ArmyGroup GetArmyGroup(string username,int armyId, int commandId, int id)
         {
             var armyGroup = _model.FindUserArmyGroupForArmyCommand(username, id, armyId, commandId);
             if (armyGroup == null)
@@ -348,7 +348,7 @@ namespace GameCore.WcfService
             return armyGroup;
         }
 
-        public void PostArmyGroup(string username, string armyId, string commandId, ArmyGroup armyGroup)
+        public void PostArmyGroup(string username,int armyId, int commandId, ArmyGroup armyGroup)
         {
             username = username.ToLower();
             var userLink = GetUserLink(username);
@@ -374,7 +374,7 @@ namespace GameCore.WcfService
             SetStatusOk();
         }
 
-        public void PutArmyGroup(string username, string armyId, string commandId, string id, ArmyGroup armyGroup)
+        public void PutArmyGroup(string username,int armyId, int commandId, int id, ArmyGroup armyGroup)
         {
             username = username.ToLower();
             var userLink = GetUserLink(username);
@@ -408,7 +408,7 @@ namespace GameCore.WcfService
             SetStatusOk();
         }
 
-        public void DeleteArmyGroup(string username, string armyId, string commandId, string id)
+        public void DeleteArmyGroup(string username,int armyId, int commandId, int id)
         {
             username = username.ToLower();
             var armyGroup = _model.FindUserArmyGroupForArmyCommand(username, id, armyId, commandId);
@@ -426,7 +426,7 @@ namespace GameCore.WcfService
             SetStatusOk();
         }
 
-        public Units GetUserArmyUnits(string username, string armyId, string commandId, string tag)
+        public Units GetUserArmyUnits(string username,int armyId, int commandId, string tag)
         {
             var armyUnits = _model.FindUserArmyUnitsForArmyCommand(username, armyId, commandId);
             if (armyUnits != null && !armyUnits.Any())
@@ -438,7 +438,7 @@ namespace GameCore.WcfService
             return new Units(armyUnits);
         }
 
-        public Units GetUserArmyGroupUnits(string username, string armyId, string commandId, string groupId, string tag)
+        public Units GetUserArmyGroupUnits(string username,int armyId, int commandId, int groupId, string tag)
         {
             var armyUnits = _model.FindUserArmyUnitsForArmyCommandGroup(username, armyId, commandId, groupId);
             if (armyUnits != null && !armyUnits.Any())
@@ -450,7 +450,7 @@ namespace GameCore.WcfService
             return new Units(armyUnits);
         }
 
-        public Unit GetArmyUnit(string username, string armyId, string commandId, string id)
+        public Unit GetArmyUnit(string username,int armyId, int commandId, int id)
         {
             var armyUnit = _model.FindUserArmyUnitForArmyCommand(username, id, armyId, commandId);
             if (armyUnit == null)
@@ -462,7 +462,7 @@ namespace GameCore.WcfService
             return armyUnit;
         }
 
-        public void PostArmyUnit(string username, string armyId, string commandId, Unit unit)
+        public void PostArmyUnit(string username,int armyId, int commandId, Unit unit)
         {
             username = username.ToLower();
             var userLink = GetUserLink(username);
@@ -489,7 +489,7 @@ namespace GameCore.WcfService
             SetStatusOk();
         }
 
-        public void PutArmyUnit(string username, string armyId, string commandId, string id, Unit unit)
+        public void PutArmyUnit(string username,int armyId, int commandId, int id, Unit unit)
         {
             username = username.ToLower();
             var userLink = GetUserLink(username);
@@ -524,7 +524,7 @@ namespace GameCore.WcfService
             SetStatusOk();
         }
 
-        public void DeleteArmyUnit(string username, string armyId, string commandId, string id)
+        public void DeleteArmyUnit(string username,int armyId, int commandId, int id)
         {
             username = username.ToLower();
             var armyUnit = _model.FindUserArmyUnitForArmyCommand(username, id, armyId, commandId);
@@ -610,7 +610,7 @@ namespace GameCore.WcfService
             }
         }
 
-        public ArmyUnitDefinitions GetArmyUnitDefinitions(string armyDefinitionId)
+        public ArmyUnitDefinitions GetArmyUnitDefinitions(int armyDefinitionId)
         {
             var armyUnitDefinitions = _model.FindArmyUnitDefinitions(armyDefinitionId);
             if (armyUnitDefinitions != null && !armyUnitDefinitions.Any())
@@ -622,7 +622,7 @@ namespace GameCore.WcfService
             return new ArmyUnitDefinitions(armyUnitDefinitions);
         }
 
-        public ArmyUnitDefinition GetArmyUnitDefinition(string armyDefinitionId, string id)
+        public ArmyUnitDefinition GetArmyUnitDefinition(int armyDefinitionId, int id)
         {
             var armyUnitDefinitions = _model.FindArmyUnitDefinition(id, armyDefinitionId);
             if (armyUnitDefinitions == null)
@@ -634,7 +634,7 @@ namespace GameCore.WcfService
             return armyUnitDefinitions;
         }
 
-        public void PostArmyUnitDefinition(string armyDefinitionId, ArmyUnitDefinition armyUnitDefinition)
+        public void PostArmyUnitDefinition(int armyDefinitionId, ArmyUnitDefinition armyUnitDefinition)
         {
             var armyDef = _model.FindArmyUnitDefinition(armyUnitDefinition.Id, armyDefinitionId);
             var armyDefLink = GetArmyUnitDefinitionLink(armyDefinitionId, armyUnitDefinition.Id);
@@ -645,7 +645,7 @@ namespace GameCore.WcfService
             SetStatusOk();
         }
 
-        public void PutArmyUnitDefinition(string armyDefinitionId, string id, ArmyUnitDefinition armyUnitDefinition)
+        public void PutArmyUnitDefinition(int armyDefinitionId, int id, ArmyUnitDefinition armyUnitDefinition)
         {
             var armyDef = _model.FindArmyUnitDefinition(armyUnitDefinition.Id, armyDefinitionId);
             var armyDefLink = GetArmyUnitDefinitionLink(armyDefinitionId, armyUnitDefinition.Id);
@@ -665,7 +665,7 @@ namespace GameCore.WcfService
             SetStatusOk();
         }
 
-        public void DeleteArmyUnitDefinition(string armyDefinitionId, string id)
+        public void DeleteArmyUnitDefinition(int armyDefinitionId, int id)
         {
             var armyDef = _model.FindArmyUnitDefinition(id, armyDefinitionId);
             if (armyDef == null)
@@ -698,19 +698,25 @@ namespace GameCore.WcfService
             return new Uri($"http://{Host}/users/{username}");
         }
 
-        private static Uri GetUserArmiesLink(string username, string id = "")
+        private static Uri GetUserArmiesLink(string username, int id = 0)
         {
-            var template = id == ""
+            var template = id == 0
                 ? $"http://{Host}/users/{username}/armies"
                 : $"http://{Host}/users/{username}/armies/{id}";
             return new Uri(template);
         }
 
-        private static Uri GetUserArmyCommandsLink(string username, string armyid, string tag = "")
+        private static Uri GetUserArmyCommandsLink(string username, int armyid, string tag = "")
         {
             var template = tag == ""
                 ? $"http://{Host}/users/{username}/armies/{armyid}/armycommands"
                 : $"http://{Host}/users/{username}/armies/{armyid}/armycommands?tag={tag}";
+            return new Uri(template);
+        }
+
+        private static Uri GetUserArmyCommandsLink(string username, int armyid, int commandId)
+        {
+            var template = $"http://{Host}/users/{username}/armies/{armyid}/armycommands/{commandId}";
             return new Uri(template);
         }
 
@@ -719,22 +725,22 @@ namespace GameCore.WcfService
             return new Uri($"http://{Host}/users/{username}/battles");
         }
 
-        private static Uri GetUserArmyGroupsLink(string username, string armyid, string armycommandsid)
+        private static Uri GetUserArmyGroupsLink(string username, int armyid, int armycommandsid)
         {
             return new Uri($"http://{Host}/user/{username}/armies/{armyid}/armycommands/{armycommandsid}/armygroups");
         }
 
-        private static Uri GetUnitLink(string username, string armyid, string armycommandsid, string id)
+        private static Uri GetUnitLink(string username, int armyid, int armycommandsid, int id)
         {
             return new Uri($"http://{Host}/user/{username}/armies/{armyid}/armycommands/{armycommandsid}/armyunit/{id}");
         }
 
-        private Uri GetArmyDefinitionLink(string id)
+        private Uri GetArmyDefinitionLink(int id)
         {
             return new Uri($"http://{Host}/armydefinitions/{id}");
         }
 
-        private Uri GetArmyUnitDefinitionLink(string armyDefinitionId, string id)
+        private Uri GetArmyUnitDefinitionLink(int armyDefinitionId, int id)
         {
             return new Uri($"http://{Host}/armydefinitions/{armyDefinitionId}/armyunitdefinitions/{id}");
         }

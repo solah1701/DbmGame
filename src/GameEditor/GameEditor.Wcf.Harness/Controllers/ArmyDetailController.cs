@@ -3,7 +3,7 @@ using GameEditor.Wcf.Harness.Extensions;
 using GameEditor.Wcf.Harness.Helpers;
 using GameEditor.Wcf.Harness.Models;
 using GameEditor.Wcf.Harness.Mvc;
-using GameEditor.Wcf.Harness.Vews;
+using GameEditor.Wcf.Harness.Views;
 using GameEditor.Wcf.Harness.WarGameServiceReference;
 
 namespace GameEditor.Wcf.Harness.Controllers

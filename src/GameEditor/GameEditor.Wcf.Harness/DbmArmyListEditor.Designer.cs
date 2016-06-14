@@ -35,15 +35,15 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.MainTabControl = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.ArmyListTabPage = new System.Windows.Forms.TabPage();
+            this.ArmyDetalTabPage = new System.Windows.Forms.TabPage();
             this.ArmyListControl = new GameEditor.Wcf.Harness.ArmyListControl();
             this.ArmyDetailControl = new GameEditor.Wcf.Harness.ArmyDetailControl();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.MainTabControl.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            this.ArmyListTabPage.SuspendLayout();
+            this.ArmyDetalTabPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -97,8 +97,8 @@
             // 
             // MainTabControl
             // 
-            this.MainTabControl.Controls.Add(this.tabPage1);
-            this.MainTabControl.Controls.Add(this.tabPage2);
+            this.MainTabControl.Controls.Add(this.ArmyListTabPage);
+            this.MainTabControl.Controls.Add(this.ArmyDetalTabPage);
             this.MainTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainTabControl.Location = new System.Drawing.Point(0, 28);
             this.MainTabControl.Name = "MainTabControl";
@@ -106,27 +106,27 @@
             this.MainTabControl.Size = new System.Drawing.Size(673, 402);
             this.MainTabControl.TabIndex = 2;
             // 
-            // tabPage1
+            // ArmyListTabPage
             // 
-            this.tabPage1.Controls.Add(this.ArmyListControl);
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(665, 373);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.ArmyListTabPage.Controls.Add(this.ArmyListControl);
+            this.ArmyListTabPage.Location = new System.Drawing.Point(4, 25);
+            this.ArmyListTabPage.Name = "ArmyListTabPage";
+            this.ArmyListTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.ArmyListTabPage.Size = new System.Drawing.Size(665, 373);
+            this.ArmyListTabPage.TabIndex = 0;
+            this.ArmyListTabPage.Text = "Army List";
+            this.ArmyListTabPage.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // ArmyDetailTabPage
             // 
-            this.tabPage2.Controls.Add(this.ArmyDetailControl);
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(665, 373);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.ArmyDetalTabPage.Controls.Add(this.ArmyDetailControl);
+            this.ArmyDetalTabPage.Location = new System.Drawing.Point(4, 25);
+            this.ArmyDetalTabPage.Name = "ArmyDetailTabPage";
+            this.ArmyDetalTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.ArmyDetalTabPage.Size = new System.Drawing.Size(665, 373);
+            this.ArmyDetalTabPage.TabIndex = 1;
+            this.ArmyDetalTabPage.Text = "Army Detail";
+            this.ArmyDetalTabPage.UseVisualStyleBackColor = true;
             // 
             // ArmyListControl
             // 
@@ -163,8 +163,8 @@
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.MainTabControl.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
+            this.ArmyListTabPage.ResumeLayout(false);
+            this.ArmyDetalTabPage.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -179,8 +179,8 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.TabControl MainTabControl;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage ArmyListTabPage;
+        private System.Windows.Forms.TabPage ArmyDetalTabPage;
         private ArmyListControl ArmyListControl;
         private ArmyDetailControl ArmyDetailControl;
     }

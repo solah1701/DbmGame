@@ -1,4 +1,6 @@
-﻿using GameEditor.Wcf.Harness.Helpers;
+﻿//#define DESIGNMODE
+
+using GameEditor.Wcf.Harness.Helpers;
 using GameEditor.Wcf.Harness.Models;
 using GameEditor.Wcf.Harness.Mvc;
 using GameEditor.Wcf.Harness.Vews;
@@ -18,8 +20,10 @@ namespace GameEditor.Wcf.Harness.Controllers
 
         public void PopulateList()
         {
+#if !DESIGNMODE
             var items = _model.GetArmyDefinitions();
             View.ArmyDefinitions = items;
+#endif
         }
 
         public void AddArmy()

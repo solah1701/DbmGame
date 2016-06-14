@@ -44,10 +44,15 @@
             this.label7 = new System.Windows.Forms.Label();
             this.TopPanel = new System.Windows.Forms.Panel();
             this.LeftPanel = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.CentrePanel = new System.Windows.Forms.Panel();
+            this.BottomPanel = new System.Windows.Forms.Panel();
+            this.AddButton = new System.Windows.Forms.Button();
+            this.UpdateButton = new System.Windows.Forms.Button();
+            this.DeleteButton = new System.Windows.Forms.Button();
             this.TopPanel.SuspendLayout();
             this.LeftPanel.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.CentrePanel.SuspendLayout();
+            this.BottomPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -61,18 +66,22 @@
             // 
             // IdTextBox
             // 
+            this.IdTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.IdTextBox.Location = new System.Drawing.Point(73, 3);
             this.IdTextBox.Name = "IdTextBox";
             this.IdTextBox.ReadOnly = true;
-            this.IdTextBox.Size = new System.Drawing.Size(196, 22);
+            this.IdTextBox.Size = new System.Drawing.Size(491, 22);
             this.IdTextBox.TabIndex = 1;
             this.IdTextBox.TabStop = false;
             // 
             // NameTextBox
             // 
+            this.NameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.NameTextBox.Location = new System.Drawing.Point(73, 31);
             this.NameTextBox.Name = "NameTextBox";
-            this.NameTextBox.Size = new System.Drawing.Size(196, 22);
+            this.NameTextBox.Size = new System.Drawing.Size(491, 22);
             this.NameTextBox.TabIndex = 3;
             // 
             // label2
@@ -86,9 +95,11 @@
             // 
             // BookTextBox
             // 
+            this.BookTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.BookTextBox.Location = new System.Drawing.Point(73, 59);
             this.BookTextBox.Name = "BookTextBox";
-            this.BookTextBox.Size = new System.Drawing.Size(196, 22);
+            this.BookTextBox.Size = new System.Drawing.Size(491, 22);
             this.BookTextBox.TabIndex = 5;
             // 
             // label3
@@ -102,9 +113,11 @@
             // 
             // ListTextBox
             // 
+            this.ListTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ListTextBox.Location = new System.Drawing.Point(73, 87);
             this.ListTextBox.Name = "ListTextBox";
-            this.ListTextBox.Size = new System.Drawing.Size(196, 22);
+            this.ListTextBox.Size = new System.Drawing.Size(491, 22);
             this.ListTextBox.TabIndex = 7;
             // 
             // label4
@@ -118,9 +131,11 @@
             // 
             // MinYearTextBox
             // 
+            this.MinYearTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.MinYearTextBox.Location = new System.Drawing.Point(73, 115);
             this.MinYearTextBox.Name = "MinYearTextBox";
-            this.MinYearTextBox.Size = new System.Drawing.Size(196, 22);
+            this.MinYearTextBox.Size = new System.Drawing.Size(491, 22);
             this.MinYearTextBox.TabIndex = 9;
             // 
             // label5
@@ -134,9 +149,11 @@
             // 
             // MaxYearTextBox
             // 
+            this.MaxYearTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.MaxYearTextBox.Location = new System.Drawing.Point(73, 143);
             this.MaxYearTextBox.Name = "MaxYearTextBox";
-            this.MaxYearTextBox.Size = new System.Drawing.Size(196, 22);
+            this.MaxYearTextBox.Size = new System.Drawing.Size(491, 22);
             this.MaxYearTextBox.TabIndex = 11;
             // 
             // label6
@@ -150,10 +167,11 @@
             // 
             // NotesTextBox
             // 
-            this.NotesTextBox.Location = new System.Drawing.Point(35, 41);
+            this.NotesTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.NotesTextBox.Location = new System.Drawing.Point(0, 0);
             this.NotesTextBox.Multiline = true;
             this.NotesTextBox.Name = "NotesTextBox";
-            this.NotesTextBox.Size = new System.Drawing.Size(196, 127);
+            this.NotesTextBox.Size = new System.Drawing.Size(492, 252);
             this.NotesTextBox.TabIndex = 13;
             // 
             // label7
@@ -182,7 +200,7 @@
             this.TopPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.TopPanel.Location = new System.Drawing.Point(0, 0);
             this.TopPanel.Name = "TopPanel";
-            this.TopPanel.Size = new System.Drawing.Size(776, 170);
+            this.TopPanel.Size = new System.Drawing.Size(566, 170);
             this.TopPanel.TabIndex = 14;
             // 
             // LeftPanel
@@ -191,32 +209,76 @@
             this.LeftPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.LeftPanel.Location = new System.Drawing.Point(0, 170);
             this.LeftPanel.Name = "LeftPanel";
-            this.LeftPanel.Size = new System.Drawing.Size(70, 465);
+            this.LeftPanel.Size = new System.Drawing.Size(74, 252);
             this.LeftPanel.TabIndex = 16;
             // 
-            // panel1
+            // CentrePanel
             // 
-            this.panel1.Controls.Add(this.NotesTextBox);
-            this.panel1.Location = new System.Drawing.Point(198, 361);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(430, 222);
-            this.panel1.TabIndex = 17;
+            this.CentrePanel.Controls.Add(this.NotesTextBox);
+            this.CentrePanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CentrePanel.Location = new System.Drawing.Point(74, 170);
+            this.CentrePanel.Name = "CentrePanel";
+            this.CentrePanel.Size = new System.Drawing.Size(492, 252);
+            this.CentrePanel.TabIndex = 17;
+            // 
+            // BottomPanel
+            // 
+            this.BottomPanel.Controls.Add(this.DeleteButton);
+            this.BottomPanel.Controls.Add(this.UpdateButton);
+            this.BottomPanel.Controls.Add(this.AddButton);
+            this.BottomPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.BottomPanel.Location = new System.Drawing.Point(0, 422);
+            this.BottomPanel.Name = "BottomPanel";
+            this.BottomPanel.Size = new System.Drawing.Size(566, 54);
+            this.BottomPanel.TabIndex = 18;
+            // 
+            // AddButton
+            // 
+            this.AddButton.Location = new System.Drawing.Point(3, 6);
+            this.AddButton.Name = "AddButton";
+            this.AddButton.Size = new System.Drawing.Size(102, 43);
+            this.AddButton.TabIndex = 13;
+            this.AddButton.Text = "Add Unit";
+            this.AddButton.UseVisualStyleBackColor = true;
+            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
+            // 
+            // UpdateButton
+            // 
+            this.UpdateButton.Location = new System.Drawing.Point(111, 6);
+            this.UpdateButton.Name = "UpdateButton";
+            this.UpdateButton.Size = new System.Drawing.Size(102, 43);
+            this.UpdateButton.TabIndex = 14;
+            this.UpdateButton.Text = "Update";
+            this.UpdateButton.UseVisualStyleBackColor = true;
+            this.UpdateButton.Click += new System.EventHandler(this.UpdateButton_Click);
+            // 
+            // DeleteButton
+            // 
+            this.DeleteButton.Location = new System.Drawing.Point(219, 6);
+            this.DeleteButton.Name = "DeleteButton";
+            this.DeleteButton.Size = new System.Drawing.Size(102, 43);
+            this.DeleteButton.TabIndex = 15;
+            this.DeleteButton.Text = "Delete";
+            this.DeleteButton.UseVisualStyleBackColor = true;
+            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
             // ArmyDetailControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.CentrePanel);
             this.Controls.Add(this.LeftPanel);
+            this.Controls.Add(this.BottomPanel);
             this.Controls.Add(this.TopPanel);
             this.Name = "ArmyDetailControl";
-            this.Size = new System.Drawing.Size(776, 635);
+            this.Size = new System.Drawing.Size(566, 476);
             this.TopPanel.ResumeLayout(false);
             this.TopPanel.PerformLayout();
             this.LeftPanel.ResumeLayout(false);
             this.LeftPanel.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.CentrePanel.ResumeLayout(false);
+            this.CentrePanel.PerformLayout();
+            this.BottomPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -239,6 +301,10 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel TopPanel;
         private System.Windows.Forms.Panel LeftPanel;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel CentrePanel;
+        private System.Windows.Forms.Panel BottomPanel;
+        private System.Windows.Forms.Button DeleteButton;
+        private System.Windows.Forms.Button UpdateButton;
+        private System.Windows.Forms.Button AddButton;
     }
 }

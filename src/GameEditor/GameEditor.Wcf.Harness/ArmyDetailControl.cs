@@ -59,5 +59,20 @@ namespace GameEditor.Wcf.Harness
             get { return int.Parse(MinYearTextBox.Text); }
             set { this.InvokeIfRequired(() => MinYearTextBox.Text = value.ToString()); }
         }
+
+        private void AddButton_Click(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void UpdateButton_Click(object sender, System.EventArgs e)
+        {
+            _controller.UpdateArmyDetail();
+        }
+
+        private void DeleteButton_Click(object sender, System.EventArgs e)
+        {
+            _controller.DeleteArmyDetail();
+        }
     }
 }

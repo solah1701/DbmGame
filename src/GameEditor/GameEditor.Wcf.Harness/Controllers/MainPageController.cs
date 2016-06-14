@@ -1,5 +1,4 @@
-﻿using System;
-using GameEditor.Wcf.Harness.EventAggregators;
+﻿using GameEditor.Wcf.Harness.EventAggregators;
 using GameEditor.Wcf.Harness.Helpers;
 using GameEditor.Wcf.Harness.Mvc;
 using GameEditor.Wcf.Harness.Vews;

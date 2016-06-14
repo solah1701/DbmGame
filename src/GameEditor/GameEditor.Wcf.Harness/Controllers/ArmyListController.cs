@@ -18,6 +18,7 @@ namespace GameEditor.Wcf.Harness.Controllers
         {
             _model = model;
             _event = eventAggregator;
+            _event.Subscribe(this);
         }
 
         public void PopulateList()
@@ -32,6 +33,7 @@ namespace GameEditor.Wcf.Harness.Controllers
         {
             // Navigate to Detail page
             _model.CurrentArmyDefinitionId = 0;
+            _event.PublishOnCurrentThread(new UpdateView());
             _event.PublishOnCurrentThread(new UpdateTabPage("ArmyDetailTabPage"));
         }
 

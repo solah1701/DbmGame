@@ -19,6 +19,7 @@ namespace GameEditor.Wcf.Harness.Models
         {
             using (var client = new WarGameServiceClient())
             {
+                CurrentArmyDefinitionId = id;
                 return client.GetArmyDefinition(id); 
             }
         }
@@ -27,7 +28,9 @@ namespace GameEditor.Wcf.Harness.Models
         {
             using (var client = new WarGameServiceClient())
             {
-                return client.PutArmyDefinition(definition); 
+                var result = client.PutArmyDefinition(definition);
+                CurrentArmyDefinitionId = result;
+                return result;
             }
         }
 
@@ -35,7 +38,9 @@ namespace GameEditor.Wcf.Harness.Models
         {
             using (var client = new WarGameServiceClient())
             {
-                client.DeleteArmyDefinition(id); 
+                client.DeleteArmyDefinition(id);
+                CurrentArmyDefinitionId = 0;
+                CurrentArmyUnitDefinitionId = 0;
             }
         }
     }

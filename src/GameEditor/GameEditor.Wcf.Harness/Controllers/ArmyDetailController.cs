@@ -1,4 +1,5 @@
 ﻿using GameEditor.Wcf.Harness.EventAggregators;
+using GameEditor.Wcf.Harness.Extensions;
 using GameEditor.Wcf.Harness.Helpers;
 using GameEditor.Wcf.Harness.Models;
 using GameEditor.Wcf.Harness.Mvc;
@@ -43,12 +44,14 @@ namespace GameEditor.Wcf.Harness.Controllers
                 Notes = View.Notes
             };
             View.ArmyId = _model.AddArmyDefinition(definition);
+            _event.PublishOnCurrentThread(new UpdateView());
         }
 
         public void DeleteArmyDetail()
         {
             _model.DeleteArmyDefinition(View.ArmyId);
             ClearArmyDetail();
+            _event.PublishOnCurrentThread(new UpdateView());
         }
 
         public void SelectArmyDetail(int id)

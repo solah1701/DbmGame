@@ -19,7 +19,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;DESIGNMODE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;DESIGNMODEX</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -82,6 +82,8 @@
     <Compile Include="DbmArmyListEditor_1.Designer.cs">
       <DependentUpon>DbmArmyListEditor_1.cs</DependentUpon>
     </Compile>
+    <Compile Include="EventAggregators\UpdateTabPage.cs" />
+    <Compile Include="EventAggregators\UpdateView.cs" />
     <Compile Include="Extensions\EnumerableExtension.cs" />
     <Compile Include="Extensions\EventAggregatorExtensions.cs" />
     <Compile Include="Form1.cs">

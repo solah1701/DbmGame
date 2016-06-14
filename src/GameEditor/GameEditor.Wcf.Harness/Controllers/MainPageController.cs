@@ -1,15 +1,20 @@
 ﻿using System;
+using GameEditor.Wcf.Harness.EventAggregators;
 using GameEditor.Wcf.Harness.Helpers;
 using GameEditor.Wcf.Harness.Mvc;
 using GameEditor.Wcf.Harness.Vews;
 
 namespace GameEditor.Wcf.Harness.Controllers
 {
-    public class MainPageController : Controller<IMainPageView>, IHandle<string>, IMainPageController
+    public class MainPageController : Controller<IMainPageView>, IHandle<UpdateTabPage>, IMainPageController
     {
-        public void Handle(string message)
+        public MainPageController(IEventAggregator eventAggregator)
         {
-            SelectTab(message);
+            eventAggregator.Subscribe(this);
+        }
+        public void Handle(UpdateTabPage message)
+        {
+            SelectTab(message.Message);
         }
 
         public void SelectTab(string tabName)

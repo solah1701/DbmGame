@@ -7,6 +7,6 @@ namespace GameEditor.Wcf.Harness.Controllers
     {
         void AddArmy();
         void PopulateList();
-        void SelectArmy();
+        void SelectArmy(int armyId);
     }
 }

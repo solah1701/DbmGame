@@ -40,7 +40,8 @@ namespace GameEditor.Wcf.Harness
 
         private void ArmyListView_SelectedIndexChanged(object sender, EventArgs e)
         {
-            _controller.SelectArmy();
+            if (ArmyListView.SelectedItems.Count == 0) return;
+            _controller.SelectArmy(int.Parse(ArmyListView.SelectedItems[0].SubItems[0].Text));
         }
     }
 }

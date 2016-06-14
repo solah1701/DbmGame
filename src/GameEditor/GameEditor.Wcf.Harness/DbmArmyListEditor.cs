@@ -26,7 +26,7 @@ namespace GameEditor.Wcf.Harness
 
         public void SelectTab(string tabName)
         {
-            MainTabControl.TabPages[tabName].Select();
+            MainTabControl.SelectTab(tabName);
         }
     }
 }

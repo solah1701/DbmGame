@@ -1,4 +1,5 @@
-﻿using GameEditor.Wcf.Harness.Helpers;
+﻿using GameEditor.Wcf.Harness.EventAggregators;
+using GameEditor.Wcf.Harness.Helpers;
 using GameEditor.Wcf.Harness.Models;
 using GameEditor.Wcf.Harness.Mvc;
 using GameEditor.Wcf.Harness.Vews;
@@ -6,7 +7,7 @@ using GameEditor.Wcf.Harness.WarGameServiceReference;
 
 namespace GameEditor.Wcf.Harness.Controllers
 {
-    public class ArmyDetailController : Controller<IArmyDetailView>, IArmyDetailController
+    public class ArmyDetailController : Controller<IArmyDetailView>, IArmyDetailController, IHandle<UpdateView>
     {
         private readonly IGameModel _model;
         private readonly IEventAggregator _event;
@@ -15,6 +16,7 @@ namespace GameEditor.Wcf.Harness.Controllers
         {
             _model = model;
             _event = eventAggregator;
+            _event.Subscribe(this);
         }
 
         public void ClearArmyDetail()
@@ -59,6 +61,12 @@ namespace GameEditor.Wcf.Harness.Controllers
             View.MinYear = item.MinYear;
             View.MaxYear = item.MaxYear;
             View.Notes = item.Notes;
+        }
+
+        public void Handle(UpdateView message)
+        {
+            if (_model.CurrentArmyDefinitionId == 0) ClearArmyDetail();
+            else SelectArmyDetail(_model.CurrentArmyDefinitionId);
         }
     }
 }

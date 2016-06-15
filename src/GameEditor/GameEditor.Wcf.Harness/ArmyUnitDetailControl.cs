@@ -95,25 +95,25 @@ namespace GameEditor.Wcf.Harness
         public DisciplineTypeEnum DisciplineType
         {
             get { return (DisciplineTypeEnum)Enum.Parse(typeof(DisciplineTypeEnum), DisciplineComboBox.SelectedItem.ToString()); }
-            set { if (_initialised) this.InvokeIfRequired(() => DisciplineComboBox.SelectedItem = value.ToString()); }
+            set { if (_initialised) this.InvokeIfRequired(() => DisciplineComboBox.SelectedIndex = (int)value); }
         }
 
         public UnitTypeEnum UnitType
         {
             get { return (UnitTypeEnum)Enum.Parse(typeof(UnitTypeEnum), UnitComboBox.SelectedItem.ToString()); }
-            set { if (_initialised) this.InvokeIfRequired(() => UnitComboBox.SelectedItem = value.ToString()); }
+            set { if (_initialised) this.InvokeIfRequired(() => UnitComboBox.SelectedIndex = (int)value); }
         }
 
         public GradeTypeEnum GradeType
         {
             get { return (GradeTypeEnum)Enum.Parse(typeof(GradeTypeEnum), GradeComboBox.SelectedItem.ToString()); }
-            set { if (_initialised) this.InvokeIfRequired(() => GradeComboBox.SelectedItem = value.ToString()); }
+            set { if (_initialised) this.InvokeIfRequired(() => GradeComboBox.SelectedIndex = (int)value); }
         }
 
         public DispositionTypeEnum DispositionType
         {
             get { return (DispositionTypeEnum)Enum.Parse(typeof(DispositionTypeEnum), DispositionComboBox.SelectedItem.ToString()); }
-            set { if (_initialised) this.InvokeIfRequired(() => DispositionComboBox.SelectedItem = value.ToString()); }
+            set { if (_initialised) this.InvokeIfRequired(() => DispositionComboBox.SelectedIndex = (int)value); }
         }
 
         public Array DisciplineData

@@ -66,7 +66,7 @@ namespace GameEditor.Wcf.Harness.Models
             using (var client = new WarGameServiceClient())
             {
                 if (CurrentArmyDefinitionId == 0) return 0;
-                CurrentArmyUnitDefinitionId = client.PostArmyUnitDefinition(CurrentArmyDefinitionId, definition);
+                CurrentArmyUnitDefinitionId = client.PutArmyUnitDefinition(CurrentArmyDefinitionId, definition.Id, definition);
                 return CurrentArmyUnitDefinitionId;
             }
         }
@@ -75,7 +75,7 @@ namespace GameEditor.Wcf.Harness.Models
         {
             using (var client = new WarGameServiceClient())
             {
-                client.DeleteArmyDefinition(id);
+                client.DeleteArmyUnitDefinition(CurrentArmyDefinitionId, id);
                 CurrentArmyUnitDefinitionId = 0;
             }
         }

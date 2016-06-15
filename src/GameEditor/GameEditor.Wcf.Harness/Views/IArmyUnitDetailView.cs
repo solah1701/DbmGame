@@ -1,4 +1,5 @@
-﻿using GameEditor.Wcf.Harness.WarGameServiceReference;
+﻿using System;
+using GameEditor.Wcf.Harness.WarGameServiceReference;
 
 namespace GameEditor.Wcf.Harness.Views
 {
@@ -20,6 +21,9 @@ namespace GameEditor.Wcf.Harness.Views
         UnitTypeEnum UnitType { get; set; }
         GradeTypeEnum GradeType { get; set; }
         DispositionTypeEnum DispositionType { get; set; }
-
+        Array DisciplineData { set; }
+        Array UnitData { set; }
+        Array GradeData { set; }
+        Array DispositionData { set; }
     }
 }

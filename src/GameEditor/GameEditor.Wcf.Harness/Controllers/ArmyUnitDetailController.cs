@@ -1,4 +1,5 @@
-﻿using GameEditor.Wcf.Harness.EventAggregators;
+﻿using System;
+using GameEditor.Wcf.Harness.EventAggregators;
 using GameEditor.Wcf.Harness.Extensions;
 using GameEditor.Wcf.Harness.Helpers;
 using GameEditor.Wcf.Harness.Models;
@@ -18,6 +19,15 @@ namespace GameEditor.Wcf.Harness.Controllers
             _model = model;
             _event = eventAggregator;
             _event.Subscribe(this);
+        }
+
+        protected override void InitialiseView()
+        {
+            base.InitialiseView();
+            View.DisciplineData = Enum.GetValues(typeof(DisciplineTypeEnum));
+            View.UnitData = Enum.GetValues(typeof(UnitTypeEnum));
+            View.DispositionData = Enum.GetValues(typeof(DispositionTypeEnum));
+            View.GradeData = Enum.GetValues(typeof(GradeTypeEnum));
         }
 
         public void ClearArmyUnitDetail()
@@ -47,18 +57,18 @@ namespace GameEditor.Wcf.Harness.Controllers
                 Id = View.ArmyUnitDefinitionId,
                 UnitName = View.ArmyUnitName,
                 Cost = View.Cost,
-                MinCount=View.MinCount,
-                MaxCount=View.MaxCount,
-                MinYear=View.MinYear,
-                MaxYear=View.MaxYear,
+                MinCount = View.MinCount,
+                MaxCount = View.MaxCount,
+                MinYear = View.MinYear,
+                MaxYear = View.MaxYear,
                 IsAlly = View.IsAlly,
                 IsGeneral = View.IsGeneral,
                 IsChariot = View.IsChariot,
-                IsDoubleElement=View.IsDoubleElement,
-                IsMountedInfantry=View.IsMountedInfantry,
-                DisciplineType=View.DisciplineType,
-                UnitType=View.UnitType,
-                DispositionType=View.DispositionType,
+                IsDoubleElement = View.IsDoubleElement,
+                IsMountedInfantry = View.IsMountedInfantry,
+                DisciplineType = View.DisciplineType,
+                UnitType = View.UnitType,
+                DispositionType = View.DispositionType,
                 GradeType = View.GradeType
             };
             View.ArmyUnitDefinitionId = _model.AddArmyUnitDefinitino(definition);

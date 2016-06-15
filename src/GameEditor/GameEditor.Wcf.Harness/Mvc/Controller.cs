@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace GameEditor.Wcf.Harness.Mvc
+﻿namespace GameEditor.Wcf.Harness.Mvc
 {
     public class Controller<T> : IController<T>
     {
@@ -9,6 +7,9 @@ namespace GameEditor.Wcf.Harness.Mvc
         void IController<T>.SetView(T view)
         {
             View = view;
+            InitialiseView();
         }
+
+        protected virtual void InitialiseView() { }
     }
 }

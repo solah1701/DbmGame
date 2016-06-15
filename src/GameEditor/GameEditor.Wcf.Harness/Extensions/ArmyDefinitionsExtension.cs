@@ -13,5 +13,20 @@ namespace GameEditor.Wcf.Harness.Extensions
                 armyDefinition.Id.ToString(), armyDefinition.ArmyName, armyDefinition.ArmyBook.ToString(), armyDefinition.ArmyList.ToString()
             }).Select(subItem => new ListViewItem(subItem)).ToArray();
         }
+
+        public static ListViewItem[] ConvertToListViewItems(this ArmyUnitDefinitions definitions)
+        {
+            return definitions.Select(armyDefinition => new[]
+            {
+                armyDefinition.Id.ToString(),
+                armyDefinition.UnitName,
+                armyDefinition.DisciplineType.ToString(),
+                armyDefinition.DispositionType.ToString(),
+                armyDefinition.UnitType.ToString(),
+                armyDefinition.Cost.ToString(),
+                armyDefinition.MinCount.ToString(),
+                armyDefinition.MaxCount.ToString()
+            }).Select(subItem => new ListViewItem(subItem)).ToArray();
+        }
     }
 }

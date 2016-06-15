@@ -67,7 +67,7 @@ namespace GameEditor.Wcf.Harness.Controllers
 
         public void DeleteArmyUnitDetail()
         {
-            _model.DeleteArmyDefinition(View.ArmyUnitDefinitionId);
+            _model.DeleteArmyUnitDefinition(View.ArmyUnitDefinitionId);
             ClearArmyUnitDetail();
             _event.PublishOnCurrentThread(new UpdateView());
         }

@@ -1880,16 +1880,16 @@ namespace GameEditor.Wcf.Harness.WarGameServiceReference {
         System.Threading.Tasks.Task<GameEditor.Wcf.Harness.WarGameServiceReference.ArmyUnitDefinition> GetArmyUnitDefinitionAsync(int armyDefinitionId, int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWarGameService/PostArmyUnitDefinition", ReplyAction="http://tempuri.org/IWarGameService/PostArmyUnitDefinitionResponse")]
-        void PostArmyUnitDefinition(int armyDefinitionId, GameEditor.Wcf.Harness.WarGameServiceReference.ArmyUnitDefinition armyUnitDefinition);
+        int PostArmyUnitDefinition(int armyDefinitionId, GameEditor.Wcf.Harness.WarGameServiceReference.ArmyUnitDefinition armyUnitDefinition);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWarGameService/PostArmyUnitDefinition", ReplyAction="http://tempuri.org/IWarGameService/PostArmyUnitDefinitionResponse")]
-        System.Threading.Tasks.Task PostArmyUnitDefinitionAsync(int armyDefinitionId, GameEditor.Wcf.Harness.WarGameServiceReference.ArmyUnitDefinition armyUnitDefinition);
+        System.Threading.Tasks.Task<int> PostArmyUnitDefinitionAsync(int armyDefinitionId, GameEditor.Wcf.Harness.WarGameServiceReference.ArmyUnitDefinition armyUnitDefinition);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWarGameService/PutArmyUnitDefinition", ReplyAction="http://tempuri.org/IWarGameService/PutArmyUnitDefinitionResponse")]
-        void PutArmyUnitDefinition(int armyDefinitionId, int id, GameEditor.Wcf.Harness.WarGameServiceReference.ArmyUnitDefinition armyUnitDefinition);
+        int PutArmyUnitDefinition(int armyDefinitionId, int id, GameEditor.Wcf.Harness.WarGameServiceReference.ArmyUnitDefinition armyUnitDefinition);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWarGameService/PutArmyUnitDefinition", ReplyAction="http://tempuri.org/IWarGameService/PutArmyUnitDefinitionResponse")]
-        System.Threading.Tasks.Task PutArmyUnitDefinitionAsync(int armyDefinitionId, int id, GameEditor.Wcf.Harness.WarGameServiceReference.ArmyUnitDefinition armyUnitDefinition);
+        System.Threading.Tasks.Task<int> PutArmyUnitDefinitionAsync(int armyDefinitionId, int id, GameEditor.Wcf.Harness.WarGameServiceReference.ArmyUnitDefinition armyUnitDefinition);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWarGameService/DeleteArmyUnitDefinition", ReplyAction="http://tempuri.org/IWarGameService/DeleteArmyUnitDefinitionResponse")]
         void DeleteArmyUnitDefinition(int armyDefinitionId, int id);
@@ -2205,19 +2205,19 @@ namespace GameEditor.Wcf.Harness.WarGameServiceReference {
             return base.Channel.GetArmyUnitDefinitionAsync(armyDefinitionId, id);
         }
         
-        public void PostArmyUnitDefinition(int armyDefinitionId, GameEditor.Wcf.Harness.WarGameServiceReference.ArmyUnitDefinition armyUnitDefinition) {
-            base.Channel.PostArmyUnitDefinition(armyDefinitionId, armyUnitDefinition);
+        public int PostArmyUnitDefinition(int armyDefinitionId, GameEditor.Wcf.Harness.WarGameServiceReference.ArmyUnitDefinition armyUnitDefinition) {
+            return base.Channel.PostArmyUnitDefinition(armyDefinitionId, armyUnitDefinition);
         }
         
-        public System.Threading.Tasks.Task PostArmyUnitDefinitionAsync(int armyDefinitionId, GameEditor.Wcf.Harness.WarGameServiceReference.ArmyUnitDefinition armyUnitDefinition) {
+        public System.Threading.Tasks.Task<int> PostArmyUnitDefinitionAsync(int armyDefinitionId, GameEditor.Wcf.Harness.WarGameServiceReference.ArmyUnitDefinition armyUnitDefinition) {
             return base.Channel.PostArmyUnitDefinitionAsync(armyDefinitionId, armyUnitDefinition);
         }
         
-        public void PutArmyUnitDefinition(int armyDefinitionId, int id, GameEditor.Wcf.Harness.WarGameServiceReference.ArmyUnitDefinition armyUnitDefinition) {
-            base.Channel.PutArmyUnitDefinition(armyDefinitionId, id, armyUnitDefinition);
+        public int PutArmyUnitDefinition(int armyDefinitionId, int id, GameEditor.Wcf.Harness.WarGameServiceReference.ArmyUnitDefinition armyUnitDefinition) {
+            return base.Channel.PutArmyUnitDefinition(armyDefinitionId, id, armyUnitDefinition);
         }
         
-        public System.Threading.Tasks.Task PutArmyUnitDefinitionAsync(int armyDefinitionId, int id, GameEditor.Wcf.Harness.WarGameServiceReference.ArmyUnitDefinition armyUnitDefinition) {
+        public System.Threading.Tasks.Task<int> PutArmyUnitDefinitionAsync(int armyDefinitionId, int id, GameEditor.Wcf.Harness.WarGameServiceReference.ArmyUnitDefinition armyUnitDefinition) {
             return base.Channel.PutArmyUnitDefinitionAsync(armyDefinitionId, id, armyUnitDefinition);
         }
         

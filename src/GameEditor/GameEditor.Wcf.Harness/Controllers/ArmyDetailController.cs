@@ -47,6 +47,13 @@ namespace GameEditor.Wcf.Harness.Controllers
             _event.PublishOnCurrentThread(new UpdateView());
         }
 
+        public void AddArmyUnit()
+        {
+            //_model.CurrentArmyDefinitionId = 0;
+            _event.PublishOnCurrentThread(new UpdateView());
+            _event.PublishOnCurrentThread(new UpdateTabPage("ArmyUnitTabPage"));
+        }
+
         public void DeleteArmyDetail()
         {
             _model.DeleteArmyDefinition(View.ArmyId);

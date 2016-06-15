@@ -9,5 +9,6 @@ namespace GameEditor.Wcf.Harness.Controllers
         void DeleteArmyDetail();
         void SelectArmyDetail(int id);
         void UpdateArmyDetail();
+        void AddArmyUnit();
     }
 }

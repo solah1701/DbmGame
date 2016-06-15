@@ -32,7 +32,6 @@ namespace GameEditor.Wcf.Harness.Controllers
         public void AddArmy()
         {
             // Navigate to Detail page
-            _model.CurrentArmyDefinitionId = 0;
             _event.PublishOnCurrentThread(new UpdateView());
             _event.PublishOnCurrentThread(new UpdateTabPage("ArmyDetailTabPage"));
         }
@@ -41,6 +40,7 @@ namespace GameEditor.Wcf.Harness.Controllers
         {
             // Navigate to Detail page
             _model.CurrentArmyDefinitionId = armyId;
+            _model.CurrentArmyUnitDefinitionId = 0;
             _event.PublishOnCurrentThread(new UpdateView());
             _event.PublishOnCurrentThread(new UpdateTabPage("ArmyDetailTabPage"));
         }

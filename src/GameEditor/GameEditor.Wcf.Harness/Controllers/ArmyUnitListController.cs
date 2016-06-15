@@ -9,7 +9,7 @@ using GameEditor.Wcf.Harness.Views;
 
 namespace GameEditor.Wcf.Harness.Controllers
 {
-    public class ArmyUnitListController : Controller<IArmyListView>, IArmyListController, IHandle<UpdateView>
+    public class ArmyUnitListController : Controller<IArmyUnitListView>, IArmyUnitListController, IHandle<UpdateView>
     {
         private readonly IGameModel _model;
         private readonly IEventAggregator _event;
@@ -24,25 +24,24 @@ namespace GameEditor.Wcf.Harness.Controllers
         public void PopulateList()
         {
 #if !DESIGNMODE
-            var items = _model.GetArmyDefinitions();
-            View.ArmyDefinitions = items;
+            var items = _model.GetArmyUnitDefinitions();
+            if (items == null) return;
+            View.ArmyUnitDefinitions = items;
 #endif
         }
 
-        public void AddArmy()
+        public void AddArmyUnit()
         {
             // Navigate to Detail page
-            _model.CurrentArmyDefinitionId = 0;
+            _model.CurrentArmyUnitDefinitionId = 0;
             _event.PublishOnCurrentThread(new UpdateView());
-            _event.PublishOnCurrentThread(new UpdateTabPage("ArmyDetailTabPage"));
         }
 
-        public void SelectArmy(int armyId)
+        public void SelectUnitArmy(int armyUnitId)
         {
             // Navigate to Detail page
-            _model.CurrentArmyDefinitionId = armyId;
+            _model.CurrentArmyUnitDefinitionId = armyUnitId;
             _event.PublishOnCurrentThread(new UpdateView());
-            _event.PublishOnCurrentThread(new UpdateTabPage("ArmyDetailTabPage"));
         }
 
         public void Handle(UpdateView message)

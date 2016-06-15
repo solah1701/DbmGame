@@ -615,8 +615,9 @@ namespace GameCore.WcfService
             var armyUnitDefinitions = _model.FindArmyUnitDefinitions(armyDefinitionId);
             if (armyUnitDefinitions != null && !armyUnitDefinitions.Any())
             {
-                SetStatusNotFound();
-                return null;
+                //SetStatusNotFound();
+                SetStatusOk();
+                return new ArmyUnitDefinitions();
             }
             SetStatusOk();
             return new ArmyUnitDefinitions(armyUnitDefinitions);
@@ -634,35 +635,38 @@ namespace GameCore.WcfService
             return armyUnitDefinitions;
         }
 
-        public void PostArmyUnitDefinition(int armyDefinitionId, ArmyUnitDefinition armyUnitDefinition)
+        public int PostArmyUnitDefinition(int armyDefinitionId, ArmyUnitDefinition armyUnitDefinition)
         {
-            var armyDef = _model.FindArmyUnitDefinition(armyUnitDefinition.Id, armyDefinitionId);
-            var armyDefLink = GetArmyUnitDefinitionLink(armyDefinitionId, armyUnitDefinition.Id);
-            if (armyDef == null) SetStatusCreated(armyDefLink);
-            armyUnitDefinition.IdLink = armyDefLink;
-            if (_model.ArmyUnitDefinitionsContainsKey(armyUnitDefinition.Id)) _model.SetArmyUnitDefinition(armyUnitDefinition.Id, armyDef);
-            else _model.ArmyUnitDefinitionsAdd(armyUnitDefinition.Id, armyDef);
-            SetStatusOk();
+            using (var db = new DbmModel())
+            {
+                var armyList = db.ArmyListDefinitions.Find(armyDefinitionId);
+                if (armyList == null)
+                {
+                    SetStatusNotFound();
+                    return 0;
+                }
+                var armyUnit = armyUnitDefinition.GetArmyUnitDefinition();
+                armyList.ArmyListUnitDefinitions.Add(armyUnit);
+                db.ArmyUnitDefinitions.Add(armyUnit);
+                db.SaveChanges();
+                SetStatusOk();
+                return armyUnit.ArmyUnitDefinitionId;
+            }
         }
 
-        public void PutArmyUnitDefinition(int armyDefinitionId, int id, ArmyUnitDefinition armyUnitDefinition)
+        public int PutArmyUnitDefinition(int armyDefinitionId, int id, ArmyUnitDefinition armyUnitDefinition)
         {
-            var armyDef = _model.FindArmyUnitDefinition(armyUnitDefinition.Id, armyDefinitionId);
-            var armyDefLink = GetArmyUnitDefinitionLink(armyDefinitionId, armyUnitDefinition.Id);
-            if (armyDef == null)
+            if (armyUnitDefinition.Id == 0) return PostArmyUnitDefinition(armyDefinitionId, armyUnitDefinition);
+            using (var db = new DbmModel())
             {
-                SetStatusNotFound();
-                return;
+                var armyUnit =
+                    armyUnitDefinition.UpdateArmyUnitDefinition(db.ArmyUnitDefinitions.Find(armyUnitDefinition.Id));
+                db.ArmyUnitDefinitions.Attach(armyUnit);
+                db.Entry(armyUnit).State = EntityState.Modified;
+                db.SaveChanges();
+                SetStatusOk();
+                return armyUnit.ArmyUnitDefinitionId;
             }
-            armyUnitDefinition.IdLink = armyDefLink;
-            if (_model.ArmyUnitDefinitionsContainsKey(armyUnitDefinition.Id))
-                _model.SetArmyUnitDefinition(armyUnitDefinition.Id, armyDef);
-            else
-            {
-                SetStatusNotFound();
-                return;
-            }
-            SetStatusOk();
         }
 
         public void DeleteArmyUnitDefinition(int armyDefinitionId, int id)

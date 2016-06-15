@@ -28,7 +28,11 @@ namespace GameCore.WcfService.Helpers
                 MinCount = definition.MinCount,
                 MaxCount = definition.MaxCount,
                 MinYear = definition.MinYear,
-                MaxYear = definition.MaxYear
+                MaxYear = definition.MaxYear,
+                UnitType = definition.UnitType,
+                GradeType = definition.GradeType,
+                DispositionType = definition.DispositionType,
+                DisciplineType = definition.DisciplineType
             };
         }
 
@@ -47,7 +51,11 @@ namespace GameCore.WcfService.Helpers
                 MinCount = definition.MinCount,
                 MaxCount = definition.MaxCount,
                 MinYear = definition.MinYear,
-                MaxYear = definition.MaxYear
+                MaxYear = definition.MaxYear,
+                UnitType = definition.UnitType,
+                GradeType = definition.GradeType,
+                DispositionType = definition.DispositionType,
+                DisciplineType = definition.DisciplineType
             };
         }
 
@@ -65,6 +73,32 @@ namespace GameCore.WcfService.Helpers
             definition.MaxCount = item.MaxCount;
             definition.MinYear = item.MinYear;
             definition.MaxYear = item.MaxYear;
+            definition.UnitType = item.UnitType;
+            definition.GradeType = item.GradeType;
+            definition.DispositionType = item.DispositionType;
+            definition.DisciplineType = item.DisciplineType;
+        }
+
+        public static ArmyListUnitDefinition UpdateArmyUnitDefinition(this ArmyUnitDefinition definition, ArmyListUnitDefinition original)
+        {
+            original.ArmyUnitDefinitionId = definition.Id;
+            original.Name = definition.UnitName;
+            original.Cost = definition.Cost;
+            original.MinCount = definition.MinCount;
+            original.MaxCount = definition.MaxCount;
+            original.MinYear = definition.MinYear;
+            original.MaxYear = definition.MaxYear;
+            original.IsGeneral = definition.IsGeneral;
+            original.IsAlly = definition.IsAlly;
+            original.IsChariot = definition.IsChariot;
+            original.IsDoubleElement = definition.IsDoubleElement;
+            original.IsMountedInfantry = definition.IsMountedInfantry;
+            original.DisciplineType = definition.DisciplineType;
+            original.DispositionType = definition.DispositionType;
+            original.UnitType = definition.UnitType;
+            original.GradeType = definition.GradeType;
+
+            return original;
         }
     }
 }

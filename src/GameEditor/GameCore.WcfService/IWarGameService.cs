@@ -177,11 +177,11 @@ namespace GameCore.WcfService
 
         [WebInvoke(Method = "POST", UriTemplate = "ArmyDefinitions/{armyDefinitionId}/ArmyUnitDefinitions")]
         [OperationContract]
-        void PostArmyUnitDefinition(int armyDefinitionId, ArmyUnitDefinition armyUnitDefinition);
+        int PostArmyUnitDefinition(int armyDefinitionId, ArmyUnitDefinition armyUnitDefinition);
 
         [WebInvoke(Method = "PUT", UriTemplate = "ArmyDefinitions/{armyDefinitionId}/ArmyUnitDefinitions/{id}")]
         [OperationContract]
-        void PutArmyUnitDefinition(int armyDefinitionId, int id, ArmyUnitDefinition armyUnitDefinition);
+        int PutArmyUnitDefinition(int armyDefinitionId, int id, ArmyUnitDefinition armyUnitDefinition);
 
         [WebInvoke(Method = "Delete", UriTemplate = "ArmyDefinitions/{armyDefinitionId}/ArmyUnitDefinitions/{id}")]
         [OperationContract]

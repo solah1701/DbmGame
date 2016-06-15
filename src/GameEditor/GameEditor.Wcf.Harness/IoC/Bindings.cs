@@ -11,10 +11,14 @@ namespace GameEditor.Wcf.Harness.IoC
             Bind<IMainPageView>().To<DbmArmyListEditor>();
             Bind<IArmyListView>().To<ArmyListControl>();
             Bind<IArmyDetailView>().To<ArmyDetailControl>();
+            Bind<IArmyUnitListView>().To<ArmyUnitListControl>();
+            Bind<IArmyDetailView>().To<ArmyDetailControl>();
 
             Bind<IMainPageController>().To<MainPageController>();
             Bind<IArmyListController>().To<ArmyListController>();
             Bind<IArmyDetailController>().To<ArmyDetailController>();
+            Bind<IArmyUnitListController>().To<ArmyUnitListController>();
+            Bind<IArmyUnitDetailController>().To<ArmyUnitDetailController>();
         }
     }
 }

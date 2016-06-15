@@ -62,7 +62,7 @@ namespace GameEditor.Wcf.Harness
 
         private void AddButton_Click(object sender, System.EventArgs e)
         {
-
+            _controller.AddArmyUnit();
         }
 
         private void UpdateButton_Click(object sender, System.EventArgs e)

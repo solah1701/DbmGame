@@ -35,7 +35,7 @@
             this.List = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.UpdateButton = new System.Windows.Forms.Button();
             this.DeleteButton = new System.Windows.Forms.Button();
-            this.ArmyDetailControl = new GameEditor.Wcf.Harness.ArmyDetailControl();
+            this._armyDetailViewControl = new GameEditor.Wcf.Harness.ArmyDetailViewControl();
             this.ClearButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -98,18 +98,18 @@
             this.DeleteButton.UseVisualStyleBackColor = true;
             this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
-            // ArmyDetailControl
+            // ArmyDetailViewControl
             // 
-            this.ArmyDetailControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this._armyDetailViewControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
             | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ArmyDetailControl.ArmyId = 0;
-            this.ArmyDetailControl.ArmyName = "";
-            this.ArmyDetailControl.Location = new System.Drawing.Point(391, 12);
-            this.ArmyDetailControl.Name = "ArmyDetailControl";
-            this.ArmyDetailControl.Notes = "";
-            this.ArmyDetailControl.Size = new System.Drawing.Size(473, 491);
-            this.ArmyDetailControl.TabIndex = 3;
+            this._armyDetailViewControl.ArmyId = 0;
+            this._armyDetailViewControl.ArmyName = "";
+            this._armyDetailViewControl.Location = new System.Drawing.Point(391, 12);
+            this._armyDetailViewControl.Name = "ArmyDetailControl";
+            this._armyDetailViewControl.Notes = "";
+            this._armyDetailViewControl.Size = new System.Drawing.Size(473, 491);
+            this._armyDetailViewControl.TabIndex = 3;
             // 
             // ClearButton
             // 
@@ -122,18 +122,18 @@
             this.ClearButton.UseVisualStyleBackColor = true;
             this.ClearButton.Click += new System.EventHandler(this.CreateButton_Click);
             // 
-            // DbmArmyListEditor
+            // MainPageViewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(901, 540);
             this.Controls.Add(this.ClearButton);
-            this.Controls.Add(this.ArmyDetailControl);
+            this.Controls.Add(this._armyDetailViewControl);
             this.Controls.Add(this.DeleteButton);
             this.Controls.Add(this.UpdateButton);
             this.Controls.Add(this.listView1);
-            this.Name = "DbmArmyListEditor";
-            this.Text = "DbmArmyListEditor";
+            this.Name = "MainPageViewForm";
+            this.Text = "MainPageViewForm";
             this.ResumeLayout(false);
 
         }
@@ -147,7 +147,7 @@
         private System.Windows.Forms.ColumnHeader List;
         private System.Windows.Forms.Button UpdateButton;
         private System.Windows.Forms.Button DeleteButton;
-        private ArmyDetailControl ArmyDetailControl;
+        private ArmyDetailViewControl _armyDetailViewControl;
         private System.Windows.Forms.Button ClearButton;
     }
 }

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GameEditor.Wcf.Harness.IoC;
+using GameEditor.Wcf.Harness.Views;
 
 namespace GameEditor.Wcf.Harness
 {
@@ -16,7 +18,8 @@ namespace GameEditor.Wcf.Harness
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new DbmArmyListEditor());
+            //Application.Run(IoCContainer.Resolve<MainPageViewForm>());
+            Application.Run(new MainPageViewForm());
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace GameEditor.Wcf.Harness
 {
-    partial class ArmyDetailControl
+    partial class ArmyDetailViewControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -262,7 +262,7 @@
             this.DeleteButton.UseVisualStyleBackColor = true;
             this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
-            // ArmyDetailControl
+            // ArmyDetailViewControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -270,7 +270,7 @@
             this.Controls.Add(this.LeftPanel);
             this.Controls.Add(this.BottomPanel);
             this.Controls.Add(this.TopPanel);
-            this.Name = "ArmyDetailControl";
+            this.Name = "ArmyDetailViewControl";
             this.Size = new System.Drawing.Size(566, 476);
             this.TopPanel.ResumeLayout(false);
             this.TopPanel.PerformLayout();

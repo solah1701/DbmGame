@@ -1,20 +1,20 @@
 ﻿using System.Windows.Forms;
-using GameEditor.Wcf.Harness.Controllers;
 using GameEditor.Wcf.Harness.Helpers;
 using GameEditor.Wcf.Harness.IoC;
+using GameEditor.Wcf.Harness.Presenters;
 using GameEditor.Wcf.Harness.Views;
 
 namespace GameEditor.Wcf.Harness
 {
-    public partial class ArmyDetailControl : UserControl, IArmyDetailView
+    public partial class ArmyDetailViewControl : UserControl, IArmyDetailView
     {
-        private readonly IArmyDetailController _controller;
+        private readonly IArmyDetailPresenter _presenter;
 
-        public ArmyDetailControl()
+        public ArmyDetailViewControl()
         {
             InitializeComponent();
-            _controller = IoCContainer.Resolve<IArmyDetailController>();
-            _controller.SetView(this);
+            _presenter = IoCContainer.Resolve<IArmyDetailPresenter>();
+            _presenter.SetView(this);
         }
 
         public string ArmyName
@@ -62,17 +62,17 @@ namespace GameEditor.Wcf.Harness
 
         private void AddButton_Click(object sender, System.EventArgs e)
         {
-            _controller.AddArmyUnit();
+            _presenter.AddArmyUnit();
         }
 
         private void UpdateButton_Click(object sender, System.EventArgs e)
         {
-            _controller.UpdateArmyDetail();
+            _presenter.UpdateArmyDetail();
         }
 
         private void DeleteButton_Click(object sender, System.EventArgs e)
         {
-            _controller.DeleteArmyDetail();
+            _presenter.DeleteArmyDetail();
         }
     }
 }

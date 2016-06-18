@@ -52,45 +52,45 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ArmyUnitDetailControl.cs">
+    <Compile Include="ArmyUnitDetailViewControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ArmyUnitDetailControl.Designer.cs">
-      <DependentUpon>ArmyUnitDetailControl.cs</DependentUpon>
+    <Compile Include="ArmyUnitDetailViewControl.Designer.cs">
+      <DependentUpon>ArmyUnitDetailViewControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="ArmyDetailControl.cs">
+    <Compile Include="ArmyDetailViewControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ArmyDetailControl.Designer.cs">
-      <DependentUpon>ArmyDetailControl.cs</DependentUpon>
+    <Compile Include="ArmyDetailViewControl.Designer.cs">
+      <DependentUpon>ArmyDetailViewControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="ArmyUnitListControl.cs">
+    <Compile Include="ArmyUnitListViewControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ArmyUnitListControl.Designer.cs">
-      <DependentUpon>ArmyUnitListControl.cs</DependentUpon>
+    <Compile Include="ArmyUnitListViewControl.Designer.cs">
+      <DependentUpon>ArmyUnitListViewControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="ArmyListControl.cs">
+    <Compile Include="ArmyListViewControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ArmyListControl.Designer.cs">
-      <DependentUpon>ArmyListControl.cs</DependentUpon>
+    <Compile Include="ArmyListViewControl.Designer.cs">
+      <DependentUpon>ArmyListViewControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\ArmyUnitDetailController.cs" />
-    <Compile Include="Controllers\ArmyDetailController.cs" />
-    <Compile Include="Controllers\ArmyUnitListController.cs" />
-    <Compile Include="Controllers\ArmyListController.cs" />
-    <Compile Include="Controllers\IArmyUnitDetailController.cs" />
-    <Compile Include="Controllers\IArmyDetailController.cs" />
-    <Compile Include="Controllers\IArmyUnitListController.cs" />
-    <Compile Include="Controllers\IArmyListController.cs" />
-    <Compile Include="Controllers\IMainPageController.cs" />
-    <Compile Include="Controllers\MainPageController.cs" />
-    <Compile Include="DbmArmyListEditor.cs">
+    <Compile Include="Presenters\ArmyUnitDetailPresenter.cs" />
+    <Compile Include="Presenters\ArmyDetailPresenter.cs" />
+    <Compile Include="Presenters\ArmyUnitListPresenter.cs" />
+    <Compile Include="Presenters\ArmyListPresenter.cs" />
+    <Compile Include="Presenters\IArmyUnitDetailPresenter.cs" />
+    <Compile Include="Presenters\IArmyDetailPresenter.cs" />
+    <Compile Include="Presenters\IArmyUnitListPresenter.cs" />
+    <Compile Include="Presenters\IArmyListPresenter.cs" />
+    <Compile Include="Presenters\IMainPagePresenter.cs" />
+    <Compile Include="Presenters\MainPagePresenter.cs" />
+    <Compile Include="MainPageViewForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DbmArmyListEditor.Designer.cs">
-      <DependentUpon>DbmArmyListEditor.cs</DependentUpon>
+    <Compile Include="MainPageViewForm.Designer.cs">
+      <DependentUpon>MainPageViewForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DbmArmyListEditor_1.cs">
       <SubType>Form</SubType>
@@ -131,20 +131,20 @@
     <Compile Include="Views\IArmyUnitListView.cs" />
     <Compile Include="Views\IArmyListView.cs" />
     <Compile Include="Views\IMainPageView.cs" />
-    <EmbeddedResource Include="ArmyUnitDetailControl.resx">
-      <DependentUpon>ArmyUnitDetailControl.cs</DependentUpon>
+    <EmbeddedResource Include="ArmyUnitDetailViewControl.resx">
+      <DependentUpon>ArmyUnitDetailViewControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ArmyDetailControl.resx">
-      <DependentUpon>ArmyDetailControl.cs</DependentUpon>
+    <EmbeddedResource Include="ArmyDetailViewControl.resx">
+      <DependentUpon>ArmyDetailViewControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ArmyUnitListControl.resx">
-      <DependentUpon>ArmyUnitListControl.cs</DependentUpon>
+    <EmbeddedResource Include="ArmyUnitListViewControl.resx">
+      <DependentUpon>ArmyUnitListViewControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ArmyListControl.resx">
-      <DependentUpon>ArmyListControl.cs</DependentUpon>
+    <EmbeddedResource Include="ArmyListViewControl.resx">
+      <DependentUpon>ArmyListViewControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DbmArmyListEditor.resx">
-      <DependentUpon>DbmArmyListEditor.cs</DependentUpon>
+    <EmbeddedResource Include="MainPageViewForm.resx">
+      <DependentUpon>MainPageViewForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DbmArmyListEditor_1.resx">
       <DependentUpon>DbmArmyListEditor_1.cs</DependentUpon>

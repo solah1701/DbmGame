@@ -1,24 +1,24 @@
 ﻿using System;
 using System.Windows.Forms;
-using GameEditor.Wcf.Harness.Controllers;
 using GameEditor.Wcf.Harness.Extensions;
 using GameEditor.Wcf.Harness.Helpers;
 using GameEditor.Wcf.Harness.IoC;
+using GameEditor.Wcf.Harness.Presenters;
 using GameEditor.Wcf.Harness.Views;
 using GameEditor.Wcf.Harness.WarGameServiceReference;
 
 namespace GameEditor.Wcf.Harness
 {
-    public partial class ArmyUnitListControl : UserControl, IArmyUnitListView
+    public partial class ArmyUnitListViewControl : UserControl, IArmyUnitListView
     {
-        private readonly IArmyUnitListController _controller;
+        private readonly IArmyUnitListPresenter _presenter;
 
-        public ArmyUnitListControl()
+        public ArmyUnitListViewControl()
         {
             InitializeComponent();
-            _controller = IoCContainer.Resolve<IArmyUnitListController>();
-            _controller.SetView(this);
-            _controller.PopulateList();
+            _presenter = IoCContainer.Resolve<IArmyUnitListPresenter>();
+            _presenter.SetView(this);
+            _presenter.PopulateList();
         }
 
         public ArmyUnitDefinitions ArmyUnitDefinitions
@@ -35,13 +35,13 @@ namespace GameEditor.Wcf.Harness
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-            _controller.AddArmyUnit();
+            _presenter.AddArmyUnit();
         }
 
         private void ArmyUnitListView_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (ArmyListView.SelectedItems.Count == 0) return;
-            _controller.SelectUnitArmy(int.Parse(ArmyListView.SelectedItems[0].SubItems[0].Text));
+            _presenter.SelectUnitArmy(int.Parse(ArmyListView.SelectedItems[0].SubItems[0].Text));
         }
     }
 }

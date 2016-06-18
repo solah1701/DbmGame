@@ -1,6 +1,6 @@
 ﻿namespace GameEditor.Wcf.Harness
 {
-    partial class ArmyUnitListControl
+    partial class ArmyListViewControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -31,15 +31,11 @@
             this.ArmyListView = new System.Windows.Forms.ListView();
             this.IdHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.NameHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.DisciplineHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.DispositionHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.BookHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ListHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.AddButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.UnitTypeHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.CostHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.MinCountHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.MaxCountHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -49,12 +45,8 @@
             this.ArmyListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.IdHeader,
             this.NameHeader,
-            this.DisciplineHeader,
-            this.DispositionHeader,
-            this.UnitTypeHeader,
-            this.CostHeader,
-            this.MinCountHeader,
-            this.MaxCountHeader});
+            this.BookHeader,
+            this.ListHeader});
             this.ArmyListView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ArmyListView.FullRowSelect = true;
             this.ArmyListView.GridLines = true;
@@ -64,7 +56,7 @@
             this.ArmyListView.TabIndex = 0;
             this.ArmyListView.UseCompatibleStateImageBehavior = false;
             this.ArmyListView.View = System.Windows.Forms.View.Details;
-            this.ArmyListView.SelectedIndexChanged += new System.EventHandler(this.ArmyUnitListView_SelectedIndexChanged);
+            this.ArmyListView.SelectedIndexChanged += new System.EventHandler(this.ArmyListView_SelectedIndexChanged);
             // 
             // IdHeader
             // 
@@ -75,13 +67,13 @@
             this.NameHeader.Text = "Name";
             this.NameHeader.Width = 261;
             // 
-            // DisciplineHeader
+            // BookHeader
             // 
-            this.DisciplineHeader.Text = "Discipline";
+            this.BookHeader.Text = "Book";
             // 
-            // DispositionHeader
+            // ListHeader
             // 
-            this.DispositionHeader.Text = "Disposition";
+            this.ListHeader.Text = "List";
             // 
             // AddButton
             // 
@@ -111,29 +103,13 @@
             this.panel2.Size = new System.Drawing.Size(453, 250);
             this.panel2.TabIndex = 4;
             // 
-            // UnitTypeHeader
-            // 
-            this.UnitTypeHeader.Text = "Unit Type";
-            // 
-            // CostHeader
-            // 
-            this.CostHeader.Text = "Cost";
-            // 
-            // MinCountHeader
-            // 
-            this.MinCountHeader.Text = "Min Count";
-            // 
-            // MaxCountHeader
-            // 
-            this.MaxCountHeader.Text = "Max Count";
-            // 
-            // ArmyUnitListControl
+            // ArmyListViewControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Name = "ArmyUnitListControl";
+            this.Name = "ArmyListViewControl";
             this.Size = new System.Drawing.Size(453, 303);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -147,13 +123,9 @@
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.ColumnHeader IdHeader;
         private System.Windows.Forms.ColumnHeader NameHeader;
-        private System.Windows.Forms.ColumnHeader DisciplineHeader;
-        private System.Windows.Forms.ColumnHeader DispositionHeader;
+        private System.Windows.Forms.ColumnHeader BookHeader;
+        private System.Windows.Forms.ColumnHeader ListHeader;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.ColumnHeader UnitTypeHeader;
-        private System.Windows.Forms.ColumnHeader CostHeader;
-        private System.Windows.Forms.ColumnHeader MinCountHeader;
-        private System.Windows.Forms.ColumnHeader MaxCountHeader;
     }
 }

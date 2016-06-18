@@ -7,14 +7,14 @@ using GameEditor.Wcf.Harness.Models;
 using GameEditor.Wcf.Harness.Mvc;
 using GameEditor.Wcf.Harness.Views;
 
-namespace GameEditor.Wcf.Harness.Controllers
+namespace GameEditor.Wcf.Harness.Presenters
 {
-    public class ArmyListController : Controller<IArmyListView>, IArmyListController, IHandle<UpdateView>
+    public class ArmyUnitListPresenter : Controller<IArmyUnitListView>, IArmyUnitListPresenter, IHandle<UpdateView>
     {
         private readonly IGameModel _model;
         private readonly IEventAggregator _event;
 
-        public ArmyListController(IEventAggregator eventAggregator, IGameModel model)
+        public ArmyUnitListPresenter(IEventAggregator eventAggregator, IGameModel model)
         {
             _model = model;
             _event = eventAggregator;
@@ -24,25 +24,24 @@ namespace GameEditor.Wcf.Harness.Controllers
         public void PopulateList()
         {
 #if !DESIGNMODE
-            var items = _model.GetArmyDefinitions();
-            View.ArmyDefinitions = items;
+            var items = _model.GetArmyUnitDefinitions();
+            if (items == null) return;
+            View.ArmyUnitDefinitions = items;
 #endif
         }
 
-        public void AddArmy()
+        public void AddArmyUnit()
         {
             // Navigate to Detail page
-            _event.PublishOnCurrentThread(new UpdateView());
-            _event.PublishOnCurrentThread(new UpdateTabPage("ArmyDetailTabPage"));
-        }
-
-        public void SelectArmy(int armyId)
-        {
-            // Navigate to Detail page
-            _model.CurrentArmyDefinitionId = armyId;
             _model.CurrentArmyUnitDefinitionId = 0;
             _event.PublishOnCurrentThread(new UpdateView());
-            _event.PublishOnCurrentThread(new UpdateTabPage("ArmyDetailTabPage"));
+        }
+
+        public void SelectUnitArmy(int armyUnitId)
+        {
+            // Navigate to Detail page
+            _model.CurrentArmyUnitDefinitionId = armyUnitId;
+            _event.PublishOnCurrentThread(new UpdateView());
         }
 
         public void Handle(UpdateView message)

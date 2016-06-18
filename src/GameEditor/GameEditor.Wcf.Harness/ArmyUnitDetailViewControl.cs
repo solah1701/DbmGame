@@ -1,24 +1,24 @@
 ﻿using System;
 using System.Windows.Forms;
-using GameEditor.Wcf.Harness.Controllers;
 using GameEditor.Wcf.Harness.Helpers;
 using GameEditor.Wcf.Harness.IoC;
+using GameEditor.Wcf.Harness.Presenters;
 using GameEditor.Wcf.Harness.Views;
 using GameEditor.Wcf.Harness.WarGameServiceReference;
 
 namespace GameEditor.Wcf.Harness
 {
-    public partial class ArmyUnitDetailControl : UserControl, IArmyUnitDetailView
+    public partial class ArmyUnitDetailViewControl : UserControl, IArmyUnitDetailView
     {
-        private readonly IArmyUnitDetailController _controller;
+        private readonly IArmyUnitDetailPresenter _presenter;
         private readonly bool _initialised;
 
-        public ArmyUnitDetailControl()
+        public ArmyUnitDetailViewControl()
         {
             _initialised = false;
             InitializeComponent();
-            _controller = IoCContainer.Resolve<IArmyUnitDetailController>();
-            _controller.SetView(this);
+            _presenter = IoCContainer.Resolve<IArmyUnitDetailPresenter>();
+            _presenter.SetView(this);
             _initialised = true;
         }
 
@@ -149,12 +149,12 @@ namespace GameEditor.Wcf.Harness
 
         private void UpdateButton_Click(object sender, EventArgs e)
         {
-            _controller.UpdateArmyUnitDetail();
+            _presenter.UpdateArmyUnitDetail();
         }
 
         private void DeleteButton_Click(object sender, EventArgs e)
         {
-            _controller.DeleteArmyUnitDetail();
+            _presenter.DeleteArmyUnitDetail();
         }
     }
 }

@@ -1,9 +1,9 @@
 ﻿using GameEditor.Wcf.Harness.Mvc;
 using GameEditor.Wcf.Harness.Views;
 
-namespace GameEditor.Wcf.Harness.Controllers
+namespace GameEditor.Wcf.Harness.Presenters
 {
-    public interface IArmyUnitDetailController : IController<IArmyUnitDetailView>
+    public interface IArmyUnitDetailPresenter : IController<IArmyUnitDetailView>
     {
         void ClearArmyUnitDetail();
         void DeleteArmyUnitDetail();

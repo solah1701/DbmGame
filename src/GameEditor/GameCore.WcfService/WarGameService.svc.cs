@@ -617,8 +617,8 @@ namespace GameCore.WcfService
                 var unitDefinitions = db.ArmyListDefinitions.Find(armyDefinitionId).ArmyListUnitDefinitions.ToList().GetArmyUnitDefinitions();
                 if (!unitDefinitions.Any())
                 {
-                    SetStatusNotFound();
-                    return null;
+                    SetStatusOk();
+                    return new ArmyUnitDefinitions();
                 }
                 SetStatusOk();
                 return new ArmyUnitDefinitions(unitDefinitions);

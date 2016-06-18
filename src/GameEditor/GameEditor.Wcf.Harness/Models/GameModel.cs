@@ -73,6 +73,7 @@ namespace GameEditor.Wcf.Harness.Models
 
         public void DeleteArmyUnitDefinition(int id)
         {
+            if (id == 0) return;
             using (var client = new WarGameServiceClient())
             {
                 client.DeleteArmyUnitDefinition(CurrentArmyDefinitionId, id);

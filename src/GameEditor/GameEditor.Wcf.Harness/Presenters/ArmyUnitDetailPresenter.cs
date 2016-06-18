@@ -7,14 +7,14 @@ using GameEditor.Wcf.Harness.Mvc;
 using GameEditor.Wcf.Harness.Views;
 using GameEditor.Wcf.Harness.WarGameServiceReference;
 
-namespace GameEditor.Wcf.Harness.Controllers
+namespace GameEditor.Wcf.Harness.Presenters
 {
-    public class ArmyUnitDetailController : Controller<IArmyUnitDetailView>, IArmyUnitDetailController, IHandle<UpdateView>
+    public class ArmyUnitDetailPresenter : Controller<IArmyUnitDetailView>, IArmyUnitDetailPresenter, IHandle<UpdateView>
     {
         private readonly IGameModel _model;
         private readonly IEventAggregator _event;
 
-        public ArmyUnitDetailController(IEventAggregator eventAggregator, IGameModel model)
+        public ArmyUnitDetailPresenter(IEventAggregator eventAggregator, IGameModel model)
         {
             _model = model;
             _event = eventAggregator;

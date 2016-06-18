@@ -1,9 +1,9 @@
 ﻿using GameEditor.Wcf.Harness.Mvc;
 using GameEditor.Wcf.Harness.Views;
 
-namespace GameEditor.Wcf.Harness.Controllers
+namespace GameEditor.Wcf.Harness.Presenters
 {
-    public interface IArmyUnitListController : IController<IArmyUnitListView>
+    public interface IArmyUnitListPresenter : IController<IArmyUnitListView>
     {
         void AddArmyUnit();
         void PopulateList();

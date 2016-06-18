@@ -1,4 +1,4 @@
-﻿using GameEditor.Wcf.Harness.Controllers;
+﻿using GameEditor.Wcf.Harness.Presenters;
 using Ninject.Modules;
 using GameEditor.Wcf.Harness.Views;
 
@@ -8,17 +8,11 @@ namespace GameEditor.Wcf.Harness.IoC
     {
         public override void Load()
         {
-            Bind<IMainPageView>().To<DbmArmyListEditor>();
-            Bind<IArmyListView>().To<ArmyListControl>();
-            Bind<IArmyDetailView>().To<ArmyDetailControl>();
-            Bind<IArmyUnitListView>().To<ArmyUnitListControl>();
-            Bind<IArmyDetailView>().To<ArmyDetailControl>();
-
-            Bind<IMainPageController>().To<MainPageController>();
-            Bind<IArmyListController>().To<ArmyListController>();
-            Bind<IArmyDetailController>().To<ArmyDetailController>();
-            Bind<IArmyUnitListController>().To<ArmyUnitListController>();
-            Bind<IArmyUnitDetailController>().To<ArmyUnitDetailController>();
+            Bind<IMainPagePresenter>().To<MainPagePresenter>();
+            Bind<IArmyListPresenter>().To<ArmyListPresenter>();
+            Bind<IArmyDetailPresenter>().To<ArmyDetailPresenter>();
+            Bind<IArmyUnitListPresenter>().To<ArmyUnitListPresenter>();
+            Bind<IArmyUnitDetailPresenter>().To<ArmyUnitDetailPresenter>();
         }
     }
 }

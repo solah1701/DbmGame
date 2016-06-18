@@ -1,6 +1,6 @@
 ﻿namespace GameEditor.Wcf.Harness
 {
-    partial class ArmyUnitDetailControl
+    partial class ArmyUnitDetailViewControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -399,13 +399,13 @@
             this.GradeComboBox.Size = new System.Drawing.Size(487, 24);
             this.GradeComboBox.TabIndex = 25;
             // 
-            // ArmyUnitDetailControl
+            // ArmyUnitDetailViewControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.BottomPanel);
             this.Controls.Add(this.TopPanel);
-            this.Name = "ArmyUnitDetailControl";
+            this.Name = "ArmyUnitDetailViewControl";
             this.Size = new System.Drawing.Size(566, 476);
             this.TopPanel.ResumeLayout(false);
             this.TopPanel.PerformLayout();

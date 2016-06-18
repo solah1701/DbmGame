@@ -7,21 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using GameEditor.Wcf.Harness.Controllers;
 using GameEditor.Wcf.Harness.IoC;
+using GameEditor.Wcf.Harness.Presenters;
 using GameEditor.Wcf.Harness.Views;
 
 namespace GameEditor.Wcf.Harness
 {
-    public partial class DbmArmyListEditor : Form, IMainPageView
+    public partial class MainPageViewForm : Form, IMainPageView
     {
-        private readonly IMainPageController _controller;
+        private readonly IMainPagePresenter _presenter;
 
-        public DbmArmyListEditor()
+        public MainPageViewForm()
         {
             InitializeComponent();
-            _controller = IoCContainer.Resolve<IMainPageController>();
-            _controller.SetView(this);
+            _presenter = IoCContainer.Resolve<IMainPagePresenter>();
+            _presenter.SetView(this);
         }
 
         public void SelectTab(string tabName)

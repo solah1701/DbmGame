@@ -38,30 +38,26 @@ namespace GameEditor.Wcf.Harness
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.MainTabControl = new System.Windows.Forms.TabControl();
             this.ArmyListTabPage = new System.Windows.Forms.TabPage();
-            this.ArmyDetalTabPage = new System.Windows.Forms.TabPage();
-            this.ArmyUmitTabPage = new System.Windows.Forms.TabPage();
+            this.ArmyUnitTabPage = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-
-            //this._armyListViewControl = IoCContainer.Resolve<ArmyListViewControl>();
-            //this._armyDetailViewControl = IoCContainer.Resolve<ArmyDetailViewControl>();
-            //this._armyUnitListViewControl1 = IoCContainer.Resolve<ArmyUnitListViewControl>();
-            //this._armyUnitDetailViewControl1 = IoCContainer.Resolve<ArmyUnitDetailViewControl>();
-
-            this._armyListViewControl = new GameEditor.Wcf.Harness.ArmyListViewControl();
-            this._armyDetailViewControl = new GameEditor.Wcf.Harness.ArmyDetailViewControl();
             this._armyUnitListViewControl1 = new GameEditor.Wcf.Harness.ArmyUnitListViewControl();
             this._armyUnitDetailViewControl1 = new GameEditor.Wcf.Harness.ArmyUnitDetailViewControl();
-
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.armyListViewControl1 = new GameEditor.Wcf.Harness.ArmyListViewControl();
+            this.armyDetailViewControl1 = new GameEditor.Wcf.Harness.ArmyDetailViewControl();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.MainTabControl.SuspendLayout();
             this.ArmyListTabPage.SuspendLayout();
-            this.ArmyDetalTabPage.SuspendLayout();
-            this.ArmyUmitTabPage.SuspendLayout();
+            this.ArmyUnitTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
+            this.splitContainer2.Panel1.SuspendLayout();
+            this.splitContainer2.Panel2.SuspendLayout();
+            this.splitContainer2.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -116,8 +112,7 @@ namespace GameEditor.Wcf.Harness
             // MainTabControl
             // 
             this.MainTabControl.Controls.Add(this.ArmyListTabPage);
-            this.MainTabControl.Controls.Add(this.ArmyDetalTabPage);
-            this.MainTabControl.Controls.Add(this.ArmyUmitTabPage);
+            this.MainTabControl.Controls.Add(this.ArmyUnitTabPage);
             this.MainTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainTabControl.Location = new System.Drawing.Point(0, 28);
             this.MainTabControl.Name = "MainTabControl";
@@ -127,35 +122,24 @@ namespace GameEditor.Wcf.Harness
             // 
             // ArmyListTabPage
             // 
-            this.ArmyListTabPage.Controls.Add(this._armyListViewControl);
+            this.ArmyListTabPage.Controls.Add(this.splitContainer2);
             this.ArmyListTabPage.Location = new System.Drawing.Point(4, 25);
             this.ArmyListTabPage.Name = "ArmyListTabPage";
             this.ArmyListTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.ArmyListTabPage.Size = new System.Drawing.Size(665, 373);
+            this.ArmyListTabPage.Size = new System.Drawing.Size(763, 421);
             this.ArmyListTabPage.TabIndex = 0;
             this.ArmyListTabPage.Text = "Army List";
             this.ArmyListTabPage.UseVisualStyleBackColor = true;
             // 
-            // ArmyDetalTabPage
+            // ArmyUnitTabPage
             // 
-            this.ArmyDetalTabPage.Controls.Add(this._armyDetailViewControl);
-            this.ArmyDetalTabPage.Location = new System.Drawing.Point(4, 25);
-            this.ArmyDetalTabPage.Name = "ArmyDetailTabPage";
-            this.ArmyDetalTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.ArmyDetalTabPage.Size = new System.Drawing.Size(665, 373);
-            this.ArmyDetalTabPage.TabIndex = 1;
-            this.ArmyDetalTabPage.Text = "Army Detail";
-            this.ArmyDetalTabPage.UseVisualStyleBackColor = true;
-            // 
-            // ArmyUmitTabPage
-            // 
-            this.ArmyUmitTabPage.Controls.Add(this.splitContainer1);
-            this.ArmyUmitTabPage.Location = new System.Drawing.Point(4, 25);
-            this.ArmyUmitTabPage.Name = "ArmyUnitTabPage";
-            this.ArmyUmitTabPage.Size = new System.Drawing.Size(763, 421);
-            this.ArmyUmitTabPage.TabIndex = 2;
-            this.ArmyUmitTabPage.Text = "Army Unit";
-            this.ArmyUmitTabPage.UseVisualStyleBackColor = true;
+            this.ArmyUnitTabPage.Controls.Add(this.splitContainer1);
+            this.ArmyUnitTabPage.Location = new System.Drawing.Point(4, 25);
+            this.ArmyUnitTabPage.Name = "ArmyUnitTabPage";
+            this.ArmyUnitTabPage.Size = new System.Drawing.Size(763, 421);
+            this.ArmyUnitTabPage.TabIndex = 2;
+            this.ArmyUnitTabPage.Text = "Army Unit";
+            this.ArmyUnitTabPage.UseVisualStyleBackColor = true;
             // 
             // splitContainer1
             // 
@@ -174,25 +158,6 @@ namespace GameEditor.Wcf.Harness
             this.splitContainer1.SplitterDistance = 254;
             this.splitContainer1.TabIndex = 0;
             // 
-            // ArmyListViewControl
-            // 
-            this._armyListViewControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._armyListViewControl.Location = new System.Drawing.Point(3, 3);
-            this._armyListViewControl.Name = "ArmyListControl";
-            this._armyListViewControl.Size = new System.Drawing.Size(659, 367);
-            this._armyListViewControl.TabIndex = 0;
-            // 
-            // ArmyDetailViewControl
-            // 
-            this._armyDetailViewControl.ArmyId = 0;
-            this._armyDetailViewControl.ArmyName = "";
-            this._armyDetailViewControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._armyDetailViewControl.Location = new System.Drawing.Point(3, 3);
-            this._armyDetailViewControl.Name = "ArmyDetailControl";
-            this._armyDetailViewControl.Notes = "";
-            this._armyDetailViewControl.Size = new System.Drawing.Size(659, 367);
-            this._armyDetailViewControl.TabIndex = 0;
-            // 
             // _armyUnitListViewControl1
             // 
             this._armyUnitListViewControl1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -205,7 +170,11 @@ namespace GameEditor.Wcf.Harness
             // 
             this._armyUnitDetailViewControl1.ArmyUnitDefinitionId = 0;
             this._armyUnitDetailViewControl1.ArmyUnitName = "";
-            this._armyUnitDetailViewControl1.Cost = null;
+            this._armyUnitDetailViewControl1.Cost = new decimal(new int[] {
+            0,
+            0,
+            0,
+            65536});
             this._armyUnitDetailViewControl1.DisciplineType = GameEditor.Wcf.Harness.WarGameServiceReference.DisciplineTypeEnum.Regular;
             this._armyUnitDetailViewControl1.DispositionType = GameEditor.Wcf.Harness.WarGameServiceReference.DispositionTypeEnum.Mounted;
             this._armyUnitDetailViewControl1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -222,6 +191,42 @@ namespace GameEditor.Wcf.Harness
             this._armyUnitDetailViewControl1.Size = new System.Drawing.Size(505, 421);
             this._armyUnitDetailViewControl1.TabIndex = 0;
             this._armyUnitDetailViewControl1.UnitType = GameEditor.Wcf.Harness.WarGameServiceReference.UnitTypeEnum.Elephants;
+            // 
+            // splitContainer2
+            // 
+            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer2.Location = new System.Drawing.Point(3, 3);
+            this.splitContainer2.Name = "splitContainer2";
+            // 
+            // splitContainer2.Panel1
+            // 
+            this.splitContainer2.Panel1.Controls.Add(this.armyListViewControl1);
+            // 
+            // splitContainer2.Panel2
+            // 
+            this.splitContainer2.Panel2.Controls.Add(this.armyDetailViewControl1);
+            this.splitContainer2.Size = new System.Drawing.Size(757, 415);
+            this.splitContainer2.SplitterDistance = 252;
+            this.splitContainer2.TabIndex = 0;
+            // 
+            // armyListViewControl1
+            // 
+            this.armyListViewControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.armyListViewControl1.Location = new System.Drawing.Point(0, 0);
+            this.armyListViewControl1.Name = "armyListViewControl1";
+            this.armyListViewControl1.Size = new System.Drawing.Size(252, 415);
+            this.armyListViewControl1.TabIndex = 0;
+            // 
+            // armyDetailViewControl1
+            // 
+            this.armyDetailViewControl1.ArmyId = 0;
+            this.armyDetailViewControl1.ArmyName = "";
+            this.armyDetailViewControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.armyDetailViewControl1.Location = new System.Drawing.Point(0, 0);
+            this.armyDetailViewControl1.Name = "armyDetailViewControl1";
+            this.armyDetailViewControl1.Notes = "";
+            this.armyDetailViewControl1.Size = new System.Drawing.Size(501, 415);
+            this.armyDetailViewControl1.TabIndex = 0;
             // 
             // MainPageViewForm
             // 
@@ -240,12 +245,15 @@ namespace GameEditor.Wcf.Harness
             this.statusStrip1.PerformLayout();
             this.MainTabControl.ResumeLayout(false);
             this.ArmyListTabPage.ResumeLayout(false);
-            this.ArmyDetalTabPage.ResumeLayout(false);
-            this.ArmyUmitTabPage.ResumeLayout(false);
+            this.ArmyUnitTabPage.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.splitContainer2.Panel1.ResumeLayout(false);
+            this.splitContainer2.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
+            this.splitContainer2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -261,12 +269,12 @@ namespace GameEditor.Wcf.Harness
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.TabControl MainTabControl;
         private System.Windows.Forms.TabPage ArmyListTabPage;
-        private System.Windows.Forms.TabPage ArmyDetalTabPage;
-        private ArmyListViewControl _armyListViewControl;
-        private ArmyDetailViewControl _armyDetailViewControl;
-        private System.Windows.Forms.TabPage ArmyUmitTabPage;
+        private System.Windows.Forms.TabPage ArmyUnitTabPage;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private ArmyUnitListViewControl _armyUnitListViewControl1;
         private ArmyUnitDetailViewControl _armyUnitDetailViewControl1;
+        private System.Windows.Forms.SplitContainer splitContainer2;
+        private ArmyListViewControl armyListViewControl1;
+        private ArmyDetailViewControl armyDetailViewControl1;
     }
 }

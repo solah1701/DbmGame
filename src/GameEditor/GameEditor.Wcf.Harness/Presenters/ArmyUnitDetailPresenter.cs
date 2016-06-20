@@ -30,7 +30,12 @@ namespace GameEditor.Wcf.Harness.Presenters
             View.GradeData = Enum.GetValues(typeof(GradeTypeEnum));
         }
 
-        public void ClearArmyUnitDetail()
+        public void CopyArmyUnitDetail()
+        {
+            View.ArmyUnitDefinitionId = 0;
+        }
+
+        private void ClearArmyUnitDetail()
         {
             View.ArmyUnitDefinitionId = 0;
             View.ArmyUnitName = string.Empty;
@@ -82,7 +87,7 @@ namespace GameEditor.Wcf.Harness.Presenters
             _event.PublishOnCurrentThread(new UpdateView());
         }
 
-        public void SelectArmyUnitDetail(int id)
+        private void SelectArmyUnitDetail(int id)
         {
             var item = _model.GetArmyUnitDefinition(id);
             View.ArmyUnitDefinitionId = item.Id;

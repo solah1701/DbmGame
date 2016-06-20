@@ -30,7 +30,7 @@ namespace GameEditor.Wcf.Harness
 
         public decimal? Cost
         {
-            get { return decimal.Parse(CostTextBox.Text); }
+            get { return decimal.Parse(CostTextBox.Text != string.Empty ? CostTextBox.Text : "0.0"); }
             set { this.InvokeIfRequired(() => CostTextBox.Text = value.ToString()); }
         }
 
@@ -66,13 +66,13 @@ namespace GameEditor.Wcf.Harness
 
         public int MinCount
         {
-            get { return int.Parse(MinCountTextBox.Text); }
+            get { return int.Parse(MinCountTextBox.Text != string.Empty ? MinCountTextBox.Text : "0"); }
             set { this.InvokeIfRequired(() => MinCountTextBox.Text = value.ToString()); }
         }
 
         public int MaxCount
         {
-            get { return int.Parse(MaxCountTextBox.Text); }
+            get { return int.Parse(MaxCountTextBox.Text != string.Empty ? MaxCountTextBox.Text : "0"); }
             set { this.InvokeIfRequired(() => MaxCountTextBox.Text = value.ToString()); }
         }
 
@@ -142,11 +142,6 @@ namespace GameEditor.Wcf.Harness
             set { this.InvokeIfRequired(() => MinYearTextBox.Text = value.ToString()); }
         }
 
-        private void AddButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void UpdateButton_Click(object sender, EventArgs e)
         {
             _presenter.UpdateArmyUnitDetail();
@@ -155,6 +150,11 @@ namespace GameEditor.Wcf.Harness
         private void DeleteButton_Click(object sender, EventArgs e)
         {
             _presenter.DeleteArmyUnitDetail();
+        }
+
+        private void CopyButton_Click(object sender, EventArgs e)
+        {
+            _presenter.CopyArmyUnitDetail();
         }
     }
 }

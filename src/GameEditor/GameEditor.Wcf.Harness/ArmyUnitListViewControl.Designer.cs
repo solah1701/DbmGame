@@ -33,13 +33,13 @@
             this.NameHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.DisciplineHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.DispositionHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.AddButton = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.UnitTypeHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.CostHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.MinCountHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.MaxCountHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.AddButton = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -83,13 +83,29 @@
             // 
             this.DispositionHeader.Text = "Disposition";
             // 
+            // UnitTypeHeader
+            // 
+            this.UnitTypeHeader.Text = "Unit Type";
+            // 
+            // CostHeader
+            // 
+            this.CostHeader.Text = "Cost";
+            // 
+            // MinCountHeader
+            // 
+            this.MinCountHeader.Text = "Min Count";
+            // 
+            // MaxCountHeader
+            // 
+            this.MaxCountHeader.Text = "Max Count";
+            // 
             // AddButton
             // 
             this.AddButton.Location = new System.Drawing.Point(6, 3);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(102, 43);
             this.AddButton.TabIndex = 2;
-            this.AddButton.Text = "Add Army";
+            this.AddButton.Text = "Add Unit";
             this.AddButton.UseVisualStyleBackColor = true;
             this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
@@ -110,22 +126,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(453, 250);
             this.panel2.TabIndex = 4;
-            // 
-            // UnitTypeHeader
-            // 
-            this.UnitTypeHeader.Text = "Unit Type";
-            // 
-            // CostHeader
-            // 
-            this.CostHeader.Text = "Cost";
-            // 
-            // MinCountHeader
-            // 
-            this.MinCountHeader.Text = "Min Count";
-            // 
-            // MaxCountHeader
-            // 
-            this.MaxCountHeader.Text = "Max Count";
             // 
             // ArmyUnitListViewControl
             // 

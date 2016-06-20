@@ -33,7 +33,6 @@ namespace GameEditor.Wcf.Harness.Presenters
         {
             // Navigate to Detail page
             _event.PublishOnCurrentThread(new UpdateView());
-            _event.PublishOnCurrentThread(new UpdateTabPage("ArmyDetailTabPage"));
         }
 
         public void SelectArmy(int armyId)
@@ -42,7 +41,6 @@ namespace GameEditor.Wcf.Harness.Presenters
             _model.CurrentArmyDefinitionId = armyId;
             _model.CurrentArmyUnitDefinitionId = 0;
             _event.PublishOnCurrentThread(new UpdateView());
-            _event.PublishOnCurrentThread(new UpdateTabPage("ArmyDetailTabPage"));
         }
 
         public void Handle(UpdateView message)

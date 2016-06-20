@@ -5,9 +5,8 @@ namespace GameEditor.Wcf.Harness.Presenters
 {
     public interface IArmyUnitDetailPresenter : IController<IArmyUnitDetailView>
     {
-        void ClearArmyUnitDetail();
+        void CopyArmyUnitDetail();
         void DeleteArmyUnitDetail();
-        void SelectArmyUnitDetail(int id);
         void UpdateArmyUnitDetail();
     }
 }

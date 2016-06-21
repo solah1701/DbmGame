@@ -18,6 +18,7 @@ namespace GameCore.WcfService.DebellisMultitudinis
         public int MaxYear { get; set; }
         public string Notes { get; set; }
 
+        public virtual List<AlliedArmyListDefinition> AlliedArmyListDefinitions { get; set; } 
         public virtual List<ArmyListUnitDefinition> ArmyListUnitDefinitions { get; set; }
     }
 }

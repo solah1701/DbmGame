@@ -74,11 +74,16 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DebellisMultitudinis\AlliedArmyListDefinition.cs" />
     <Compile Include="DebellisMultitudinis\IDbmModel.cs" />
     <Compile Include="Exceptions\PrimaryKeyViolationException.cs" />
     <Compile Include="Exceptions\RecordNotFoundException.cs" />
     <Compile Include="Helpers\ArmyDefinitionExtension.cs" />
     <Compile Include="Helpers\ArmyUnitDefinitionExtension.cs" />
+    <Compile Include="Migrations\201606210645450_AlliedArmyList.cs" />
+    <Compile Include="Migrations\201606210645450_AlliedArmyList.Designer.cs">
+      <DependentUpon>201606210645450_AlliedArmyList.cs</DependentUpon>
+    </Compile>
     <Compile Include="WarGameService.svc.cs">
       <DependentUpon>WarGameService.svc</DependentUpon>
     </Compile>
@@ -168,6 +173,12 @@
     <EmbeddedResource Include="Migrations\201606070347233_DBM_ArmyLists_2.resx">
       <DependentUpon>201606070347233_DBM_ArmyLists_2.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606210645450_AlliedArmyList.resx">
+      <DependentUpon>201606210645450_AlliedArmyList.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

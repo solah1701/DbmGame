@@ -79,6 +79,7 @@
     <Compile Include="Exceptions\PrimaryKeyViolationException.cs" />
     <Compile Include="Exceptions\RecordNotFoundException.cs" />
     <Compile Include="Helpers\ArmyDefinitionExtension.cs" />
+    <Compile Include="Helpers\AlliedArmyDefinitionExtension.cs" />
     <Compile Include="Helpers\ArmyUnitDefinitionExtension.cs" />
     <Compile Include="Migrations\201606210645450_AlliedArmyList.cs" />
     <Compile Include="Migrations\201606210645450_AlliedArmyList.Designer.cs">

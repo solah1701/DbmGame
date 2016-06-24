@@ -615,13 +615,8 @@ namespace GameCore.WcfService
             using (var db = new DbmModel())
             {
                 var unitDefinitions = db.ArmyListDefinitions.Find(armyDefinitionId).ArmyListUnitDefinitions.ToList().GetArmyUnitDefinitions();
-                if (!unitDefinitions.Any())
-                {
-                    SetStatusOk();
-                    return new ArmyUnitDefinitions();
-                }
                 SetStatusOk();
-                return new ArmyUnitDefinitions(unitDefinitions);
+                return !unitDefinitions.Any() ? new ArmyUnitDefinitions() : unitDefinitions;
             }
         }
 
@@ -679,14 +674,91 @@ namespace GameCore.WcfService
 
         public void DeleteArmyUnitDefinition(int armyDefinitionId, int id)
         {
-            var armyDef = _model.FindArmyUnitDefinition(id, armyDefinitionId);
-            if (armyDef == null)
+            using (var db = new DbmModel())
             {
-                SetStatusNotFound();
-                return;
+                var armyDef = db.ArmyUnitDefinitions.Find(id);
+                if (armyDef == null) return;
+                db.ArmyUnitDefinitions.Remove(armyDef);
+                db.SaveChanges();
+                SetStatusOk(); 
             }
-            _model.ArmyUnitDefinitionsRemove(id);
-            SetStatusOk();
+        }
+
+        public AlliedArmyDefinitions GetAlliedArmyDefinitions(int armyDefinitionId)
+        {
+            using (var db = new DbmModel())
+            {
+                var definitions =
+                    db.ArmyListDefinitions.Find(armyDefinitionId)
+                        .AlliedArmyListDefinitions.ToList()
+                        .GetAlliedArmyDefinitions();
+                SetStatusOk();
+                return !definitions.Any() ? new AlliedArmyDefinitions() : definitions;
+            }
+        }
+
+        public AlliedArmyDefinition GetAlliedArmyDefinition(int armyDefinitionId, int id)
+        {
+            using (var db = new DbmModel())
+            {
+                var definition =
+                    db.ArmyListDefinitions.Find(armyDefinitionId)
+                        .AlliedArmyListDefinitions.Find(a => a.AlliedArmyListDefinitionId == id)
+                        .GetAlliedArmyDefinition();
+                if (definition == null)
+                {
+                    SetStatusNotFound();
+                    return null;
+                }
+                SetStatusOk();
+                return definition;
+            }
+        }
+
+        public int PostAlliedArmyDefinition(int armyDefinitionId, AlliedArmyDefinition alliedArmyDefinition)
+        {
+            using (var db = new DbmModel())
+            {
+                var armyList = db.ArmyListDefinitions.Find(armyDefinitionId);
+                if (armyList == null)
+                {
+                    SetStatusNotFound();
+                    return 0;
+                }
+                var ally = alliedArmyDefinition.GetAlliedArmyDefinition();
+                armyList.AlliedArmyListDefinitions.Add(ally);
+                db.AlliedArmyListDefinitions.Add(ally);
+                db.SaveChanges();
+                return ally.AlliedArmyListDefinitionId;
+            }
+        }
+
+        public int PutAlliedArmyDefinition(int armyDefinitionId, int id, AlliedArmyDefinition alliedArmyDefinition)
+        {
+            if (alliedArmyDefinition.Id == 0) return PostAlliedArmyDefinition(armyDefinitionId, alliedArmyDefinition);
+            using (var db = new DbmModel())
+            {
+                var ally =
+                    alliedArmyDefinition.UpdateAlliedArmyDefinition(
+                        db.AlliedArmyListDefinitions.Find(alliedArmyDefinition.Id));
+                db.AlliedArmyListDefinitions.Attach(ally);
+                db.Entry(ally).State = EntityState.Modified;
+                db.SaveChanges();
+                SetStatusOk();
+                return ally.AlliedArmyListDefinitionId;
+            }
+        }
+
+        public void DeleteAlliedArmyDefinition(int armyDefinitionId, int id)
+        {
+            using (var db = new DbmModel())
+            {
+                var ally = db.AlliedArmyListDefinitions.Find(id);
+                if (ally == null) return;
+                db.AlliedArmyListDefinitions.Remove(ally);
+                db.SaveChanges();
+                SetStatusOk();
+            }
         }
 
         private bool IsUserAuthorized(string username)

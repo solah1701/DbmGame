@@ -188,6 +188,30 @@ namespace GameCore.WcfService
         void DeleteArmyUnitDefinition(int armyDefinitionId, int id);
 
         #endregion
+
+        #region Allied Lists
+
+        [WebGet(UriTemplate = "ArmyDefinitions/{armyDefinitionId}/AlliedArmyDefinitions")]
+        [OperationContract]
+        AlliedArmyDefinitions GetAlliedArmyDefinitions(int armyDefinitionId);
+
+        [WebGet(UriTemplate = "ArmyDefinitions/{armyDefinitionId}/AlliedArmyDefinitions/{id}")]
+        [OperationContract]
+        AlliedArmyDefinition GetAlliedArmyDefinition(int armyDefinitionId, int id);
+
+        [WebInvoke(Method = "POST", UriTemplate = "ArmyDefinitions/{armyDefinitionId}/AlliedArmyDefinitions")]
+        [OperationContract]
+        int PostAlliedArmyDefinition(int armyDefinitionId, AlliedArmyDefinition alliedArmyDefinition);
+
+        [WebInvoke(Method = "PUT", UriTemplate = "ArmyDefinitions/{armyDefinitionId}/AlliedArmyDefinitions/{id}")]
+        [OperationContract]
+        int PutAlliedArmyDefinition(int armyDefinitionId, int id, AlliedArmyDefinition alliedArmyDefinition);
+
+        [WebInvoke(Method = "PUT", UriTemplate = "ArmyDefinitions/{armyDefinitionId}/AlliedArmyDefinitions/{id}")]
+        [OperationContract]
+        void DeleteAlliedArmyDefinition(int armyDefinitionId, int id);
+
+        #endregion
     }
 
     public class ArmyDefinition
@@ -237,6 +261,24 @@ namespace GameCore.WcfService
     {
         public ArmyUnitDefinitions() { }
         public ArmyUnitDefinitions(List<ArmyUnitDefinition> armyUnitDefinitions) : base(armyUnitDefinitions) { }
+    }
+
+    public class AlliedArmyDefinition
+    {
+        public Uri IdLink { get; set; }
+        public int Id { get; set; }
+        public string AllyName { get; set; }
+        public Uri ArmyLink { get; set; }
+        public int ArmyId { get; set; }
+        public int MinYear { get; set; }
+        public int MaxYear { get; set; }
+    }
+
+    [CollectionDataContract]
+    public class AlliedArmyDefinitions : List<AlliedArmyDefinition>
+    {
+        public AlliedArmyDefinitions() { }
+        public AlliedArmyDefinitions(List<AlliedArmyDefinition> alliedArmyDefinitions) : base(alliedArmyDefinitions) { }
     }
 
     public class User

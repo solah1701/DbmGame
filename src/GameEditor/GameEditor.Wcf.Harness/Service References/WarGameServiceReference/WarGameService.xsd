@@ -156,4 +156,22 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArmyUnitDefinition" nillable="true" type="tns:ArmyUnitDefinition" />
+  <xs:complexType name="AlliedArmyDefinitions">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AlliedArmyDefinition" nillable="true" type="tns:AlliedArmyDefinition" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AlliedArmyDefinitions" nillable="true" type="tns:AlliedArmyDefinitions" />
+  <xs:complexType name="AlliedArmyDefinition">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AllyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ArmyId" type="xs:int" />
+      <xs:element minOccurs="0" name="ArmyLink" nillable="true" type="xs:anyURI" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IdLink" nillable="true" type="xs:anyURI" />
+      <xs:element minOccurs="0" name="MaxYear" type="xs:int" />
+      <xs:element minOccurs="0" name="MinYear" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AlliedArmyDefinition" nillable="true" type="tns:AlliedArmyDefinition" />
 </xs:schema>

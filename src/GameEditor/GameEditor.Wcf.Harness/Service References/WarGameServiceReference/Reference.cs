@@ -1665,6 +1665,154 @@ namespace GameEditor.Wcf.Harness.WarGameServiceReference {
         Boats = 19,
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="AlliedArmyDefinitions", Namespace="http://schemas.datacontract.org/2004/07/GameCore.WcfService", ItemName="AlliedArmyDefinition")]
+    [System.SerializableAttribute()]
+    public class AlliedArmyDefinitions : System.Collections.Generic.List<GameEditor.Wcf.Harness.WarGameServiceReference.AlliedArmyDefinition> {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AlliedArmyDefinition", Namespace="http://schemas.datacontract.org/2004/07/GameCore.WcfService")]
+    [System.SerializableAttribute()]
+    public partial class AlliedArmyDefinition : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AllyNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ArmyIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Uri ArmyLinkField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Uri IdLinkField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int MaxYearField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int MinYearField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AllyName {
+            get {
+                return this.AllyNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AllyNameField, value) != true)) {
+                    this.AllyNameField = value;
+                    this.RaisePropertyChanged("AllyName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ArmyId {
+            get {
+                return this.ArmyIdField;
+            }
+            set {
+                if ((this.ArmyIdField.Equals(value) != true)) {
+                    this.ArmyIdField = value;
+                    this.RaisePropertyChanged("ArmyId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Uri ArmyLink {
+            get {
+                return this.ArmyLinkField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ArmyLinkField, value) != true)) {
+                    this.ArmyLinkField = value;
+                    this.RaisePropertyChanged("ArmyLink");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Uri IdLink {
+            get {
+                return this.IdLinkField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IdLinkField, value) != true)) {
+                    this.IdLinkField = value;
+                    this.RaisePropertyChanged("IdLink");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int MaxYear {
+            get {
+                return this.MaxYearField;
+            }
+            set {
+                if ((this.MaxYearField.Equals(value) != true)) {
+                    this.MaxYearField = value;
+                    this.RaisePropertyChanged("MaxYear");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int MinYear {
+            get {
+                return this.MinYearField;
+            }
+            set {
+                if ((this.MinYearField.Equals(value) != true)) {
+                    this.MinYearField = value;
+                    this.RaisePropertyChanged("MinYear");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="WarGameServiceReference.IWarGameService")]
     public interface IWarGameService {
@@ -1896,6 +2044,36 @@ namespace GameEditor.Wcf.Harness.WarGameServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWarGameService/DeleteArmyUnitDefinition", ReplyAction="http://tempuri.org/IWarGameService/DeleteArmyUnitDefinitionResponse")]
         System.Threading.Tasks.Task DeleteArmyUnitDefinitionAsync(int armyDefinitionId, int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWarGameService/GetAlliedArmyDefinitions", ReplyAction="http://tempuri.org/IWarGameService/GetAlliedArmyDefinitionsResponse")]
+        GameEditor.Wcf.Harness.WarGameServiceReference.AlliedArmyDefinitions GetAlliedArmyDefinitions(int armyDefinitionId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWarGameService/GetAlliedArmyDefinitions", ReplyAction="http://tempuri.org/IWarGameService/GetAlliedArmyDefinitionsResponse")]
+        System.Threading.Tasks.Task<GameEditor.Wcf.Harness.WarGameServiceReference.AlliedArmyDefinitions> GetAlliedArmyDefinitionsAsync(int armyDefinitionId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWarGameService/GetAlliedArmyDefinition", ReplyAction="http://tempuri.org/IWarGameService/GetAlliedArmyDefinitionResponse")]
+        GameEditor.Wcf.Harness.WarGameServiceReference.AlliedArmyDefinition GetAlliedArmyDefinition(int armyDefinitionId, int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWarGameService/GetAlliedArmyDefinition", ReplyAction="http://tempuri.org/IWarGameService/GetAlliedArmyDefinitionResponse")]
+        System.Threading.Tasks.Task<GameEditor.Wcf.Harness.WarGameServiceReference.AlliedArmyDefinition> GetAlliedArmyDefinitionAsync(int armyDefinitionId, int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWarGameService/PostAlliedArmyDefinition", ReplyAction="http://tempuri.org/IWarGameService/PostAlliedArmyDefinitionResponse")]
+        int PostAlliedArmyDefinition(int armyDefinitionId, GameEditor.Wcf.Harness.WarGameServiceReference.AlliedArmyDefinition alliedArmyDefinition);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWarGameService/PostAlliedArmyDefinition", ReplyAction="http://tempuri.org/IWarGameService/PostAlliedArmyDefinitionResponse")]
+        System.Threading.Tasks.Task<int> PostAlliedArmyDefinitionAsync(int armyDefinitionId, GameEditor.Wcf.Harness.WarGameServiceReference.AlliedArmyDefinition alliedArmyDefinition);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWarGameService/PutAlliedArmyDefinition", ReplyAction="http://tempuri.org/IWarGameService/PutAlliedArmyDefinitionResponse")]
+        int PutAlliedArmyDefinition(int armyDefinitionId, int id, GameEditor.Wcf.Harness.WarGameServiceReference.AlliedArmyDefinition alliedArmyDefinition);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWarGameService/PutAlliedArmyDefinition", ReplyAction="http://tempuri.org/IWarGameService/PutAlliedArmyDefinitionResponse")]
+        System.Threading.Tasks.Task<int> PutAlliedArmyDefinitionAsync(int armyDefinitionId, int id, GameEditor.Wcf.Harness.WarGameServiceReference.AlliedArmyDefinition alliedArmyDefinition);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWarGameService/DeleteAlliedArmyDefinition", ReplyAction="http://tempuri.org/IWarGameService/DeleteAlliedArmyDefinitionResponse")]
+        void DeleteAlliedArmyDefinition(int armyDefinitionId, int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWarGameService/DeleteAlliedArmyDefinition", ReplyAction="http://tempuri.org/IWarGameService/DeleteAlliedArmyDefinitionResponse")]
+        System.Threading.Tasks.Task DeleteAlliedArmyDefinitionAsync(int armyDefinitionId, int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -2227,6 +2405,46 @@ namespace GameEditor.Wcf.Harness.WarGameServiceReference {
         
         public System.Threading.Tasks.Task DeleteArmyUnitDefinitionAsync(int armyDefinitionId, int id) {
             return base.Channel.DeleteArmyUnitDefinitionAsync(armyDefinitionId, id);
+        }
+        
+        public GameEditor.Wcf.Harness.WarGameServiceReference.AlliedArmyDefinitions GetAlliedArmyDefinitions(int armyDefinitionId) {
+            return base.Channel.GetAlliedArmyDefinitions(armyDefinitionId);
+        }
+        
+        public System.Threading.Tasks.Task<GameEditor.Wcf.Harness.WarGameServiceReference.AlliedArmyDefinitions> GetAlliedArmyDefinitionsAsync(int armyDefinitionId) {
+            return base.Channel.GetAlliedArmyDefinitionsAsync(armyDefinitionId);
+        }
+        
+        public GameEditor.Wcf.Harness.WarGameServiceReference.AlliedArmyDefinition GetAlliedArmyDefinition(int armyDefinitionId, int id) {
+            return base.Channel.GetAlliedArmyDefinition(armyDefinitionId, id);
+        }
+        
+        public System.Threading.Tasks.Task<GameEditor.Wcf.Harness.WarGameServiceReference.AlliedArmyDefinition> GetAlliedArmyDefinitionAsync(int armyDefinitionId, int id) {
+            return base.Channel.GetAlliedArmyDefinitionAsync(armyDefinitionId, id);
+        }
+        
+        public int PostAlliedArmyDefinition(int armyDefinitionId, GameEditor.Wcf.Harness.WarGameServiceReference.AlliedArmyDefinition alliedArmyDefinition) {
+            return base.Channel.PostAlliedArmyDefinition(armyDefinitionId, alliedArmyDefinition);
+        }
+        
+        public System.Threading.Tasks.Task<int> PostAlliedArmyDefinitionAsync(int armyDefinitionId, GameEditor.Wcf.Harness.WarGameServiceReference.AlliedArmyDefinition alliedArmyDefinition) {
+            return base.Channel.PostAlliedArmyDefinitionAsync(armyDefinitionId, alliedArmyDefinition);
+        }
+        
+        public int PutAlliedArmyDefinition(int armyDefinitionId, int id, GameEditor.Wcf.Harness.WarGameServiceReference.AlliedArmyDefinition alliedArmyDefinition) {
+            return base.Channel.PutAlliedArmyDefinition(armyDefinitionId, id, alliedArmyDefinition);
+        }
+        
+        public System.Threading.Tasks.Task<int> PutAlliedArmyDefinitionAsync(int armyDefinitionId, int id, GameEditor.Wcf.Harness.WarGameServiceReference.AlliedArmyDefinition alliedArmyDefinition) {
+            return base.Channel.PutAlliedArmyDefinitionAsync(armyDefinitionId, id, alliedArmyDefinition);
+        }
+        
+        public void DeleteAlliedArmyDefinition(int armyDefinitionId, int id) {
+            base.Channel.DeleteAlliedArmyDefinition(armyDefinitionId, id);
+        }
+        
+        public System.Threading.Tasks.Task DeleteAlliedArmyDefinitionAsync(int armyDefinitionId, int id) {
+            return base.Channel.DeleteAlliedArmyDefinitionAsync(armyDefinitionId, id);
         }
     }
 }

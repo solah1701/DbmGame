@@ -100,6 +100,14 @@ namespace GameEditor.Wcf.Harness.Models
             }
         }
 
+        public AlliedArmyDefinitions GetAllAlliedArmyDefinitions()
+        {
+            using (var client = new WarGameServiceClient())
+            {
+                return client.GetAllAlliedArmyDefinitions();
+            }
+        }
+
         public int AddAllyDefinition(AlliedArmyDefinition definition)
         {
             if (CurrentArmyDefinitionId == 0) return 0;

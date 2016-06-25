@@ -2051,6 +2051,12 @@ namespace GameEditor.Wcf.Harness.WarGameServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWarGameService/GetAlliedArmyDefinitions", ReplyAction="http://tempuri.org/IWarGameService/GetAlliedArmyDefinitionsResponse")]
         System.Threading.Tasks.Task<GameEditor.Wcf.Harness.WarGameServiceReference.AlliedArmyDefinitions> GetAlliedArmyDefinitionsAsync(int armyDefinitionId);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWarGameService/GetAllAlliedArmyDefinitions", ReplyAction="http://tempuri.org/IWarGameService/GetAllAlliedArmyDefinitionsResponse")]
+        GameEditor.Wcf.Harness.WarGameServiceReference.AlliedArmyDefinitions GetAllAlliedArmyDefinitions();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWarGameService/GetAllAlliedArmyDefinitions", ReplyAction="http://tempuri.org/IWarGameService/GetAllAlliedArmyDefinitionsResponse")]
+        System.Threading.Tasks.Task<GameEditor.Wcf.Harness.WarGameServiceReference.AlliedArmyDefinitions> GetAllAlliedArmyDefinitionsAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWarGameService/GetAlliedArmyDefinition", ReplyAction="http://tempuri.org/IWarGameService/GetAlliedArmyDefinitionResponse")]
         GameEditor.Wcf.Harness.WarGameServiceReference.AlliedArmyDefinition GetAlliedArmyDefinition(int armyDefinitionId, int id);
         
@@ -2413,6 +2419,14 @@ namespace GameEditor.Wcf.Harness.WarGameServiceReference {
         
         public System.Threading.Tasks.Task<GameEditor.Wcf.Harness.WarGameServiceReference.AlliedArmyDefinitions> GetAlliedArmyDefinitionsAsync(int armyDefinitionId) {
             return base.Channel.GetAlliedArmyDefinitionsAsync(armyDefinitionId);
+        }
+        
+        public GameEditor.Wcf.Harness.WarGameServiceReference.AlliedArmyDefinitions GetAllAlliedArmyDefinitions() {
+            return base.Channel.GetAllAlliedArmyDefinitions();
+        }
+        
+        public System.Threading.Tasks.Task<GameEditor.Wcf.Harness.WarGameServiceReference.AlliedArmyDefinitions> GetAllAlliedArmyDefinitionsAsync() {
+            return base.Channel.GetAllAlliedArmyDefinitionsAsync();
         }
         
         public GameEditor.Wcf.Harness.WarGameServiceReference.AlliedArmyDefinition GetAlliedArmyDefinition(int armyDefinitionId, int id) {

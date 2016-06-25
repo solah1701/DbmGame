@@ -680,7 +680,7 @@ namespace GameCore.WcfService
                 if (armyDef == null) return;
                 db.ArmyUnitDefinitions.Remove(armyDef);
                 db.SaveChanges();
-                SetStatusOk(); 
+                SetStatusOk();
             }
         }
 
@@ -692,6 +692,16 @@ namespace GameCore.WcfService
                     db.ArmyListDefinitions.Find(armyDefinitionId)
                         .AlliedArmyListDefinitions.ToList()
                         .GetAlliedArmyDefinitions();
+                SetStatusOk();
+                return !definitions.Any() ? new AlliedArmyDefinitions() : definitions;
+            }
+        }
+
+        public AlliedArmyDefinitions GetAllAlliedArmyDefinitions()
+        {
+            using (var db = new DbmModel())
+            {
+                var definitions = db.AlliedArmyListDefinitions.ToList().GetAlliedArmyDefinitions();
                 SetStatusOk();
                 return !definitions.Any() ? new AlliedArmyDefinitions() : definitions;
             }

@@ -242,6 +242,12 @@
   <wsdl:message name="IWarGameService_GetAlliedArmyDefinitions_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAlliedArmyDefinitionsResponse" />
   </wsdl:message>
+  <wsdl:message name="IWarGameService_GetAllAlliedArmyDefinitions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAlliedArmyDefinitions" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_GetAllAlliedArmyDefinitions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAlliedArmyDefinitionsResponse" />
+  </wsdl:message>
   <wsdl:message name="IWarGameService_GetAlliedArmyDefinition_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAlliedArmyDefinition" />
   </wsdl:message>
@@ -422,6 +428,10 @@
     <wsdl:operation name="GetAlliedArmyDefinitions">
       <wsdl:input wsaw:Action="http://tempuri.org/IWarGameService/GetAlliedArmyDefinitions" message="tns:IWarGameService_GetAlliedArmyDefinitions_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IWarGameService/GetAlliedArmyDefinitionsResponse" message="tns:IWarGameService_GetAlliedArmyDefinitions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAlliedArmyDefinitions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWarGameService/GetAllAlliedArmyDefinitions" message="tns:IWarGameService_GetAllAlliedArmyDefinitions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWarGameService/GetAllAlliedArmyDefinitionsResponse" message="tns:IWarGameService_GetAllAlliedArmyDefinitions_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetAlliedArmyDefinition">
       <wsdl:input wsaw:Action="http://tempuri.org/IWarGameService/GetAlliedArmyDefinition" message="tns:IWarGameService_GetAlliedArmyDefinition_InputMessage" />
@@ -786,6 +796,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetAlliedArmyDefinitions">
       <soap:operation soapAction="http://tempuri.org/IWarGameService/GetAlliedArmyDefinitions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAlliedArmyDefinitions">
+      <soap:operation soapAction="http://tempuri.org/IWarGameService/GetAllAlliedArmyDefinitions" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

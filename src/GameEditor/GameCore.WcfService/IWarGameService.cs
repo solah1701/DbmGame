@@ -195,6 +195,10 @@ namespace GameCore.WcfService
         [OperationContract]
         AlliedArmyDefinitions GetAlliedArmyDefinitions(int armyDefinitionId);
 
+        [WebGet(UriTemplate = "AlliedArmyDefinitions")]
+        [OperationContract]
+        AlliedArmyDefinitions GetAllAlliedArmyDefinitions();
+
         [WebGet(UriTemplate = "ArmyDefinitions/{armyDefinitionId}/AlliedArmyDefinitions/{id}")]
         [OperationContract]
         AlliedArmyDefinition GetAlliedArmyDefinition(int armyDefinitionId, int id);

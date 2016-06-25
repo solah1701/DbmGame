@@ -52,6 +52,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArmyAllyListViewControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ArmyAllyListViewControl.Designer.cs">
+      <DependentUpon>ArmyAllyListViewControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="AllyListViewControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -82,11 +88,13 @@
     <Compile Include="ArmyListViewControl.Designer.cs">
       <DependentUpon>ArmyListViewControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presenters\ArmyAllyListPresenter.cs" />
     <Compile Include="Presenters\AllyListPresenter.cs" />
     <Compile Include="Presenters\ArmyUnitDetailPresenter.cs" />
     <Compile Include="Presenters\ArmyDetailPresenter.cs" />
     <Compile Include="Presenters\ArmyUnitListPresenter.cs" />
     <Compile Include="Presenters\ArmyListPresenter.cs" />
+    <Compile Include="Presenters\IArmyAllyListPresenter.cs" />
     <Compile Include="Presenters\IAllyListPresenter.cs" />
     <Compile Include="Presenters\IArmyUnitDetailPresenter.cs" />
     <Compile Include="Presenters\IArmyDetailPresenter.cs" />
@@ -137,9 +145,13 @@
     <Compile Include="Views\IAllyListView.cs" />
     <Compile Include="Views\IArmyUnitDetailView.cs" />
     <Compile Include="Views\IArmyDetailView.cs" />
+    <Compile Include="Views\IArmyAllyListView.cs" />
     <Compile Include="Views\IArmyUnitListView.cs" />
     <Compile Include="Views\IArmyListView.cs" />
     <Compile Include="Views\IMainPageView.cs" />
+    <EmbeddedResource Include="ArmyAllyListViewControl.resx">
+      <DependentUpon>ArmyAllyListViewControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AllyListViewControl.resx">
       <DependentUpon>AllyListViewControl.cs</DependentUpon>
     </EmbeddedResource>

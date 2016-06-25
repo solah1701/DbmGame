@@ -13,6 +13,7 @@ namespace GameEditor.Wcf.Harness.IoC
             Bind<IArmyDetailPresenter>().To<ArmyDetailPresenter>();
             Bind<IArmyUnitListPresenter>().To<ArmyUnitListPresenter>();
             Bind<IArmyUnitDetailPresenter>().To<ArmyUnitDetailPresenter>();
+            Bind<IAllyListPresenter>().To<AllyListPresenter>();
         }
     }
 }

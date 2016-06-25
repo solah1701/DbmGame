@@ -1,6 +1,6 @@
 ﻿namespace GameEditor.Wcf.Harness
 {
-    partial class ArmyListViewControl
+    partial class AllyListViewControl
     {
         /// <summary> 
         /// Required designer variable.

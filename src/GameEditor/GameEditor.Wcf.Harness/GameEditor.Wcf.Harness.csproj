@@ -19,7 +19,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;DESIGNMODEX</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;DESIGNMODE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -52,6 +52,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AllyListViewControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AllyListViewControl.Designer.cs">
+      <DependentUpon>AllyListViewControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="ArmyUnitDetailViewControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -76,10 +82,12 @@
     <Compile Include="ArmyListViewControl.Designer.cs">
       <DependentUpon>ArmyListViewControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presenters\AllyListPresenter.cs" />
     <Compile Include="Presenters\ArmyUnitDetailPresenter.cs" />
     <Compile Include="Presenters\ArmyDetailPresenter.cs" />
     <Compile Include="Presenters\ArmyUnitListPresenter.cs" />
     <Compile Include="Presenters\ArmyListPresenter.cs" />
+    <Compile Include="Presenters\IAllyListPresenter.cs" />
     <Compile Include="Presenters\IArmyUnitDetailPresenter.cs" />
     <Compile Include="Presenters\IArmyDetailPresenter.cs" />
     <Compile Include="Presenters\IArmyUnitListPresenter.cs" />
@@ -126,11 +134,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Views\IAllyListView.cs" />
     <Compile Include="Views\IArmyUnitDetailView.cs" />
     <Compile Include="Views\IArmyDetailView.cs" />
     <Compile Include="Views\IArmyUnitListView.cs" />
     <Compile Include="Views\IArmyListView.cs" />
     <Compile Include="Views\IMainPageView.cs" />
+    <EmbeddedResource Include="AllyListViewControl.resx">
+      <DependentUpon>AllyListViewControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ArmyUnitDetailViewControl.resx">
       <DependentUpon>ArmyUnitDetailViewControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -171,6 +183,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Service References\WarGameServiceReference\GameEditor.Wcf.Harness.WarGameServiceReference.AlliedArmyDefinition.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WarGameServiceReference\GameEditor.Wcf.Harness.WarGameServiceReference.AlliedArmyDefinitions.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\WarGameServiceReference\GameEditor.Wcf.Harness.WarGameServiceReference.Armies.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

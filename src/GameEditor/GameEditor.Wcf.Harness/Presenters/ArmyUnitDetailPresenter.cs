@@ -76,7 +76,7 @@ namespace GameEditor.Wcf.Harness.Presenters
                 DispositionType = View.DispositionType,
                 GradeType = View.GradeType
             };
-            View.ArmyUnitDefinitionId = _model.AddArmyUnitDefinitino(definition);
+            View.ArmyUnitDefinitionId = _model.AddArmyUnitDefinition(definition);
             _event.PublishOnCurrentThread(new UpdateView());
         }
 

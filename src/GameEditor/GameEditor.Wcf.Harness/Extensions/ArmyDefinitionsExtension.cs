@@ -14,6 +14,14 @@ namespace GameEditor.Wcf.Harness.Extensions
             }).Select(subItem => new ListViewItem(subItem)).ToArray();
         }
 
+        public static ListViewItem[] ConvertToListViewItems(this AlliedArmyDefinitions definitions)
+        {
+            return definitions.Select(armyDefinition => new[]
+            {
+                armyDefinition.Id.ToString(), armyDefinition.AllyName, armyDefinition.MinYear.ToString(), armyDefinition.MaxYear.ToString()
+            }).Select(subItem => new ListViewItem(subItem)).ToArray();
+        }
+
         public static ListViewItem[] ConvertToListViewItems(this ArmyUnitDefinitions definitions)
         {
             return definitions.Select(armyDefinition => new[]

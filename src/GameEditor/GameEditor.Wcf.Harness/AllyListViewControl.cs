@@ -9,19 +9,19 @@ using GameEditor.Wcf.Harness.WarGameServiceReference;
 
 namespace GameEditor.Wcf.Harness
 {
-    public partial class ArmyUnitListViewControl : UserControl, IArmyUnitListView
+    public partial class AllyListViewControl : UserControl, IAllyListView
     {
-        private readonly IArmyUnitListPresenter _presenter;
+        private readonly IAllyListPresenter _presenter;
 
-        public ArmyUnitListViewControl()
+        public AllyListViewControl()
         {
             InitializeComponent();
-            _presenter = IoCContainer.Resolve<IArmyUnitListPresenter>();
+            _presenter = IoCContainer.Resolve<IAllyListPresenter>();
             _presenter.SetView(this);
             _presenter.PopulateList();
         }
 
-        public ArmyUnitDefinitions ArmyUnitDefinitions
+        public AlliedArmyDefinitions AlliedArmyDefinitions
         {
             set
             {
@@ -33,20 +33,20 @@ namespace GameEditor.Wcf.Harness
             }
         }
 
+        public string AllyName { get; set; }
+        public int MinYear { get; set; }
+        public int MaxYear { get; set; }
+        public bool CanUpdate { get; set; }
+
         private void AddButton_Click(object sender, EventArgs e)
         {
-            _presenter.AddArmyUnit();
+            _presenter.UpdateArmy();
         }
 
-        private void ArmyUnitListView_SelectedIndexChanged(object sender, EventArgs e)
+        private void ArmyListView_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (ArmyListView.SelectedItems.Count == 0) return;
-            _presenter.SelectUnitArmy(int.Parse(ArmyListView.SelectedItems[0].SubItems[0].Text));
-        }
-
-        private void AddAllyButton_Click(object sender, EventArgs e)
-        {
-            _presenter.AddAlliedArmy();
+            _presenter.SelectArmy(int.Parse(ArmyListView.SelectedItems[0].SubItems[0].Text));
         }
     }
 }

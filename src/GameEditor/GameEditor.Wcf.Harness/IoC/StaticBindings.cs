@@ -14,6 +14,7 @@ namespace GameEditor.Wcf.Harness.IoC
             Bind<IArmyDetailView>().To<ArmyDetailViewControl>().InSingletonScope();
             Bind<IArmyUnitListView>().To<ArmyUnitListViewControl>().InSingletonScope();
             Bind<IArmyDetailView>().To<ArmyDetailViewControl>().InSingletonScope();
+            Bind<IAllyListView>().To<AllyListViewControl>().InSingletonScope();
 
             Bind<IGameModel>().To<GameModel>().InSingletonScope();
             Bind<IEventAggregator>().To<EventAggregator>().InSingletonScope();

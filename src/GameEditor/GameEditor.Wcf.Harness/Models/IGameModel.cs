@@ -6,6 +6,8 @@ namespace GameEditor.Wcf.Harness.Models
     {
         int CurrentArmyDefinitionId { get; set; }
         int CurrentArmyUnitDefinitionId { get; set; }
+        int CurrentAllyDefinitionId { get; set; }
+
         ArmyDefinition GetArmyDefinition(int id);
         ArmyDefinitions GetArmyDefinitions();
         int AddArmyDefinition(ArmyDefinition definition);
@@ -13,7 +15,12 @@ namespace GameEditor.Wcf.Harness.Models
 
         ArmyUnitDefinition GetArmyUnitDefinition(int id);
         ArmyUnitDefinitions GetArmyUnitDefinitions();
-        int AddArmyUnitDefinitino(ArmyUnitDefinition definition);
+        int AddArmyUnitDefinition(ArmyUnitDefinition definition);
         void DeleteArmyUnitDefinition(int id);
+
+        AlliedArmyDefinition GetAlliedArmyDefinition(int id);
+        AlliedArmyDefinitions GetAlliedArmyDefinitions();
+        int AddAllyDefinition(AlliedArmyDefinition definition);
+        void DeleteAllyDefinition(int id);
     }
 }

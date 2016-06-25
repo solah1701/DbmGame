@@ -6,6 +6,7 @@ namespace GameEditor.Wcf.Harness.Presenters
     public interface IArmyUnitListPresenter : IController<IArmyUnitListView>
     {
         void AddArmyUnit();
+        void AddAlliedArmy();
         void PopulateList();
         void SelectUnitArmy(int armyUnitId);
     }

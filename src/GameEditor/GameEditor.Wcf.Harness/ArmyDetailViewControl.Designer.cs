@@ -46,9 +46,9 @@
             this.LeftPanel = new System.Windows.Forms.Panel();
             this.CentrePanel = new System.Windows.Forms.Panel();
             this.BottomPanel = new System.Windows.Forms.Panel();
-            this.AddButton = new System.Windows.Forms.Button();
-            this.UpdateButton = new System.Windows.Forms.Button();
             this.DeleteButton = new System.Windows.Forms.Button();
+            this.UpdateButton = new System.Windows.Forms.Button();
+            this.AddButton = new System.Windows.Forms.Button();
             this.TopPanel.SuspendLayout();
             this.LeftPanel.SuspendLayout();
             this.CentrePanel.SuspendLayout();
@@ -232,19 +232,19 @@
             this.BottomPanel.Size = new System.Drawing.Size(566, 54);
             this.BottomPanel.TabIndex = 18;
             // 
-            // AddButton
+            // DeleteButton
             // 
-            this.AddButton.Location = new System.Drawing.Point(3, 6);
-            this.AddButton.Name = "AddButton";
-            this.AddButton.Size = new System.Drawing.Size(102, 43);
-            this.AddButton.TabIndex = 13;
-            this.AddButton.Text = "Add Unit";
-            this.AddButton.UseVisualStyleBackColor = true;
-            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
+            this.DeleteButton.Location = new System.Drawing.Point(290, 6);
+            this.DeleteButton.Name = "DeleteButton";
+            this.DeleteButton.Size = new System.Drawing.Size(102, 43);
+            this.DeleteButton.TabIndex = 15;
+            this.DeleteButton.Text = "Delete";
+            this.DeleteButton.UseVisualStyleBackColor = true;
+            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
             // UpdateButton
             // 
-            this.UpdateButton.Location = new System.Drawing.Point(111, 6);
+            this.UpdateButton.Location = new System.Drawing.Point(182, 6);
             this.UpdateButton.Name = "UpdateButton";
             this.UpdateButton.Size = new System.Drawing.Size(102, 43);
             this.UpdateButton.TabIndex = 14;
@@ -252,15 +252,15 @@
             this.UpdateButton.UseVisualStyleBackColor = true;
             this.UpdateButton.Click += new System.EventHandler(this.UpdateButton_Click);
             // 
-            // DeleteButton
+            // AddButton
             // 
-            this.DeleteButton.Location = new System.Drawing.Point(219, 6);
-            this.DeleteButton.Name = "DeleteButton";
-            this.DeleteButton.Size = new System.Drawing.Size(102, 43);
-            this.DeleteButton.TabIndex = 15;
-            this.DeleteButton.Text = "Delete";
-            this.DeleteButton.UseVisualStyleBackColor = true;
-            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
+            this.AddButton.Location = new System.Drawing.Point(74, 6);
+            this.AddButton.Name = "AddButton";
+            this.AddButton.Size = new System.Drawing.Size(102, 43);
+            this.AddButton.TabIndex = 13;
+            this.AddButton.Text = "Add Unit";
+            this.AddButton.UseVisualStyleBackColor = true;
+            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // ArmyDetailViewControl
             // 

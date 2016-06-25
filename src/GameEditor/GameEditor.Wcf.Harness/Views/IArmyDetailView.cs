@@ -2,7 +2,7 @@
 {
     public interface IArmyDetailView
     {
-        int ArmyId { get; set; } 
+        int ArmyId { get; set; }
         string ArmyName { get; set; }
         int ArmyBook { get; set; }
         int ArmyList { get; set; }

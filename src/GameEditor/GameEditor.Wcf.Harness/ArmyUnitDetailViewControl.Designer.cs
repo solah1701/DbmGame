@@ -57,9 +57,9 @@
             this.MaxYearTextBox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.BottomPanel = new System.Windows.Forms.Panel();
+            this.CopyButton = new System.Windows.Forms.Button();
             this.DeleteButton = new System.Windows.Forms.Button();
             this.UpdateButton = new System.Windows.Forms.Button();
-            this.CopyButton = new System.Windows.Forms.Button();
             this.TopPanel.SuspendLayout();
             this.BottomPanel.SuspendLayout();
             this.SuspendLayout();
@@ -206,7 +206,7 @@
             this.TopPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TopPanel.Location = new System.Drawing.Point(0, 0);
             this.TopPanel.Name = "TopPanel";
-            this.TopPanel.Size = new System.Drawing.Size(566, 476);
+            this.TopPanel.Size = new System.Drawing.Size(566, 406);
             this.TopPanel.TabIndex = 14;
             // 
             // label11
@@ -364,14 +364,24 @@
             this.BottomPanel.Controls.Add(this.DeleteButton);
             this.BottomPanel.Controls.Add(this.UpdateButton);
             this.BottomPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.BottomPanel.Location = new System.Drawing.Point(0, 422);
+            this.BottomPanel.Location = new System.Drawing.Point(0, 352);
             this.BottomPanel.Name = "BottomPanel";
             this.BottomPanel.Size = new System.Drawing.Size(566, 54);
             this.BottomPanel.TabIndex = 18;
             // 
+            // CopyButton
+            // 
+            this.CopyButton.Location = new System.Drawing.Point(86, 6);
+            this.CopyButton.Name = "CopyButton";
+            this.CopyButton.Size = new System.Drawing.Size(102, 43);
+            this.CopyButton.TabIndex = 16;
+            this.CopyButton.Text = "Copy";
+            this.CopyButton.UseVisualStyleBackColor = true;
+            this.CopyButton.Click += new System.EventHandler(this.CopyButton_Click);
+            // 
             // DeleteButton
             // 
-            this.DeleteButton.Location = new System.Drawing.Point(219, 6);
+            this.DeleteButton.Location = new System.Drawing.Point(302, 6);
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Size = new System.Drawing.Size(102, 43);
             this.DeleteButton.TabIndex = 15;
@@ -381,23 +391,13 @@
             // 
             // UpdateButton
             // 
-            this.UpdateButton.Location = new System.Drawing.Point(111, 6);
+            this.UpdateButton.Location = new System.Drawing.Point(194, 6);
             this.UpdateButton.Name = "UpdateButton";
             this.UpdateButton.Size = new System.Drawing.Size(102, 43);
             this.UpdateButton.TabIndex = 14;
             this.UpdateButton.Text = "Update";
             this.UpdateButton.UseVisualStyleBackColor = true;
             this.UpdateButton.Click += new System.EventHandler(this.UpdateButton_Click);
-            // 
-            // CopyButton
-            // 
-            this.CopyButton.Location = new System.Drawing.Point(3, 6);
-            this.CopyButton.Name = "CopyButton";
-            this.CopyButton.Size = new System.Drawing.Size(102, 43);
-            this.CopyButton.TabIndex = 16;
-            this.CopyButton.Text = "Copy";
-            this.CopyButton.UseVisualStyleBackColor = true;
-            this.CopyButton.Click += new System.EventHandler(this.CopyButton_Click);
             // 
             // ArmyUnitDetailViewControl
             // 
@@ -406,7 +406,7 @@
             this.Controls.Add(this.BottomPanel);
             this.Controls.Add(this.TopPanel);
             this.Name = "ArmyUnitDetailViewControl";
-            this.Size = new System.Drawing.Size(566, 476);
+            this.Size = new System.Drawing.Size(566, 406);
             this.TopPanel.ResumeLayout(false);
             this.TopPanel.PerformLayout();
             this.BottomPanel.ResumeLayout(false);

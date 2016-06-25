@@ -6,15 +6,16 @@ using GameEditor.Wcf.Harness.Helpers;
 using GameEditor.Wcf.Harness.Models;
 using GameEditor.Wcf.Harness.Mvc;
 using GameEditor.Wcf.Harness.Views;
+using GameEditor.Wcf.Harness.WarGameServiceReference;
 
 namespace GameEditor.Wcf.Harness.Presenters
 {
-    public class ArmyUnitListPresenter : Controller<IArmyUnitListView>, IArmyUnitListPresenter, IHandle<UpdateView>
+    public class AllyListPresenter : Controller<IAllyListView>, IAllyListPresenter, IHandle<UpdateView>
     {
         private readonly IGameModel _model;
         private readonly IEventAggregator _event;
 
-        public ArmyUnitListPresenter(IEventAggregator eventAggregator, IGameModel model)
+        public AllyListPresenter(IEventAggregator eventAggregator, IGameModel model)
         {
             _model = model;
             _event = eventAggregator;
@@ -24,29 +25,28 @@ namespace GameEditor.Wcf.Harness.Presenters
         public void PopulateList()
         {
 #if !DESIGNMODE
-            var items = _model.GetArmyUnitDefinitions();
-            if (items == null) return;
-            View.ArmyUnitDefinitions = items;
+            var items = _model.GetArmyDefinitions();
+            View.ArmyDefinitions = items;
 #endif
         }
 
-        public void AddArmyUnit()
+        public void SelectArmy(int armyId)
         {
             // Navigate to Detail page
+            _model.CurrentArmyDefinitionId = armyId;
             _model.CurrentArmyUnitDefinitionId = 0;
             _event.PublishOnCurrentThread(new UpdateView());
         }
 
-        public void AddAlliedArmy()
+        public void UpdateArmy()
         {
-            _event.PublishOnCurrentThread(new UpdateView());
-            throw new System.NotImplementedException();
-        }
-
-        public void SelectUnitArmy(int armyUnitId)
-        {
-            // Navigate to Detail page
-            _model.CurrentArmyUnitDefinitionId = armyUnitId;
+            var ally = new AlliedArmyDefinition
+            {
+                AllyName = View.AllyName,
+                MinYear = View.MinYear,
+                MaxYear = View.MaxYear
+            };
+            _model.AddAllyDefinition(ally);
             _event.PublishOnCurrentThread(new UpdateView());
         }
 

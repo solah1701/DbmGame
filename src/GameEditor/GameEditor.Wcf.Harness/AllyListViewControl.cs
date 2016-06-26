@@ -21,16 +21,15 @@ namespace GameEditor.Wcf.Harness
             _presenter.PopulateList();
         }
 
-        public AlliedArmyDefinitions AlliedArmyDefinitions
+        public Array AlliedArmyDefinitions
         {
-            set
-            {
-                this.InvokeIfRequired(() =>
-                {
-                    AlliedListComboBox.Items.Clear();
-                    AlliedListComboBox.Items.AddRange(value.ConvertToObjectItems());
-                });
-            }
+            set { this.InvokeIfRequired(() => AlliedListComboBox.DataSource = value); }
+        }
+
+        public string SelectedAlly
+        {
+            get { return AlliedListComboBox.Text; }
+            set { this.InvokeIfRequired(() => AlliedListComboBox.Text = value); }
         }
 
         public string AllyName

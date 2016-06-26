@@ -22,20 +22,26 @@ namespace GameEditor.Wcf.Harness.Presenters
             _event.Subscribe(this);
         }
 
+        protected override void InitialiseView()
+        {
+            base.InitialiseView();
+            PopulateList();
+        }
+
         public void PopulateList()
         {
 #if !DESIGNMODE
             var items = _model.GetAllAlliedArmyDefinitions();
             if (items == null) return;
-            View.AlliedArmyDefinitions = items;
+            View.AlliedArmyDefinitions = items.ConvertToStringArray();
 #endif
         }
 
         public void SelectArmy(int armyId)
         {
             // Navigate to Detail page
-            _model.CurrentArmyDefinitionId = armyId;
-            _model.CurrentArmyUnitDefinitionId = 0;
+            _model.CurrentAllyDefinitionId = armyId;
+            //_model.CurrentArmyUnitDefinitionId = 0;
             _event.PublishOnCurrentThread(new UpdateView());
         }
 

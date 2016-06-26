@@ -90,6 +90,7 @@ namespace GameEditor.Wcf.Harness.Presenters
         private void SelectArmyUnitDetail(int id)
         {
             var item = _model.GetArmyUnitDefinition(id);
+            if (item == null) return;
             View.ArmyUnitDefinitionId = item.Id;
             View.ArmyUnitName = item.UnitName;
             View.Cost = item.Cost;

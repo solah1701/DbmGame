@@ -1,10 +1,12 @@
-﻿using GameEditor.Wcf.Harness.WarGameServiceReference;
+﻿using System;
+using GameEditor.Wcf.Harness.WarGameServiceReference;
 
 namespace GameEditor.Wcf.Harness.Views
 {
     public interface IAllyListView
     {
-        AlliedArmyDefinitions AlliedArmyDefinitions { set; }
+        Array AlliedArmyDefinitions { set; }
+        string SelectedAlly { get; set; }
         string AllyName { get; set; }
         int Book { get; set; }
         int List { get; set; }

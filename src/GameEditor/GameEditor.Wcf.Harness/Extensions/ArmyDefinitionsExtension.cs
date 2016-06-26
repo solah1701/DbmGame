@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Windows.Forms;
 using GameEditor.Wcf.Harness.WarGameServiceReference;
 
@@ -22,7 +23,7 @@ namespace GameEditor.Wcf.Harness.Extensions
             }).Select(subItem => new ListViewItem(subItem)).ToArray();
         }
 
-        public static object[] ConvertToObjectItems(this AlliedArmyDefinitions definitions)
+        public static Array ConvertToStringArray(this AlliedArmyDefinitions definitions)
         {
             return new object[] { definitions.Select(armyDefinition => armyDefinition.AllyName).ToArray() };
         }

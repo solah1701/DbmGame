@@ -7,6 +7,7 @@ namespace GameEditor.Wcf.Harness.Presenters
     {
         void PopulateList();
         void SelectArmy(int armyId);
+        void SelectAlly(int allyId);
         void UpdateArmy();
         void DeleteArmy();
     }

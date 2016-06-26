@@ -572,6 +572,21 @@ namespace GameCore.WcfService
             }
         }
 
+        public ArmyDefinition GetArmyDefinitionByName(string name)
+        {
+            using (var db = new DbmModel())
+            {
+                var definition = db.ArmyListDefinitions.First(armyList => armyList.Name == name).GetArmyDefinition();
+                if (definition == null)
+                {
+                    SetStatusNotFound();
+                    return null;
+                }
+                SetStatusOk();
+                return definition;
+            }
+        }
+
         public int PostArmyDefinition(ArmyDefinition armyDefinition)
         {
             using (var db = new DbmModel())
@@ -712,7 +727,7 @@ namespace GameCore.WcfService
             using (var db = new DbmModel())
             {
                 var definitions =
-                    db.ArmyListDefinitions.Where(armyList => armyList.ArmyListDefinitionId != id && armyList.MinYear >= minDate && armyList.MaxYear <= maxDate)
+                    db.ArmyListDefinitions.Where(armyList => armyList.ArmyListDefinitionId != id && armyList.MinYear >= minDate && armyList.MinYear <= maxDate)
                         .ToList()
                         .GetArmyDefinitions();
                 SetStatusOk();

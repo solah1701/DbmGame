@@ -25,6 +25,15 @@ namespace GameEditor.Wcf.Harness.Models
             }
         }
 
+        public ArmyDefinition GetArmyDefinition(string name)
+        {
+            if (name == string.Empty) return null;
+            using (var client = new WarGameServiceClient())
+            {
+                return client.GetArmyDefinitionByName(name);
+            }
+        }
+
         public int AddArmyDefinition(ArmyDefinition definition)
         {
             using (var client = new WarGameServiceClient())

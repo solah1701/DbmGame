@@ -29,7 +29,11 @@ namespace GameEditor.Wcf.Harness
         public string SelectedAlly
         {
             get { return AlliedListComboBox.Text; }
-            set { this.InvokeIfRequired(() => AlliedListComboBox.Text = value); }
+            set { this.InvokeIfRequired(() =>
+            {
+                AlliedListComboBox.SelectedValue = value;
+                //AlliedListComboBox.Text = value;
+            }); }
         }
 
         public string AllyName

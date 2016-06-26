@@ -32,6 +32,9 @@ namespace GameEditor.Wcf.Harness.Presenters
         public void AddArmy()
         {
             // Navigate to Detail page
+            _model.CurrentArmyDefinitionId = 0;
+            _model.CurrentArmyUnitDefinitionId = 0;
+            _model.CurrentAllyDefinitionId = 0;
             _event.PublishOnCurrentThread(new UpdateView());
         }
 

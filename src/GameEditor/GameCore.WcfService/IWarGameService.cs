@@ -151,6 +151,10 @@ namespace GameCore.WcfService
         [OperationContract]
         ArmyDefinition GetArmyDefinition(int id);
 
+        [WebGet(UriTemplate = "ArmyDefinitions?name={name}")]
+        [OperationContract]
+        ArmyDefinition GetArmyDefinitionByName(string name);
+
         [WebInvoke(Method = "POST", UriTemplate = "ArmyDefinitions")]
         [OperationContract]
         int PostArmyDefinition(ArmyDefinition armyDefinition);

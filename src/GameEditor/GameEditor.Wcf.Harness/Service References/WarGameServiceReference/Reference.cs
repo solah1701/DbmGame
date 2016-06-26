@@ -1997,6 +1997,12 @@ namespace GameEditor.Wcf.Harness.WarGameServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWarGameService/GetArmyDefinition", ReplyAction="http://tempuri.org/IWarGameService/GetArmyDefinitionResponse")]
         System.Threading.Tasks.Task<GameEditor.Wcf.Harness.WarGameServiceReference.ArmyDefinition> GetArmyDefinitionAsync(int id);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWarGameService/GetArmyDefinitionByName", ReplyAction="http://tempuri.org/IWarGameService/GetArmyDefinitionByNameResponse")]
+        GameEditor.Wcf.Harness.WarGameServiceReference.ArmyDefinition GetArmyDefinitionByName(string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWarGameService/GetArmyDefinitionByName", ReplyAction="http://tempuri.org/IWarGameService/GetArmyDefinitionByNameResponse")]
+        System.Threading.Tasks.Task<GameEditor.Wcf.Harness.WarGameServiceReference.ArmyDefinition> GetArmyDefinitionByNameAsync(string name);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWarGameService/PostArmyDefinition", ReplyAction="http://tempuri.org/IWarGameService/PostArmyDefinitionResponse")]
         int PostArmyDefinition(GameEditor.Wcf.Harness.WarGameServiceReference.ArmyDefinition armyDefinition);
         
@@ -2353,6 +2359,14 @@ namespace GameEditor.Wcf.Harness.WarGameServiceReference {
         
         public System.Threading.Tasks.Task<GameEditor.Wcf.Harness.WarGameServiceReference.ArmyDefinition> GetArmyDefinitionAsync(int id) {
             return base.Channel.GetArmyDefinitionAsync(id);
+        }
+        
+        public GameEditor.Wcf.Harness.WarGameServiceReference.ArmyDefinition GetArmyDefinitionByName(string name) {
+            return base.Channel.GetArmyDefinitionByName(name);
+        }
+        
+        public System.Threading.Tasks.Task<GameEditor.Wcf.Harness.WarGameServiceReference.ArmyDefinition> GetArmyDefinitionByNameAsync(string name) {
+            return base.Channel.GetArmyDefinitionByNameAsync(name);
         }
         
         public int PostArmyDefinition(GameEditor.Wcf.Harness.WarGameServiceReference.ArmyDefinition armyDefinition) {

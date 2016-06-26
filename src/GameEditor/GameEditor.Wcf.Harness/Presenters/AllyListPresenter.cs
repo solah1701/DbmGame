@@ -37,11 +37,40 @@ namespace GameEditor.Wcf.Harness.Presenters
 #endif
         }
 
+        private void ClearView()
+        {
+            View.AllyName = string.Empty;
+            View.Book = 0;
+            View.List = 0;
+            View.MinYear = 0;
+            View.MaxYear = 0;
+        }
+
         public void SelectArmy(int armyId)
         {
             // Navigate to Detail page
-            _model.CurrentAllyDefinitionId = armyId;
-            _event.PublishOnCurrentThread(new UpdateView());
+            var armyName = View.SelectedAlly;
+            var army = _model.GetArmyDefinition(armyName);
+            if (army == null) return;
+            _model.CurrentAllyDefinitionId = army.Id;
+            View.Book = army.ArmyBook;
+            View.List = army.ArmyList;
+            //_event.PublishOnCurrentThread(new UpdateView());
+        }
+
+        public void SelectAlly(int allyId)
+        {
+            var ally = _model.GetAlliedArmyDefinition(allyId);
+            if (ally == null) return;
+            _model.CurrentAllyDefinitionId = allyId;
+            View.AllyName = ally.AllyName;
+            View.MinYear = ally.MinYear;
+            View.MaxYear = ally.MaxYear;
+            var army = _model.GetArmyDefinition(ally.ArmyId);
+            if (army == null) return;
+            View.SelectedAlly = army.ArmyName;
+            View.Book = army.ArmyBook;
+            View.List = army.ArmyList;
         }
 
         public void UpdateArmy()
@@ -50,7 +79,8 @@ namespace GameEditor.Wcf.Harness.Presenters
             {
                 AllyName = View.AllyName,
                 MinYear = View.MinYear,
-                MaxYear = View.MaxYear
+                MaxYear = View.MaxYear,
+                ArmyId = _model.CurrentAllyDefinitionId
             };
             _model.AddAllyDefinition(ally);
             _event.PublishOnCurrentThread(new UpdateView());
@@ -59,11 +89,18 @@ namespace GameEditor.Wcf.Harness.Presenters
         public void DeleteArmy()
         {
             _model.DeleteAllyDefinition(_model.CurrentAllyDefinitionId);
+            ClearView();
+            _event.PublishOnCurrentThread(new UpdateView());
         }
 
         public void Handle(UpdateView message)
         {
-            PopulateList();
+            if (_model.CurrentAllyDefinitionId == 0) ClearView();
+            else
+            {
+                PopulateList();
+                SelectAlly(_model.CurrentAllyDefinitionId);
+            }
         }
     }
 }

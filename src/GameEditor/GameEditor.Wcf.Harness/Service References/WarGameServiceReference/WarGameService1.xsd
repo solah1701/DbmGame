@@ -447,10 +447,24 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetArmyDefinitionByName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetArmyDefinitionByNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/GameCore.WcfService" minOccurs="0" name="GetArmyDefinitionByNameResult" nillable="true" type="q25:ArmyDefinition" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="PostArmyDefinition">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/GameCore.WcfService" minOccurs="0" name="armyDefinition" nillable="true" type="q25:ArmyDefinition" />
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/GameCore.WcfService" minOccurs="0" name="armyDefinition" nillable="true" type="q26:ArmyDefinition" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -464,7 +478,7 @@
   <xs:element name="PutArmyDefinition">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/GameCore.WcfService" minOccurs="0" name="armyDefinition" nillable="true" type="q26:ArmyDefinition" />
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/GameCore.WcfService" minOccurs="0" name="armyDefinition" nillable="true" type="q27:ArmyDefinition" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -497,7 +511,7 @@
   <xs:element name="GetArmyUnitDefinitionsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/GameCore.WcfService" minOccurs="0" name="GetArmyUnitDefinitionsResult" nillable="true" type="q27:ArmyUnitDefinitions" />
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/GameCore.WcfService" minOccurs="0" name="GetArmyUnitDefinitionsResult" nillable="true" type="q28:ArmyUnitDefinitions" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -512,7 +526,7 @@
   <xs:element name="GetArmyUnitDefinitionResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/GameCore.WcfService" minOccurs="0" name="GetArmyUnitDefinitionResult" nillable="true" type="q28:ArmyUnitDefinition" />
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/GameCore.WcfService" minOccurs="0" name="GetArmyUnitDefinitionResult" nillable="true" type="q29:ArmyUnitDefinition" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -520,7 +534,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="armyDefinitionId" type="xs:int" />
-        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/GameCore.WcfService" minOccurs="0" name="armyUnitDefinition" nillable="true" type="q29:ArmyUnitDefinition" />
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/GameCore.WcfService" minOccurs="0" name="armyUnitDefinition" nillable="true" type="q30:ArmyUnitDefinition" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -536,7 +550,7 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="armyDefinitionId" type="xs:int" />
         <xs:element minOccurs="0" name="id" type="xs:int" />
-        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/GameCore.WcfService" minOccurs="0" name="armyUnitDefinition" nillable="true" type="q30:ArmyUnitDefinition" />
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/GameCore.WcfService" minOccurs="0" name="armyUnitDefinition" nillable="true" type="q31:ArmyUnitDefinition" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -570,7 +584,7 @@
   <xs:element name="GetAlliedArmyDefinitionsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/GameCore.WcfService" minOccurs="0" name="GetAlliedArmyDefinitionsResult" nillable="true" type="q31:AlliedArmyDefinitions" />
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/GameCore.WcfService" minOccurs="0" name="GetAlliedArmyDefinitionsResult" nillable="true" type="q32:AlliedArmyDefinitions" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -582,7 +596,7 @@
   <xs:element name="GetAllAlliedArmyDefinitionsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/GameCore.WcfService" minOccurs="0" name="GetAllAlliedArmyDefinitionsResult" nillable="true" type="q32:AlliedArmyDefinitions" />
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/GameCore.WcfService" minOccurs="0" name="GetAllAlliedArmyDefinitionsResult" nillable="true" type="q33:AlliedArmyDefinitions" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -598,7 +612,7 @@
   <xs:element name="GetArmyDefinitionsForPeriodResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/GameCore.WcfService" minOccurs="0" name="GetArmyDefinitionsForPeriodResult" nillable="true" type="q33:ArmyDefinitions" />
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/GameCore.WcfService" minOccurs="0" name="GetArmyDefinitionsForPeriodResult" nillable="true" type="q34:ArmyDefinitions" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -613,7 +627,7 @@
   <xs:element name="GetAlliedArmyDefinitionResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/GameCore.WcfService" minOccurs="0" name="GetAlliedArmyDefinitionResult" nillable="true" type="q34:AlliedArmyDefinition" />
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/GameCore.WcfService" minOccurs="0" name="GetAlliedArmyDefinitionResult" nillable="true" type="q35:AlliedArmyDefinition" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -621,7 +635,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="armyDefinitionId" type="xs:int" />
-        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/GameCore.WcfService" minOccurs="0" name="alliedArmyDefinition" nillable="true" type="q35:AlliedArmyDefinition" />
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/GameCore.WcfService" minOccurs="0" name="alliedArmyDefinition" nillable="true" type="q36:AlliedArmyDefinition" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -637,7 +651,7 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="armyDefinitionId" type="xs:int" />
         <xs:element minOccurs="0" name="id" type="xs:int" />
-        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/GameCore.WcfService" minOccurs="0" name="alliedArmyDefinition" nillable="true" type="q36:AlliedArmyDefinition" />
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/GameCore.WcfService" minOccurs="0" name="alliedArmyDefinition" nillable="true" type="q37:AlliedArmyDefinition" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

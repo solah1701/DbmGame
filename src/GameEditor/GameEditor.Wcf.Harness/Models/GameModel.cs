@@ -100,11 +100,12 @@ namespace GameEditor.Wcf.Harness.Models
             }
         }
 
-        public AlliedArmyDefinitions GetAllAlliedArmyDefinitions()
+        public ArmyDefinitions GetFilteredAlliedArmyDefinitions(int minYear, int maxYear)
         {
+            if (minYear == maxYear) return null;
             using (var client = new WarGameServiceClient())
             {
-                return client.GetAllAlliedArmyDefinitions();
+                return client.GetArmyDefinitionsForPeriod(minYear, maxYear);
             }
         }
 

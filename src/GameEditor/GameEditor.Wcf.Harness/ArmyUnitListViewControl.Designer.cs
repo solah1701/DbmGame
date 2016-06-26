@@ -40,7 +40,6 @@
             this.AddButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.AddAllyButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -112,7 +111,6 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.AddAllyButton);
             this.panel1.Controls.Add(this.AddButton);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 253);
@@ -128,16 +126,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(453, 253);
             this.panel2.TabIndex = 4;
-            // 
-            // AddAllyButton
-            // 
-            this.AddAllyButton.Location = new System.Drawing.Point(110, 4);
-            this.AddAllyButton.Name = "AddAllyButton";
-            this.AddAllyButton.Size = new System.Drawing.Size(102, 43);
-            this.AddAllyButton.TabIndex = 3;
-            this.AddAllyButton.Text = "Add Ally";
-            this.AddAllyButton.UseVisualStyleBackColor = true;
-            this.AddAllyButton.Click += new System.EventHandler(this.AddAllyButton_Click);
             // 
             // ArmyUnitListViewControl
             // 
@@ -167,6 +155,5 @@
         private System.Windows.Forms.ColumnHeader CostHeader;
         private System.Windows.Forms.ColumnHeader MinCountHeader;
         private System.Windows.Forms.ColumnHeader MaxCountHeader;
-        private System.Windows.Forms.Button AddAllyButton;
     }
 }

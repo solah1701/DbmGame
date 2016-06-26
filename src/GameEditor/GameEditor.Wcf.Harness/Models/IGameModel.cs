@@ -20,7 +20,7 @@ namespace GameEditor.Wcf.Harness.Models
 
         AlliedArmyDefinition GetAlliedArmyDefinition(int id);
         AlliedArmyDefinitions GetAlliedArmyDefinitions();
-        AlliedArmyDefinitions GetAllAlliedArmyDefinitions();
+        ArmyDefinitions GetFilteredAlliedArmyDefinitions(int minYear, int maxYear);
         int AddAllyDefinition(AlliedArmyDefinition definition);
         void DeleteAllyDefinition(int id);
     }

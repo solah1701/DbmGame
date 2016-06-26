@@ -23,9 +23,9 @@ namespace GameEditor.Wcf.Harness.Extensions
             }).Select(subItem => new ListViewItem(subItem)).ToArray();
         }
 
-        public static Array ConvertToStringArray(this AlliedArmyDefinitions definitions)
+        public static Array ConvertToStringArray(this ArmyDefinitions definitions)
         {
-            return new object[] { definitions.Select(armyDefinition => armyDefinition.AllyName).ToArray() };
+            return definitions.Select(armyDefinition => armyDefinition.ArmyName).ToArray();
         }
 
         public static ListViewItem[] ConvertToListViewItems(this ArmyUnitDefinitions definitions)

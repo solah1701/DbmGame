@@ -35,7 +35,7 @@ namespace GameEditor.Wcf.Harness
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-            //_presenter.UpdateArmy();
+            _presenter.AddAlliedArmy();
         }
 
         private void ArmyListView_SelectedIndexChanged(object sender, EventArgs e)

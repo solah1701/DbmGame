@@ -37,12 +37,6 @@ namespace GameEditor.Wcf.Harness.Presenters
             _event.PublishOnCurrentThread(new UpdateView());
         }
 
-        public void AddAlliedArmy()
-        {
-            _event.PublishOnCurrentThread(new UpdateView());
-            throw new System.NotImplementedException();
-        }
-
         public void SelectUnitArmy(int armyUnitId)
         {
             // Navigate to Detail page

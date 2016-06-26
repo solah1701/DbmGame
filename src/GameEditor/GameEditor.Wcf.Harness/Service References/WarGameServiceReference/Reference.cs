@@ -2057,6 +2057,12 @@ namespace GameEditor.Wcf.Harness.WarGameServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWarGameService/GetAllAlliedArmyDefinitions", ReplyAction="http://tempuri.org/IWarGameService/GetAllAlliedArmyDefinitionsResponse")]
         System.Threading.Tasks.Task<GameEditor.Wcf.Harness.WarGameServiceReference.AlliedArmyDefinitions> GetAllAlliedArmyDefinitionsAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWarGameService/GetArmyDefinitionsForPeriod", ReplyAction="http://tempuri.org/IWarGameService/GetArmyDefinitionsForPeriodResponse")]
+        GameEditor.Wcf.Harness.WarGameServiceReference.ArmyDefinitions GetArmyDefinitionsForPeriod(int minDate, int maxDate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWarGameService/GetArmyDefinitionsForPeriod", ReplyAction="http://tempuri.org/IWarGameService/GetArmyDefinitionsForPeriodResponse")]
+        System.Threading.Tasks.Task<GameEditor.Wcf.Harness.WarGameServiceReference.ArmyDefinitions> GetArmyDefinitionsForPeriodAsync(int minDate, int maxDate);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWarGameService/GetAlliedArmyDefinition", ReplyAction="http://tempuri.org/IWarGameService/GetAlliedArmyDefinitionResponse")]
         GameEditor.Wcf.Harness.WarGameServiceReference.AlliedArmyDefinition GetAlliedArmyDefinition(int armyDefinitionId, int id);
         
@@ -2427,6 +2433,14 @@ namespace GameEditor.Wcf.Harness.WarGameServiceReference {
         
         public System.Threading.Tasks.Task<GameEditor.Wcf.Harness.WarGameServiceReference.AlliedArmyDefinitions> GetAllAlliedArmyDefinitionsAsync() {
             return base.Channel.GetAllAlliedArmyDefinitionsAsync();
+        }
+        
+        public GameEditor.Wcf.Harness.WarGameServiceReference.ArmyDefinitions GetArmyDefinitionsForPeriod(int minDate, int maxDate) {
+            return base.Channel.GetArmyDefinitionsForPeriod(minDate, maxDate);
+        }
+        
+        public System.Threading.Tasks.Task<GameEditor.Wcf.Harness.WarGameServiceReference.ArmyDefinitions> GetArmyDefinitionsForPeriodAsync(int minDate, int maxDate) {
+            return base.Channel.GetArmyDefinitionsForPeriodAsync(minDate, maxDate);
         }
         
         public GameEditor.Wcf.Harness.WarGameServiceReference.AlliedArmyDefinition GetAlliedArmyDefinition(int armyDefinitionId, int id) {

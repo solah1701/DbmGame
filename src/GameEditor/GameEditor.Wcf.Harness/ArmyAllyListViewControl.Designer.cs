@@ -81,7 +81,7 @@
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(102, 43);
             this.AddButton.TabIndex = 2;
-            this.AddButton.Text = "Add Army";
+            this.AddButton.Text = "Add Ally";
             this.AddButton.UseVisualStyleBackColor = true;
             this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
@@ -103,13 +103,13 @@
             this.panel2.Size = new System.Drawing.Size(453, 250);
             this.panel2.TabIndex = 4;
             // 
-            // ArmyListViewControl
+            // ArmyAllyListViewControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Name = "ArmyListViewControl";
+            this.Name = "ArmyAllyListViewControl";
             this.Size = new System.Drawing.Size(453, 303);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);

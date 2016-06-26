@@ -31,7 +31,7 @@ namespace GameEditor.Wcf.Harness.Presenters
         public void PopulateList()
         {
 #if !DESIGNMODE
-            var items = _model.GetAllAlliedArmyDefinitions();
+            var items = _model.GetFilteredAlliedArmyDefinitions(View.MinYear, View.MaxYear);
             if (items == null) return;
             View.AlliedArmyDefinitions = items.ConvertToStringArray();
 #endif
@@ -41,7 +41,6 @@ namespace GameEditor.Wcf.Harness.Presenters
         {
             // Navigate to Detail page
             _model.CurrentAllyDefinitionId = armyId;
-            //_model.CurrentArmyUnitDefinitionId = 0;
             _event.PublishOnCurrentThread(new UpdateView());
         }
 

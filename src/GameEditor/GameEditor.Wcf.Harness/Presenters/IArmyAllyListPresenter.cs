@@ -6,6 +6,7 @@ namespace GameEditor.Wcf.Harness.Presenters
     public interface IArmyAllyListPresenter : IController<IArmyAllyListView>
     {
         void PopulateList();
+        void AddAlliedArmy();
         void SelectAlly(int allyId);
     }
 }

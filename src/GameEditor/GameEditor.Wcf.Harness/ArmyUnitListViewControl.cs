@@ -43,10 +43,5 @@ namespace GameEditor.Wcf.Harness
             if (ArmyListView.SelectedItems.Count == 0) return;
             _presenter.SelectUnitArmy(int.Parse(ArmyListView.SelectedItems[0].SubItems[0].Text));
         }
-
-        private void AddAllyButton_Click(object sender, EventArgs e)
-        {
-            _presenter.AddAlliedArmy();
-        }
     }
 }

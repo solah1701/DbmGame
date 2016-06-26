@@ -30,6 +30,12 @@ namespace GameEditor.Wcf.Harness.Presenters
 #endif
         }
 
+        public void AddAlliedArmy()
+        {
+            _model.CurrentAllyDefinitionId = 0;
+            _event.PublishOnCurrentThread(new UpdateView());
+        }
+
         public void SelectAlly(int allyId)
         {
             _model.CurrentAllyDefinitionId = allyId;

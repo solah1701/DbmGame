@@ -50,20 +50,31 @@ namespace GameEditor.Wcf.Harness
             set { this.InvokeIfRequired(() => ListTextBox.Text = value.ToString()); }
         }
 
-        public int MinYear { get; set; }
-        public int MaxYear { get; set; }
+        //public int MinYear { get; set; }
+        //public int MaxYear { get; set; }
 
-        //public int MinYear
-        //{
-        //    get { return int.Parse(MinYearTextBox.Text); }
-        //    set { this.InvokeIfRequired(() => MinYearTextBox.Text = value.ToString()); }
-        //}
+        public int MinYear
+        {
+            get
+            {
+                int result;
+                if (!int.TryParse(MinYearTextBox.Text, out result)) result = 0;
+                return result;
+            }
+            set { this.InvokeIfRequired(() => MinYearTextBox.Text = value.ToString()); }
+        }
 
-        //public int MaxYear
-        //{
-        //    get { return int.Parse(MaxYearTextBox.Text); }
-        //    set { this.InvokeIfRequired(() => MaxYearTextBox.Text = value.ToString()); }
-        //}
+        public int MaxYear
+        {
+            get
+            {
+                int result;
+                if (!int.TryParse(MaxYearTextBox.Text, out result)) result = 0;
+                return result;
+
+            }
+            set { this.InvokeIfRequired(() => MaxYearTextBox.Text = value.ToString()); }
+        }
 
         public bool CanUpdate
         {
@@ -91,6 +102,16 @@ namespace GameEditor.Wcf.Harness
         {
             if (AlliedListComboBox.SelectedIndex < 0) return;
             _presenter.SelectArmy(AlliedListComboBox.SelectedIndex);
+        }
+
+        private void MinYearTextBox_TextChanged(object sender, EventArgs e)
+        {
+            _presenter.PopulateList();
+        }
+
+        private void MaxYearTextBox_TextChanged(object sender, EventArgs e)
+        {
+            _presenter.PopulateList();
         }
     }
 }

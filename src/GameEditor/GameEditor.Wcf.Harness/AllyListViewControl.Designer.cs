@@ -106,6 +106,7 @@
             this.MaxYearTextBox.Name = "MaxYearTextBox";
             this.MaxYearTextBox.Size = new System.Drawing.Size(365, 22);
             this.MaxYearTextBox.TabIndex = 11;
+            this.MaxYearTextBox.TextChanged += new System.EventHandler(this.MaxYearTextBox_TextChanged);
             // 
             // label6
             // 
@@ -124,6 +125,7 @@
             this.MinYearTextBox.Name = "MinYearTextBox";
             this.MinYearTextBox.Size = new System.Drawing.Size(365, 22);
             this.MinYearTextBox.TabIndex = 9;
+            this.MinYearTextBox.TextChanged += new System.EventHandler(this.MinYearTextBox_TextChanged);
             // 
             // label5
             // 

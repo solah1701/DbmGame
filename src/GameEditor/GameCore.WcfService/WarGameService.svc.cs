@@ -707,6 +707,19 @@ namespace GameCore.WcfService
             }
         }
 
+        public ArmyDefinitions GetArmyDefinitionsForPeriod(int minDate, int maxDate)
+        {
+            using (var db = new DbmModel())
+            {
+                var definitions =
+                    db.ArmyListDefinitions.Where(armyList => armyList.MinYear >= minDate && armyList.MaxYear <= maxDate)
+                        .ToList()
+                        .GetArmyDefinitions();
+                SetStatusOk();
+                return !definitions.Any() ? new ArmyDefinitions() : definitions;
+            }
+        }
+
         public AlliedArmyDefinition GetAlliedArmyDefinition(int armyDefinitionId, int id)
         {
             using (var db = new DbmModel())

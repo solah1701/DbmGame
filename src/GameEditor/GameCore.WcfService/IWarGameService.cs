@@ -195,9 +195,14 @@ namespace GameCore.WcfService
         [OperationContract]
         AlliedArmyDefinitions GetAlliedArmyDefinitions(int armyDefinitionId);
 
+        //TODO: Need to revisit this methods as I think it doesn't belong
         [WebGet(UriTemplate = "AlliedArmyDefinitions")]
         [OperationContract]
         AlliedArmyDefinitions GetAllAlliedArmyDefinitions();
+
+        [WebGet(UriTemplate = "ArmyDefinitions?mindate={minDate}&maxdate={maxDate}")]
+        [OperationContract]
+        ArmyDefinitions GetArmyDefinitionsForPeriod(int minDate, int maxDate);
 
         [WebGet(UriTemplate = "ArmyDefinitions/{armyDefinitionId}/AlliedArmyDefinitions/{id}")]
         [OperationContract]

@@ -27,26 +27,71 @@ namespace GameEditor.Wcf.Harness
             {
                 this.InvokeIfRequired(() =>
                 {
-                    ArmyListView.Items.Clear();
-                    ArmyListView.Items.AddRange(value.ConvertToListViewItems());
+                    AlliedListComboBox.Items.Clear();
+                    AlliedListComboBox.Items.AddRange(value.ConvertToObjectItems());
                 });
             }
         }
 
-        public string AllyName { get; set; }
+        public string AllyName
+        {
+            get { return AllyNameTextBox.Text; }
+            set { this.InvokeIfRequired(() => AllyNameTextBox.Text = value); }
+        }
+
+        public int Book
+        {
+            get { return int.Parse(BookTextBox.Text); }
+            set { this.InvokeIfRequired(() => BookTextBox.Text = value.ToString()); }
+        }
+
+        public int List
+        {
+            get { return int.Parse(ListTextBox.Text); }
+            set { this.InvokeIfRequired(() => ListTextBox.Text = value.ToString()); }
+        }
+
         public int MinYear { get; set; }
         public int MaxYear { get; set; }
-        public bool CanUpdate { get; set; }
 
-        private void AddButton_Click(object sender, EventArgs e)
+        //public int MinYear
+        //{
+        //    get { return int.Parse(MinYearTextBox.Text); }
+        //    set { this.InvokeIfRequired(() => MinYearTextBox.Text = value.ToString()); }
+        //}
+
+        //public int MaxYear
+        //{
+        //    get { return int.Parse(MaxYearTextBox.Text); }
+        //    set { this.InvokeIfRequired(() => MaxYearTextBox.Text = value.ToString()); }
+        //}
+
+        public bool CanUpdate
+        {
+            get { return UpdateButton.Enabled; }
+            set { this.InvokeIfRequired(() => UpdateButton.Enabled = value); }
+        }
+
+        public bool CanDelete
+        {
+            get { return DeleteButton.Enabled; }
+            set { this.InvokeIfRequired(() => DeleteButton.Enabled = value); }
+        }
+
+        private void UpdateButton_Click(object sender, EventArgs e)
         {
             _presenter.UpdateArmy();
         }
 
-        private void ArmyListView_SelectedIndexChanged(object sender, EventArgs e)
+        private void DeleteButton_Click(object sender, EventArgs e)
         {
-            if (ArmyListView.SelectedItems.Count == 0) return;
-            _presenter.SelectArmy(int.Parse(ArmyListView.SelectedItems[0].SubItems[0].Text));
+            _presenter.DeleteArmy();
+        }
+
+        private void AlliedListComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (AlliedListComboBox.SelectedIndex < 0) return;
+            _presenter.SelectArmy(AlliedListComboBox.SelectedIndex);
         }
     }
 }

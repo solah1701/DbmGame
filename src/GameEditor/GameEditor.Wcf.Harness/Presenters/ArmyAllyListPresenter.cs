@@ -25,6 +25,7 @@ namespace GameEditor.Wcf.Harness.Presenters
         {
 #if !DESIGNMODE
             var items = _model.GetAlliedArmyDefinitions();
+            if (items == null) return;
             View.AlliedArmyDefinitions = items;
 #endif
         }

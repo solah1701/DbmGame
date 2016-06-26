@@ -25,8 +25,9 @@ namespace GameEditor.Wcf.Harness.Presenters
         public void PopulateList()
         {
 #if !DESIGNMODE
-            var items = _model.GetArmyDefinitions();
-            View.ArmyDefinitions = items;
+            var items = _model.GetAllAlliedArmyDefinitions();
+            if (items == null) return;
+            View.AlliedArmyDefinitions = items;
 #endif
         }
 
@@ -48,6 +49,11 @@ namespace GameEditor.Wcf.Harness.Presenters
             };
             _model.AddAllyDefinition(ally);
             _event.PublishOnCurrentThread(new UpdateView());
+        }
+
+        public void DeleteArmy()
+        {
+            _model.DeleteAllyDefinition(_model.CurrentAllyDefinitionId);
         }
 
         public void Handle(UpdateView message)

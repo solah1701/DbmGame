@@ -707,12 +707,12 @@ namespace GameCore.WcfService
             }
         }
 
-        public ArmyDefinitions GetArmyDefinitionsForPeriod(int minDate, int maxDate)
+        public ArmyDefinitions GetArmyDefinitionsForPeriod(int id, int minDate, int maxDate)
         {
             using (var db = new DbmModel())
             {
                 var definitions =
-                    db.ArmyListDefinitions.Where(armyList => armyList.MinYear >= minDate && armyList.MaxYear <= maxDate)
+                    db.ArmyListDefinitions.Where(armyList => armyList.ArmyListDefinitionId != id && armyList.MinYear >= minDate && armyList.MaxYear <= maxDate)
                         .ToList()
                         .GetArmyDefinitions();
                 SetStatusOk();

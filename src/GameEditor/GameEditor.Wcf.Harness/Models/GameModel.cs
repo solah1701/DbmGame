@@ -105,7 +105,7 @@ namespace GameEditor.Wcf.Harness.Models
             if (minYear == maxYear) return null;
             using (var client = new WarGameServiceClient())
             {
-                return client.GetArmyDefinitionsForPeriod(minYear, maxYear);
+                return client.GetArmyDefinitionsForPeriod(CurrentArmyDefinitionId, minYear, maxYear);
             }
         }
 

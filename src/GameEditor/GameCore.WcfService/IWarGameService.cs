@@ -200,9 +200,9 @@ namespace GameCore.WcfService
         [OperationContract]
         AlliedArmyDefinitions GetAllAlliedArmyDefinitions();
 
-        [WebGet(UriTemplate = "ArmyDefinitions?mindate={minDate}&maxdate={maxDate}")]
+        [WebGet(UriTemplate = "ArmyDefinitions?id={id}&mindate={minDate}&maxdate={maxDate}")]
         [OperationContract]
-        ArmyDefinitions GetArmyDefinitionsForPeriod(int minDate, int maxDate);
+        ArmyDefinitions GetArmyDefinitionsForPeriod(int id, int minDate, int maxDate);
 
         [WebGet(UriTemplate = "ArmyDefinitions/{armyDefinitionId}/AlliedArmyDefinitions/{id}")]
         [OperationContract]

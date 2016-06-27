@@ -46,13 +46,13 @@ namespace GameEditor.Wcf.Harness.Presenters
             View.MaxYear = 0;
         }
 
-        public void SelectArmy(int armyId)
+        public void SelectArmy()
         {
             // Navigate to Detail page
             var armyName = View.SelectedAlly;
             var army = _model.GetArmyDefinition(armyName);
             if (army == null) return;
-            _model.CurrentAllyDefinitionId = army.Id;
+            _model.CurrentAllyArmyDefinitionId = army.Id;
             View.Book = army.ArmyBook;
             View.List = army.ArmyList;
             //_event.PublishOnCurrentThread(new UpdateView());
@@ -63,7 +63,10 @@ namespace GameEditor.Wcf.Harness.Presenters
             var ally = _model.GetAlliedArmyDefinition(allyId);
             if (ally == null) return;
             _model.CurrentAllyDefinitionId = allyId;
+            _model.CurrentAllyArmyDefinitionId = ally.ArmyId;
             View.AllyName = ally.AllyName;
+            View.Book = ally.ArmyBook;
+            View.List = ally.ArmyList;
             View.MinYear = ally.MinYear;
             View.MaxYear = ally.MaxYear;
             var army = _model.GetArmyDefinition(ally.ArmyId);
@@ -77,10 +80,13 @@ namespace GameEditor.Wcf.Harness.Presenters
         {
             var ally = new AlliedArmyDefinition
             {
+                Id = _model.CurrentAllyDefinitionId,
                 AllyName = View.AllyName,
+                ArmyBook = View.Book,
+                ArmyList = View.List,
                 MinYear = View.MinYear,
                 MaxYear = View.MaxYear,
-                ArmyId = _model.CurrentAllyDefinitionId
+                ArmyId = _model.CurrentAllyArmyDefinitionId
             };
             _model.AddAllyDefinition(ally);
             _event.PublishOnCurrentThread(new UpdateView());
@@ -98,7 +104,7 @@ namespace GameEditor.Wcf.Harness.Presenters
             if (_model.CurrentAllyDefinitionId == 0) ClearView();
             else
             {
-                PopulateList();
+                //PopulateList();
                 SelectAlly(_model.CurrentAllyDefinitionId);
             }
         }

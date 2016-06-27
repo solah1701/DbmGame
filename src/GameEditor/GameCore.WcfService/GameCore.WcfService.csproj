@@ -93,6 +93,10 @@
     <Compile Include="Migrations\201606270706286_AlliedArmyList_3.Designer.cs">
       <DependentUpon>201606270706286_AlliedArmyList_3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201606271119402_AlliedArmyList_4.cs" />
+    <Compile Include="Migrations\201606271119402_AlliedArmyList_4.Designer.cs">
+      <DependentUpon>201606271119402_AlliedArmyList_4.cs</DependentUpon>
+    </Compile>
     <Compile Include="WarGameService.svc.cs">
       <DependentUpon>WarGameService.svc</DependentUpon>
     </Compile>
@@ -190,6 +194,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201606270706286_AlliedArmyList_3.resx">
       <DependentUpon>201606270706286_AlliedArmyList_3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606271119402_AlliedArmyList_4.resx">
+      <DependentUpon>201606271119402_AlliedArmyList_4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

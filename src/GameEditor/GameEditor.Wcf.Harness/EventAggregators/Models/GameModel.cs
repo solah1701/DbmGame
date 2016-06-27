@@ -7,6 +7,7 @@ namespace GameEditor.Wcf.Harness.Models
         public int CurrentArmyDefinitionId { get; set; }
         public int CurrentArmyUnitDefinitionId { get; set; }
         public int CurrentAllyDefinitionId { get; set; }
+        public int CurrentAllyArmyDefinitionId { get; set; }
 
         public ArmyDefinitions GetArmyDefinitions()
         {

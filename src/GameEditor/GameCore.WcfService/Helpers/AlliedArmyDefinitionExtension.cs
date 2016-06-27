@@ -22,7 +22,8 @@ namespace GameCore.WcfService.Helpers
                 ArmyBook = definition.Book,
                 ArmyList = definition.List,
                 MinYear = definition.MinYear,
-                MaxYear = definition.MaxYear
+                MaxYear = definition.MaxYear,
+                ArmyId = definition.ArmyId
             };
         }
 
@@ -35,7 +36,8 @@ namespace GameCore.WcfService.Helpers
                 Book = definition.ArmyBook,
                 List = definition.ArmyList,
                 MinYear = definition.MinYear,
-                MaxYear = definition.MaxYear
+                MaxYear = definition.MaxYear,
+                ArmyId = definition.ArmyId
             };
         }
 
@@ -47,6 +49,7 @@ namespace GameCore.WcfService.Helpers
             definition.List = item.ArmyList;
             definition.MinYear = item.MinYear;
             definition.MaxYear = item.MaxYear;
+            definition.ArmyId = item.ArmyId;
         }
 
         public static AlliedArmyListDefinition UpdateAlliedArmyDefinition(this AlliedArmyDefinition definition, AlliedArmyListDefinition original)
@@ -57,6 +60,7 @@ namespace GameCore.WcfService.Helpers
             original.List = definition.ArmyList;
             original.MinYear = definition.MinYear;
             original.MaxYear = definition.MaxYear;
+            original.ArmyId = definition.ArmyId;
 
             return original;
         }

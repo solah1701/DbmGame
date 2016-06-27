@@ -27,7 +27,7 @@ namespace GameEditor.Wcf.Harness.UnitTest.Presenters
             // Some Initial Values
             GameModel.CurrentArmyDefinitionId = 1;
             GameModel.CurrentArmyUnitDefinitionId = 2;
-            GameModel.CurrentAllyDefinitionId = 3;
+            GameModel.CurrentAllyArmyDefinitionId = 3;
         }
 
         [TestMethod]
@@ -76,13 +76,13 @@ namespace GameEditor.Wcf.Harness.UnitTest.Presenters
             // Arrange
             const int value = 5;
             SetInitialValues();
-            var currentAllyId = GameModel.CurrentAllyDefinitionId;
+            var currentAllyId = GameModel.CurrentAllyArmyDefinitionId;
 
             // Act
             SystemUnderTest.SelectUnitArmy(value);
 
             // Assert
-            Assert.AreEqual(currentAllyId, GameModel.CurrentAllyDefinitionId);
+            Assert.AreEqual(currentAllyId, GameModel.CurrentAllyArmyDefinitionId);
         }
     }
 }

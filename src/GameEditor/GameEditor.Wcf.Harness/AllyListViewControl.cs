@@ -54,9 +54,6 @@ namespace GameEditor.Wcf.Harness
             set { this.InvokeIfRequired(() => ListTextBox.Text = value.ToString()); }
         }
 
-        //public int MinYear { get; set; }
-        //public int MaxYear { get; set; }
-
         public int MinYear
         {
             get
@@ -105,7 +102,7 @@ namespace GameEditor.Wcf.Harness
         private void AlliedListComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (AlliedListComboBox.SelectedIndex < 0) return;
-            _presenter.SelectArmy(AlliedListComboBox.SelectedIndex);
+            _presenter.SelectArmy();
         }
 
         private void MinYearTextBox_TextChanged(object sender, EventArgs e)

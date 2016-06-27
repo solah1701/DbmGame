@@ -131,8 +131,8 @@
     <Compile Include="IoC\Bindings.cs" />
     <Compile Include="IoC\IoCContainer.cs" />
     <Compile Include="IoC\StaticBindings.cs" />
-    <Compile Include="Models\GameModel.cs" />
-    <Compile Include="Models\IGameModel.cs" />
+    <Compile Include="EventAggregators\Models\GameModel.cs" />
+    <Compile Include="EventAggregators\Models\IGameModel.cs" />
     <Compile Include="Mvc\Controller.cs" />
     <Compile Include="Mvc\IController.cs" />
     <Compile Include="Program.cs" />

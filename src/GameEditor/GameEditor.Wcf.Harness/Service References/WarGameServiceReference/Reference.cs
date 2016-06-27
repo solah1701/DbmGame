@@ -1685,10 +1685,16 @@ namespace GameEditor.Wcf.Harness.WarGameServiceReference {
         private string AllyNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ArmyBookField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int ArmyIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Uri ArmyLinkField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ArmyListField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IdField;
@@ -1726,6 +1732,19 @@ namespace GameEditor.Wcf.Harness.WarGameServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ArmyBook {
+            get {
+                return this.ArmyBookField;
+            }
+            set {
+                if ((this.ArmyBookField.Equals(value) != true)) {
+                    this.ArmyBookField = value;
+                    this.RaisePropertyChanged("ArmyBook");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int ArmyId {
             get {
                 return this.ArmyIdField;
@@ -1747,6 +1766,19 @@ namespace GameEditor.Wcf.Harness.WarGameServiceReference {
                 if ((object.ReferenceEquals(this.ArmyLinkField, value) != true)) {
                     this.ArmyLinkField = value;
                     this.RaisePropertyChanged("ArmyLink");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ArmyList {
+            get {
+                return this.ArmyListField;
+            }
+            set {
+                if ((this.ArmyListField.Equals(value) != true)) {
+                    this.ArmyListField = value;
+                    this.RaisePropertyChanged("ArmyList");
                 }
             }
         }

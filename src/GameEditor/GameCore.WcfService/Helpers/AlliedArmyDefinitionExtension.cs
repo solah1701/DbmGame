@@ -19,6 +19,8 @@ namespace GameCore.WcfService.Helpers
             {
                 Id = definition.AlliedArmyListDefinitionId,
                 AllyName = definition.Name,
+                ArmyBook = definition.Book,
+                ArmyList = definition.List,
                 MinYear = definition.MinYear,
                 MaxYear = definition.MaxYear
             };
@@ -30,6 +32,8 @@ namespace GameCore.WcfService.Helpers
             {
                 AlliedArmyListDefinitionId = definition.Id,
                 Name = definition.AllyName,
+                Book = definition.ArmyBook,
+                List = definition.ArmyList,
                 MinYear = definition.MinYear,
                 MaxYear = definition.MaxYear
             };
@@ -39,6 +43,8 @@ namespace GameCore.WcfService.Helpers
         {
             definition.AlliedArmyListDefinitionId = item.Id;
             definition.Name = item.AllyName;
+            definition.Book = item.ArmyBook;
+            definition.List = item.ArmyList;
             definition.MinYear = item.MinYear;
             definition.MaxYear = item.MaxYear;
         }
@@ -47,6 +53,8 @@ namespace GameCore.WcfService.Helpers
         {
             original.AlliedArmyListDefinitionId = definition.Id;
             original.Name = definition.AllyName;
+            original.Book = definition.ArmyBook;
+            original.List = definition.ArmyList;
             original.MinYear = definition.MinYear;
             original.MaxYear = definition.MaxYear;
 

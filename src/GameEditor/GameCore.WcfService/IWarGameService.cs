@@ -283,6 +283,8 @@ namespace GameCore.WcfService
         public string AllyName { get; set; }
         public Uri ArmyLink { get; set; }
         public int ArmyId { get; set; }
+        public int ArmyBook { get; set; }
+        public int ArmyList { get; set; }
         public int MinYear { get; set; }
         public int MaxYear { get; set; }
     }

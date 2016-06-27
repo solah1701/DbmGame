@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using GameEditor.Wcf.Harness.WarGameServiceReference;
@@ -23,9 +24,9 @@ namespace GameEditor.Wcf.Harness.Extensions
             }).Select(subItem => new ListViewItem(subItem)).ToArray();
         }
 
-        public static Array ConvertToStringArray(this ArmyDefinitions definitions)
+        public static List<string> ConvertToStringArray(this ArmyDefinitions definitions)
         {
-            return definitions.Select(armyDefinition => armyDefinition.ArmyName).ToArray();
+            return definitions.Select(armyDefinition => armyDefinition.ArmyName).ToList();
         }
 
         public static ListViewItem[] ConvertToListViewItems(this ArmyUnitDefinitions definitions)

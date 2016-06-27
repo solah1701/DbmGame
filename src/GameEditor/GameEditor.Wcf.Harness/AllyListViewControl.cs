@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using GameEditor.Wcf.Harness.Extensions;
 using GameEditor.Wcf.Harness.Helpers;
@@ -21,7 +22,7 @@ namespace GameEditor.Wcf.Harness
             _presenter.PopulateList();
         }
 
-        public Array AlliedArmyDefinitions
+        public List<string> AlliedArmyDefinitions
         {
             set { this.InvokeIfRequired(() => AlliedListComboBox.DataSource = value); }
         }
@@ -31,7 +32,7 @@ namespace GameEditor.Wcf.Harness
             get { return AlliedListComboBox.Text; }
             set { this.InvokeIfRequired(() =>
             {
-                AlliedListComboBox.SelectedValue = value;
+                AlliedListComboBox.SelectedItem = value;
                 //AlliedListComboBox.Text = value;
             }); }
         }

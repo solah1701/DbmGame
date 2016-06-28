@@ -58,6 +58,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Logic\LogicTest.cs" />
     <Compile Include="Presenters\AllyListPresenterTest.cs" />
     <Compile Include="Presenters\ArmyDetailPresenterTest.cs" />
     <Compile Include="Presenters\ArmyUnitListPresenterTest.cs" />

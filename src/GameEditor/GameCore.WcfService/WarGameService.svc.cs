@@ -726,8 +726,9 @@ namespace GameCore.WcfService
         {
             using (var db = new DbmModel())
             {
+                //                 return MinDate >= min && MinDate <= max || MinDate <= min && MaxDate >= min;
                 var definitions =
-                    db.ArmyListDefinitions.Where(armyList => armyList.ArmyListDefinitionId != id && armyList.MinYear >= minDate && armyList.MinYear <= maxDate)
+                    db.ArmyListDefinitions.Where(armyList => armyList.ArmyListDefinitionId != id && armyList.MinYear >= minDate && armyList.MinYear <= maxDate || armyList.MinYear <= minDate && armyList.MaxYear >= minDate)
                         .ToList()
                         .GetArmyDefinitions();
                 SetStatusOk();

@@ -17,11 +17,11 @@ namespace GameCore.WcfService.Helpers
         private Dictionary<int, ArmyDefinition> ArmyDefinitions { get; set; }
         private Dictionary<int, ArmyUnitDefinition> ArmyUnitDefinitions { get; set; }
 
-        private IDbmModel _model;
+        private DbmModel _model;
 
         public WarGameModel() : this(new DbmModel()) { }
 
-        public WarGameModel(IDbmModel model)
+        public WarGameModel(DbmModel model)
         {
             _model = model;
         }

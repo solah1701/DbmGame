@@ -29,5 +29,6 @@ namespace GameCore.WcfService.DebellisMultitudinis
         public DispositionTypeEnum DispositionType { get; set; }
 
         public virtual ArmyListDefinition ArmyListDefinition { get; set; }
+        public virtual AlternativeUnitDefinition AlternativeUnitDefinition { get; set; }
     }
 }

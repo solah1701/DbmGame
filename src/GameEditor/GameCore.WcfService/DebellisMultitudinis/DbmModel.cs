@@ -2,7 +2,7 @@
 
 namespace GameCore.WcfService.DebellisMultitudinis
 {
-    public class DbmModel : DbContext, IDbmModel
+    public class DbmModel : DbContext//, IDbmModel
     {
         public DbmModel(): base("DbmGame")
         {
@@ -24,5 +24,6 @@ namespace GameCore.WcfService.DebellisMultitudinis
         public virtual DbSet<ArmyListDefinition> ArmyListDefinitions { get; set; }
         public virtual DbSet<ArmyListUnitDefinition> ArmyUnitDefinitions { get; set; } 
         public virtual DbSet<AlliedArmyListDefinition> AlliedArmyListDefinitions { get; set; }
+        public virtual DbSet<AlternativeUnitDefinition> AlternativeUnitDefinitions { get; set; } 
     }
 }

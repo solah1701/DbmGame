@@ -75,12 +75,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DebellisMultitudinis\AlliedArmyListDefinition.cs" />
+    <Compile Include="DebellisMultitudinis\AlternativeUnitDefinition.cs" />
     <Compile Include="DebellisMultitudinis\IDbmModel.cs" />
     <Compile Include="Exceptions\PrimaryKeyViolationException.cs" />
     <Compile Include="Exceptions\RecordNotFoundException.cs" />
-    <Compile Include="DebellisMultitudinis\ArmyDefinitionExtension.cs" />
+    <Compile Include="Helpers\ArmyDefinitionExtension.cs" />
     <Compile Include="Helpers\AlliedArmyDefinitionExtension.cs" />
     <Compile Include="Helpers\ArmyUnitDefinitionExtension.cs" />
+    <Compile Include="Helpers\WarGameModel.cs" />
     <Compile Include="Migrations\201606210645450_AlliedArmyList.cs" />
     <Compile Include="Migrations\201606210645450_AlliedArmyList.Designer.cs">
       <DependentUpon>201606210645450_AlliedArmyList.cs</DependentUpon>
@@ -96,6 +98,10 @@
     <Compile Include="Migrations\201606271119402_AlliedArmyList_4.cs" />
     <Compile Include="Migrations\201606271119402_AlliedArmyList_4.Designer.cs">
       <DependentUpon>201606271119402_AlliedArmyList_4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201607031411301_AlternativeUnits.cs" />
+    <Compile Include="Migrations\201607031411301_AlternativeUnits.Designer.cs">
+      <DependentUpon>201607031411301_AlternativeUnits.cs</DependentUpon>
     </Compile>
     <Compile Include="WarGameService.svc.cs">
       <DependentUpon>WarGameService.svc</DependentUpon>
@@ -150,7 +156,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DebellisMultitudinis\User.cs" />
     <Compile Include="Helpers\IWarGameModel.cs" />
-    <Compile Include="Helpers\WarGameModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -197,6 +202,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201606271119402_AlliedArmyList_4.resx">
       <DependentUpon>201606271119402_AlliedArmyList_4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607031411301_AlternativeUnits.resx">
+      <DependentUpon>201607031411301_AlternativeUnits.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

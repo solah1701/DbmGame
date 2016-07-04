@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using GameCore.DebellisMultitudinis.Enumerations;
 using GameCore.WcfService.DebellisMultitudinis.Enumerations;
@@ -29,6 +30,6 @@ namespace GameCore.WcfService.DebellisMultitudinis
         public DispositionTypeEnum DispositionType { get; set; }
 
         public virtual ArmyListDefinition ArmyListDefinition { get; set; }
-        public virtual AlternativeListUnitDefinition AlternativeUnitDefinition { get; set; }
+        public virtual List<AlternativeListUnitDefinition> AlternativeUnitDefinitions { get; set; }
     }
 }

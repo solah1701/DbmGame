@@ -6,7 +6,7 @@ namespace GameCore.WcfService.Helpers
 {
     public static class AlternativeDefinitionExtension
     {
-        public static AlternativeUnitDefinitions GetAlliedArmyDefinitions(this List<AlternativeListUnitDefinition> definitions)
+        public static AlternativeUnitDefinitions GetAlternativeUnitDefinitions(this List<AlternativeListUnitDefinition> definitions)
         {
             var result = new AlternativeUnitDefinitions();
             result.AddRange(definitions.Select<AlternativeListUnitDefinition, AlternativeUnitDefinition>(armyListDefinition => armyListDefinition.GetAlternativeUnitDefinition()));

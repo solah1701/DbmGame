@@ -804,13 +804,12 @@ namespace GameCore.WcfService
         {
             using (var db = new DbmModel())
             {
-                //TODO: The current model contains only a singular alternative... Need to consider plural
                 var alternativeUnits =
                     db.ArmyListDefinitions.Find(armyDefinitionId)
                         .ArmyListUnitDefinitions.Find(unit => unit.ArmyUnitDefinitionId == unitId)
-                        .AlternativeUnitDefinition.GetAlternativeUnitDefinition();
+                        .AlternativeUnitDefinitions.GetAlternativeUnitDefinitions();
                 SetStatusOk();
-                return alternativeUnits == null ? new AlternativeUnitDefinitions() : new AlternativeUnitDefinitions { alternativeUnits };
+                return !alternativeUnits.Any() ? new AlternativeUnitDefinitions() : alternativeUnits;
             }
         }
 
@@ -820,11 +819,9 @@ namespace GameCore.WcfService
             {
                 var alternativeUnit =
                     db.ArmyListDefinitions.Find(armyDefinitionId)
-                        .ArmyListUnitDefinitions.Find(
-                            unit =>
-                                unit.ArmyUnitDefinitionId == unitId &&
-                                unit.AlternativeUnitDefinition.AlternativeUnitDefinitionId == id)
-                        .AlternativeUnitDefinition.GetAlternativeUnitDefinition();
+                        .ArmyListUnitDefinitions.Find(unit => unit.ArmyUnitDefinitionId == unitId)
+                        .AlternativeUnitDefinitions.Find(altUnit => altUnit.AlternativeUnitDefinitionId == id)
+                        .GetAlternativeUnitDefinition();
                 if (alternativeUnit == null)
                 {
                     SetStatusNotFound();
@@ -852,7 +849,7 @@ namespace GameCore.WcfService
                     return 0;
                 }
                 var alternativeUnit = alternativeUnitDefinition.GetAlternativeUnitDefinition();
-                armyUnit.AlternativeUnitDefinition = alternativeUnit;
+                armyUnit.AlternativeUnitDefinitions.Add(alternativeUnit);
                 //TODO: I dont think we need the two lines commented below
                 //armyList.ArmyListUnitDefinitions.Add(armyUnit);
                 //db.ArmyUnitDefinitions.Add(armyUnit);
@@ -881,7 +878,7 @@ namespace GameCore.WcfService
 
         public void DeleteAlternativeUnitDefinition(int armyDefinitionId, int unitId, int id)
         {
-            using (var db=new DbmModel())
+            using (var db = new DbmModel())
             {
                 var alternativeUnit = db.AlternativeUnitDefinitions.Find(id);
                 if (alternativeUnit == null) return;

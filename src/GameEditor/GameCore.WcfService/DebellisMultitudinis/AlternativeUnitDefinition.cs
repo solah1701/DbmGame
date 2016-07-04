@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace GameCore.WcfService.DebellisMultitudinis
 {
     [Table("AlternativeUnitDefnition")]
-    public class AlternativeUnitDefinition
+    public class AlternativeListUnitDefinition
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]

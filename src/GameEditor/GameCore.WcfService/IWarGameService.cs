@@ -225,6 +225,30 @@ namespace GameCore.WcfService
         void DeleteAlliedArmyDefinition(int armyDefinitionId, int id);
 
         #endregion
+
+        #region Alternative or Update Unit
+
+        [WebGet(UriTemplate = "ArmyDefinitions/{armyDefinitionId}/ArmyUnitDefinitions/{unitId}/AlternativeUnitDefinitions")]
+        [OperationContract]
+        AlternativeUnitDefinitions GetAlternativeUnitDefinitions(int armyDefinitionId, int unitId);
+
+        [WebGet(UriTemplate = "ArmyDefinitions/{armyDefinitionId}/ArmyUnitDefinitions/{unitId}/AlternativeUnitDefinitions/{id}")]
+        [OperationContract]
+        AlternativeUnitDefinition GetAlternativeUnitDefinition(int armyDefinitionId, int unitId, int id);
+
+        [WebInvoke(Method = "POST", UriTemplate = "ArmyDefinitions/{armyDefinitionId}/ArmyUnitDefinitions/{unitId}/AlternativeUnitDefinitions")]
+        [OperationContract]
+        int PostAlternativeUnitDefinition(int armyDefinitionId, int unitId, AlternativeUnitDefinition alternativeUnitDefinition);
+
+        [WebInvoke(Method = "PUT", UriTemplate = "ArmyDefinitions/{armyDefinitionId}/ArmyUnitDefinitions/{unitId}/AlternativeUnitDefinitions/{id}")]
+        [OperationContract]
+        int PutAlternativeUnitDefinition(int armyDefinitionId, int unitId, int id, AlternativeUnitDefinition alternativeUnitDefinition);
+
+        [WebInvoke(Method = "Delete", UriTemplate = "ArmyDefinitions/{armyDefinitionId}/ArmyUnitDefinitions/{unitId}/AlternativeUnitDefinitions/{id}")]
+        [OperationContract]
+        void DeleteAlternativeUnitDefinition(int armyDefinitionId, int unitId, int id);
+
+        #endregion
     }
 
     public class ArmyDefinition
@@ -294,6 +318,27 @@ namespace GameCore.WcfService
     {
         public AlliedArmyDefinitions() { }
         public AlliedArmyDefinitions(List<AlliedArmyDefinition> alliedArmyDefinitions) : base(alliedArmyDefinitions) { }
+    }
+
+    public class AlternativeUnitDefinition
+    {
+        public Uri IdLink { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public Uri AlternativeUnitLink { get; set; }
+        public int AlternativeUnitId { get; set; }
+        public Uri UnitLink { get; set; }
+        public int UnitId { get; set; }
+        public bool Upgrade { get; set; }
+        public int MinPercent { get; set; }
+        public int MaxPercent { get; set; }
+    }
+
+    [CollectionDataContract]
+    public class AlternativeUnitDefinitions : List<AlternativeUnitDefinition>
+    {
+        public AlternativeUnitDefinitions() { }
+        public AlternativeUnitDefinitions(List<AlternativeUnitDefinition> alternativeUnitDefinitions) : base(alternativeUnitDefinitions) { }
     }
 
     public class User

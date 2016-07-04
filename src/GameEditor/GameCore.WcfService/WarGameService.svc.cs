@@ -800,6 +800,97 @@ namespace GameCore.WcfService
             }
         }
 
+        public AlternativeUnitDefinitions GetAlternativeUnitDefinitions(int armyDefinitionId, int unitId)
+        {
+            using (var db = new DbmModel())
+            {
+                //TODO: The current model contains only a singular alternative... Need to consider plural
+                var alternativeUnits =
+                    db.ArmyListDefinitions.Find(armyDefinitionId)
+                        .ArmyListUnitDefinitions.Find(unit => unit.ArmyUnitDefinitionId == unitId)
+                        .AlternativeUnitDefinition.GetAlternativeUnitDefinition();
+                SetStatusOk();
+                return alternativeUnits == null ? new AlternativeUnitDefinitions() : new AlternativeUnitDefinitions { alternativeUnits };
+            }
+        }
+
+        public AlternativeUnitDefinition GetAlternativeUnitDefinition(int armyDefinitionId, int unitId, int id)
+        {
+            using (var db = new DbmModel())
+            {
+                var alternativeUnit =
+                    db.ArmyListDefinitions.Find(armyDefinitionId)
+                        .ArmyListUnitDefinitions.Find(
+                            unit =>
+                                unit.ArmyUnitDefinitionId == unitId &&
+                                unit.AlternativeUnitDefinition.AlternativeUnitDefinitionId == id)
+                        .AlternativeUnitDefinition.GetAlternativeUnitDefinition();
+                if (alternativeUnit == null)
+                {
+                    SetStatusNotFound();
+                    return null;
+                }
+                SetStatusOk();
+                return alternativeUnit;
+            }
+        }
+
+        public int PostAlternativeUnitDefinition(int armyDefinitionId, int unitId, AlternativeUnitDefinition alternativeUnitDefinition)
+        {
+            using (var db = new DbmModel())
+            {
+                var armyList = db.ArmyListDefinitions.Find(armyDefinitionId);
+                if (armyList == null)
+                {
+                    SetStatusNotFound();
+                    return 0;
+                }
+                var armyUnit = armyList.ArmyListUnitDefinitions.Find(unit => unit.ArmyUnitDefinitionId == unitId);
+                if (armyUnit == null)
+                {
+                    SetStatusNotFound();
+                    return 0;
+                }
+                var alternativeUnit = alternativeUnitDefinition.GetAlternativeUnitDefinition();
+                armyUnit.AlternativeUnitDefinition = alternativeUnit;
+                //TODO: I dont think we need the two lines commented below
+                //armyList.ArmyListUnitDefinitions.Add(armyUnit);
+                //db.ArmyUnitDefinitions.Add(armyUnit);
+                db.SaveChanges();
+                SetStatusOk();
+                return alternativeUnit.AlternativeUnitDefinitionId;
+            }
+        }
+
+        public int PutAlternativeUnitDefinition(int armyDefinitionId, int unitId, int id, AlternativeUnitDefinition alternativeUnitDefinition)
+        {
+            if (alternativeUnitDefinition.Id == 0)
+                return PostAlternativeUnitDefinition(armyDefinitionId, unitId, alternativeUnitDefinition);
+            using (var db = new DbmModel())
+            {
+                var alternativeUnit =
+                    alternativeUnitDefinition.UpdateAlternativeUnitDefinition(
+                        db.AlternativeUnitDefinitions.Find(alternativeUnitDefinition.Id));
+                db.AlternativeUnitDefinitions.Attach(alternativeUnit);
+                db.Entry(alternativeUnit).State = EntityState.Modified;
+                db.SaveChanges();
+                SetStatusOk();
+                return alternativeUnit.AlternativeUnitDefinitionId;
+            }
+        }
+
+        public void DeleteAlternativeUnitDefinition(int armyDefinitionId, int unitId, int id)
+        {
+            using (var db=new DbmModel())
+            {
+                var alternativeUnit = db.AlternativeUnitDefinitions.Find(id);
+                if (alternativeUnit == null) return;
+                db.AlternativeUnitDefinitions.Remove(alternativeUnit);
+                db.SaveChanges();
+                SetStatusOk();
+            }
+        }
+
         private bool IsUserAuthorized(string username)
         {
             var ctx = WebOperationContext.Current;

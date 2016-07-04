@@ -79,6 +79,7 @@
     <Compile Include="DebellisMultitudinis\IDbmModel.cs" />
     <Compile Include="Exceptions\PrimaryKeyViolationException.cs" />
     <Compile Include="Exceptions\RecordNotFoundException.cs" />
+    <Compile Include="Helpers\AlternativeUnitDefinitionExtension.cs" />
     <Compile Include="Helpers\ArmyDefinitionExtension.cs" />
     <Compile Include="Helpers\AlliedArmyDefinitionExtension.cs" />
     <Compile Include="Helpers\ArmyUnitDefinitionExtension.cs" />

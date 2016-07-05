@@ -93,6 +93,7 @@
             this.NameTextBox.Name = "NameTextBox";
             this.NameTextBox.Size = new System.Drawing.Size(479, 22);
             this.NameTextBox.TabIndex = 3;
+            this.NameTextBox.TextChanged += new System.EventHandler(this.NameTextBox_TextChanged);
             // 
             // label2
             // 
@@ -147,6 +148,7 @@
             this.MaxCountTextBox.Name = "MaxCountTextBox";
             this.MaxCountTextBox.Size = new System.Drawing.Size(479, 22);
             this.MaxCountTextBox.TabIndex = 9;
+            this.MaxCountTextBox.TextChanged += new System.EventHandler(this.MaxCountTextBox_TextChanged);
             // 
             // label5
             // 

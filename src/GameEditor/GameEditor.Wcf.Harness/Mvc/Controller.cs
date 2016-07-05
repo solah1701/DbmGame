@@ -10,6 +10,8 @@
             InitialiseView();
         }
 
+        public virtual void ViewChanged() { }
+
         protected virtual void InitialiseView() { }
     }
 }

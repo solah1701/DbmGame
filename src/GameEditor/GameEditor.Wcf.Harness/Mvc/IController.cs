@@ -3,5 +3,6 @@
     public interface IController<in T>
     {
         void SetView(T view);
+        void ViewChanged();
     }
 }

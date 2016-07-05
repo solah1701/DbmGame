@@ -136,6 +136,11 @@ namespace GameEditor.Wcf.Harness
             set { this.InvokeIfRequired(() => DispositionComboBox.DataSource = value); }
         }
 
+        public bool CanCopy { set { this.InvokeIfRequired(() => CopyButton.Enabled = value); } }
+        public bool CanUpdate { set { this.InvokeIfRequired(() => UpdateButton.Enabled = value); } }
+        public bool CanDelete { set { this.InvokeIfRequired(() => DeleteButton.Enabled = value); } }
+        public bool CanAddAlternative { set { this.InvokeIfRequired(() => AlternativeButton.Enabled = value); } }
+
         public int MinYear
         {
             get { return int.Parse(MinYearTextBox.Text); }
@@ -160,6 +165,16 @@ namespace GameEditor.Wcf.Harness
         private void AlternativeButton_Click(object sender, EventArgs e)
         {
             throw new NotImplementedException();
+        }
+
+        private void NameTextBox_TextChanged(object sender, EventArgs e)
+        {
+            _presenter.ViewChanged();
+        }
+
+        private void MaxCountTextBox_TextChanged(object sender, EventArgs e)
+        {
+            _presenter.ViewChanged();
         }
     }
 }

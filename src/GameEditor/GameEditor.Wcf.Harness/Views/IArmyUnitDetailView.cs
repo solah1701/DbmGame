@@ -25,5 +25,9 @@ namespace GameEditor.Wcf.Harness.Views
         Array UnitData { set; }
         Array GradeData { set; }
         Array DispositionData { set; }
+        bool CanCopy { set; }
+        bool CanUpdate { set; }
+        bool CanDelete { set; }
+        bool CanAddAlternative { set; }
     }
 }

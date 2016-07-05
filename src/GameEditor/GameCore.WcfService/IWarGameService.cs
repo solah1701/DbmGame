@@ -330,8 +330,9 @@ namespace GameCore.WcfService
         public Uri UnitLink { get; set; }
         public int UnitId { get; set; }
         public bool Upgrade { get; set; }
-        public int MinPercent { get; set; }
-        public int MaxPercent { get; set; }
+        public int MinValue { get; set; }
+        public int MaxValue { get; set; }
+        public bool Percent { get; set; }
     }
 
     [CollectionDataContract]

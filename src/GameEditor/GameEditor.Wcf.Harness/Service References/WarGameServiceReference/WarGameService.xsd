@@ -176,4 +176,25 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="AlliedArmyDefinition" nillable="true" type="tns:AlliedArmyDefinition" />
+  <xs:complexType name="AlternativeUnitDefinitions">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AlternativeUnitDefinition" nillable="true" type="tns:AlternativeUnitDefinition" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AlternativeUnitDefinitions" nillable="true" type="tns:AlternativeUnitDefinitions" />
+  <xs:complexType name="AlternativeUnitDefinition">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AlternativeUnitId" type="xs:int" />
+      <xs:element minOccurs="0" name="AlternativeUnitLink" nillable="true" type="xs:anyURI" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IdLink" nillable="true" type="xs:anyURI" />
+      <xs:element minOccurs="0" name="MaxPercent" type="xs:int" />
+      <xs:element minOccurs="0" name="MinPercent" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UnitId" type="xs:int" />
+      <xs:element minOccurs="0" name="UnitLink" nillable="true" type="xs:anyURI" />
+      <xs:element minOccurs="0" name="Upgrade" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AlternativeUnitDefinition" nillable="true" type="tns:AlternativeUnitDefinition" />
 </xs:schema>

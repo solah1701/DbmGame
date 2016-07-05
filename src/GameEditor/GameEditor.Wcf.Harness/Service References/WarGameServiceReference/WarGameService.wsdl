@@ -284,6 +284,36 @@
   <wsdl:message name="IWarGameService_DeleteAlliedArmyDefinition_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteAlliedArmyDefinitionResponse" />
   </wsdl:message>
+  <wsdl:message name="IWarGameService_GetAlternativeUnitDefinitions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAlternativeUnitDefinitions" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_GetAlternativeUnitDefinitions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAlternativeUnitDefinitionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_GetAlternativeUnitDefinition_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAlternativeUnitDefinition" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_GetAlternativeUnitDefinition_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAlternativeUnitDefinitionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_PostAlternativeUnitDefinition_InputMessage">
+    <wsdl:part name="parameters" element="tns:PostAlternativeUnitDefinition" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_PostAlternativeUnitDefinition_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PostAlternativeUnitDefinitionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_PutAlternativeUnitDefinition_InputMessage">
+    <wsdl:part name="parameters" element="tns:PutAlternativeUnitDefinition" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_PutAlternativeUnitDefinition_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PutAlternativeUnitDefinitionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_DeleteAlternativeUnitDefinition_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAlternativeUnitDefinition" />
+  </wsdl:message>
+  <wsdl:message name="IWarGameService_DeleteAlternativeUnitDefinition_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAlternativeUnitDefinitionResponse" />
+  </wsdl:message>
   <wsdl:portType name="IWarGameService">
     <wsdl:operation name="GetUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IWarGameService/GetUser" message="tns:IWarGameService_GetUser_InputMessage" />
@@ -468,6 +498,26 @@
     <wsdl:operation name="DeleteAlliedArmyDefinition">
       <wsdl:input wsaw:Action="http://tempuri.org/IWarGameService/DeleteAlliedArmyDefinition" message="tns:IWarGameService_DeleteAlliedArmyDefinition_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IWarGameService/DeleteAlliedArmyDefinitionResponse" message="tns:IWarGameService_DeleteAlliedArmyDefinition_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAlternativeUnitDefinitions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWarGameService/GetAlternativeUnitDefinitions" message="tns:IWarGameService_GetAlternativeUnitDefinitions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWarGameService/GetAlternativeUnitDefinitionsResponse" message="tns:IWarGameService_GetAlternativeUnitDefinitions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAlternativeUnitDefinition">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWarGameService/GetAlternativeUnitDefinition" message="tns:IWarGameService_GetAlternativeUnitDefinition_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWarGameService/GetAlternativeUnitDefinitionResponse" message="tns:IWarGameService_GetAlternativeUnitDefinition_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PostAlternativeUnitDefinition">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWarGameService/PostAlternativeUnitDefinition" message="tns:IWarGameService_PostAlternativeUnitDefinition_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWarGameService/PostAlternativeUnitDefinitionResponse" message="tns:IWarGameService_PostAlternativeUnitDefinition_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PutAlternativeUnitDefinition">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWarGameService/PutAlternativeUnitDefinition" message="tns:IWarGameService_PutAlternativeUnitDefinition_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWarGameService/PutAlternativeUnitDefinitionResponse" message="tns:IWarGameService_PutAlternativeUnitDefinition_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAlternativeUnitDefinition">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWarGameService/DeleteAlternativeUnitDefinition" message="tns:IWarGameService_DeleteAlternativeUnitDefinition_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWarGameService/DeleteAlternativeUnitDefinitionResponse" message="tns:IWarGameService_DeleteAlternativeUnitDefinition_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IWarGameService" type="tns:IWarGameService">
@@ -879,6 +929,51 @@
     </wsdl:operation>
     <wsdl:operation name="DeleteAlliedArmyDefinition">
       <soap:operation soapAction="http://tempuri.org/IWarGameService/DeleteAlliedArmyDefinition" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlternativeUnitDefinitions">
+      <soap:operation soapAction="http://tempuri.org/IWarGameService/GetAlternativeUnitDefinitions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlternativeUnitDefinition">
+      <soap:operation soapAction="http://tempuri.org/IWarGameService/GetAlternativeUnitDefinition" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostAlternativeUnitDefinition">
+      <soap:operation soapAction="http://tempuri.org/IWarGameService/PostAlternativeUnitDefinition" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PutAlternativeUnitDefinition">
+      <soap:operation soapAction="http://tempuri.org/IWarGameService/PutAlternativeUnitDefinition" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAlternativeUnitDefinition">
+      <soap:operation soapAction="http://tempuri.org/IWarGameService/DeleteAlternativeUnitDefinition" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

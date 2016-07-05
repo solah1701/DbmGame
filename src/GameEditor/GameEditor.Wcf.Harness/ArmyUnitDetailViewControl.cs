@@ -156,5 +156,10 @@ namespace GameEditor.Wcf.Harness
         {
             _presenter.CopyArmyUnitDetail();
         }
+
+        private void AlternativeButton_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -108,6 +108,10 @@
     <Compile Include="Migrations\201607040625580_AlternativeUnits1.Designer.cs">
       <DependentUpon>201607040625580_AlternativeUnits1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201607050202213_AlternativeUnits2.cs" />
+    <Compile Include="Migrations\201607050202213_AlternativeUnits2.Designer.cs">
+      <DependentUpon>201607050202213_AlternativeUnits2.cs</DependentUpon>
+    </Compile>
     <Compile Include="WarGameService.svc.cs">
       <DependentUpon>WarGameService.svc</DependentUpon>
     </Compile>
@@ -213,6 +217,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201607040625580_AlternativeUnits1.resx">
       <DependentUpon>201607040625580_AlternativeUnits1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607050202213_AlternativeUnits2.resx">
+      <DependentUpon>201607050202213_AlternativeUnits2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

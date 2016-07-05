@@ -9,7 +9,7 @@ namespace GameCore.WcfService.Helpers
         public static AlternativeUnitDefinitions GetAlternativeUnitDefinitions(this List<AlternativeListUnitDefinition> definitions)
         {
             var result = new AlternativeUnitDefinitions();
-            result.AddRange(definitions.Select<AlternativeListUnitDefinition, AlternativeUnitDefinition>(armyListDefinition => armyListDefinition.GetAlternativeUnitDefinition()));
+            result.AddRange(definitions.Select(armyListDefinition => armyListDefinition.GetAlternativeUnitDefinition()));
             return result;
         }
 
@@ -22,8 +22,9 @@ namespace GameCore.WcfService.Helpers
                 UnitId = definition.UnitId,
                 AlternativeUnitId = definition.AlternativeUnitId,
                 Upgrade = definition.Upgrade,
-                MinPercent = definition.MinPercent,
-                MaxPercent = definition.MinPercent
+                MinValue = definition.MinValue,
+                MaxValue = definition.MaxValue,
+                Percent = definition.Percent
             };
         }
 
@@ -36,20 +37,22 @@ namespace GameCore.WcfService.Helpers
                 UnitId = definition.UnitId,
                 AlternativeUnitId = definition.AlternativeUnitId,
                 Upgrade = definition.Upgrade,
-                MinPercent = definition.MinPercent,
-                MaxPercent = definition.MinPercent
+                MinValue = definition.MinValue,
+                MaxValue = definition.MaxValue,
+                Percent = definition.Percent
             };
         }
 
-        public static void SetAlliedArmyListDefinition(this AlternativeListUnitDefinition definition, AlternativeUnitDefinition item)
+        public static void SetAlternativeUnitListDefinition(this AlternativeListUnitDefinition definition, AlternativeUnitDefinition item)
         {
             definition.AlternativeUnitDefinitionId = item.Id;
             definition.Name = item.Name;
             definition.UnitId = item.UnitId;
             definition.AlternativeUnitId = item.AlternativeUnitId;
             definition.Upgrade = item.Upgrade;
-            definition.MinPercent = item.MinPercent;
-            definition.MaxPercent = item.MinPercent;
+            definition.MinValue = item.MinValue;
+            definition.MaxValue = item.MaxValue;
+            definition.Percent = item.Percent;
         }
 
         public static AlternativeListUnitDefinition UpdateAlternativeUnitDefinition(this AlternativeUnitDefinition definition, AlternativeListUnitDefinition original)
@@ -59,8 +62,9 @@ namespace GameCore.WcfService.Helpers
             original.UnitId = definition.UnitId;
             original.AlternativeUnitId = definition.AlternativeUnitId;
             original.Upgrade = definition.Upgrade;
-            original.MinPercent = definition.MinPercent;
-            original.MaxPercent = definition.MinPercent;
+            original.MinValue = definition.MinValue;
+            original.MaxValue = definition.MaxValue;
+            original.Percent = definition.Percent;
 
             return original;
         }

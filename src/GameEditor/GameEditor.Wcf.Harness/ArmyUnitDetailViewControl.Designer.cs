@@ -60,6 +60,7 @@
             this.CopyButton = new System.Windows.Forms.Button();
             this.DeleteButton = new System.Windows.Forms.Button();
             this.UpdateButton = new System.Windows.Forms.Button();
+            this.AlternativeButton = new System.Windows.Forms.Button();
             this.TopPanel.SuspendLayout();
             this.BottomPanel.SuspendLayout();
             this.SuspendLayout();
@@ -206,7 +207,7 @@
             this.TopPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TopPanel.Location = new System.Drawing.Point(0, 0);
             this.TopPanel.Name = "TopPanel";
-            this.TopPanel.Size = new System.Drawing.Size(566, 406);
+            this.TopPanel.Size = new System.Drawing.Size(566, 501);
             this.TopPanel.TabIndex = 14;
             // 
             // label11
@@ -360,11 +361,12 @@
             // 
             // BottomPanel
             // 
+            this.BottomPanel.Controls.Add(this.AlternativeButton);
             this.BottomPanel.Controls.Add(this.CopyButton);
             this.BottomPanel.Controls.Add(this.DeleteButton);
             this.BottomPanel.Controls.Add(this.UpdateButton);
             this.BottomPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.BottomPanel.Location = new System.Drawing.Point(0, 352);
+            this.BottomPanel.Location = new System.Drawing.Point(0, 447);
             this.BottomPanel.Name = "BottomPanel";
             this.BottomPanel.Size = new System.Drawing.Size(566, 54);
             this.BottomPanel.TabIndex = 18;
@@ -399,6 +401,16 @@
             this.UpdateButton.UseVisualStyleBackColor = true;
             this.UpdateButton.Click += new System.EventHandler(this.UpdateButton_Click);
             // 
+            // AlternativeButton
+            // 
+            this.AlternativeButton.Location = new System.Drawing.Point(410, 6);
+            this.AlternativeButton.Name = "AlternativeButton";
+            this.AlternativeButton.Size = new System.Drawing.Size(102, 43);
+            this.AlternativeButton.TabIndex = 17;
+            this.AlternativeButton.Text = "Add Alternative";
+            this.AlternativeButton.UseVisualStyleBackColor = true;
+            this.AlternativeButton.Click += new System.EventHandler(this.AlternativeButton_Click);
+            // 
             // ArmyUnitDetailViewControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -406,7 +418,7 @@
             this.Controls.Add(this.BottomPanel);
             this.Controls.Add(this.TopPanel);
             this.Name = "ArmyUnitDetailViewControl";
-            this.Size = new System.Drawing.Size(566, 406);
+            this.Size = new System.Drawing.Size(566, 501);
             this.TopPanel.ResumeLayout(false);
             this.TopPanel.PerformLayout();
             this.BottomPanel.ResumeLayout(false);
@@ -448,5 +460,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox DispositionComboBox;
         private System.Windows.Forms.Button CopyButton;
+        private System.Windows.Forms.Button AlternativeButton;
     }
 }

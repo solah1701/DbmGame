@@ -131,8 +131,8 @@
     <Compile Include="IoC\Bindings.cs" />
     <Compile Include="IoC\IoCContainer.cs" />
     <Compile Include="IoC\StaticBindings.cs" />
-    <Compile Include="EventAggregators\Models\GameModel.cs" />
-    <Compile Include="EventAggregators\Models\IGameModel.cs" />
+    <Compile Include="Models\GameModel.cs" />
+    <Compile Include="Models\IGameModel.cs" />
     <Compile Include="Mvc\Controller.cs" />
     <Compile Include="Mvc\IController.cs" />
     <Compile Include="Program.cs" />
@@ -199,6 +199,12 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\WarGameServiceReference\GameEditor.Wcf.Harness.WarGameServiceReference.AlliedArmyDefinitions.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WarGameServiceReference\GameEditor.Wcf.Harness.WarGameServiceReference.AlternativeUnitDefinition.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WarGameServiceReference\GameEditor.Wcf.Harness.WarGameServiceReference.AlternativeUnitDefinitions.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\WarGameServiceReference\GameEditor.Wcf.Harness.WarGameServiceReference.Armies.datasource">

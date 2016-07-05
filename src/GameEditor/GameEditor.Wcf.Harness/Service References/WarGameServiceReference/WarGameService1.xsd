@@ -675,4 +675,82 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetAlternativeUnitDefinitions">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="armyDefinitionId" type="xs:int" />
+        <xs:element minOccurs="0" name="unitId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAlternativeUnitDefinitionsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/GameCore.WcfService" minOccurs="0" name="GetAlternativeUnitDefinitionsResult" nillable="true" type="q38:AlternativeUnitDefinitions" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAlternativeUnitDefinition">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="armyDefinitionId" type="xs:int" />
+        <xs:element minOccurs="0" name="unitId" type="xs:int" />
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAlternativeUnitDefinitionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/GameCore.WcfService" minOccurs="0" name="GetAlternativeUnitDefinitionResult" nillable="true" type="q39:AlternativeUnitDefinition" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PostAlternativeUnitDefinition">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="armyDefinitionId" type="xs:int" />
+        <xs:element minOccurs="0" name="unitId" type="xs:int" />
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/GameCore.WcfService" minOccurs="0" name="alternativeUnitDefinition" nillable="true" type="q40:AlternativeUnitDefinition" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PostAlternativeUnitDefinitionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PostAlternativeUnitDefinitionResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PutAlternativeUnitDefinition">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="armyDefinitionId" type="xs:int" />
+        <xs:element minOccurs="0" name="unitId" type="xs:int" />
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/GameCore.WcfService" minOccurs="0" name="alternativeUnitDefinition" nillable="true" type="q41:AlternativeUnitDefinition" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PutAlternativeUnitDefinitionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PutAlternativeUnitDefinitionResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteAlternativeUnitDefinition">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="armyDefinitionId" type="xs:int" />
+        <xs:element minOccurs="0" name="unitId" type="xs:int" />
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteAlternativeUnitDefinitionResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

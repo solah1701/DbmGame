@@ -1,6 +1,5 @@
 ﻿using GameEditor.Wcf.Harness.Presenters;
 using Ninject.Modules;
-using GameEditor.Wcf.Harness.Views;
 
 namespace GameEditor.Wcf.Harness.IoC
 {
@@ -15,6 +14,8 @@ namespace GameEditor.Wcf.Harness.IoC
             Bind<IArmyUnitDetailPresenter>().To<ArmyUnitDetailPresenter>();
             Bind<IAllyListPresenter>().To<AllyListPresenter>();
             Bind<IArmyAllyListPresenter>().To<ArmyAllyListPresenter>();
+            Bind<IAlternativeUnitDetailPresenter>().To<AlternativeUnitDetailPresenter>();
+            Bind<IAlternativeUnitListPresenter>().To<AlternativeUnitListPresenter>();
         }
     }
 }

@@ -43,5 +43,16 @@ namespace GameEditor.Wcf.Harness.Extensions
                 armyDefinition.MaxCount.ToString()
             }).Select(subItem => new ListViewItem(subItem)).ToArray();
         }
+
+        public static ListViewItem[] ConvertToListViewItems(this AlternativeUnitDefinitions definitions)
+        {
+            return definitions.Select(altUnit => new[]
+            {
+                altUnit.Id.ToString(),
+                altUnit.Name,
+                altUnit.MinValue.ToString(),
+                altUnit.MaxValue.ToString()
+            }).Select(subItem => new ListViewItem(subItem)).ToArray();
+        }
     }
 }

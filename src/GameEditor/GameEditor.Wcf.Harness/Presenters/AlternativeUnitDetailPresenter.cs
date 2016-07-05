@@ -70,6 +70,11 @@ namespace GameEditor.Wcf.Harness.Presenters
             _event.PublishOnCurrentThread(new UpdateView());
         }
 
+        public void ShowList()
+        {
+            _event.PublishOnCurrentThread(new ShowAlternativeUnit(true));
+        }
+
         public void Handle(UpdateView message)
         {
             if (_model.CurrentAlternativeUnitDefinitionId == 0) ClearDetail();

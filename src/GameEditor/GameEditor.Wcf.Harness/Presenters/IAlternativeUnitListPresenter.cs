@@ -5,7 +5,8 @@ namespace GameEditor.Wcf.Harness.Presenters
 {
     public interface IAlternativeUnitListPresenter : IController<IAlternativeUnitListView>
     {
-        void Populate();
+        void PopulateList();
         void Select(int id);
+        void Add();
     }
 }

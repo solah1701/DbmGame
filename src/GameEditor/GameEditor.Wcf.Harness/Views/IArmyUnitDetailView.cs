@@ -29,5 +29,6 @@ namespace GameEditor.Wcf.Harness.Views
         bool CanUpdate { set; }
         bool CanDelete { set; }
         bool CanAddAlternative { set; }
+        bool ShowAlternativeList { set; }
     }
 }

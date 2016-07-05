@@ -9,7 +9,7 @@ using GameEditor.Wcf.Harness.WarGameServiceReference;
 
 namespace GameEditor.Wcf.Harness.Presenters
 {
-    public class ArmyUnitDetailPresenter : Controller<IArmyUnitDetailView>, IArmyUnitDetailPresenter, IHandle<UpdateView>
+    public class ArmyUnitDetailPresenter : Controller<IArmyUnitDetailView>, IArmyUnitDetailPresenter, IHandle<UpdateView>, IHandle<ShowAlternativeUnit>
     {
         private readonly IGameModel _model;
         private readonly IEventAggregator _event;
@@ -124,6 +124,11 @@ namespace GameEditor.Wcf.Harness.Presenters
             if (_model.CurrentArmyUnitDefinitionId == 0) ClearArmyUnitDetail();
             else SelectArmyUnitDetail(_model.CurrentArmyUnitDefinitionId);
             ViewChanged();
+        }
+
+        public void Handle(ShowAlternativeUnit message)
+        {
+            View.ShowAlternativeList = message.ShowList;
         }
     }
 }

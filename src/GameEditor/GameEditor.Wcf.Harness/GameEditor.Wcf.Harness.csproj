@@ -52,6 +52,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlternativeUnitDetailControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AlternativeUnitDetailControl.Designer.cs">
+      <DependentUpon>AlternativeUnitDetailControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AlternativeUnitListControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AlternativeUnitListControl.Designer.cs">
+      <DependentUpon>AlternativeUnitListControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="ArmyAllyListViewControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -88,6 +100,7 @@
     <Compile Include="ArmyListViewControl.Designer.cs">
       <DependentUpon>ArmyListViewControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="EventAggregators\ShowAlternativeUnit.cs" />
     <Compile Include="Presenters\AlternativeUnitDetailPresenter.cs" />
     <Compile Include="Presenters\AlternativeUnitListPresenter.cs" />
     <Compile Include="Presenters\ArmyAllyListPresenter.cs" />
@@ -155,6 +168,12 @@
     <Compile Include="Views\IArmyUnitListView.cs" />
     <Compile Include="Views\IArmyListView.cs" />
     <Compile Include="Views\IMainPageView.cs" />
+    <EmbeddedResource Include="AlternativeUnitDetailControl.resx">
+      <DependentUpon>AlternativeUnitDetailControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AlternativeUnitListControl.resx">
+      <DependentUpon>AlternativeUnitListControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ArmyAllyListViewControl.resx">
       <DependentUpon>ArmyAllyListViewControl.cs</DependentUpon>
     </EmbeddedResource>

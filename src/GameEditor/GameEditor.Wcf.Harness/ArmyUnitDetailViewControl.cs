@@ -140,6 +140,7 @@ namespace GameEditor.Wcf.Harness
         public bool CanUpdate { set { this.InvokeIfRequired(() => UpdateButton.Enabled = value); } }
         public bool CanDelete { set { this.InvokeIfRequired(() => DeleteButton.Enabled = value); } }
         public bool CanAddAlternative { set { this.InvokeIfRequired(() => AlternativeButton.Enabled = value); } }
+        public bool ShowAlternativeList { get; set; }
 
         public int MinYear
         {

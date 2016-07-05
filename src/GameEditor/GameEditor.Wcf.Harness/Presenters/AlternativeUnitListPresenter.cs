@@ -1,4 +1,6 @@
-﻿using GameEditor.Wcf.Harness.EventAggregators;
+﻿using System.Linq;
+using GameEditor.Wcf.Harness.EventAggregators;
+using GameEditor.Wcf.Harness.Extensions;
 using GameEditor.Wcf.Harness.Helpers;
 using GameEditor.Wcf.Harness.Models;
 using GameEditor.Wcf.Harness.Mvc;
@@ -18,23 +20,36 @@ namespace GameEditor.Wcf.Harness.Presenters
             _event.Subscribe(this);
         }
 
-        public void Populate()
+        public override void ViewChanged()
+        {
+            View.ShowList = _model.GetAlternativeUnitDefinitions().Any();
+        }
+
+        public void PopulateList()
         {
 #if !DESIGNMODE
             var items = _model.GetAlternativeUnitDefinitions();
             if (items == null) return;
             View.AlternativeUnitDefinitions = items;
+            ViewChanged();
 #endif
         }
 
         public void Select(int id)
         {
-            throw new System.NotImplementedException();
+            _model.CurrentAlternativeUnitDefinitionId = id;
+            _event.PublishOnCurrentThread(new UpdateView());
+        }
+
+        public void Add()
+        {
+            _model.CurrentAlternativeUnitDefinitionId = 0;
+            _event.PublishOnCurrentThread(new ShowAlternativeUnit());
         }
 
         public void Handle(UpdateView message)
         {
-            throw new System.NotImplementedException();
+            PopulateList();
         }
     }
 }

@@ -7,5 +7,6 @@ namespace GameEditor.Wcf.Harness.Presenters
     {
         void DeleteAlternativeUnitDetail();
         void UpdateAlternativeUnitDetail();
+        void ShowList();
     }
 }

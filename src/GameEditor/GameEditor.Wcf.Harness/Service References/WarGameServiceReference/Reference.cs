@@ -1874,13 +1874,16 @@ namespace GameEditor.Wcf.Harness.WarGameServiceReference {
         private System.Uri IdLinkField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int MaxPercentField;
+        private int MaxValueField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int MinPercentField;
+        private int MinValueField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool PercentField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int UnitIdField;
@@ -1954,27 +1957,27 @@ namespace GameEditor.Wcf.Harness.WarGameServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int MaxPercent {
+        public int MaxValue {
             get {
-                return this.MaxPercentField;
+                return this.MaxValueField;
             }
             set {
-                if ((this.MaxPercentField.Equals(value) != true)) {
-                    this.MaxPercentField = value;
-                    this.RaisePropertyChanged("MaxPercent");
+                if ((this.MaxValueField.Equals(value) != true)) {
+                    this.MaxValueField = value;
+                    this.RaisePropertyChanged("MaxValue");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int MinPercent {
+        public int MinValue {
             get {
-                return this.MinPercentField;
+                return this.MinValueField;
             }
             set {
-                if ((this.MinPercentField.Equals(value) != true)) {
-                    this.MinPercentField = value;
-                    this.RaisePropertyChanged("MinPercent");
+                if ((this.MinValueField.Equals(value) != true)) {
+                    this.MinValueField = value;
+                    this.RaisePropertyChanged("MinValue");
                 }
             }
         }
@@ -1988,6 +1991,19 @@ namespace GameEditor.Wcf.Harness.WarGameServiceReference {
                 if ((object.ReferenceEquals(this.NameField, value) != true)) {
                     this.NameField = value;
                     this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Percent {
+            get {
+                return this.PercentField;
+            }
+            set {
+                if ((this.PercentField.Equals(value) != true)) {
+                    this.PercentField = value;
+                    this.RaisePropertyChanged("Percent");
                 }
             }
         }

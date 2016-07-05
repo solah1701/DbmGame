@@ -88,12 +88,14 @@
     <Compile Include="ArmyListViewControl.Designer.cs">
       <DependentUpon>ArmyListViewControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presenters\AlternativeUnitDetailPresenter.cs" />
     <Compile Include="Presenters\ArmyAllyListPresenter.cs" />
     <Compile Include="Presenters\AllyListPresenter.cs" />
     <Compile Include="Presenters\ArmyUnitDetailPresenter.cs" />
     <Compile Include="Presenters\ArmyDetailPresenter.cs" />
     <Compile Include="Presenters\ArmyUnitListPresenter.cs" />
     <Compile Include="Presenters\ArmyListPresenter.cs" />
+    <Compile Include="Presenters\IAlternativeUnitDetailPresenter.cs" />
     <Compile Include="Presenters\IArmyAllyListPresenter.cs" />
     <Compile Include="Presenters\IAllyListPresenter.cs" />
     <Compile Include="Presenters\IArmyUnitDetailPresenter.cs" />
@@ -143,6 +145,7 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Views\IAllyListView.cs" />
+    <Compile Include="Views\IAlternativeUnitDetailView.cs" />
     <Compile Include="Views\IArmyUnitDetailView.cs" />
     <Compile Include="Views\IArmyDetailView.cs" />
     <Compile Include="Views\IArmyAllyListView.cs" />

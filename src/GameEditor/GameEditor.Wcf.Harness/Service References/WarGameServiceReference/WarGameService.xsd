@@ -188,9 +188,10 @@
       <xs:element minOccurs="0" name="AlternativeUnitLink" nillable="true" type="xs:anyURI" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="IdLink" nillable="true" type="xs:anyURI" />
-      <xs:element minOccurs="0" name="MaxPercent" type="xs:int" />
-      <xs:element minOccurs="0" name="MinPercent" type="xs:int" />
+      <xs:element minOccurs="0" name="MaxValue" type="xs:int" />
+      <xs:element minOccurs="0" name="MinValue" type="xs:int" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Percent" type="xs:boolean" />
       <xs:element minOccurs="0" name="UnitId" type="xs:int" />
       <xs:element minOccurs="0" name="UnitLink" nillable="true" type="xs:anyURI" />
       <xs:element minOccurs="0" name="Upgrade" type="xs:boolean" />

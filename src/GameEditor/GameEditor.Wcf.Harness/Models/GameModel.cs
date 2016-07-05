@@ -8,6 +8,7 @@ namespace GameEditor.Wcf.Harness.Models
         public int CurrentArmyUnitDefinitionId { get; set; }
         public int CurrentAllyDefinitionId { get; set; }
         public int CurrentAllyArmyDefinitionId { get; set; }
+        public int CurrentAlternativeUnitDefinitionId { get; set; }
 
         public ArmyDefinitions GetArmyDefinitions()
         {
@@ -135,6 +136,43 @@ namespace GameEditor.Wcf.Harness.Models
             {
                 client.DeleteAlliedArmyDefinition(CurrentArmyDefinitionId, id);
                 CurrentArmyDefinitionId = 0;
+            }
+        }
+
+        public AlternativeUnitDefinition GetAlternativeUnitDefinition(int id)
+        {
+            if (CurrentArmyDefinitionId == 0 || CurrentArmyUnitDefinitionId == 0 || id == 0) return null;
+            using (var client = new WarGameServiceClient())
+            {
+                return client.GetAlternativeUnitDefinition(CurrentArmyDefinitionId, CurrentArmyUnitDefinitionId, id);
+            }
+        }
+
+        public AlternativeUnitDefinitions GetAlternativeUnitDefinitions()
+        {
+            if (CurrentArmyDefinitionId == 0 || CurrentArmyUnitDefinitionId == 0) return null;
+            using (var client = new WarGameServiceClient())
+            {
+                return client.GetAlternativeUnitDefinitions(CurrentArmyDefinitionId, CurrentArmyUnitDefinitionId);
+            }
+        }
+
+        public int AddAlternativeDefinition(AlternativeUnitDefinition definition)
+        {
+            if (CurrentArmyDefinitionId == 0 || CurrentArmyUnitDefinitionId == 0) return 0;
+            using (var client = new WarGameServiceClient())
+            {
+                return client.PutAlternativeUnitDefinition(CurrentArmyDefinitionId, CurrentArmyUnitDefinitionId,
+                    definition.Id, definition);
+            }
+        }
+
+        public void DeleteAlternativeDefinition(int id)
+        {
+            if (CurrentArmyDefinitionId == 0 || CurrentArmyUnitDefinitionId == 0 || id == 0) return;
+            using (var client = new WarGameServiceClient())
+            {
+                client.DeleteAlternativeUnitDefinition(CurrentArmyDefinitionId, CurrentArmyUnitDefinitionId, id);
             }
         }
     }

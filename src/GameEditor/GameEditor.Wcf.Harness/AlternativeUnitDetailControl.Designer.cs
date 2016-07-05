@@ -50,7 +50,7 @@
             // ListButton
             // 
             this.ListButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.ListButton.Location = new System.Drawing.Point(97, 201);
+            this.ListButton.Location = new System.Drawing.Point(96, 195);
             this.ListButton.Name = "ListButton";
             this.ListButton.Size = new System.Drawing.Size(102, 43);
             this.ListButton.TabIndex = 19;
@@ -61,7 +61,7 @@
             // DeleteButton
             // 
             this.DeleteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.DeleteButton.Location = new System.Drawing.Point(313, 201);
+            this.DeleteButton.Location = new System.Drawing.Point(312, 195);
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Size = new System.Drawing.Size(102, 43);
             this.DeleteButton.TabIndex = 18;
@@ -72,7 +72,7 @@
             // UpdateButton
             // 
             this.UpdateButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.UpdateButton.Location = new System.Drawing.Point(205, 201);
+            this.UpdateButton.Location = new System.Drawing.Point(204, 195);
             this.UpdateButton.Name = "UpdateButton";
             this.UpdateButton.Size = new System.Drawing.Size(102, 43);
             this.UpdateButton.TabIndex = 17;
@@ -96,7 +96,7 @@
             this.IdTextBox.Location = new System.Drawing.Point(97, 0);
             this.IdTextBox.Name = "IdTextBox";
             this.IdTextBox.ReadOnly = true;
-            this.IdTextBox.Size = new System.Drawing.Size(353, 22);
+            this.IdTextBox.Size = new System.Drawing.Size(317, 22);
             this.IdTextBox.TabIndex = 21;
             this.IdTextBox.TabStop = false;
             // 
@@ -115,7 +115,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.NameTextBox.Location = new System.Drawing.Point(97, 28);
             this.NameTextBox.Name = "NameTextBox";
-            this.NameTextBox.Size = new System.Drawing.Size(353, 22);
+            this.NameTextBox.Size = new System.Drawing.Size(317, 22);
             this.NameTextBox.TabIndex = 23;
             // 
             // MaxCountTextBox
@@ -124,7 +124,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.MaxCountTextBox.Location = new System.Drawing.Point(97, 84);
             this.MaxCountTextBox.Name = "MaxCountTextBox";
-            this.MaxCountTextBox.Size = new System.Drawing.Size(353, 22);
+            this.MaxCountTextBox.Size = new System.Drawing.Size(317, 22);
             this.MaxCountTextBox.TabIndex = 29;
             // 
             // label5
@@ -151,7 +151,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.MinCountTextBox.Location = new System.Drawing.Point(97, 56);
             this.MinCountTextBox.Name = "MinCountTextBox";
-            this.MinCountTextBox.Size = new System.Drawing.Size(353, 22);
+            this.MinCountTextBox.Size = new System.Drawing.Size(317, 22);
             this.MinCountTextBox.TabIndex = 27;
             // 
             // IsPercentCheckBox
@@ -181,7 +181,7 @@
             this.UnitIdTextBox.Location = new System.Drawing.Point(97, 139);
             this.UnitIdTextBox.Name = "UnitIdTextBox";
             this.UnitIdTextBox.ReadOnly = true;
-            this.UnitIdTextBox.Size = new System.Drawing.Size(353, 22);
+            this.UnitIdTextBox.Size = new System.Drawing.Size(317, 22);
             this.UnitIdTextBox.TabIndex = 32;
             this.UnitIdTextBox.TabStop = false;
             // 
@@ -201,7 +201,7 @@
             this.AltUnitIdTextBox.Location = new System.Drawing.Point(97, 167);
             this.AltUnitIdTextBox.Name = "AltUnitIdTextBox";
             this.AltUnitIdTextBox.ReadOnly = true;
-            this.AltUnitIdTextBox.Size = new System.Drawing.Size(353, 22);
+            this.AltUnitIdTextBox.Size = new System.Drawing.Size(317, 22);
             this.AltUnitIdTextBox.TabIndex = 34;
             this.AltUnitIdTextBox.TabStop = false;
             // 
@@ -238,7 +238,7 @@
             this.Controls.Add(this.DeleteButton);
             this.Controls.Add(this.UpdateButton);
             this.Name = "AlternativeUnitDetailControl";
-            this.Size = new System.Drawing.Size(453, 251);
+            this.Size = new System.Drawing.Size(453, 319);
             this.ResumeLayout(false);
             this.PerformLayout();
 

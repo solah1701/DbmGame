@@ -39,7 +39,7 @@
             // AddButton
             // 
             this.AddButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.AddButton.Location = new System.Drawing.Point(3, 345);
+            this.AddButton.Location = new System.Drawing.Point(3, 263);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(151, 53);
             this.AddButton.TabIndex = 3;
@@ -59,7 +59,7 @@
             this.MaxHeader});
             this.AlternativeUnitListView.Location = new System.Drawing.Point(3, 3);
             this.AlternativeUnitListView.Name = "AlternativeUnitListView";
-            this.AlternativeUnitListView.Size = new System.Drawing.Size(471, 336);
+            this.AlternativeUnitListView.Size = new System.Drawing.Size(471, 254);
             this.AlternativeUnitListView.TabIndex = 2;
             this.AlternativeUnitListView.UseCompatibleStateImageBehavior = false;
             this.AlternativeUnitListView.View = System.Windows.Forms.View.Details;
@@ -88,7 +88,7 @@
             this.Controls.Add(this.AddButton);
             this.Controls.Add(this.AlternativeUnitListView);
             this.Name = "AlternativeUnitListControl";
-            this.Size = new System.Drawing.Size(477, 401);
+            this.Size = new System.Drawing.Size(477, 393);
             this.ResumeLayout(false);
 
         }

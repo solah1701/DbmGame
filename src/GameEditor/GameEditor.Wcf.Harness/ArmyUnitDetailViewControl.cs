@@ -139,8 +139,18 @@ namespace GameEditor.Wcf.Harness
         public bool CanCopy { set { this.InvokeIfRequired(() => CopyButton.Enabled = value); } }
         public bool CanUpdate { set { this.InvokeIfRequired(() => UpdateButton.Enabled = value); } }
         public bool CanDelete { set { this.InvokeIfRequired(() => DeleteButton.Enabled = value); } }
-        public bool CanAddAlternative { set { this.InvokeIfRequired(() => AlternativeButton.Enabled = value); } }
-        public bool ShowAlternativeList { get; set; }
+
+        public bool ShowAlternativeList
+        {
+            set
+            {
+                this.InvokeIfRequired(() =>
+                {
+                    AlternativeUnitListControl.Visible = value;
+                    AlternativeUnitDetailControl.Visible = !value;
+                });
+            }
+        }
 
         public int MinYear
         {

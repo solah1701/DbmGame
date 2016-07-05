@@ -60,7 +60,8 @@
             this.CopyButton = new System.Windows.Forms.Button();
             this.DeleteButton = new System.Windows.Forms.Button();
             this.UpdateButton = new System.Windows.Forms.Button();
-            this.AlternativeButton = new System.Windows.Forms.Button();
+            this.AlternativeUnitListControl = new GameEditor.Wcf.Harness.AlternativeUnitListControl();
+            this.AlternativeUnitDetailControl = new GameEditor.Wcf.Harness.AlternativeUnitDetailControl();
             this.TopPanel.SuspendLayout();
             this.BottomPanel.SuspendLayout();
             this.SuspendLayout();
@@ -81,7 +82,7 @@
             this.IdTextBox.Location = new System.Drawing.Point(85, 3);
             this.IdTextBox.Name = "IdTextBox";
             this.IdTextBox.ReadOnly = true;
-            this.IdTextBox.Size = new System.Drawing.Size(479, 22);
+            this.IdTextBox.Size = new System.Drawing.Size(745, 22);
             this.IdTextBox.TabIndex = 1;
             this.IdTextBox.TabStop = false;
             // 
@@ -91,7 +92,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.NameTextBox.Location = new System.Drawing.Point(85, 31);
             this.NameTextBox.Name = "NameTextBox";
-            this.NameTextBox.Size = new System.Drawing.Size(479, 22);
+            this.NameTextBox.Size = new System.Drawing.Size(745, 22);
             this.NameTextBox.TabIndex = 3;
             this.NameTextBox.TextChanged += new System.EventHandler(this.NameTextBox_TextChanged);
             // 
@@ -110,7 +111,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.CostTextBox.Location = new System.Drawing.Point(85, 59);
             this.CostTextBox.Name = "CostTextBox";
-            this.CostTextBox.Size = new System.Drawing.Size(479, 22);
+            this.CostTextBox.Size = new System.Drawing.Size(745, 22);
             this.CostTextBox.TabIndex = 5;
             // 
             // label3
@@ -128,7 +129,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.MinCountTextBox.Location = new System.Drawing.Point(85, 87);
             this.MinCountTextBox.Name = "MinCountTextBox";
-            this.MinCountTextBox.Size = new System.Drawing.Size(479, 22);
+            this.MinCountTextBox.Size = new System.Drawing.Size(745, 22);
             this.MinCountTextBox.TabIndex = 7;
             // 
             // label4
@@ -146,7 +147,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.MaxCountTextBox.Location = new System.Drawing.Point(85, 115);
             this.MaxCountTextBox.Name = "MaxCountTextBox";
-            this.MaxCountTextBox.Size = new System.Drawing.Size(479, 22);
+            this.MaxCountTextBox.Size = new System.Drawing.Size(745, 22);
             this.MaxCountTextBox.TabIndex = 9;
             this.MaxCountTextBox.TextChanged += new System.EventHandler(this.MaxCountTextBox_TextChanged);
             // 
@@ -165,7 +166,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.MinYearTextBox.Location = new System.Drawing.Point(85, 143);
             this.MinYearTextBox.Name = "MinYearTextBox";
-            this.MinYearTextBox.Size = new System.Drawing.Size(479, 22);
+            this.MinYearTextBox.Size = new System.Drawing.Size(745, 22);
             this.MinYearTextBox.TabIndex = 11;
             // 
             // label6
@@ -179,6 +180,8 @@
             // 
             // TopPanel
             // 
+            this.TopPanel.Controls.Add(this.AlternativeUnitListControl);
+            this.TopPanel.Controls.Add(this.AlternativeUnitDetailControl);
             this.TopPanel.Controls.Add(this.label11);
             this.TopPanel.Controls.Add(this.GradeComboBox);
             this.TopPanel.Controls.Add(this.label10);
@@ -209,7 +212,7 @@
             this.TopPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TopPanel.Location = new System.Drawing.Point(0, 0);
             this.TopPanel.Name = "TopPanel";
-            this.TopPanel.Size = new System.Drawing.Size(566, 501);
+            this.TopPanel.Size = new System.Drawing.Size(832, 747);
             this.TopPanel.TabIndex = 14;
             // 
             // label11
@@ -228,7 +231,7 @@
             this.GradeComboBox.FormattingEnabled = true;
             this.GradeComboBox.Location = new System.Drawing.Point(85, 320);
             this.GradeComboBox.Name = "GradeComboBox";
-            this.GradeComboBox.Size = new System.Drawing.Size(479, 24);
+            this.GradeComboBox.Size = new System.Drawing.Size(745, 24);
             this.GradeComboBox.TabIndex = 25;
             // 
             // label10
@@ -247,7 +250,7 @@
             this.UnitComboBox.FormattingEnabled = true;
             this.UnitComboBox.Location = new System.Drawing.Point(85, 290);
             this.UnitComboBox.Name = "UnitComboBox";
-            this.UnitComboBox.Size = new System.Drawing.Size(479, 24);
+            this.UnitComboBox.Size = new System.Drawing.Size(745, 24);
             this.UnitComboBox.TabIndex = 23;
             // 
             // label9
@@ -266,7 +269,7 @@
             this.DispositionComboBox.FormattingEnabled = true;
             this.DispositionComboBox.Location = new System.Drawing.Point(85, 260);
             this.DispositionComboBox.Name = "DispositionComboBox";
-            this.DispositionComboBox.Size = new System.Drawing.Size(479, 24);
+            this.DispositionComboBox.Size = new System.Drawing.Size(745, 24);
             this.DispositionComboBox.TabIndex = 21;
             // 
             // label8
@@ -285,7 +288,7 @@
             this.DisciplineComboBox.FormattingEnabled = true;
             this.DisciplineComboBox.Location = new System.Drawing.Point(85, 230);
             this.DisciplineComboBox.Name = "DisciplineComboBox";
-            this.DisciplineComboBox.Size = new System.Drawing.Size(479, 24);
+            this.DisciplineComboBox.Size = new System.Drawing.Size(745, 24);
             this.DisciplineComboBox.TabIndex = 19;
             // 
             // DoubleElementCheckBox
@@ -349,7 +352,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.MaxYearTextBox.Location = new System.Drawing.Point(85, 171);
             this.MaxYearTextBox.Name = "MaxYearTextBox";
-            this.MaxYearTextBox.Size = new System.Drawing.Size(479, 22);
+            this.MaxYearTextBox.Size = new System.Drawing.Size(745, 22);
             this.MaxYearTextBox.TabIndex = 13;
             // 
             // label7
@@ -363,14 +366,13 @@
             // 
             // BottomPanel
             // 
-            this.BottomPanel.Controls.Add(this.AlternativeButton);
             this.BottomPanel.Controls.Add(this.CopyButton);
             this.BottomPanel.Controls.Add(this.DeleteButton);
             this.BottomPanel.Controls.Add(this.UpdateButton);
             this.BottomPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.BottomPanel.Location = new System.Drawing.Point(0, 447);
+            this.BottomPanel.Location = new System.Drawing.Point(0, 693);
             this.BottomPanel.Name = "BottomPanel";
-            this.BottomPanel.Size = new System.Drawing.Size(566, 54);
+            this.BottomPanel.Size = new System.Drawing.Size(832, 54);
             this.BottomPanel.TabIndex = 18;
             // 
             // CopyButton
@@ -403,15 +405,30 @@
             this.UpdateButton.UseVisualStyleBackColor = true;
             this.UpdateButton.Click += new System.EventHandler(this.UpdateButton_Click);
             // 
-            // AlternativeButton
+            // AlternativeUnitListControl
             // 
-            this.AlternativeButton.Location = new System.Drawing.Point(410, 6);
-            this.AlternativeButton.Name = "AlternativeButton";
-            this.AlternativeButton.Size = new System.Drawing.Size(102, 43);
-            this.AlternativeButton.TabIndex = 17;
-            this.AlternativeButton.Text = "Add Alternative";
-            this.AlternativeButton.UseVisualStyleBackColor = true;
-            this.AlternativeButton.Click += new System.EventHandler(this.AlternativeButton_Click);
+            this.AlternativeUnitListControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.AlternativeUnitListControl.Location = new System.Drawing.Point(85, 365);
+            this.AlternativeUnitListControl.Name = "AlternativeUnitListControl";
+            this.AlternativeUnitListControl.Size = new System.Drawing.Size(744, 322);
+            this.AlternativeUnitListControl.TabIndex = 28;
+            // 
+            // AlternativeUnitDetailControl
+            // 
+            this.AlternativeUnitDetailControl.AlternativeUnitId = 0;
+            this.AlternativeUnitDetailControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.AlternativeUnitDetailControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.AlternativeUnitDetailControl.Id = 0;
+            this.AlternativeUnitDetailControl.Location = new System.Drawing.Point(0, 365);
+            this.AlternativeUnitDetailControl.MaxValue = 0;
+            this.AlternativeUnitDetailControl.MinValue = 0;
+            this.AlternativeUnitDetailControl.Name = "AlternativeUnitDetailControl";
+            this.AlternativeUnitDetailControl.Percent = false;
+            this.AlternativeUnitDetailControl.Size = new System.Drawing.Size(829, 322);
+            this.AlternativeUnitDetailControl.TabIndex = 27;
+            this.AlternativeUnitDetailControl.UnitId = 0;
+            this.AlternativeUnitDetailControl.Upgrade = false;
             // 
             // ArmyUnitDetailViewControl
             // 
@@ -420,7 +437,7 @@
             this.Controls.Add(this.BottomPanel);
             this.Controls.Add(this.TopPanel);
             this.Name = "ArmyUnitDetailViewControl";
-            this.Size = new System.Drawing.Size(566, 501);
+            this.Size = new System.Drawing.Size(832, 747);
             this.TopPanel.ResumeLayout(false);
             this.TopPanel.PerformLayout();
             this.BottomPanel.ResumeLayout(false);
@@ -462,6 +479,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox DispositionComboBox;
         private System.Windows.Forms.Button CopyButton;
-        private System.Windows.Forms.Button AlternativeButton;
+        private AlternativeUnitListControl AlternativeUnitListControl;
+        private AlternativeUnitDetailControl AlternativeUnitDetailControl;
     }
 }

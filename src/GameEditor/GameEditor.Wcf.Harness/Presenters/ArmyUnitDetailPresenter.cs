@@ -28,6 +28,7 @@ namespace GameEditor.Wcf.Harness.Presenters
             View.UnitData = Enum.GetValues(typeof(UnitTypeEnum));
             View.DispositionData = Enum.GetValues(typeof(DispositionTypeEnum));
             View.GradeData = Enum.GetValues(typeof(GradeTypeEnum));
+            View.ShowAlternativeList = true;
             ViewChanged();
         }
 
@@ -35,7 +36,6 @@ namespace GameEditor.Wcf.Harness.Presenters
         {
             View.CanUpdate = View.ArmyUnitName != string.Empty && View.MaxCount != 0;
             View.CanCopy = View.ArmyUnitDefinitionId != 0;
-            View.CanAddAlternative = View.ArmyUnitDefinitionId != 0;
             View.CanDelete = View.ArmyUnitDefinitionId != 0;
         }
 

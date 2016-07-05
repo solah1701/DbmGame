@@ -20,6 +20,12 @@ namespace GameEditor.Wcf.Harness.Presenters
             _event.Subscribe(this);
         }
 
+        protected override void InitialiseView()
+        {
+            base.InitialiseView();
+            View.ShowList = false;
+        }
+
         public override void ViewChanged()
         {
             View.ShowList = _model.GetAlternativeUnitDefinitions().Any();
@@ -39,6 +45,7 @@ namespace GameEditor.Wcf.Harness.Presenters
         {
             _model.CurrentAlternativeUnitDefinitionId = id;
             _event.PublishOnCurrentThread(new UpdateView());
+            _event.PublishOnCurrentThread(new ShowAlternativeUnit());
         }
 
         public void Add()

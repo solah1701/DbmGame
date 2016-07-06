@@ -37,7 +37,6 @@ namespace GameEditor.Wcf.Harness.Presenters
             View.Id = 0;
             View.UnitName = string.Empty;
             View.AlternativeUnitId = 0;
-            View.UnitId = 0;
             View.Upgrade = false;
             View.MinValue = 0;
             View.MaxValue = 0;
@@ -52,7 +51,6 @@ namespace GameEditor.Wcf.Harness.Presenters
             if (UnitList.ContainsValue(View.AlternativeUnitId))
                 View.SelectedIndex = UnitList.First(l => l.Value == item.AlternativeUnitId).Key;
             View.AlternativeUnitId = item.AlternativeUnitId;
-            View.UnitId = item.UnitId;
             View.Upgrade = item.Upgrade;
             View.MinValue = item.MinValue;
             View.MaxValue = item.MaxValue;
@@ -86,7 +84,6 @@ namespace GameEditor.Wcf.Harness.Presenters
                 Id = View.Id,
                 Name = View.UnitName,
                 AlternativeUnitId = GetSelectedUnitId(),
-                UnitId = View.UnitId,
                 Upgrade = View.Upgrade,
                 MinValue = View.MinValue,
                 MaxValue = View.MaxValue,

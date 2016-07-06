@@ -1886,12 +1886,6 @@ namespace GameEditor.Wcf.Harness.WarGameServiceReference {
         private bool PercentField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int UnitIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Uri UnitLinkField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private bool UpgradeField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -2004,32 +1998,6 @@ namespace GameEditor.Wcf.Harness.WarGameServiceReference {
                 if ((this.PercentField.Equals(value) != true)) {
                     this.PercentField = value;
                     this.RaisePropertyChanged("Percent");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int UnitId {
-            get {
-                return this.UnitIdField;
-            }
-            set {
-                if ((this.UnitIdField.Equals(value) != true)) {
-                    this.UnitIdField = value;
-                    this.RaisePropertyChanged("UnitId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Uri UnitLink {
-            get {
-                return this.UnitLinkField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UnitLinkField, value) != true)) {
-                    this.UnitLinkField = value;
-                    this.RaisePropertyChanged("UnitLink");
                 }
             }
         }

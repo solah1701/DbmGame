@@ -12,12 +12,9 @@ namespace GameCore.WcfService.DebellisMultitudinis
         [StringLength(255)]
         public string Name { get; set; }
         public bool Upgrade { get; set; }
-        public int UnitId { get; set; }
         public int AlternativeUnitId { get; set; }
         public int MinValue { get; set; }
         public int MaxValue { get; set; }
         public bool Percent { get; set; }
-
-        //public virtual ArmyUnitDefinition ArmyUnitDefinition { get; set; }
     }
 }

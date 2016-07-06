@@ -39,8 +39,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.MinCountTextBox = new System.Windows.Forms.TextBox();
             this.IsPercentCheckBox = new System.Windows.Forms.CheckBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.UnitIdTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.AltUnitIdTextBox = new System.Windows.Forms.TextBox();
             this.UpgradeCheckBox = new System.Windows.Forms.CheckBox();
@@ -50,7 +48,7 @@
             // ListButton
             // 
             this.ListButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.ListButton.Location = new System.Drawing.Point(96, 195);
+            this.ListButton.Location = new System.Drawing.Point(96, 206);
             this.ListButton.Name = "ListButton";
             this.ListButton.Size = new System.Drawing.Size(102, 43);
             this.ListButton.TabIndex = 19;
@@ -61,7 +59,7 @@
             // DeleteButton
             // 
             this.DeleteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.DeleteButton.Location = new System.Drawing.Point(312, 195);
+            this.DeleteButton.Location = new System.Drawing.Point(312, 206);
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Size = new System.Drawing.Size(102, 43);
             this.DeleteButton.TabIndex = 18;
@@ -72,7 +70,7 @@
             // UpdateButton
             // 
             this.UpdateButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.UpdateButton.Location = new System.Drawing.Point(204, 195);
+            this.UpdateButton.Location = new System.Drawing.Point(204, 206);
             this.UpdateButton.Name = "UpdateButton";
             this.UpdateButton.Size = new System.Drawing.Size(102, 43);
             this.UpdateButton.TabIndex = 17;
@@ -150,28 +148,10 @@
             this.IsPercentCheckBox.Text = "Percent";
             this.IsPercentCheckBox.UseVisualStyleBackColor = true;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(15, 142);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(48, 17);
-            this.label3.TabIndex = 31;
-            this.label3.Text = "Unit Id";
-            // 
-            // UnitIdTextBox
-            // 
-            this.UnitIdTextBox.Location = new System.Drawing.Point(97, 139);
-            this.UnitIdTextBox.Name = "UnitIdTextBox";
-            this.UnitIdTextBox.ReadOnly = true;
-            this.UnitIdTextBox.Size = new System.Drawing.Size(317, 22);
-            this.UnitIdTextBox.TabIndex = 32;
-            this.UnitIdTextBox.TabStop = false;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(15, 170);
+            this.label6.Location = new System.Drawing.Point(15, 148);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(68, 17);
             this.label6.TabIndex = 33;
@@ -179,7 +159,7 @@
             // 
             // AltUnitIdTextBox
             // 
-            this.AltUnitIdTextBox.Location = new System.Drawing.Point(97, 167);
+            this.AltUnitIdTextBox.Location = new System.Drawing.Point(97, 145);
             this.AltUnitIdTextBox.Name = "AltUnitIdTextBox";
             this.AltUnitIdTextBox.ReadOnly = true;
             this.AltUnitIdTextBox.Size = new System.Drawing.Size(317, 22);
@@ -215,8 +195,6 @@
             this.Controls.Add(this.UpgradeCheckBox);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.AltUnitIdTextBox);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.UnitIdTextBox);
             this.Controls.Add(this.IsPercentCheckBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.IdTextBox);
@@ -229,7 +207,7 @@
             this.Controls.Add(this.DeleteButton);
             this.Controls.Add(this.UpdateButton);
             this.Name = "AlternativeUnitDetailControl";
-            this.Size = new System.Drawing.Size(453, 319);
+            this.Size = new System.Drawing.Size(453, 326);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -248,8 +226,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox MinCountTextBox;
         private System.Windows.Forms.CheckBox IsPercentCheckBox;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox UnitIdTextBox;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox AltUnitIdTextBox;
         private System.Windows.Forms.CheckBox UpgradeCheckBox;

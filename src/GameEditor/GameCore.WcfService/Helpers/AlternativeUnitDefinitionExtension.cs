@@ -19,7 +19,6 @@ namespace GameCore.WcfService.Helpers
             {
                 Id = definition.AlternativeUnitDefinitionId,
                 Name = definition.Name,
-                UnitId = definition.UnitId,
                 AlternativeUnitId = definition.AlternativeUnitId,
                 Upgrade = definition.Upgrade,
                 MinValue = definition.MinValue,
@@ -34,7 +33,6 @@ namespace GameCore.WcfService.Helpers
             {
                 AlternativeUnitDefinitionId = definition.Id,
                 Name = definition.Name,
-                UnitId = definition.UnitId,
                 AlternativeUnitId = definition.AlternativeUnitId,
                 Upgrade = definition.Upgrade,
                 MinValue = definition.MinValue,
@@ -47,7 +45,6 @@ namespace GameCore.WcfService.Helpers
         {
             definition.AlternativeUnitDefinitionId = item.Id;
             definition.Name = item.Name;
-            definition.UnitId = item.UnitId;
             definition.AlternativeUnitId = item.AlternativeUnitId;
             definition.Upgrade = item.Upgrade;
             definition.MinValue = item.MinValue;
@@ -59,7 +56,6 @@ namespace GameCore.WcfService.Helpers
         {
             original.AlternativeUnitDefinitionId = definition.Id;
             original.Name = definition.Name;
-            original.UnitId = definition.UnitId;
             original.AlternativeUnitId = definition.AlternativeUnitId;
             original.Upgrade = definition.Upgrade;
             original.MinValue = definition.MinValue;

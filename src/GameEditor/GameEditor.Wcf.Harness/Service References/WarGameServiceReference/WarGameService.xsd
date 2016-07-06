@@ -192,8 +192,6 @@
       <xs:element minOccurs="0" name="MinValue" type="xs:int" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Percent" type="xs:boolean" />
-      <xs:element minOccurs="0" name="UnitId" type="xs:int" />
-      <xs:element minOccurs="0" name="UnitLink" nillable="true" type="xs:anyURI" />
       <xs:element minOccurs="0" name="Upgrade" type="xs:boolean" />
     </xs:sequence>
   </xs:complexType>

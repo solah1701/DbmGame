@@ -424,7 +424,6 @@
             this.AlternativeUnitDetailControl.Percent = false;
             this.AlternativeUnitDetailControl.Size = new System.Drawing.Size(817, 337);
             this.AlternativeUnitDetailControl.TabIndex = 29;
-            this.AlternativeUnitDetailControl.UnitId = 0;
             this.AlternativeUnitDetailControl.Upgrade = false;
             // 
             // ArmyUnitDetailViewControl

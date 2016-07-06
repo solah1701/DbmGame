@@ -57,17 +57,6 @@ namespace GameEditor.Wcf.Harness
             set { this.InvokeIfRequired(() => AltUnitIdTextBox.Text = value.ToString()); }
         }
 
-        public int UnitId
-        {
-            get
-            {
-                int result;
-                if (!int.TryParse(UnitIdTextBox.Text, out result)) result = 0;
-                return result;
-            }
-            set { this.InvokeIfRequired(() => UnitIdTextBox.Text = value.ToString()); }
-        }
-
         public bool Upgrade
         {
             get { return UpgradeCheckBox.Checked; }

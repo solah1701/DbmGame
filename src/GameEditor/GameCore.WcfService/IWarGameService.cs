@@ -327,8 +327,6 @@ namespace GameCore.WcfService
         public string Name { get; set; }
         public Uri AlternativeUnitLink { get; set; }
         public int AlternativeUnitId { get; set; }
-        public Uri UnitLink { get; set; }
-        public int UnitId { get; set; }
         public bool Upgrade { get; set; }
         public int MinValue { get; set; }
         public int MaxValue { get; set; }

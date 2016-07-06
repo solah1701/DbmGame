@@ -64,6 +64,14 @@ namespace GameEditor.Wcf.Harness.Presenters
             return UnitList[View.SelectedIndex];
         }
 
+        public override void ViewChanged()
+        {
+            //View.CanUpdate = View.MaxValue > 0 || View.MinValue > 0;
+            View.CanSetMin = View.CanSetMax = View.CanSetPercent = View.Upgrade;
+            if (!View.Upgrade) View.Percent = false;
+            View.CanDelete = View.Id != 0;
+        }
+
         public void DeleteAlternativeUnitDetail()
         {
             _model.DeleteAlternativeDefinition(View.Id);
@@ -98,6 +106,7 @@ namespace GameEditor.Wcf.Harness.Presenters
             if (_model.CurrentAlternativeUnitDefinitionId == 0) ClearDetail();
             else SelectDetail(_model.CurrentAlternativeUnitDefinitionId);
             if (_model.CurrentArmyUnitDefinitionId != 0) PopulateList();
+            ViewChanged();
         }
     }
 }

@@ -14,5 +14,10 @@ namespace GameEditor.Wcf.Harness.Views
         int MinValue { get; set; }
         int MaxValue { get; set; }
         bool Percent { get; set; }
+        bool CanUpdate { set; }
+        bool CanDelete { set; }
+        bool CanSetMin { set; }
+        bool CanSetMax { set; }
+        bool CanSetPercent { set; }
     }
 }

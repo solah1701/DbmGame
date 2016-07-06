@@ -196,6 +196,7 @@
             this.UpgradeCheckBox.TabIndex = 35;
             this.UpgradeCheckBox.Text = "Upgrade";
             this.UpgradeCheckBox.UseVisualStyleBackColor = true;
+            this.UpgradeCheckBox.CheckedChanged += new System.EventHandler(this.UpgradeCheckBox_CheckedChanged);
             // 
             // UnitComboBox
             // 
@@ -204,6 +205,7 @@
             this.UnitComboBox.Name = "UnitComboBox";
             this.UnitComboBox.Size = new System.Drawing.Size(317, 24);
             this.UnitComboBox.TabIndex = 36;
+            this.UnitComboBox.SelectedIndexChanged += new System.EventHandler(this.UnitComboBox_SelectedIndexChanged);
             // 
             // AlternativeUnitDetailControl
             // 

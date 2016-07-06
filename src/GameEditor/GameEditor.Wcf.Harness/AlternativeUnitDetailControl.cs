@@ -102,6 +102,12 @@ namespace GameEditor.Wcf.Harness
             set { this.InvokeIfRequired(() => IsPercentCheckBox.Checked = value); }
         }
 
+        public bool CanUpdate { set { this.InvokeIfRequired(() => UpdateButton.Enabled = value); } }
+        public bool CanDelete { set { this.InvokeIfRequired(() => DeleteButton.Enabled = value); } }
+        public bool CanSetMin { set { this.InvokeIfRequired(() => MinCountTextBox.Enabled = value); } }
+        public bool CanSetMax { set { this.InvokeIfRequired(() => MaxCountTextBox.Enabled = value); } }
+        public bool CanSetPercent { set { this.InvokeIfRequired(() => IsPercentCheckBox.Enabled = value); } }
+
         private void ListButton_Click(object sender, EventArgs e)
         {
             _presenter.ShowList();
@@ -115,6 +121,16 @@ namespace GameEditor.Wcf.Harness
         private void DeleteButton_Click(object sender, EventArgs e)
         {
             _presenter.DeleteAlternativeUnitDetail();
+        }
+
+        private void UnitComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _presenter.ViewChanged();
+        }
+
+        private void UpgradeCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            _presenter.ViewChanged();
         }
     }
 }

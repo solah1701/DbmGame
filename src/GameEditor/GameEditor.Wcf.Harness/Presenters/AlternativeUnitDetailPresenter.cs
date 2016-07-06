@@ -48,7 +48,7 @@ namespace GameEditor.Wcf.Harness.Presenters
             var item = _model.GetAlternativeUnitDefinition(id);
             if (item == null) return;
             View.Id = item.Id;
-            if (UnitList.ContainsValue(View.AlternativeUnitId))
+            if (UnitList.ContainsValue(item.AlternativeUnitId))
                 View.SelectedIndex = UnitList.First(l => l.Value == item.AlternativeUnitId).Key;
             View.AlternativeUnitId = item.AlternativeUnitId;
             View.Upgrade = item.Upgrade;

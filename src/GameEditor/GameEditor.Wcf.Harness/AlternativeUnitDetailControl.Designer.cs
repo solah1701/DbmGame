@@ -34,7 +34,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.IdTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.NameTextBox = new System.Windows.Forms.TextBox();
             this.MaxCountTextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -45,6 +44,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.AltUnitIdTextBox = new System.Windows.Forms.TextBox();
             this.UpgradeCheckBox = new System.Windows.Forms.CheckBox();
+            this.UnitComboBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // ListButton
@@ -91,8 +91,6 @@
             // 
             // IdTextBox
             // 
-            this.IdTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.IdTextBox.Location = new System.Drawing.Point(97, 0);
             this.IdTextBox.Name = "IdTextBox";
             this.IdTextBox.ReadOnly = true;
@@ -109,19 +107,8 @@
             this.label2.TabIndex = 22;
             this.label2.Text = "Name";
             // 
-            // NameTextBox
-            // 
-            this.NameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.NameTextBox.Location = new System.Drawing.Point(97, 28);
-            this.NameTextBox.Name = "NameTextBox";
-            this.NameTextBox.Size = new System.Drawing.Size(317, 22);
-            this.NameTextBox.TabIndex = 23;
-            // 
             // MaxCountTextBox
             // 
-            this.MaxCountTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.MaxCountTextBox.Location = new System.Drawing.Point(97, 84);
             this.MaxCountTextBox.Name = "MaxCountTextBox";
             this.MaxCountTextBox.Size = new System.Drawing.Size(317, 22);
@@ -147,8 +134,6 @@
             // 
             // MinCountTextBox
             // 
-            this.MinCountTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.MinCountTextBox.Location = new System.Drawing.Point(97, 56);
             this.MinCountTextBox.Name = "MinCountTextBox";
             this.MinCountTextBox.Size = new System.Drawing.Size(317, 22);
@@ -176,8 +161,6 @@
             // 
             // UnitIdTextBox
             // 
-            this.UnitIdTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.UnitIdTextBox.Location = new System.Drawing.Point(97, 139);
             this.UnitIdTextBox.Name = "UnitIdTextBox";
             this.UnitIdTextBox.ReadOnly = true;
@@ -196,8 +179,6 @@
             // 
             // AltUnitIdTextBox
             // 
-            this.AltUnitIdTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.AltUnitIdTextBox.Location = new System.Drawing.Point(97, 167);
             this.AltUnitIdTextBox.Name = "AltUnitIdTextBox";
             this.AltUnitIdTextBox.ReadOnly = true;
@@ -216,10 +197,19 @@
             this.UpgradeCheckBox.Text = "Upgrade";
             this.UpgradeCheckBox.UseVisualStyleBackColor = true;
             // 
+            // UnitComboBox
+            // 
+            this.UnitComboBox.FormattingEnabled = true;
+            this.UnitComboBox.Location = new System.Drawing.Point(97, 28);
+            this.UnitComboBox.Name = "UnitComboBox";
+            this.UnitComboBox.Size = new System.Drawing.Size(317, 24);
+            this.UnitComboBox.TabIndex = 36;
+            // 
             // AlternativeUnitDetailControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.UnitComboBox);
             this.Controls.Add(this.UpgradeCheckBox);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.AltUnitIdTextBox);
@@ -229,7 +219,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.IdTextBox);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.NameTextBox);
             this.Controls.Add(this.MaxCountTextBox);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -252,7 +241,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox IdTextBox;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox NameTextBox;
         private System.Windows.Forms.TextBox MaxCountTextBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
@@ -263,5 +251,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox AltUnitIdTextBox;
         private System.Windows.Forms.CheckBox UpgradeCheckBox;
+        private System.Windows.Forms.ComboBox UnitComboBox;
     }
 }

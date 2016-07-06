@@ -51,6 +51,7 @@ namespace GameEditor.Wcf.Harness.Presenters
         public void Add()
         {
             _model.CurrentAlternativeUnitDefinitionId = 0;
+            _event.PublishOnCurrentThread(new UpdateView());
             _event.PublishOnCurrentThread(new ShowAlternativeUnit());
         }
 

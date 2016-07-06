@@ -1,9 +1,13 @@
-﻿namespace GameEditor.Wcf.Harness.Views
+﻿using System;
+
+namespace GameEditor.Wcf.Harness.Views
 {
     public interface IAlternativeUnitDetailView
     {
         int Id { get; set; }
-        string Name { get; set; }
+        Array NameData { set; }
+        int SelectedIndex { get; set; }
+        string UnitName { get; set; }
         int AlternativeUnitId { get; set; }
         int UnitId { get; set; }
         bool Upgrade { get; set; }

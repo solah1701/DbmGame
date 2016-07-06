@@ -173,11 +173,6 @@ namespace GameEditor.Wcf.Harness
             _presenter.CopyArmyUnitDetail();
         }
 
-        private void AlternativeButton_Click(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
         private void NameTextBox_TextChanged(object sender, EventArgs e)
         {
             _presenter.ViewChanged();

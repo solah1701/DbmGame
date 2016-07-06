@@ -36,6 +36,7 @@ namespace GameEditor.Wcf.Harness.Presenters
             _model.CurrentArmyUnitDefinitionId = 0;
             _model.CurrentAllyArmyDefinitionId = 0;
             _model.CurrentAllyDefinitionId = 0;
+            _model.CurrentAlternativeUnitDefinitionId = 0;
             _event.PublishOnCurrentThread(new UpdateView());
         }
 
@@ -46,6 +47,7 @@ namespace GameEditor.Wcf.Harness.Presenters
             _model.CurrentArmyUnitDefinitionId = 0;
             _model.CurrentAllyArmyDefinitionId = 0;
             _model.CurrentAllyDefinitionId = 0;
+            _model.CurrentAlternativeUnitDefinitionId = 0;
             _event.PublishOnCurrentThread(new UpdateView());
         }
 

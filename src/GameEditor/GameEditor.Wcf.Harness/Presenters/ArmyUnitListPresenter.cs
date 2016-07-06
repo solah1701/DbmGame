@@ -34,6 +34,7 @@ namespace GameEditor.Wcf.Harness.Presenters
         {
             // Navigate to Detail page
             _model.CurrentArmyUnitDefinitionId = 0;
+            _model.CurrentAlternativeUnitDefinitionId = 0;
             _event.PublishOnCurrentThread(new UpdateView());
         }
 
@@ -41,6 +42,7 @@ namespace GameEditor.Wcf.Harness.Presenters
         {
             // Navigate to Detail page
             _model.CurrentArmyUnitDefinitionId = armyUnitId;
+            _model.CurrentAlternativeUnitDefinitionId = 0;
             _event.PublishOnCurrentThread(new UpdateView());
         }
 

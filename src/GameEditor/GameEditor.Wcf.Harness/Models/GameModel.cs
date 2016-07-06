@@ -53,6 +53,7 @@ namespace GameEditor.Wcf.Harness.Models
                 client.DeleteArmyDefinition(id);
                 CurrentArmyDefinitionId = 0;
                 CurrentArmyUnitDefinitionId = 0;
+                CurrentAlternativeUnitDefinitionId = 0;
             }
         }
 
@@ -90,6 +91,7 @@ namespace GameEditor.Wcf.Harness.Models
             {
                 client.DeleteArmyUnitDefinition(CurrentArmyDefinitionId, id);
                 CurrentArmyUnitDefinitionId = 0;
+                CurrentAlternativeUnitDefinitionId = 0;
             }
         }
 
@@ -173,6 +175,7 @@ namespace GameEditor.Wcf.Harness.Models
             using (var client = new WarGameServiceClient())
             {
                 client.DeleteAlternativeUnitDefinition(CurrentArmyDefinitionId, CurrentArmyUnitDefinitionId, id);
+                CurrentAlternativeUnitDefinitionId = 0;
             }
         }
     }

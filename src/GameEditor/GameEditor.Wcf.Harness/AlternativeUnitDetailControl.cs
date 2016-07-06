@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 using GameEditor.Wcf.Harness.Helpers;
 using GameEditor.Wcf.Harness.IoC;
 using GameEditor.Wcf.Harness.Presenters;
@@ -9,12 +10,15 @@ namespace GameEditor.Wcf.Harness
     public partial class AlternativeUnitDetailControl : UserControl, IAlternativeUnitDetailView
     {
         private readonly IAlternativeUnitDetailPresenter _presenter;
+        private readonly bool _initialised;
 
         public AlternativeUnitDetailControl()
         {
+            _initialised = false;
             InitializeComponent();
             _presenter = IoCContainer.Resolve<IAlternativeUnitDetailPresenter>();
             _presenter.SetView(this);
+            _initialised = true;
         }
 
         public int Id
@@ -26,6 +30,20 @@ namespace GameEditor.Wcf.Harness
                 return result;
             }
             set { this.InvokeIfRequired(() => IdTextBox.Text = value.ToString()); }
+        }
+
+        public Array NameData { set { this.InvokeIfRequired(() => UnitComboBox.DataSource = value); } }
+
+        public int SelectedIndex
+        {
+            get { return UnitComboBox.SelectedIndex; }
+            set { this.InvokeIfRequired(() => UnitComboBox.SelectedIndex = value); }
+        }
+
+        public string UnitName
+        {
+            get { return UnitComboBox.SelectedItem.ToString(); }
+            set { if (_initialised) this.InvokeIfRequired(() => UnitComboBox.SelectedItem = value); }
         }
 
         public int AlternativeUnitId
@@ -84,17 +102,17 @@ namespace GameEditor.Wcf.Harness
             set { this.InvokeIfRequired(() => IsPercentCheckBox.Checked = value); }
         }
 
-        private void ListButton_Click(object sender, System.EventArgs e)
+        private void ListButton_Click(object sender, EventArgs e)
         {
             _presenter.ShowList();
         }
 
-        private void UpdateButton_Click(object sender, System.EventArgs e)
+        private void UpdateButton_Click(object sender, EventArgs e)
         {
             _presenter.UpdateAlternativeUnitDetail();
         }
 
-        private void DeleteButton_Click(object sender, System.EventArgs e)
+        private void DeleteButton_Click(object sender, EventArgs e)
         {
             _presenter.DeleteAlternativeUnitDetail();
         }

@@ -408,25 +408,22 @@
             // AlternativeUnitListControl
             // 
             this.AlternativeUnitListControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.AlternativeUnitListControl.Location = new System.Drawing.Point(85, 365);
+            this.AlternativeUnitListControl.Location = new System.Drawing.Point(85, 350);
             this.AlternativeUnitListControl.Name = "AlternativeUnitListControl";
-            this.AlternativeUnitListControl.Size = new System.Drawing.Size(744, 322);
+            this.AlternativeUnitListControl.Size = new System.Drawing.Size(651, 337);
             this.AlternativeUnitListControl.TabIndex = 28;
             // 
             // AlternativeUnitDetailControl
             // 
             this.AlternativeUnitDetailControl.AlternativeUnitId = 0;
-            this.AlternativeUnitDetailControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.AlternativeUnitDetailControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.AlternativeUnitDetailControl.Id = 0;
-            this.AlternativeUnitDetailControl.Location = new System.Drawing.Point(0, 365);
+            this.AlternativeUnitDetailControl.Location = new System.Drawing.Point(3, 350);
             this.AlternativeUnitDetailControl.MaxValue = 0;
             this.AlternativeUnitDetailControl.MinValue = 0;
             this.AlternativeUnitDetailControl.Name = "AlternativeUnitDetailControl";
             this.AlternativeUnitDetailControl.Percent = false;
-            this.AlternativeUnitDetailControl.Size = new System.Drawing.Size(829, 322);
-            this.AlternativeUnitDetailControl.TabIndex = 27;
+            this.AlternativeUnitDetailControl.Size = new System.Drawing.Size(817, 337);
+            this.AlternativeUnitDetailControl.TabIndex = 29;
             this.AlternativeUnitDetailControl.UnitId = 0;
             this.AlternativeUnitDetailControl.Upgrade = false;
             // 

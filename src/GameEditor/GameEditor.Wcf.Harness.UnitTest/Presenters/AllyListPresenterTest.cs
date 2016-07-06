@@ -51,7 +51,6 @@ namespace GameEditor.Wcf.Harness.UnitTest.Presenters
         public void SelectArmy_Leaves_The_CurrentArmyId_Unchanged()
         {
             // Arrange
-            const int value = 5;
             SetInitialValues();
             var currentArmyId = GameModel.CurrentArmyDefinitionId;
 
@@ -66,7 +65,6 @@ namespace GameEditor.Wcf.Harness.UnitTest.Presenters
         public void SelectArmy_Leaves_The_CurrentUnitId_Unchanged()
         {
             // Arrange
-            const int value = 5;
             SetInitialValues();
             var currentUnitId = GameModel.CurrentArmyUnitDefinitionId;
 
@@ -132,7 +130,6 @@ namespace GameEditor.Wcf.Harness.UnitTest.Presenters
         public void SelectArmy_Sets_The_CurrentAllyArmyId_To_Unchanged()
         {
             // Arrange
-            const int value = 5;
             SetInitialValues();
             var currentAllyArmyId = GameModel.CurrentAllyArmyDefinitionId;
 

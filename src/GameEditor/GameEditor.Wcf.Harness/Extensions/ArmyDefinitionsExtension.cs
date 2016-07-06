@@ -44,6 +44,17 @@ namespace GameEditor.Wcf.Harness.Extensions
             }).Select(subItem => new ListViewItem(subItem)).ToArray();
         }
 
+        public static Dictionary<int, int> ConvertToDictionary(this ArmyUnitDefinitions definitions, int exludeId)
+        {
+            var counter = 0;
+            return definitions.Where(unit => unit.Id != exludeId).ToDictionary(unit => counter++, unit => unit.Id);
+        }
+
+        public static List<string> ConvertToStringList(this ArmyUnitDefinitions definitions, int excludeId)
+        {
+            return definitions.Where(unit => unit.Id != excludeId).Select(unit => unit.UnitName).ToList();
+        }
+
         public static ListViewItem[] ConvertToListViewItems(this AlternativeUnitDefinitions definitions)
         {
             return definitions.Select(altUnit => new[]

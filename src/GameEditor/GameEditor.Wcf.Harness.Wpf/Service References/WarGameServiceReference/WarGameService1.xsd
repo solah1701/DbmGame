@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/GameCore.WcfService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/GameCore.WcfService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:52965/WarGameService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/GameCore.WcfService.DebellisMultitudinis.Enumerations" />
+  <xs:complexType name="User">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ArmiesLink" nillable="true" type="xs:anyURI" />
+      <xs:element minOccurs="0" name="BattlesLink" nillable="true" type="xs:anyURI" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IdLink" nillable="true" type="xs:anyURI" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="User" nillable="true" type="tns:User" />
+  <xs:complexType name="Battle">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AttackerUser" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AttackerUserLink" nillable="true" type="xs:anyURI" />
+      <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DefenderUser" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DefenderUserLink" nillable="true" type="xs:anyURI" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IdLink" nillable="true" type="xs:anyURI" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Battle" nillable="true" type="tns:Battle" />
+  <xs:complexType name="Armies">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Army" nillable="true" type="tns:Army" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Armies" nillable="true" type="tns:Armies" />
+  <xs:complexType name="Army">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ArmyCommandsLink" nillable="true" type="xs:anyURI" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IdLink" nillable="true" type="xs:anyURI" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="User" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserLink" nillable="true" type="xs:anyURI" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Army" nillable="true" type="tns:Army" />
+  <xs:complexType name="ArmyCommands">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ArmyCommand" nillable="true" type="tns:ArmyCommand" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArmyCommands" nillable="true" type="tns:ArmyCommands" />
+  <xs:complexType name="ArmyCommand">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Army" type="xs:int" />
+      <xs:element minOccurs="0" name="ArmyGroupsLink" nillable="true" type="xs:anyURI" />
+      <xs:element minOccurs="0" name="ArmyLink" nillable="true" type="xs:anyURI" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IdLink" nillable="true" type="xs:anyURI" />
+      <xs:element minOccurs="0" name="IsBroken" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsFlankMarch" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UnitsLink" nillable="true" type="xs:anyURI" />
+      <xs:element minOccurs="0" name="User" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserLink" nillable="true" type="xs:anyURI" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArmyCommand" nillable="true" type="tns:ArmyCommand" />
+  <xs:complexType name="ArmyGroups">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ArmyGroup" nillable="true" type="tns:ArmyGroup" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArmyGroups" nillable="true" type="tns:ArmyGroups" />
+  <xs:complexType name="ArmyGroup">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Army" type="xs:int" />
+      <xs:element minOccurs="0" name="ArmyCommand" type="xs:int" />
+      <xs:element minOccurs="0" name="ArmyCommandLink" nillable="true" type="xs:anyURI" />
+      <xs:element minOccurs="0" name="ArmyLink" nillable="true" type="xs:anyURI" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IdLink" nillable="true" type="xs:anyURI" />
+      <xs:element minOccurs="0" name="UnitFrontage" type="xs:int" />
+      <xs:element minOccurs="0" name="UnitsLink" nillable="true" type="xs:anyURI" />
+      <xs:element minOccurs="0" name="User" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserLink" nillable="true" type="xs:anyURI" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArmyGroup" nillable="true" type="tns:ArmyGroup" />
+  <xs:complexType name="Units">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Unit" nillable="true" type="tns:Unit" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Units" nillable="true" type="tns:Units" />
+  <xs:complexType name="Unit">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Army" type="xs:int" />
+      <xs:element minOccurs="0" name="ArmyCommand" type="xs:int" />
+      <xs:element minOccurs="0" name="ArmyCommandLink" nillable="true" type="xs:anyURI" />
+      <xs:element minOccurs="0" name="ArmyGroup" type="xs:int" />
+      <xs:element minOccurs="0" name="ArmyGroupLink" nillable="true" type="xs:anyURI" />
+      <xs:element minOccurs="0" name="ArmyLink" nillable="true" type="xs:anyURI" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IdLink" nillable="true" type="xs:anyURI" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UnitType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="User" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserLink" nillable="true" type="xs:anyURI" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Unit" nillable="true" type="tns:Unit" />
+  <xs:complexType name="ArmyDefinitions">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ArmyDefinition" nillable="true" type="tns:ArmyDefinition" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArmyDefinitions" nillable="true" type="tns:ArmyDefinitions" />
+  <xs:complexType name="ArmyDefinition">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ArmyBook" type="xs:int" />
+      <xs:element minOccurs="0" name="ArmyList" type="xs:int" />
+      <xs:element minOccurs="0" name="ArmyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IdLink" nillable="true" type="xs:anyURI" />
+      <xs:element minOccurs="0" name="MaxYear" type="xs:int" />
+      <xs:element minOccurs="0" name="MinYear" type="xs:int" />
+      <xs:element minOccurs="0" name="Notes" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArmyDefinition" nillable="true" type="tns:ArmyDefinition" />
+  <xs:complexType name="ArmyUnitDefinitions">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ArmyUnitDefinition" nillable="true" type="tns:ArmyUnitDefinition" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArmyUnitDefinitions" nillable="true" type="tns:ArmyUnitDefinitions" />
+  <xs:complexType name="ArmyUnitDefinition">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Cost" nillable="true" type="xs:decimal" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/GameCore.WcfService.DebellisMultitudinis.Enumerations" minOccurs="0" name="DisciplineType" type="q1:DisciplineTypeEnum" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/GameCore.WcfService.DebellisMultitudinis.Enumerations" minOccurs="0" name="DispositionType" type="q2:DispositionTypeEnum" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/GameCore.WcfService.DebellisMultitudinis.Enumerations" minOccurs="0" name="GradeType" type="q3:GradeTypeEnum" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IdLink" nillable="true" type="xs:anyURI" />
+      <xs:element minOccurs="0" name="IsAlly" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsChariot" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsDoubleElement" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsGeneral" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsMountedInfantry" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MaxCount" type="xs:int" />
+      <xs:element minOccurs="0" name="MaxYear" type="xs:int" />
+      <xs:element minOccurs="0" name="MinCount" type="xs:int" />
+      <xs:element minOccurs="0" name="MinYear" type="xs:int" />
+      <xs:element minOccurs="0" name="UnitName" nillable="true" type="xs:string" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/GameCore.WcfService.DebellisMultitudinis.Enumerations" minOccurs="0" name="UnitType" type="q4:UnitTypeEnum" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArmyUnitDefinition" nillable="true" type="tns:ArmyUnitDefinition" />
+  <xs:complexType name="AlliedArmyDefinitions">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AlliedArmyDefinition" nillable="true" type="tns:AlliedArmyDefinition" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AlliedArmyDefinitions" nillable="true" type="tns:AlliedArmyDefinitions" />
+  <xs:complexType name="AlliedArmyDefinition">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AllyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ArmyBook" type="xs:int" />
+      <xs:element minOccurs="0" name="ArmyId" type="xs:int" />
+      <xs:element minOccurs="0" name="ArmyLink" nillable="true" type="xs:anyURI" />
+      <xs:element minOccurs="0" name="ArmyList" type="xs:int" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IdLink" nillable="true" type="xs:anyURI" />
+      <xs:element minOccurs="0" name="MaxYear" type="xs:int" />
+      <xs:element minOccurs="0" name="MinYear" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AlliedArmyDefinition" nillable="true" type="tns:AlliedArmyDefinition" />
+  <xs:complexType name="AlternativeUnitDefinitions">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AlternativeUnitDefinition" nillable="true" type="tns:AlternativeUnitDefinition" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AlternativeUnitDefinitions" nillable="true" type="tns:AlternativeUnitDefinitions" />
+  <xs:complexType name="AlternativeUnitDefinition">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AlternativeUnitId" type="xs:int" />
+      <xs:element minOccurs="0" name="AlternativeUnitLink" nillable="true" type="xs:anyURI" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IdLink" nillable="true" type="xs:anyURI" />
+      <xs:element minOccurs="0" name="MaxValue" type="xs:int" />
+      <xs:element minOccurs="0" name="MinValue" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Percent" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Upgrade" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AlternativeUnitDefinition" nillable="true" type="tns:AlternativeUnitDefinition" />
+</xs:schema>

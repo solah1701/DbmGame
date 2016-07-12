@@ -232,6 +232,10 @@ namespace GameCore.WcfService
         [OperationContract]
         AlternativeUnitDefinitions GetAlternativeUnitDefinitions(int armyDefinitionId, int unitId);
 
+        [WebGet(UriTemplate = "ArmyDefinitions/{armyDefinitionId}/AlternativeUnitDefinitions")]
+        [OperationContract]
+        AlternativeUnitDefinitions GetAlternativeUnitDefinitionsForArmy(int armyDefinitionId);
+
         [WebGet(UriTemplate = "ArmyDefinitions/{armyDefinitionId}/ArmyUnitDefinitions/{unitId}/AlternativeUnitDefinitions/{id}")]
         [OperationContract]
         AlternativeUnitDefinition GetAlternativeUnitDefinition(int armyDefinitionId, int unitId, int id);

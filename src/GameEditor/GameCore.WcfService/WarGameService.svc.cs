@@ -813,6 +813,22 @@ namespace GameCore.WcfService
             }
         }
 
+        public AlternativeUnitDefinitions GetAlternativeUnitDefinitionsForArmy(int armyDefinitionId)
+        {
+            throw new NotImplementedException();
+            //var unitId = 0;
+            //using (var db = new DbmModel())
+            //{
+            //    var allUnits =
+            //        db.ArmyListDefinitions.Find(armyDefinitionId)
+            //            .ArmyListUnitDefinitions;
+                 
+                
+            //    SetStatusOk();
+            //    return !alternativeUnits.Any() ? new AlternativeUnitDefinitions() : alternativeUnits;
+            //}
+        }
+
         public AlternativeUnitDefinition GetAlternativeUnitDefinition(int armyDefinitionId, int unitId, int id)
         {
             using (var db = new DbmModel())

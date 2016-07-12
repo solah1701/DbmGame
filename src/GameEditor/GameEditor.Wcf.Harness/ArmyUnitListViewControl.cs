@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using GameEditor.Wcf.Harness.Extensions;
 using GameEditor.Wcf.Harness.Helpers;
@@ -27,9 +28,23 @@ namespace GameEditor.Wcf.Harness
             {
                 this.InvokeIfRequired(() =>
                 {
-                    ArmyListView.Items.Clear();
-                    ArmyListView.Items.AddRange(value.ConvertToListViewItems());
+                    PopulateUnitDefinitionList(value);
                 });
+            }
+        }
+
+        public Dictionary<int, ArmyUnitListPresenter.IndexedItem> IndexedItem { get; set; }
+
+        private void PopulateUnitDefinitionList(ArmyUnitDefinitions value)
+        {
+            ArmyListView.Items.Clear();
+            ArmyListView.Items.AddRange(value.ConvertToListViewItems());
+            //TODO: Now I need to modify the ListViewItems to alter the background colour based
+            //TODO: upon the reference to Alternative Units
+
+            foreach (ListViewItem item in ArmyListView.Items)
+            {
+                item.BackColor = IndexedItem[item.Index].BackgroundColor;
             }
         }
 

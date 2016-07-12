@@ -1,5 +1,6 @@
 ﻿//#define DESIGNMODE
 
+using System.Windows.Forms;
 using GameEditor.Wcf.Harness.EventAggregators;
 using GameEditor.Wcf.Harness.Extensions;
 using GameEditor.Wcf.Harness.Helpers;
@@ -26,6 +27,12 @@ namespace GameEditor.Wcf.Harness.Presenters
         {
             base.InitialiseView();
             PopulateList();
+        }
+
+        public override void ViewChanged()
+        {
+            View.CanUpdate = View.AllyName != string.Empty && View.MinYear < View.MaxYear;
+            View.CanDelete = _model.CurrentAllyDefinitionId != 0;
         }
 
         public void PopulateList()
@@ -55,6 +62,7 @@ namespace GameEditor.Wcf.Harness.Presenters
             _model.CurrentAllyArmyDefinitionId = army.Id;
             View.Book = army.ArmyBook;
             View.List = army.ArmyList;
+            ViewChanged();
             //_event.PublishOnCurrentThread(new UpdateView());
         }
 
@@ -74,6 +82,7 @@ namespace GameEditor.Wcf.Harness.Presenters
             View.SelectedAlly = army.ArmyName;
             View.Book = army.ArmyBook;
             View.List = army.ArmyList;
+            ViewChanged();
         }
 
         public void UpdateArmy()
@@ -107,6 +116,7 @@ namespace GameEditor.Wcf.Harness.Presenters
                 //PopulateList();
                 SelectAlly(_model.CurrentAllyDefinitionId);
             }
+            ViewChanged();
         }
     }
 }

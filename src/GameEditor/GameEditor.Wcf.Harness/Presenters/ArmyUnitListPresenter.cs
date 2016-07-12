@@ -1,5 +1,7 @@
 ﻿//#define DESIGNMODE
 
+using System.Collections.Generic;
+using System.Drawing;
 using GameEditor.Wcf.Harness.EventAggregators;
 using GameEditor.Wcf.Harness.Extensions;
 using GameEditor.Wcf.Harness.Helpers;
@@ -13,6 +15,13 @@ namespace GameEditor.Wcf.Harness.Presenters
     {
         private readonly IGameModel _model;
         private readonly IEventAggregator _event;
+        private Dictionary<int, IndexedItem> ListIndex { get; set; }
+
+        public class IndexedItem
+        {
+            public int Id { get; set; }
+            public Color BackgroundColor { get; set; }
+        }
 
         public ArmyUnitListPresenter(IEventAggregator eventAggregator, IGameModel model)
         {
@@ -25,8 +34,18 @@ namespace GameEditor.Wcf.Harness.Presenters
         {
 #if !DESIGNMODE
             var items = _model.GetArmyUnitDefinitions();
+            var altItems = _model.GetAlternativeUnitDefinitions();
             if (items == null) return;
+            ListIndex = new Dictionary<int, IndexedItem>();
+            var count = 0;
+            foreach (var armyUnitDefinition in items)
+            {
+                var altItem = altItems.Find(a => a.AlternativeUnitId == armyUnitDefinition.Id);
+                var colour = altItem != null ? Color.Gainsboro : Color.Red;
+                ListIndex.Add(count++, new IndexedItem { Id = armyUnitDefinition.Id, BackgroundColor = colour });
+            }
             View.ArmyUnitDefinitions = items;
+            View.IndexedItem = ListIndex;
 #endif
         }
 

@@ -13,7 +13,7 @@ namespace GameEditor.Wcf.Harness.Views
         int List { get; set; }
         int MinYear { get; set; }
         int MaxYear { get; set; }
-        bool CanUpdate { get; set; }
-        bool CanDelete { get; set; }
+        bool CanUpdate { set; }
+        bool CanDelete { set; }
     }
 }

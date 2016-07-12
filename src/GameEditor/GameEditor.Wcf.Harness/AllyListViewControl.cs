@@ -80,13 +80,11 @@ namespace GameEditor.Wcf.Harness
 
         public bool CanUpdate
         {
-            get { return UpdateButton.Enabled; }
             set { this.InvokeIfRequired(() => UpdateButton.Enabled = value); }
         }
 
         public bool CanDelete
         {
-            get { return DeleteButton.Enabled; }
             set { this.InvokeIfRequired(() => DeleteButton.Enabled = value); }
         }
 

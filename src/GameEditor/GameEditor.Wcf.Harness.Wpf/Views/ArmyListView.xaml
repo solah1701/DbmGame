@@ -7,8 +7,8 @@
         <ListView Name="ArmyDefinitions" >
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header = "Id" DisplayMemberBinding="{Binding Id}" Width="20"></GridViewColumn>
-                    <GridViewColumn Header = "Name" DisplayMemberBinding="{Binding ArmyName}" Width="100"></GridViewColumn>
+                    <GridViewColumn Header = "Id" DisplayMemberBinding="{Binding Id}" Width="30"></GridViewColumn>
+                    <GridViewColumn Header = "Name" DisplayMemberBinding="{Binding ArmyName}" Width="200"></GridViewColumn>
                     <GridViewColumn Header = "Book" DisplayMemberBinding="{Binding ArmyBook}" Width="40"></GridViewColumn>
                     <GridViewColumn Header = "List" DisplayMemberBinding="{Binding ArmyList}" Width="40"></GridViewColumn>
                 </GridView>

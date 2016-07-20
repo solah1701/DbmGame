@@ -10,15 +10,29 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
         private readonly IGameModel _model;
         private readonly IEventAggregator _event;
 
+        private ArmyDefinition _selected;
+
         public ArmyDefinitions ArmyDefinitions { get; set; }
+
+        public ArmyDefinition SelectedArmyDefinition
+        {
+            get { return _selected; }
+            set
+            {
+                if (_selected == value) return;
+                _selected = value;
+                NotifyOfPropertyChange(() =>  SelectedArmyDefinition);
+                SelectArmy(_selected.Id);
+            }
+        }
 
         public ArmyListViewModel(IEventAggregator eventAggregator, IGameModel gameModel)
         {
             _model = gameModel;
             _event = eventAggregator;
             _event.Subscribe(this);
+            PopulateList();
         }
-
 
         public void PopulateList()
         {
@@ -27,6 +41,7 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
             ArmyDefinitions = items;
 #endif
         }
+
         public void AddArmy()
         {
             _model.CurrentArmyDefinitionId = 0;

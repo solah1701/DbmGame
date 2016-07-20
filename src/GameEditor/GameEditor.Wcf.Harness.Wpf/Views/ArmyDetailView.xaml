@@ -4,9 +4,10 @@
              xmlns:local="clr-namespace:GameEditor.Wcf.Harness.Wpf.Views">
     <DockPanel Width="314">
         <StackPanel DockPanel.Dock="Top">
+
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Id:" Width="50" Margin="5"></TextBlock>
-                <TextBox Name="ArmyId" Width="" Margin="5"></TextBox>
+                <TextBox IsReadOnly="True" Name="ArmyId" Width="200" Margin="5"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Name:" Width="50" Margin="5"></TextBlock>
@@ -36,7 +37,7 @@
         </StackPanel>
         <StackPanel Orientation="Horizontal">
             <TextBlock Text="Notes:" Width="50" Margin="5"></TextBlock>
-            <TextBox Name="Notes" Width="200" Margin="5"></TextBox>
+            <TextBox TextWrapping="WrapWithOverflow" Name="Notes" Width="200" Margin="5"></TextBox>
         </StackPanel>
     </DockPanel>
 </UserControl>

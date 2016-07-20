@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="GameEditor.Wcf.Harness.Wpf.Views.ArmyDetailView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:GameEditor.Wcf.Harness.Wpf.Views">
+    <DockPanel Width="314">
+        <StackPanel DockPanel.Dock="Top">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Id:" Width="50" Margin="5"></TextBlock>
+                <TextBox Name="ArmyId" Width="" Margin="5"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Name:" Width="50" Margin="5"></TextBlock>
+                <TextBox Name="ArmyName" Width="200" Margin="5"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Book:" Width="50" Margin="5"></TextBlock>
+                <TextBox Name="ArmyBook" Width="200" Margin="5"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="List:" Width="50" Margin="5"></TextBlock>
+                <TextBox Name="ArmyList" Width="200" Margin="5"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Min Year:" Width="50" Margin="5"></TextBlock>
+                <TextBox Name="MinYear" Width="200" Margin="5"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Max Year" Width="50" Margin="5"></TextBlock>
+                <TextBox Name="MaxYear" Width="200" Margin="5"></TextBox>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom">
+            <Button Name="Add" Content="Add Unit" Margin="5"></Button>
+            <Button Name="Update" Content="Update" Margin="5"></Button>
+            <Button Name="Delete" Content="Delete" Margin="5"></Button>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Notes:" Width="50" Margin="5"></TextBlock>
+            <TextBox Name="Notes" Width="200" Margin="5"></TextBox>
+        </StackPanel>
+    </DockPanel>
+</UserControl>

@@ -37,8 +37,20 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=2.6.3.862, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.2.6.3.862\lib\NET40\Autofac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Autofac.Configuration, Version=2.6.3.862, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.2.6.3.862\lib\NET40\Autofac.Configuration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Caliburn.Micro, Version=3.0.1.0, Culture=neutral, PublicKeyToken=8e5891231f2ed21f, processorArchitecture=MSIL">
       <HintPath>..\packages\Caliburn.Micro.Core.3.0.1\lib\net40\Caliburn.Micro.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Caliburn.Micro.Autofac, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Caliburn.Micro.Autofac.1.5.0\lib\net40\Caliburn.Micro.Autofac.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Caliburn.Micro.Platform, Version=3.0.1.0, Culture=neutral, PublicKeyToken=8e5891231f2ed21f, processorArchitecture=MSIL">
@@ -51,6 +63,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
@@ -75,7 +88,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AppBootstrapper.cs" />
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="EventAggregators\UpdateView.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
@@ -86,37 +101,38 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="TypedAutofacBootstrapper.cs" />
+    <Compile Include="ViewModels\ArmyDetailViewModel.cs" />
+    <Compile Include="ViewModels\ArmyListViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
-    <Compile Include="ViewModels\TabViewModel.cs" />
-    <Compile Include="ViewModels\TestViewModel.cs" />
-    <Compile Include="Views\Interfaces\IShell.cs" />
-    <Compile Include="Views\Interfaces\ITest.cs" />
-    <Compile Include="Views\ShellView.xaml.cs">
-      <DependentUpon>ShellView.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="ViewModels\ArmyListTabViewModel.cs" />
+    <Compile Include="ViewModels\ArmyUnitTabViewModel.cs" />
+    <Compile Include="Views\Interfaces\IMainScreenTabItem.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Views\TabView.xaml.cs">
-      <DependentUpon>TabView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\TestView.xaml.cs">
-      <DependentUpon>TestView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\ArmyDetailView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ArmyUnitTabView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ArmyListTabView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ArmyListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ShellView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\TabView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\TestView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

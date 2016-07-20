@@ -1,18 +1,14 @@
-﻿using System.ComponentModel.Composition;
-using System.Dynamic;
-using System.Windows;
-using Caliburn.Micro;
+﻿using Caliburn.Micro;
 using GameEditor.Wcf.Harness.Wpf.Views.Interfaces;
 
 namespace GameEditor.Wcf.Harness.Wpf.ViewModels
 {
-    [Export(typeof(IShell))]
-    public class ShellViewModel : Conductor<IScreen>.Collection.OneActive, IShell
+    public class ShellViewModel : Conductor<IMainScreenTabItem>.Collection.OneActive
     {
-        public ShellViewModel()
+        public ShellViewModel(ArmyListTabViewModel armyListTab, ArmyUnitTabViewModel armyUnitTab)
         {
-            ActivateItem(new TabViewModel { DisplayName = "Army List" });
-            ActivateItem(new TabViewModel { DisplayName = "Army Unit" });
+            Items.Add(armyListTab);
+            Items.Add(armyUnitTab);
         }
     }
 }

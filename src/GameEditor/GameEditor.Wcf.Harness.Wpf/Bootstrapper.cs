@@ -7,12 +7,10 @@ using System.Dynamic;
 using System.Linq;
 using System.Windows;
 using Caliburn.Micro;
-using GameEditor.Wcf.Harness.Wpf.ViewModels;
-using GameEditor.Wcf.Harness.Wpf.Views.Interfaces;
 
 namespace GameEditor.Wcf.Harness.Wpf
 {
-    public class Bootstrapper : BootstrapperBase
+    public class Bootstrapper<T> : BootstrapperBase
     {
         private CompositionContainer _container;
 
@@ -62,7 +60,7 @@ namespace GameEditor.Wcf.Harness.Wpf
             settings.WindowState = WindowState.Maximized;
             settings.Title = "Game Editor";
 
-            DisplayRootViewFor<IShell>(settings);
+            DisplayRootViewFor<T>(settings);
         }
     }
 }

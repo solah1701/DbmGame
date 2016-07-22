@@ -15,14 +15,14 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
         private Dictionary<int, IndexedItem> ListIndex { get; set; }
 
         public ArmyUnitDefinitions ArmyUnitDefinitions { get; set; }
-        public ArmyUnitDefinition SelecteArmyUnitDefinition
+        public ArmyUnitDefinition SelectedArmyUnitDefinition
         {
             get { return _selected; }
             set
             {
                 if (_selected == value) return;
                 _selected = value;
-                NotifyOfPropertyChange(() => SelecteArmyUnitDefinition);
+                NotifyOfPropertyChange(() => SelectedArmyUnitDefinition);
                 SelectUnitArmy(_selected.Id);
             }
         }

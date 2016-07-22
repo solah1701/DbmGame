@@ -140,6 +140,7 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
             else SelectArmyUnitDetail(_model.CurrentArmyUnitDefinitionId);
             ViewChanged();
         }
+
         public LabelTextboxViewModel IdControl { get; set; }
         public LabelTextboxViewModel NameControl { get; set; }
         public LabelTextboxViewModel CostControl { get; set; }
@@ -168,11 +169,28 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
             }
             set
             {
-                IdControl.TextBox = value.ToString(); NotifyOfPropertyChange(() => IdControl);
+                if (IdControl.TextBox == value.ToString()) return; IdControl.TextBox = value.ToString();
             }
         }
-        public string ArmyUnitName { get; set; }
-        public decimal? Cost { get; set; }
+        public string ArmyUnitName
+        {
+            get { return NameControl.TextBox; }
+            set
+            {
+                if (NameControl.TextBox == value) return; NameControl.TextBox = value;
+            }
+        }
+
+        public decimal? Cost
+        {
+            get
+            {
+                decimal value;
+                return decimal.TryParse(CostControl.TextBox, out value) ? value : 0;
+            }
+            set { if (CostControl.TextBox == value.ToString()) return; CostControl.TextBox = value.ToString(); }
+        }
+
         public int MinCount { get; set; }
         public int MaxCount { get; set; }
         public int MinYear { get; set; }

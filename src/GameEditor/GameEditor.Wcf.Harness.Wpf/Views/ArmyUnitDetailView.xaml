@@ -14,8 +14,8 @@
         </StackPanel>
         <StackPanel>
             <ContentControl Name="IdControl"/>
-            <ContentControl Name="CostControl"/>
             <ContentControl Name="NameControl"/>
+            <ContentControl Name="CostControl"/>
             <ContentControl Name="MinCountControl"/>
             <ContentControl Name="MaxCountControl"/>
             <ContentControl Name="MinYearControl"/>

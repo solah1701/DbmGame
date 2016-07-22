@@ -1,13 +1,13 @@
-﻿using System.Data;
-using Caliburn.Micro;
+﻿using Caliburn.Micro;
 using GameEditor.Wcf.Harness.EventAggregators;
 using GameEditor.Wcf.Harness.Wpf.Models;
+using GameEditor.Wcf.Harness.Wpf.Views.Interfaces;
 using GameEditor.Wcf.Harness.Wpf.WarGameServiceReference;
 
 namespace GameEditor.Wcf.Harness.Wpf.ViewModels
 
 {
-    public class ArmyDetailViewModel : Screen, IHandle<UpdateView>
+    public class ArmyDetailViewModel : Screen, IHandle<UpdateView>, IArmyDetailView
     {
         private readonly IEventAggregator _event;
         private readonly IGameModel _model;
@@ -46,7 +46,7 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
             Notes = string.Empty;
         }
 
-        public void UpdateArmyDetail()
+        public void Update()
         {
             var definition = new ArmyDefinition
             {
@@ -62,14 +62,14 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
             _event.PublishOnCurrentThread(new UpdateView());
         }
 
-        public void AddArmyUnit()
+        public void Add()
         {
             //_model.CurrentArmyDefinitionId = 0;
             _event.PublishOnCurrentThread(new UpdateView());
             //_event.PublishOnCurrentThread(new UpdateTabPage("ArmyUnitTabPage"));
         }
 
-        public void DeleteArmyDetail()
+        public void Delete()
         {
             _model.DeleteArmyDefinition(ArmyId);
             ClearArmyDetail();

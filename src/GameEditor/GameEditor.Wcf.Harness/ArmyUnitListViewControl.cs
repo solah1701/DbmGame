@@ -42,10 +42,10 @@ namespace GameEditor.Wcf.Harness
             //TODO: Now I need to modify the ListViewItems to alter the background colour based
             //TODO: upon the reference to Alternative Units
 
-            foreach (ListViewItem item in ArmyListView.Items)
-            {
-                item.BackColor = IndexedItem[item.Index].BackgroundColor;
-            }
+            //foreach (ListViewItem item in ArmyListView.Items)
+            //{
+            //    item.BackColor = IndexedItem[item.Index].BackgroundColor;
+            //}
         }
 
         private void AddButton_Click(object sender, EventArgs e)

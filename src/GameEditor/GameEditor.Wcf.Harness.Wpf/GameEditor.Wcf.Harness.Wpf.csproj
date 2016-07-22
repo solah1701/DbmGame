@@ -104,9 +104,16 @@
     <Compile Include="TypedAutofacBootstrapper.cs" />
     <Compile Include="ViewModels\ArmyDetailViewModel.cs" />
     <Compile Include="ViewModels\ArmyListViewModel.cs" />
+    <Compile Include="ViewModels\ArmyUnitDetailViewModel.cs" />
+    <Compile Include="ViewModels\ArmyUnitListViewModel.cs" />
+    <Compile Include="ViewModels\LabelCheckboxViewModel.cs" />
+    <Compile Include="ViewModels\LabelTextboxViewModel.cs" />
+    <Compile Include="ViewModels\LabelViewModelBase.cs" />
+    <Compile Include="Views\Interfaces\IArmyDetailView.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="ViewModels\ArmyListTabViewModel.cs" />
     <Compile Include="ViewModels\ArmyUnitTabViewModel.cs" />
+    <Compile Include="Views\Interfaces\IArmyUnitDetailView.cs" />
     <Compile Include="Views\Interfaces\IMainScreenTabItem.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
@@ -120,6 +127,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\ArmyUnitDetailView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ArmyUnitListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ArmyUnitTabView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -129,6 +144,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ArmyListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LabelCheckboxView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LabelTextboxView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -1,21 +1,33 @@
-﻿//#define DESIGNMODE
-
-using System.Collections.Generic;
-using System.Drawing;
+﻿using System.Collections.Generic;
+using System.Windows.Media;
+using Caliburn.Micro;
 using GameEditor.Wcf.Harness.EventAggregators;
-using GameEditor.Wcf.Harness.Extensions;
-using GameEditor.Wcf.Harness.Helpers;
-using GameEditor.Wcf.Harness.Models;
-using GameEditor.Wcf.Harness.Mvc;
-using GameEditor.Wcf.Harness.Views;
+using GameEditor.Wcf.Harness.Wpf.Models;
+using GameEditor.Wcf.Harness.Wpf.WarGameServiceReference;
 
-namespace GameEditor.Wcf.Harness.Presenters
+namespace GameEditor.Wcf.Harness.Wpf.ViewModels
 {
-    public class ArmyUnitListPresenter : Controller<IArmyUnitListView>, IArmyUnitListPresenter, IHandle<UpdateView>
+    public class ArmyUnitListViewModel : Screen, IHandle<UpdateView>
     {
         private readonly IGameModel _model;
         private readonly IEventAggregator _event;
+        private ArmyUnitDefinition _selected;
         private Dictionary<int, IndexedItem> ListIndex { get; set; }
+
+        public ArmyUnitDefinitions ArmyUnitDefinitions { get; set; }
+        public ArmyUnitDefinition SelecteArmyUnitDefinition
+        {
+            get { return _selected; }
+            set
+            {
+                if (_selected == value) return;
+                _selected = value;
+                NotifyOfPropertyChange(() => SelecteArmyUnitDefinition);
+                SelectUnitArmy(_selected.Id);
+            }
+        }
+
+        public Dictionary<int, IndexedItem> IndexedItemDictionary { get; set; }
 
         public class IndexedItem
         {
@@ -23,9 +35,9 @@ namespace GameEditor.Wcf.Harness.Presenters
             public Color BackgroundColor { get; set; }
         }
 
-        public ArmyUnitListPresenter(IEventAggregator eventAggregator, IGameModel model)
+        public ArmyUnitListViewModel(IEventAggregator eventAggregator, IGameModel gameModel)
         {
-            _model = model;
+            _model = gameModel;
             _event = eventAggregator;
             _event.Subscribe(this);
         }
@@ -41,11 +53,11 @@ namespace GameEditor.Wcf.Harness.Presenters
             //foreach (var armyUnitDefinition in items)
             //{
             //    var altItem = altItems.Find(a => a.AlternativeUnitId == armyUnitDefinition.Id);
-            //    var colour = altItem != null ? Color.Gainsboro : Color.Red;
+            //    var colour = altItem != null ? Color.FromArgb(255, 255, 255, 255) : Color.FromArgb(127, 255, 0, 0);
             //    ListIndex.Add(count++, new IndexedItem { Id = armyUnitDefinition.Id, BackgroundColor = colour });
             //}
-            View.ArmyUnitDefinitions = items;
-            View.IndexedItem = ListIndex;
+            ArmyUnitDefinitions = items;
+            IndexedItemDictionary = ListIndex;
 #endif
         }
 

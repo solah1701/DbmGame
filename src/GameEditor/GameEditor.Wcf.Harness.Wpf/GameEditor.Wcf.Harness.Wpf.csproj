@@ -107,6 +107,7 @@
     <Compile Include="ViewModels\ArmyUnitDetailViewModel.cs" />
     <Compile Include="ViewModels\ArmyUnitListViewModel.cs" />
     <Compile Include="ViewModels\LabelCheckboxViewModel.cs" />
+    <Compile Include="ViewModels\LabelComboboxViewModel.cs" />
     <Compile Include="ViewModels\LabelTextboxViewModel.cs" />
     <Compile Include="ViewModels\LabelViewModelBase.cs" />
     <Compile Include="Views\Interfaces\IArmyDetailView.cs" />
@@ -148,6 +149,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\LabelCheckboxView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LabelComboboxView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

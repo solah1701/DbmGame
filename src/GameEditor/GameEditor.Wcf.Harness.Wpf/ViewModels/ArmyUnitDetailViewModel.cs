@@ -1,4 +1,6 @@
-﻿using Caliburn.Micro;
+﻿using System;
+using System.Windows.Data;
+using Caliburn.Micro;
 using GameEditor.Wcf.Harness.EventAggregators;
 using GameEditor.Wcf.Harness.Wpf.Models;
 using GameEditor.Wcf.Harness.Wpf.Views.Interfaces;
@@ -33,10 +35,10 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
             IsChariotControl = new LabelCheckboxViewModel { Label = "Is Chariot:" };
             IsDoubleElementControl = new LabelCheckboxViewModel { Label = "Is Double Element:" };
             IsMountedInfantryControl = new LabelCheckboxViewModel { Label = "Is Mounted Infantry:" };
-            DisciplineTypeControl = new LabelTextboxViewModel { Label = "Discipline Type:" };
-            UnitTypeControl = new LabelTextboxViewModel { Label = "Unit Type:" };
-            DispositionTypeControl = new LabelTextboxViewModel { Label = "Disposition Type:" };
-            GradeTypeControl = new LabelTextboxViewModel { Label = "Grade Type:" };
+            DisciplineTypeControl = new LabelComboboxViewModel { Label = "Discipline Type:", ItemSource = new CollectionView(Enum.GetValues(typeof(DisciplineTypeEnum))) };
+            UnitTypeControl = new LabelComboboxViewModel { Label = "Unit Type:", ItemSource = new CollectionView(Enum.GetValues(typeof(UnitTypeEnum))) };
+            DispositionTypeControl = new LabelComboboxViewModel { Label = "Disposition Type:", ItemSource = new CollectionView(Enum.GetValues(typeof(DispositionTypeEnum))) };
+            GradeTypeControl = new LabelComboboxViewModel { Label = "Grade Type:", ItemSource = new CollectionView(Enum.GetValues(typeof(GradeTypeEnum))) };
 
             //base.InitialiseView();
             //DisciplineData = Enum.GetValues(typeof(DisciplineTypeEnum));
@@ -155,10 +157,10 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
         public LabelCheckboxViewModel IsDoubleElementControl { get; set; }
         public LabelCheckboxViewModel IsMountedInfantryControl { get; set; }
 
-        public LabelTextboxViewModel DisciplineTypeControl { get; set; }
-        public LabelTextboxViewModel UnitTypeControl { get; set; }
-        public LabelTextboxViewModel DispositionTypeControl { get; set; }
-        public LabelTextboxViewModel GradeTypeControl { get; set; }
+        public LabelComboboxViewModel DisciplineTypeControl { get; set; }
+        public LabelComboboxViewModel UnitTypeControl { get; set; }
+        public LabelComboboxViewModel DispositionTypeControl { get; set; }
+        public LabelComboboxViewModel GradeTypeControl { get; set; }
 
         public int ArmyUnitDefinitionId
         {
@@ -191,19 +193,69 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
             set { if (CostControl.TextBox == value.ToString()) return; CostControl.TextBox = value.ToString(); }
         }
 
-        public int MinCount { get; set; }
-        public int MaxCount { get; set; }
-        public int MinYear { get; set; }
-        public int MaxYear { get; set; }
-        public bool IsAlly { get; set; }
-        public bool IsGeneral { get; set; }
-        public bool IsChariot { get; set; }
-        public bool IsDoubleElement { get; set; }
-        public bool IsMountedInfantry { get; set; }
+        public int MinCount
+        {
+            get
+            {
+                int value;
+                return int.TryParse(MinCountControl.TextBox, out value) ? value : 0;
+            }
+            set
+            {
+                if (MinCountControl.TextBox == value.ToString()) return;
+                MinCountControl.TextBox = value.ToString();
+            }
+        }
+        public int MaxCount
+        {
+            get
+            {
+                int value;
+                return int.TryParse(MaxCountControl.TextBox, out value) ? value : 0;
+            }
+            set
+            {
+                if (MaxCountControl.TextBox == value.ToString()) return;
+                MaxCountControl.TextBox = value.ToString();
+            }
+        }
+        public int MinYear
+        {
+            get
+            {
+                int value;
+                return int.TryParse(MinYearControl.TextBox, out value) ? value : 0;
+            }
+            set
+            {
+                if (MinYearControl.TextBox == value.ToString()) return;
+                MinYearControl.TextBox = value.ToString();
+            }
+        }
+        public int MaxYear
+        {
+            get
+            {
+                int value;
+                return int.TryParse(MaxYearControl.TextBox, out value) ? value : 0;
+            }
+            set
+            {
+                if (MaxYearControl.TextBox == value.ToString()) return;
+                MaxYearControl.TextBox = value.ToString();
+            }
+        }
+        public bool IsAlly { get { return IsAllyControl.CheckBox; } set { if (IsAllyControl.CheckBox == value) return; IsAllyControl.CheckBox = value; } }
+        public bool IsGeneral { get { return IsGeneralControl.CheckBox; } set { if (IsGeneralControl.CheckBox == value) return; IsGeneralControl.CheckBox = value; } }
+        public bool IsChariot { get { return IsChariotControl.CheckBox; } set { if (IsChariotControl.CheckBox == value) return; IsChariotControl.CheckBox = value; } }
+        public bool IsDoubleElement { get { return IsDoubleElementControl.CheckBox; } set { if (IsDoubleElementControl.CheckBox == value) return; IsDoubleElementControl.CheckBox = value; } }
+        public bool IsMountedInfantry { get { return IsMountedInfantryControl.CheckBox; } set { if (IsMountedInfantryControl.CheckBox == value) return; IsMountedInfantryControl.CheckBox = value; } }
+
         public DisciplineTypeEnum DisciplineType { get; set; }
         public UnitTypeEnum UnitType { get; set; }
         public DispositionTypeEnum DispositionType { get; set; }
         public GradeTypeEnum GradeType { get; set; }
+
         public bool CanUpdate { get; set; }
         public bool CanCopy { get; set; }
         public bool CanDelete { get; set; }

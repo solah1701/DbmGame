@@ -25,6 +25,10 @@
             <ContentControl Name="IsChariotControl"/>
             <ContentControl Name="IsDoubleElementControl"/>
             <ContentControl Name="IsMountedInfantryControl"/>
+            <ContentControl Name="DisciplineTypeControl"/>
+            <ContentControl Name="UnitTypeControl"/>
+            <ContentControl Name="DispositionTypeControl"/>
+            <ContentControl Name="GradeTypeControl"/>
         </StackPanel>
     </DockPanel>
 </UserControl>

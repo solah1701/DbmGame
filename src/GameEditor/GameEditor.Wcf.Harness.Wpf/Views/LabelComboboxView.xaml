@@ -1,0 +1,9 @@
+﻿<UserControl x:Class="GameEditor.Wcf.Harness.Wpf.Views.LabelComboboxView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:GameEditor.Wcf.Harness.Wpf.Views">
+    <DockPanel>
+        <TextBlock Name="Label" Width="{Binding LabelWidth}" Margin="5" DockPanel.Dock="Left"/>
+        <ComboBox Name="ComboBox" Margin="5" ItemsSource="{Binding ItemSource}" DisplayMemberPath="{Binding DisplayMemberPath}" SelectedValuePath="{Binding SelectedValuePath}" SelectedValue="{Binding SelectedValue}" />
+    </DockPanel>
+</UserControl>

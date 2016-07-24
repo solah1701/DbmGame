@@ -40,7 +40,6 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
             DisciplineTypeControl = new LabelComboboxViewModel { Label = "Discipline Type:", ComboboxItem = EnumHelper.ListOfString<DisciplineTypeEnum>() };
             UnitTypeControl = new LabelComboboxViewModel { Label = "Unit Type:", ComboboxItem = EnumHelper.ListOfString<UnitTypeEnum>() };
             DispositionTypeControl = new LabelComboboxViewModel { Label = "Disposition Type:", ComboboxItem = EnumHelper.ListOfString<DispositionTypeEnum>() };
-            //DispositionTypeControl = new LabelComboboxViewModel { Label = "Disposition Type:", ItemSource = new CollectionView(Enum.GetValues(typeof(DispositionTypeEnum))), DisplayMemberPath = "DispositionTypeEnum", SelectedValuePath = "DispositionTypeEnum" };
             GradeTypeControl = new LabelComboboxViewModel { Label = "Grade Type:", ComboboxItem = EnumHelper.ListOfString<GradeTypeEnum>() };
 
             //base.InitialiseView();
@@ -59,7 +58,7 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
             CanDelete = ArmyUnitDefinitionId != 0;
         }
 
-        public void CopyArmyUnitDetail()
+        public void Copy()
         {
             ArmyUnitDefinitionId = 0;
             ViewChanged();
@@ -85,7 +84,7 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
             GradeType = 0;
         }
 
-        public void UpdateArmyUnitDetail()
+        public void Update()
         {
             var definition = new ArmyUnitDefinition
             {
@@ -110,7 +109,7 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
             _event.PublishOnCurrentThread(new UpdateView());
         }
 
-        public void DeleteArmyUnitDetail()
+        public void Delete()
         {
             _model.DeleteArmyUnitDefinition(ArmyUnitDefinitionId);
             ClearArmyUnitDetail();
@@ -307,8 +306,36 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
             }
         }
 
-        public bool CanUpdate { get; set; }
-        public bool CanCopy { get; set; }
-        public bool CanDelete { get; set; }
+        private bool _canUpdate;
+        private bool _canCopy;
+        private bool _canDelete;
+
+        public bool CanUpdate
+        {
+            get { return _canUpdate; }
+            set
+            {
+                if (_canUpdate == value) return;
+                _canUpdate = value; NotifyOfPropertyChange(() => CanUpdate);
+            }
+        }
+        public bool CanCopy
+        {
+            get { return _canCopy; }
+            set
+            {
+                if (_canCopy == value) return;
+                _canCopy = value; NotifyOfPropertyChange(() => CanCopy);
+            }
+        }
+        public bool CanDelete
+        {
+            get { return _canDelete; }
+            set
+            {
+                if (_canDelete == value) return;
+                _canDelete = value; NotifyOfPropertyChange(() => CanDelete);
+            }
+        }
     }
 }

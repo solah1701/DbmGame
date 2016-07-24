@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:GameEditor.Wcf.Harness.Wpf.Views">
     <DockPanel>
         <TextBlock Name="Label" Width="100" Margin="5" DockPanel.Dock="Left"/>
-        <TextBox Name="TextBox" Margin="5"/>
+        <TextBox Name="TextBox" Margin="5" TextWrapping="{Binding TextWrapping}"/>
     </DockPanel>
 </UserControl>

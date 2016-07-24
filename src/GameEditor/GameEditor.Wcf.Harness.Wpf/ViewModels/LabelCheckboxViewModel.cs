@@ -17,7 +17,7 @@
         public LabelCheckboxViewModel()
         {
             CheckBox = false;
-            LabelWidth = 120;
+            LabelWidth = 100;
         }
     }
 }

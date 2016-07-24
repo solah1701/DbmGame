@@ -17,6 +17,8 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
             }
         }
 
+        public string TextWrapping { get; set; }
+
         public LabelTextboxViewModel()
         {
             TextBox = string.Empty;

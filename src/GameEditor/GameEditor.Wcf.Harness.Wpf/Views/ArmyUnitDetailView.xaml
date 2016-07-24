@@ -8,7 +8,7 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <DockPanel>
         <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom">
-            <Button Name="Add" Content="Add Unit" Margin="5"></Button>
+            <Button Name="Copy" Content="Copy" Margin="5"></Button>
             <Button Name="Update" Content="Update" Margin="5"></Button>
             <Button Name="Delete" Content="Delete" Margin="5"></Button>
         </StackPanel>
@@ -20,11 +20,13 @@
             <ContentControl Name="MaxCountControl"/>
             <ContentControl Name="MinYearControl"/>
             <ContentControl Name="MaxYearControl"/>
-            <ContentControl Name="IsAllyControl"/>
-            <ContentControl Name="IsGeneralControl"/>
-            <ContentControl Name="IsChariotControl"/>
-            <ContentControl Name="IsDoubleElementControl"/>
-            <ContentControl Name="IsMountedInfantryControl"/>
+            <StackPanel Orientation="Horizontal">
+                <ContentControl Name="IsAllyControl"/>
+                <ContentControl Name="IsGeneralControl"/>
+                <ContentControl Name="IsChariotControl"/>
+                <ContentControl Name="IsDoubleElementControl"/>
+                <ContentControl Name="IsMountedInfantryControl"/>
+            </StackPanel>
             <ContentControl Name="DisciplineTypeControl"/>
             <ContentControl Name="UnitTypeControl"/>
             <ContentControl Name="DispositionTypeControl"/>

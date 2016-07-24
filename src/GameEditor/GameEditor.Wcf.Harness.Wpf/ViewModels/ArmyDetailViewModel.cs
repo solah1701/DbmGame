@@ -1,5 +1,6 @@
 ﻿using Caliburn.Micro;
 using GameEditor.Wcf.Harness.EventAggregators;
+using GameEditor.Wcf.Harness.Wpf.Extensions;
 using GameEditor.Wcf.Harness.Wpf.Models;
 using GameEditor.Wcf.Harness.Wpf.Views.Interfaces;
 using GameEditor.Wcf.Harness.Wpf.WarGameServiceReference;
@@ -20,21 +21,40 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
         private int _maxYear;
         private string _notes;
 
-        public int ArmyId { get { return _armyId; } set { _armyId = value; NotifyOfPropertyChange(() => ArmyId); } }
-        public string ArmyName { get { return _armyName; } set { _armyName = value; NotifyOfPropertyChange(() => ArmyName); } }
-        public int ArmyBook { get { return _armyBook; } set { _armyBook = value; NotifyOfPropertyChange(() => ArmyBook); } }
-        public int ArmyList { get { return _armyList; } set { _armyList = value; NotifyOfPropertyChange(() => ArmyList); } }
-        public int MinYear { get { return _minYear; } set { _minYear = value; NotifyOfPropertyChange(() => MinYear); } }
-        public int MaxYear { get { return _maxYear; } set { _maxYear = value; NotifyOfPropertyChange(() => MaxYear); } }
-        public string Notes { get { return _notes; } set { _notes = value; NotifyOfPropertyChange(() => Notes); } }
+        public LabelTextboxViewModel ArmyIdControl { get; set; }
+        public LabelTextboxViewModel ArmyNameControl { get; set; }
+        public LabelTextboxViewModel ArmyBookControl { get; set; }
+        public LabelTextboxViewModel ArmyListControl { get; set; }
+        public LabelTextboxViewModel MinYearControl { get; set; }
+        public LabelTextboxViewModel MaxYearControl { get; set; }
+        public LabelTextboxViewModel NotesControl { get; set; }
+
+        public int ArmyId { get { return ArmyIdControl.TextBox.ConvertToInt(); } set { ArmyIdControl.TextBox = value.ToString(); NotifyOfPropertyChange(() => ArmyIdControl); } }
+        public string ArmyName { get { return ArmyNameControl.TextBox; } set { ArmyNameControl.TextBox = value; NotifyOfPropertyChange(() => ArmyNameControl); } }
+        public int ArmyBook { get { return ArmyBookControl.TextBox.ConvertToInt(); } set { ArmyBookControl.TextBox = value.ToString(); NotifyOfPropertyChange(() => ArmyBookControl); } }
+        public int ArmyList { get { return ArmyListControl.TextBox.ConvertToInt(); } set { ArmyListControl.TextBox = value.ToString(); NotifyOfPropertyChange(() => ArmyListControl); } }
+        public int MinYear { get { return MinYearControl.TextBox.ConvertToInt(); } set { MinYearControl.TextBox = value.ToString(); NotifyOfPropertyChange(() => MinYearControl); } }
+        public int MaxYear { get { return MaxYearControl.TextBox.ConvertToInt(); } set { MaxYearControl.TextBox = value.ToString(); NotifyOfPropertyChange(() => MaxYearControl); } }
+        public string Notes { get { return NotesControl.TextBox; } set { NotesControl.TextBox = value; NotifyOfPropertyChange(() => NotesControl); } }
 
         public ArmyDetailViewModel(IEventAggregator eventAggregator, IGameModel gameModel)
         {
             _model = gameModel;
             _event = eventAggregator;
             _event.Subscribe(this);
+            Initialize();
         }
 
+        public void Initialize()
+        {
+            ArmyIdControl = new LabelTextboxViewModel {Label = "Id:"};
+            ArmyNameControl = new LabelTextboxViewModel {Label = "Name:"};
+            ArmyBookControl = new LabelTextboxViewModel {Label = "Book:"};
+            ArmyListControl = new LabelTextboxViewModel {Label = "List:"};
+            MinYearControl = new LabelTextboxViewModel {Label = "Min Year:"};
+            MaxYearControl = new LabelTextboxViewModel {Label = "Max Year:"};
+            NotesControl = new LabelTextboxViewModel {Label = "Notes:", TextWrapping = "WrapWithOverflow" };
+        }
         public void ClearArmyDetail()
         {
             ArmyId = 0;

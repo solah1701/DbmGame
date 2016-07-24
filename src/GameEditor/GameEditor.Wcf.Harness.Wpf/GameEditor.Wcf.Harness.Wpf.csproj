@@ -91,6 +91,7 @@
     <Compile Include="AppBootstrapper.cs" />
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="EventAggregators\UpdateView.cs" />
+    <Compile Include="Extensions\StringExtender.cs" />
     <Compile Include="Helpers\EnumHelper.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -260,7 +261,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Extensions\" />
     <Folder Include="IoC\" />
   </ItemGroup>
   <ItemGroup>

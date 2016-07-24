@@ -32,11 +32,11 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
             MaxCountControl = new LabelTextboxViewModel { Label = "Max Count:" };
             MinYearControl = new LabelTextboxViewModel { Label = "Min Year:" };
             MaxYearControl = new LabelTextboxViewModel { Label = "Max Year:" };
-            IsAllyControl = new LabelCheckboxViewModel { Label = "Is Ally:" };
-            IsGeneralControl = new LabelCheckboxViewModel { Label = "Is General:" };
-            IsChariotControl = new LabelCheckboxViewModel { Label = "Is Chariot:" };
-            IsDoubleElementControl = new LabelCheckboxViewModel { Label = "Is Double Element:" };
-            IsMountedInfantryControl = new LabelCheckboxViewModel { Label = "Is Mounted Infantry:" };
+            IsAllyControl = new LabelCheckboxViewModel { Label = "Ally:" };
+            IsGeneralControl = new LabelCheckboxViewModel { Label = "General:" };
+            IsChariotControl = new LabelCheckboxViewModel { Label = "Chariot:" };
+            IsDoubleElementControl = new LabelCheckboxViewModel { Label = "Double Element:" };
+            IsMountedInfantryControl = new LabelCheckboxViewModel { Label = "Mounted Infantry:" };
             DisciplineTypeControl = new LabelComboboxViewModel { Label = "Discipline Type:", ComboboxItem = EnumHelper.ListOfString<DisciplineTypeEnum>() };
             UnitTypeControl = new LabelComboboxViewModel { Label = "Unit Type:", ComboboxItem = EnumHelper.ListOfString<UnitTypeEnum>() };
             DispositionTypeControl = new LabelComboboxViewModel { Label = "Disposition Type:", ComboboxItem = EnumHelper.ListOfString<DispositionTypeEnum>() };

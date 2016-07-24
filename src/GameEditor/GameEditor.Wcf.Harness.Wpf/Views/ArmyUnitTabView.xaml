@@ -9,7 +9,10 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <GridSplitter Grid.Column="1"/>
-        <ContentControl Grid.Column="0" Name="ArmyUnitList" />
+        <DockPanel Grid.Column="0">
+            <ContentControl Name="AllyList" DockPanel.Dock="Bottom"/>
+            <ContentControl Name="ArmyUnitList" />
+        </DockPanel>
         <DockPanel Grid.Column="2">
             <ContentControl Name="ArmyUnitDetail" />
         </DockPanel>

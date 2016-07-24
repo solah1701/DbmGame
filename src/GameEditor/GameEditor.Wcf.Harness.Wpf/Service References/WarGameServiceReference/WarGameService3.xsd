@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:52965/WarGameService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/GameCore.WcfService" />
   <xs:element name="GetUser">
@@ -421,15 +421,15 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetArmyDefinitions">
+  <xs:element name="GetAlliedArmyDefinitions">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetArmyDefinitionsResponse">
+  <xs:element name="GetAlliedArmyDefinitionsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/GameCore.WcfService" minOccurs="0" name="GetArmyDefinitionsResult" nillable="true" type="q23:ArmyDefinitions" />
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/GameCore.WcfService" minOccurs="0" name="GetAlliedArmyDefinitionsResult" nillable="true" type="q23:AlliedArmyDefinitions" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -574,33 +574,33 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetAlliedArmyDefinitions">
+  <xs:element name="GetAlliedAlliedArmyDefinitions">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="armyDefinitionId" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetAlliedArmyDefinitionsResponse">
+  <xs:element name="GetAlliedAlliedArmyDefinitionsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/GameCore.WcfService" minOccurs="0" name="GetAlliedArmyDefinitionsResult" nillable="true" type="q32:AlliedArmyDefinitions" />
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/GameCore.WcfService" minOccurs="0" name="GetAlliedAlliedArmyDefinitionsResult" nillable="true" type="q32:AlliedAlliedArmyDefinitions" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetAllAlliedArmyDefinitions">
+  <xs:element name="GetAllAlliedAlliedArmyDefinitions">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetAllAlliedArmyDefinitionsResponse">
+  <xs:element name="GetAllAlliedAlliedArmyDefinitionsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/GameCore.WcfService" minOccurs="0" name="GetAllAlliedArmyDefinitionsResult" nillable="true" type="q33:AlliedArmyDefinitions" />
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/GameCore.WcfService" minOccurs="0" name="GetAllAlliedAlliedArmyDefinitionsResult" nillable="true" type="q33:AlliedAlliedArmyDefinitions" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetArmyDefinitionsForPeriod">
+  <xs:element name="GetAlliedArmyDefinitionsForPeriod">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="id" type="xs:int" />
@@ -609,10 +609,10 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetArmyDefinitionsForPeriodResponse">
+  <xs:element name="GetAlliedArmyDefinitionsForPeriodResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/GameCore.WcfService" minOccurs="0" name="GetArmyDefinitionsForPeriodResult" nillable="true" type="q34:ArmyDefinitions" />
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/GameCore.WcfService" minOccurs="0" name="GetAlliedArmyDefinitionsForPeriodResult" nillable="true" type="q34:AlliedArmyDefinitions" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

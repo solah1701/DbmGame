@@ -104,6 +104,8 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="TypedAutofacBootstrapper.cs" />
+    <Compile Include="ViewModels\AllyDetailViewModel.cs" />
+    <Compile Include="ViewModels\AllyListViewModel.cs" />
     <Compile Include="ViewModels\ArmyDetailViewModel.cs" />
     <Compile Include="ViewModels\ArmyListViewModel.cs" />
     <Compile Include="ViewModels\ArmyUnitDetailViewModel.cs" />
@@ -112,6 +114,9 @@
     <Compile Include="ViewModels\LabelComboboxViewModel.cs" />
     <Compile Include="ViewModels\LabelTextboxViewModel.cs" />
     <Compile Include="ViewModels\LabelViewModelBase.cs" />
+    <Compile Include="Views\AllyListView.xaml.cs">
+      <DependentUpon>AllyListView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Interfaces\IArmyDetailView.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="ViewModels\ArmyListTabViewModel.cs" />
@@ -123,6 +128,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AllyListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

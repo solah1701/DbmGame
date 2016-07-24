@@ -1081,7 +1081,7 @@ namespace GameEditor.Wcf.Harness.Wpf.WarGameServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="ArmyDefinitions", Namespace="http://schemas.datacontract.org/2004/07/GameCore.WcfService", ItemName="ArmyDefinition")]
+    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="AlliedArmyDefinitions", Namespace="http://schemas.datacontract.org/2004/07/GameCore.WcfService", ItemName="ArmyDefinition")]
     [System.SerializableAttribute()]
     public class ArmyDefinitions : System.Collections.Generic.List<GameEditor.Wcf.Harness.Wpf.WarGameServiceReference.ArmyDefinition> {
     }

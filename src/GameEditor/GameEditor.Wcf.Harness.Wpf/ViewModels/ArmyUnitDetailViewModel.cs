@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Data;
 using Caliburn.Micro;
 using GameEditor.Wcf.Harness.EventAggregators;
+using GameEditor.Wcf.Harness.Wpf.Helpers;
 using GameEditor.Wcf.Harness.Wpf.Models;
 using GameEditor.Wcf.Harness.Wpf.Views.Interfaces;
 using GameEditor.Wcf.Harness.Wpf.WarGameServiceReference;
@@ -35,10 +37,11 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
             IsChariotControl = new LabelCheckboxViewModel { Label = "Is Chariot:" };
             IsDoubleElementControl = new LabelCheckboxViewModel { Label = "Is Double Element:" };
             IsMountedInfantryControl = new LabelCheckboxViewModel { Label = "Is Mounted Infantry:" };
-            DisciplineTypeControl = new LabelComboboxViewModel { Label = "Discipline Type:", ItemSource = new CollectionView(Enum.GetValues(typeof(DisciplineTypeEnum))) };
-            UnitTypeControl = new LabelComboboxViewModel { Label = "Unit Type:", ItemSource = new CollectionView(Enum.GetValues(typeof(UnitTypeEnum))) };
-            DispositionTypeControl = new LabelComboboxViewModel { Label = "Disposition Type:", ItemSource = new CollectionView(Enum.GetValues(typeof(DispositionTypeEnum))) };
-            GradeTypeControl = new LabelComboboxViewModel { Label = "Grade Type:", ItemSource = new CollectionView(Enum.GetValues(typeof(GradeTypeEnum))) };
+            DisciplineTypeControl = new LabelComboboxViewModel { Label = "Discipline Type:", ComboboxItem = EnumHelper.ListOfString<DisciplineTypeEnum>() };
+            UnitTypeControl = new LabelComboboxViewModel { Label = "Unit Type:", ComboboxItem = EnumHelper.ListOfString<UnitTypeEnum>() };
+            DispositionTypeControl = new LabelComboboxViewModel { Label = "Disposition Type:", ComboboxItem = EnumHelper.ListOfString<DispositionTypeEnum>() };
+            //DispositionTypeControl = new LabelComboboxViewModel { Label = "Disposition Type:", ItemSource = new CollectionView(Enum.GetValues(typeof(DispositionTypeEnum))), DisplayMemberPath = "DispositionTypeEnum", SelectedValuePath = "DispositionTypeEnum" };
+            GradeTypeControl = new LabelComboboxViewModel { Label = "Grade Type:", ComboboxItem = EnumHelper.ListOfString<GradeTypeEnum>() };
 
             //base.InitialiseView();
             //DisciplineData = Enum.GetValues(typeof(DisciplineTypeEnum));
@@ -251,10 +254,58 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
         public bool IsDoubleElement { get { return IsDoubleElementControl.CheckBox; } set { if (IsDoubleElementControl.CheckBox == value) return; IsDoubleElementControl.CheckBox = value; } }
         public bool IsMountedInfantry { get { return IsMountedInfantryControl.CheckBox; } set { if (IsMountedInfantryControl.CheckBox == value) return; IsMountedInfantryControl.CheckBox = value; } }
 
-        public DisciplineTypeEnum DisciplineType { get; set; }
-        public UnitTypeEnum UnitType { get; set; }
-        public DispositionTypeEnum DispositionType { get; set; }
-        public GradeTypeEnum GradeType { get; set; }
+        public DisciplineTypeEnum DisciplineType
+        {
+            get
+            {
+                return EnumHelper.ParseString<DisciplineTypeEnum>(DisciplineTypeControl.SelectedComboboxItem);
+            }
+            set
+            {
+                if (DisciplineTypeControl.SelectedComboboxItem == value.ToString()) return;
+                DisciplineTypeControl.SelectedComboboxItem = value.ToString();
+                NotifyOfPropertyChange(() => DisciplineTypeControl);
+            }
+        }
+        public UnitTypeEnum UnitType
+        {
+            get
+            {
+                return EnumHelper.ParseString<UnitTypeEnum>(UnitTypeControl.SelectedComboboxItem);
+            }
+            set
+            {
+                if (UnitTypeControl.SelectedComboboxItem == value.ToString()) return;
+                UnitTypeControl.SelectedComboboxItem = value.ToString();
+                NotifyOfPropertyChange(() => UnitTypeControl);
+            }
+        }
+        public DispositionTypeEnum DispositionType
+        {
+            get
+            {
+                return EnumHelper.ParseString<DispositionTypeEnum>(DispositionTypeControl.SelectedComboboxItem);
+            }
+            set
+            {
+                if (DispositionTypeControl.SelectedComboboxItem == value.ToString()) return;
+                DispositionTypeControl.SelectedComboboxItem = value.ToString();
+                NotifyOfPropertyChange(() => DispositionTypeControl);
+            }
+        }
+        public GradeTypeEnum GradeType
+        {
+            get
+            {
+                return EnumHelper.ParseString<GradeTypeEnum>(GradeTypeControl.SelectedComboboxItem);
+            }
+            set
+            {
+                if (GradeTypeControl.SelectedComboboxItem == value.ToString()) return;
+                GradeTypeControl.SelectedComboboxItem = value.ToString();
+                NotifyOfPropertyChange(() => GradeTypeControl);
+            }
+        }
 
         public bool CanUpdate { get; set; }
         public bool CanCopy { get; set; }

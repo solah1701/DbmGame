@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:GameEditor.Wcf.Harness.Wpf.Views">
     <DockPanel>
         <TextBlock Name="Label" Width="{Binding LabelWidth}" Margin="5" DockPanel.Dock="Left"/>
-        <ComboBox Name="ComboBox" Margin="5" ItemsSource="{Binding ItemSource}" DisplayMemberPath="{Binding DisplayMemberPath}" SelectedValuePath="{Binding SelectedValuePath}" SelectedValue="{Binding SelectedValue}" />
+        <ComboBox Name="ComboboxItem" Margin="5" />
     </DockPanel>
 </UserControl>

@@ -47,13 +47,13 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
 
         public void Initialize()
         {
-            ArmyIdControl = new LabelTextboxViewModel {Label = "Id:"};
-            ArmyNameControl = new LabelTextboxViewModel {Label = "Name:"};
-            ArmyBookControl = new LabelTextboxViewModel {Label = "Book:"};
-            ArmyListControl = new LabelTextboxViewModel {Label = "List:"};
-            MinYearControl = new LabelTextboxViewModel {Label = "Min Year:"};
-            MaxYearControl = new LabelTextboxViewModel {Label = "Max Year:"};
-            NotesControl = new LabelTextboxViewModel {Label = "Notes:", TextWrapping = "WrapWithOverflow" };
+            ArmyIdControl = new LabelTextboxViewModel(_event) { Label = "Id:" };
+            ArmyNameControl = new LabelTextboxViewModel(_event) { Label = "Name:" };
+            ArmyBookControl = new LabelTextboxViewModel(_event) { Label = "Book:" };
+            ArmyListControl = new LabelTextboxViewModel(_event) { Label = "List:" };
+            MinYearControl = new LabelTextboxViewModel(_event) { Label = "Min Year:" };
+            MaxYearControl = new LabelTextboxViewModel(_event) { Label = "Max Year:" };
+            NotesControl = new LabelTextboxViewModel(_event) { Label = "Notes:", TextWrapping = "WrapWithOverflow" };
         }
         public void ClearArmyDetail()
         {

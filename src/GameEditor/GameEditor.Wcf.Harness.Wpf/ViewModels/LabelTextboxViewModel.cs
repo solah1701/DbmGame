@@ -1,10 +1,12 @@
-﻿using System.Net.NetworkInformation;
+﻿using Caliburn.Micro;
+using GameEditor.Wcf.Harness.EventAggregators;
 
 namespace GameEditor.Wcf.Harness.Wpf.ViewModels
 {
     public class LabelTextboxViewModel : LabelViewModelBase
     {
         private string _textBox;
+        private IEventAggregator _event;
 
         public string TextBox
         {
@@ -19,9 +21,15 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
 
         public string TextWrapping { get; set; }
 
-        public LabelTextboxViewModel()
+        public LabelTextboxViewModel(IEventAggregator eventAggregator)
         {
+            _event = eventAggregator;
             TextBox = string.Empty;
+        }
+
+        public void KeyPressed(ActionExecutionContext context)
+        {
+            _event.PublishOnCurrentThread(new CheckDirtyStatus());
         }
     }
 }

@@ -1,9 +1,10 @@
 ﻿<UserControl x:Class="GameEditor.Wcf.Harness.Wpf.Views.LabelTextboxView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:GameEditor.Wcf.Harness.Wpf.Views">
+             xmlns:local="clr-namespace:GameEditor.Wcf.Harness.Wpf.Views"
+             xmlns:cal="http://www.caliburnproject.org">
     <DockPanel>
         <TextBlock Name="Label" Width="100" Margin="5" DockPanel.Dock="Left"/>
-        <TextBox Name="TextBox" Margin="5" TextWrapping="{Binding TextWrapping}"/>
+        <TextBox Name="TextBox" Margin="5" TextWrapping="{Binding TextWrapping}" cal:Message.Attach="[Event KeyDown] = [Action KeyPressed($executionContext)]" />
     </DockPanel>
 </UserControl>

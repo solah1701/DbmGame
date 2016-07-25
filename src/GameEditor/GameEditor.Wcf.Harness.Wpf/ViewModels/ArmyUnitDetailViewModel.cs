@@ -10,7 +10,7 @@ using GameEditor.Wcf.Harness.Wpf.WarGameServiceReference;
 
 namespace GameEditor.Wcf.Harness.Wpf.ViewModels
 {
-    public class ArmyUnitDetailViewModel : Screen, IHandle<UpdateView>, IArmyUnitDetailView
+    public class ArmyUnitDetailViewModel : Screen, IArmyUnitDetailView, IHandle<UpdateView>, IHandle<CheckDirtyStatus>
     {
         private readonly IGameModel _model;
         private readonly IEventAggregator _event;
@@ -25,13 +25,13 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
 
         protected void InitialiseView()
         {
-            IdControl = new LabelTextboxViewModel { Label = "Id:" };
-            NameControl = new LabelTextboxViewModel { Label = "Name:" };
-            CostControl = new LabelTextboxViewModel { Label = "Cost:" };
-            MinCountControl = new LabelTextboxViewModel { Label = "Min Count:" };
-            MaxCountControl = new LabelTextboxViewModel { Label = "Max Count:" };
-            MinYearControl = new LabelTextboxViewModel { Label = "Min Year:" };
-            MaxYearControl = new LabelTextboxViewModel { Label = "Max Year:" };
+            IdControl = new LabelTextboxViewModel(_event) { Label = "Id:" };
+            NameControl = new LabelTextboxViewModel(_event) { Label = "Name:" };
+            CostControl = new LabelTextboxViewModel(_event) { Label = "Cost:" };
+            MinCountControl = new LabelTextboxViewModel(_event) { Label = "Min Count:" };
+            MaxCountControl = new LabelTextboxViewModel(_event) { Label = "Max Count:" };
+            MinYearControl = new LabelTextboxViewModel(_event) { Label = "Min Year:" };
+            MaxYearControl = new LabelTextboxViewModel(_event) { Label = "Max Year:" };
             IsAllyControl = new LabelCheckboxViewModel { Label = "Ally:" };
             IsGeneralControl = new LabelCheckboxViewModel { Label = "General:" };
             IsChariotControl = new LabelCheckboxViewModel { Label = "Chariot:" };
@@ -336,6 +336,11 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
                 if (_canDelete == value) return;
                 _canDelete = value; NotifyOfPropertyChange(() => CanDelete);
             }
+        }
+
+        public void Handle(CheckDirtyStatus message)
+        {
+            ViewChanged();
         }
     }
 }

@@ -14,7 +14,17 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
         private ArmyUnitDefinition _selected;
         private Dictionary<int, IndexedItem> ListIndex { get; set; }
 
+        //private ArmyUnitDefinitions _armyUnitDefinitions;
         public ArmyUnitDefinitions ArmyUnitDefinitions { get; set; }
+        //{
+        //    get { return _armyUnitDefinitions; }
+        //    set
+        //    {
+        //        if (_armyUnitDefinitions == value) return;
+        //        _armyUnitDefinitions = value; NotifyOfPropertyChange(() => ArmyUnitDefinitions);
+        //    }
+        //}
+
         public ArmyUnitDefinition SelectedArmyUnitDefinition
         {
             get { return _selected; }

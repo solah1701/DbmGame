@@ -11,8 +11,9 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
         private readonly IEventAggregator _event;
 
         private AlliedArmyDefinition _selectedAllied;
+        private AlliedArmyDefinitions _alliedArmyDefinitions;
+        public AlliedArmyDefinitions AlliedArmyDefinitions => _alliedArmyDefinitions;
 
-        public AlliedArmyDefinitions AlliedArmyDefinitions { get; set; }
         public AlliedArmyDefinition SelectedAlliedArmyDefinition
         {
             get { return _selectedAllied; }
@@ -37,7 +38,7 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
 #if !DESIGNMODE
             var items = _model.GetAlliedArmyDefinitions();
             if (items == null) return;
-            AlliedArmyDefinitions = items;
+            _alliedArmyDefinitions = items;
 #endif
         }
 

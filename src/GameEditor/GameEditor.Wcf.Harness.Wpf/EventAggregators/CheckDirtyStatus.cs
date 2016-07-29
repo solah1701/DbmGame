@@ -1,4 +1,4 @@
-﻿namespace GameEditor.Wcf.Harness.EventAggregators
+﻿namespace GameEditor.Wcf.Harness.Wpf.EventAggregators
 {
     public class CheckDirtyStatus
     {

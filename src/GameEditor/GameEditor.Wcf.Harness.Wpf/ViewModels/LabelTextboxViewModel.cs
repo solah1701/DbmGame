@@ -1,5 +1,5 @@
 ﻿using Caliburn.Micro;
-using GameEditor.Wcf.Harness.EventAggregators;
+using GameEditor.Wcf.Harness.Wpf.EventAggregators;
 
 namespace GameEditor.Wcf.Harness.Wpf.ViewModels
 {

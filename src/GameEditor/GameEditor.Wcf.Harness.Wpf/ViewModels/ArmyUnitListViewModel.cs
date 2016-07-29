@@ -1,29 +1,23 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Windows.Media;
 using Caliburn.Micro;
-using GameEditor.Wcf.Harness.EventAggregators;
+using GameEditor.Wcf.Harness.Wpf.EventAggregators;
 using GameEditor.Wcf.Harness.Wpf.Models;
 using GameEditor.Wcf.Harness.Wpf.WarGameServiceReference;
 
 namespace GameEditor.Wcf.Harness.Wpf.ViewModels
 {
-    public class ArmyUnitListViewModel : Screen, IHandle<UpdateView>
+    public class ArmyUnitListViewModel : Screen, IHandle<UpdateList>
     {
         private readonly IGameModel _model;
         private readonly IEventAggregator _event;
         private ArmyUnitDefinition _selected;
         private Dictionary<int, IndexedItem> ListIndex { get; set; }
+        private bool _updatingList;
 
-        //private ArmyUnitDefinitions _armyUnitDefinitions;
-        public ArmyUnitDefinitions ArmyUnitDefinitions { get; set; }
-        //{
-        //    get { return _armyUnitDefinitions; }
-        //    set
-        //    {
-        //        if (_armyUnitDefinitions == value) return;
-        //        _armyUnitDefinitions = value; NotifyOfPropertyChange(() => ArmyUnitDefinitions);
-        //    }
-        //}
+        //private ObservableCollection<ArmyUnitDefinition> _armyUnitDefinitions;
+        public BindableCollection<ArmyUnitDefinition> ArmyUnitDefinitions { get; set; }
 
         public ArmyUnitDefinition SelectedArmyUnitDefinition
         {
@@ -33,7 +27,7 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
                 if (_selected == value) return;
                 _selected = value;
                 NotifyOfPropertyChange(() => SelectedArmyUnitDefinition);
-                SelectUnitArmy(_selected.Id);
+                if(!_updatingList) SelectUnitArmy(_selected.Id);
             }
         }
 
@@ -50,6 +44,8 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
             _model = gameModel;
             _event = eventAggregator;
             _event.Subscribe(this);
+            _updatingList = false;
+            ArmyUnitDefinitions = new BindableCollection<ArmyUnitDefinition>();
         }
 
         public void PopulateList()
@@ -66,7 +62,8 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
             //    var colour = altItem != null ? Color.FromArgb(255, 255, 255, 255) : Color.FromArgb(127, 255, 0, 0);
             //    ListIndex.Add(count++, new IndexedItem { Id = armyUnitDefinition.Id, BackgroundColor = colour });
             //}
-            ArmyUnitDefinitions = items;
+            ArmyUnitDefinitions.Clear();
+            ArmyUnitDefinitions.AddRange(items);
             IndexedItemDictionary = ListIndex;
 #endif
         }
@@ -87,9 +84,11 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
             _event.PublishOnCurrentThread(new UpdateView());
         }
 
-        public void Handle(UpdateView message)
+        public void Handle(UpdateList message)
         {
+            _updatingList = true;
             PopulateList();
+            _updatingList = false;
         }
     }
 }

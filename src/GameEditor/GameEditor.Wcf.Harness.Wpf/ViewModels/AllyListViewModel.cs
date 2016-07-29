@@ -1,5 +1,5 @@
 ﻿using Caliburn.Micro;
-using GameEditor.Wcf.Harness.EventAggregators;
+using GameEditor.Wcf.Harness.Wpf.EventAggregators;
 using GameEditor.Wcf.Harness.Wpf.Models;
 using GameEditor.Wcf.Harness.Wpf.WarGameServiceReference;
 

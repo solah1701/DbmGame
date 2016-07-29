@@ -1,5 +1,5 @@
 ﻿using Caliburn.Micro;
-using GameEditor.Wcf.Harness.EventAggregators;
+using GameEditor.Wcf.Harness.Wpf.EventAggregators;
 using GameEditor.Wcf.Harness.Wpf.Extensions;
 using GameEditor.Wcf.Harness.Wpf.Models;
 using GameEditor.Wcf.Harness.Wpf.Views.Interfaces;
@@ -55,6 +55,7 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
             MaxYearControl = new LabelTextboxViewModel(_event) { Label = "Max Year:" };
             NotesControl = new LabelTextboxViewModel(_event) { Label = "Notes:", TextWrapping = "WrapWithOverflow" };
         }
+
         public void ClearArmyDetail()
         {
             ArmyId = 0;

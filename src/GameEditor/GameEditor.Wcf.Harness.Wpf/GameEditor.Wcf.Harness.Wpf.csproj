@@ -112,6 +112,7 @@
     <Compile Include="ViewModels\ArmyListViewModel.cs" />
     <Compile Include="ViewModels\ArmyUnitDetailViewModel.cs" />
     <Compile Include="ViewModels\ArmyUnitListViewModel.cs" />
+    <Compile Include="ViewModels\Base\ListViewModel.cs" />
     <Compile Include="ViewModels\LabelCheckboxViewModel.cs" />
     <Compile Include="ViewModels\LabelComboboxViewModel.cs" />
     <Compile Include="ViewModels\LabelTextboxViewModel.cs" />

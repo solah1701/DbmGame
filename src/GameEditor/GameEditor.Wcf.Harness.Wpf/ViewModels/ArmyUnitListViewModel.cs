@@ -1,20 +1,18 @@
 ﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Windows.Media;
 using Caliburn.Micro;
 using GameEditor.Wcf.Harness.Wpf.EventAggregators;
 using GameEditor.Wcf.Harness.Wpf.Models;
+using GameEditor.Wcf.Harness.Wpf.ViewModels.Base;
 using GameEditor.Wcf.Harness.Wpf.WarGameServiceReference;
 
 namespace GameEditor.Wcf.Harness.Wpf.ViewModels
 {
-    public class ArmyUnitListViewModel : Screen, IHandle<UpdateList>
+    public class ArmyUnitListViewModel : ListViewModel
     {
         private readonly IGameModel _model;
-        private readonly IEventAggregator _event;
         private ArmyUnitDefinition _selected;
         private Dictionary<int, IndexedItem> ListIndex { get; set; }
-        private bool _updatingList;
 
         //private ObservableCollection<ArmyUnitDefinition> _armyUnitDefinitions;
         public BindableCollection<ArmyUnitDefinition> ArmyUnitDefinitions { get; set; }
@@ -27,7 +25,7 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
                 if (_selected == value) return;
                 _selected = value;
                 NotifyOfPropertyChange(() => SelectedArmyUnitDefinition);
-                if(!_updatingList) SelectUnitArmy(_selected.Id);
+                if(!IsUpdating) SelectUnitArmy(_selected.Id);
             }
         }
 
@@ -39,16 +37,13 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
             public Color BackgroundColor { get; set; }
         }
 
-        public ArmyUnitListViewModel(IEventAggregator eventAggregator, IGameModel gameModel)
+        public ArmyUnitListViewModel(IEventAggregator eventAggregator, IGameModel gameModel) : base(eventAggregator)
         {
             _model = gameModel;
-            _event = eventAggregator;
-            _event.Subscribe(this);
-            _updatingList = false;
             ArmyUnitDefinitions = new BindableCollection<ArmyUnitDefinition>();
         }
 
-        public void PopulateList()
+        public override void PopulateList()
         {
 #if !DESIGNMODE
             var items = _model.GetArmyUnitDefinitions();
@@ -73,7 +68,7 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
             // Navigate to Detail page
             _model.CurrentArmyUnitDefinitionId = 0;
             _model.CurrentAlternativeUnitDefinitionId = 0;
-            _event.PublishOnCurrentThread(new UpdateView());
+            EventAggregator.PublishOnCurrentThread(new UpdateView());
         }
 
         public void SelectUnitArmy(int armyUnitId)
@@ -81,14 +76,7 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
             // Navigate to Detail page
             _model.CurrentArmyUnitDefinitionId = armyUnitId;
             _model.CurrentAlternativeUnitDefinitionId = 0;
-            _event.PublishOnCurrentThread(new UpdateView());
-        }
-
-        public void Handle(UpdateList message)
-        {
-            _updatingList = true;
-            PopulateList();
-            _updatingList = false;
+            EventAggregator.PublishOnCurrentThread(new UpdateView());
         }
     }
 }

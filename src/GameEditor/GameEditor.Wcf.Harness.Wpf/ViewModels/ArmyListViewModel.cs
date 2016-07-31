@@ -1,16 +1,14 @@
-﻿using System.Collections.ObjectModel;
-using Caliburn.Micro;
+﻿using Caliburn.Micro;
 using GameEditor.Wcf.Harness.Wpf.EventAggregators;
 using GameEditor.Wcf.Harness.Wpf.Models;
+using GameEditor.Wcf.Harness.Wpf.ViewModels.Base;
 using GameEditor.Wcf.Harness.Wpf.WarGameServiceReference;
 
 namespace GameEditor.Wcf.Harness.Wpf.ViewModels
 {
-    public class ArmyListViewModel : Screen, IHandle<UpdateView>
+    public class ArmyListViewModel : ListViewModel
     {
         private readonly IGameModel _model;
-        private readonly IEventAggregator _event;
-        private bool _updatingList;
 
         private ArmyDefinition _selected;
 
@@ -24,20 +22,18 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
                 if (_selected == value) return;
                 _selected = value;
                 NotifyOfPropertyChange(() => SelectedArmyDefinition);
-                if (!_updatingList && _selected != null) SelectArmy(_selected.Id);
+                if (!IsUpdating && _selected != null) SelectArmy(_selected.Id);
             }
         }
 
-        public ArmyListViewModel(IEventAggregator eventAggregator, IGameModel gameModel)
+        public ArmyListViewModel(IEventAggregator eventAggregator, IGameModel gameModel) : base(eventAggregator)
         {
             _model = gameModel;
-            _event = eventAggregator;
-            _event.Subscribe(this);
             ArmyDefinitions = new BindableCollection<ArmyDefinition>();
             PopulateList();
         }
 
-        public void PopulateList()
+        public override void PopulateList()
         {
 #if !DESIGNMODE
             ArmyDefinitions.Clear();
@@ -52,7 +48,7 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
             _model.CurrentAllyArmyDefinitionId = 0;
             _model.CurrentAllyDefinitionId = 0;
             _model.CurrentAlternativeUnitDefinitionId = 0;
-            _event.PublishOnUIThread(new UpdateView());
+            EventAggregator.PublishOnUIThread(new UpdateView());
         }
 
         public void SelectArmy(int armyId)
@@ -63,15 +59,8 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
             _model.CurrentAllyArmyDefinitionId = 0;
             _model.CurrentAllyDefinitionId = 0;
             _model.CurrentAlternativeUnitDefinitionId = 0;
-            _event.PublishOnUIThread(new UpdateView());
-            _event.PublishOnUIThread(new UpdateList());
-        }
-
-        public void Handle(UpdateView message)
-        {
-            _updatingList = true;
-            PopulateList();
-            _updatingList = false;
+            EventAggregator.PublishOnUIThread(new UpdateView());
+            EventAggregator.PublishOnUIThread(new UpdateList());
         }
     }
 }

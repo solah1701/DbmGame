@@ -112,14 +112,13 @@
     <Compile Include="ViewModels\ArmyListViewModel.cs" />
     <Compile Include="ViewModels\ArmyUnitDetailViewModel.cs" />
     <Compile Include="ViewModels\ArmyUnitListViewModel.cs" />
+    <Compile Include="ViewModels\Base\DetailViewModel.cs" />
     <Compile Include="ViewModels\Base\ListViewModel.cs" />
     <Compile Include="ViewModels\LabelCheckboxViewModel.cs" />
     <Compile Include="ViewModels\LabelComboboxViewModel.cs" />
     <Compile Include="ViewModels\LabelTextboxViewModel.cs" />
     <Compile Include="ViewModels\LabelViewModelBase.cs" />
-    <Compile Include="Views\AllyListView.xaml.cs">
-      <DependentUpon>AllyListView.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="Views\Interfaces\IAllyDetailView.cs" />
     <Compile Include="Views\Interfaces\IArmyDetailView.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="ViewModels\ArmyListTabViewModel.cs" />
@@ -131,6 +130,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AllyDetailView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

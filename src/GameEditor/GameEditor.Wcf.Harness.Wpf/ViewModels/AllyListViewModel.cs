@@ -48,7 +48,7 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
 
         public void SelectAlly(int allyId)
         {
-            _model.CurrentAllyDefinitionId = allyId;
+            _model.CurrentAllyArmyDefinitionId = allyId;
             EventAggregator.PublishOnCurrentThread(new UpdateView());
         }
     }

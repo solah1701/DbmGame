@@ -14,6 +14,7 @@
             <ContentControl Name="ArmyUnitList" />
         </DockPanel>
         <DockPanel Grid.Column="2">
+            <ContentControl Name="AllyDetail" DockPanel.Dock="Bottom"/>
             <ContentControl Name="ArmyUnitDetail" />
         </DockPanel>
     </Grid>

@@ -1,5 +1,4 @@
 ﻿using Caliburn.Micro;
-using GameEditor.Wcf.Harness.Wpf.EventAggregators;
 using GameEditor.Wcf.Harness.Wpf.Models;
 using GameEditor.Wcf.Harness.Wpf.ViewModels.Base;
 using GameEditor.Wcf.Harness.Wpf.Views.Interfaces;
@@ -29,7 +28,6 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
                 AllyListControl.TextBox = value.ToString();
             }
         }
-
         public string AllyName
         {
             get { return AllyNameControl.TextBox; }
@@ -39,7 +37,6 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
                 AllyNameControl.TextBox = value;
             }
         }
-
         public int Book
         {
             get
@@ -53,7 +50,6 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
                 BookControl.TextBox = value.ToString();
             }
         }
-
         public int List
         {
             get
@@ -124,6 +120,7 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
             List = 0;
             MinYear = 0;
             MaxYear = 0;
+            base.ClearDetail();
         }
 
         protected override void SelectDetail(int currentId)

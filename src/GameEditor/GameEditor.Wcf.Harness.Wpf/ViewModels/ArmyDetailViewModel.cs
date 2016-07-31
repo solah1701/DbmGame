@@ -2,24 +2,22 @@
 using GameEditor.Wcf.Harness.Wpf.EventAggregators;
 using GameEditor.Wcf.Harness.Wpf.Extensions;
 using GameEditor.Wcf.Harness.Wpf.Models;
+using GameEditor.Wcf.Harness.Wpf.ViewModels.Base;
 using GameEditor.Wcf.Harness.Wpf.Views.Interfaces;
 using GameEditor.Wcf.Harness.Wpf.WarGameServiceReference;
 
 namespace GameEditor.Wcf.Harness.Wpf.ViewModels
 
 {
-    public class ArmyDetailViewModel : Screen, IHandle<UpdateView>, IArmyDetailView
+    public class ArmyDetailViewModel : DetailViewModel, IArmyDetailView
     {
-        private readonly IEventAggregator _event;
-        private readonly IGameModel _model;
-
-        private int _armyId;
-        private string _armyName;
-        private int _armyBook;
-        private int _armyList;
-        private int _minYear;
-        private int _maxYear;
-        private string _notes;
+        //private int _armyId;
+        //private string _armyName;
+        //private int _armyBook;
+        //private int _armyList;
+        //private int _minYear;
+        //private int _maxYear;
+        //private string _notes;
 
         public LabelTextboxViewModel ArmyIdControl { get; set; }
         public LabelTextboxViewModel ArmyNameControl { get; set; }
@@ -37,26 +35,27 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
         public int MaxYear { get { return MaxYearControl.TextBox.ConvertToInt(); } set { MaxYearControl.TextBox = value.ToString(); NotifyOfPropertyChange(() => MaxYearControl); } }
         public string Notes { get { return NotesControl.TextBox; } set { NotesControl.TextBox = value; NotifyOfPropertyChange(() => NotesControl); } }
 
+        protected override int CurrentId => GameModel.CurrentArmyDefinitionId;
+
         public ArmyDetailViewModel(IEventAggregator eventAggregator, IGameModel gameModel)
+            : base(eventAggregator, gameModel)
         {
-            _model = gameModel;
-            _event = eventAggregator;
-            _event.Subscribe(this);
-            Initialize();
+            InitialiseView();
         }
 
-        public void Initialize()
+        protected override void InitialiseView()
         {
-            ArmyIdControl = new LabelTextboxViewModel(_event) { Label = "Id:" };
-            ArmyNameControl = new LabelTextboxViewModel(_event) { Label = "Name:" };
-            ArmyBookControl = new LabelTextboxViewModel(_event) { Label = "Book:" };
-            ArmyListControl = new LabelTextboxViewModel(_event) { Label = "List:" };
-            MinYearControl = new LabelTextboxViewModel(_event) { Label = "Min Year:" };
-            MaxYearControl = new LabelTextboxViewModel(_event) { Label = "Max Year:" };
-            NotesControl = new LabelTextboxViewModel(_event) { Label = "Notes:", TextWrapping = "WrapWithOverflow" };
+            ArmyIdControl = new LabelTextboxViewModel(EventAggregator) { Label = "Id:" };
+            ArmyNameControl = new LabelTextboxViewModel(EventAggregator) { Label = "Name:" };
+            ArmyBookControl = new LabelTextboxViewModel(EventAggregator) { Label = "Book:" };
+            ArmyListControl = new LabelTextboxViewModel(EventAggregator) { Label = "List:" };
+            MinYearControl = new LabelTextboxViewModel(EventAggregator) { Label = "Min Year:" };
+            MaxYearControl = new LabelTextboxViewModel(EventAggregator) { Label = "Max Year:" };
+            NotesControl = new LabelTextboxViewModel(EventAggregator) { Label = "Notes:", TextWrapping = "WrapWithOverflow" };
+            base.InitialiseView();
         }
 
-        public void ClearArmyDetail()
+        public override void ClearDetail()
         {
             ArmyId = 0;
             ArmyName = string.Empty;
@@ -65,9 +64,10 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
             MinYear = 0;
             MaxYear = 0;
             Notes = string.Empty;
+            base.ClearDetail();
         }
 
-        public void Update()
+        public override void Update()
         {
             var definition = new ArmyDefinition
             {
@@ -79,27 +79,19 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
                 MaxYear = MaxYear,
                 Notes = Notes
             };
-            ArmyId = _model.AddArmyDefinition(definition);
-            _event.PublishOnCurrentThread(new UpdateView());
+            ArmyId = GameModel.AddArmyDefinition(definition);
+            base.Update();
         }
 
-        public void Add()
+        public override void Delete()
         {
-            //_model.CurrentArmyDefinitionId = 0;
-            _event.PublishOnCurrentThread(new UpdateView());
-            //_event.PublishOnCurrentThread(new UpdateTabPage("ArmyUnitTabPage"));
+            GameModel.DeleteArmyDefinition(ArmyId);
+            base.Delete();
         }
 
-        public void Delete()
+        public override void SelectDetail(int currentId)
         {
-            _model.DeleteArmyDefinition(ArmyId);
-            ClearArmyDetail();
-            _event.PublishOnCurrentThread(new UpdateView());
-        }
-
-        public void SelectArmyDetail(int id)
-        {
-            var item = _model.GetArmyDefinition(id);
+            var item = GameModel.GetArmyDefinition(currentId);
             ArmyId = item.Id;
             ArmyName = item.ArmyName;
             ArmyBook = item.ArmyBook;
@@ -107,12 +99,7 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
             MinYear = item.MinYear;
             MaxYear = item.MaxYear;
             Notes = item.Notes;
-        }
-
-        public void Handle(UpdateView message)
-        {
-            if (_model.CurrentArmyDefinitionId == 0) ClearArmyDetail();
-            else SelectArmyDetail(_model.CurrentArmyDefinitionId);
+            base.SelectDetail(currentId);
         }
     }
 }

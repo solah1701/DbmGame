@@ -11,9 +11,9 @@
         string Notes { get; set; }
 
         void Add();
-        void ClearArmyDetail();
         void Delete();
-        void SelectArmyDetail(int id);
         void Update();
+        void SelectDetail(int id);
+        void ClearDetail();
     }
 }

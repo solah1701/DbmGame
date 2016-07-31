@@ -11,5 +11,11 @@
 
         bool CanUpdate { get; set; }
         bool CanDelete { get; set; }
+
+        void Add();
+        void Delete();
+        void Update();
+        void SelectDetail(int id);
+        void ClearDetail();
     }
 }

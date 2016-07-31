@@ -1,150 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Windows.Data;
-using Caliburn.Micro;
-using GameEditor.Wcf.Harness.Wpf.EventAggregators;
+﻿using Caliburn.Micro;
 using GameEditor.Wcf.Harness.Wpf.Helpers;
 using GameEditor.Wcf.Harness.Wpf.Models;
+using GameEditor.Wcf.Harness.Wpf.ViewModels.Base;
 using GameEditor.Wcf.Harness.Wpf.Views.Interfaces;
 using GameEditor.Wcf.Harness.Wpf.WarGameServiceReference;
 
 namespace GameEditor.Wcf.Harness.Wpf.ViewModels
 {
-    public class ArmyUnitDetailViewModel : Screen, IArmyUnitDetailView, IHandle<UpdateView>, IHandle<CheckDirtyStatus>
+    public sealed class ArmyUnitDetailViewModel : DetailViewModel, IArmyUnitDetailView
     {
-        private readonly IGameModel _model;
-        private readonly IEventAggregator _event;
-
-        public ArmyUnitDetailViewModel(IEventAggregator eventAggregator, IGameModel model)
-        {
-            _model = model;
-            _event = eventAggregator;
-            _event.Subscribe(this);
-            InitialiseView();
-        }
-
-        protected void InitialiseView()
-        {
-            IdControl = new LabelTextboxViewModel(_event) { Label = "Id:" };
-            NameControl = new LabelTextboxViewModel(_event) { Label = "Name:" };
-            CostControl = new LabelTextboxViewModel(_event) { Label = "Cost:" };
-            MinCountControl = new LabelTextboxViewModel(_event) { Label = "Min Count:" };
-            MaxCountControl = new LabelTextboxViewModel(_event) { Label = "Max Count:" };
-            MinYearControl = new LabelTextboxViewModel(_event) { Label = "Min Year:" };
-            MaxYearControl = new LabelTextboxViewModel(_event) { Label = "Max Year:" };
-            IsAllyControl = new LabelCheckboxViewModel { Label = "Ally:" };
-            IsGeneralControl = new LabelCheckboxViewModel { Label = "General:" };
-            IsChariotControl = new LabelCheckboxViewModel { Label = "Chariot:" };
-            IsDoubleElementControl = new LabelCheckboxViewModel { Label = "Double Element:" };
-            IsMountedInfantryControl = new LabelCheckboxViewModel { Label = "Mounted Infantry:" };
-            DisciplineTypeControl = new LabelComboboxViewModel { Label = "Discipline Type:", ComboboxItem = EnumHelper.ListOfString<DisciplineTypeEnum>() };
-            UnitTypeControl = new LabelComboboxViewModel { Label = "Unit Type:", ComboboxItem = EnumHelper.ListOfString<UnitTypeEnum>() };
-            DispositionTypeControl = new LabelComboboxViewModel { Label = "Disposition Type:", ComboboxItem = EnumHelper.ListOfString<DispositionTypeEnum>() };
-            GradeTypeControl = new LabelComboboxViewModel { Label = "Grade Type:", ComboboxItem = EnumHelper.ListOfString<GradeTypeEnum>() };
-
-            //base.InitialiseView();
-            //DisciplineData = Enum.GetValues(typeof(DisciplineTypeEnum));
-            //UnitData = Enum.GetValues(typeof(UnitTypeEnum));
-            //DispositionData = Enum.GetValues(typeof(DispositionTypeEnum));
-            //GradeData = Enum.GetValues(typeof(GradeTypeEnum));
-            //ShowAlternativeList = true;
-            ViewChanged();
-        }
-
-        protected void ViewChanged()
-        {
-            CanUpdate = ArmyUnitName != string.Empty && MaxCount != 0;
-            CanCopy = ArmyUnitDefinitionId != 0;
-            CanDelete = ArmyUnitDefinitionId != 0;
-        }
-
-        public void Copy()
-        {
-            ArmyUnitDefinitionId = 0;
-            ViewChanged();
-        }
-
-        private void ClearArmyUnitDetail()
-        {
-            ArmyUnitDefinitionId = 0;
-            ArmyUnitName = string.Empty;
-            Cost = 0;
-            MinCount = 0;
-            MaxCount = 0;
-            MinYear = 0;
-            MaxYear = 0;
-            IsAlly = false;
-            IsGeneral = false;
-            IsChariot = false;
-            IsDoubleElement = false;
-            IsMountedInfantry = false;
-            DisciplineType = 0;
-            UnitType = 0;
-            DispositionType = 0;
-            GradeType = 0;
-        }
-
-        public void Update()
-        {
-            var definition = new ArmyUnitDefinition
-            {
-                Id = ArmyUnitDefinitionId,
-                UnitName = ArmyUnitName,
-                Cost = Cost,
-                MinCount = MinCount,
-                MaxCount = MaxCount,
-                MinYear = MinYear,
-                MaxYear = MaxYear,
-                IsAlly = IsAlly,
-                IsGeneral = IsGeneral,
-                IsChariot = IsChariot,
-                IsDoubleElement = IsDoubleElement,
-                IsMountedInfantry = IsMountedInfantry,
-                DisciplineType = DisciplineType,
-                UnitType = UnitType,
-                DispositionType = DispositionType,
-                GradeType = GradeType
-            };
-            ArmyUnitDefinitionId = _model.AddArmyUnitDefinition(definition);
-            _event.PublishOnCurrentThread(new UpdateView());
-        }
-
-        public void Delete()
-        {
-            _model.DeleteArmyUnitDefinition(ArmyUnitDefinitionId);
-            ClearArmyUnitDetail();
-            _event.PublishOnCurrentThread(new UpdateView());
-        }
-
-        private void SelectArmyUnitDetail(int id)
-        {
-            var item = _model.GetArmyUnitDefinition(id);
-            if (item == null) return;
-            ArmyUnitDefinitionId = item.Id;
-            ArmyUnitName = item.UnitName;
-            Cost = item.Cost;
-            MinCount = item.MinCount;
-            MaxCount = item.MaxCount;
-            MinYear = item.MinYear;
-            MaxYear = item.MaxYear;
-            IsAlly = item.IsAlly;
-            IsGeneral = item.IsGeneral;
-            IsChariot = item.IsChariot;
-            IsDoubleElement = item.IsDoubleElement;
-            IsMountedInfantry = item.IsMountedInfantry;
-            DisciplineType = item.DisciplineType;
-            UnitType = item.UnitType;
-            DispositionType = item.DispositionType;
-            GradeType = item.GradeType;
-        }
-
-        public void Handle(UpdateView message)
-        {
-            if (_model.CurrentArmyUnitDefinitionId == 0) ClearArmyUnitDetail();
-            else SelectArmyUnitDetail(_model.CurrentArmyUnitDefinitionId);
-            ViewChanged();
-        }
-
         public LabelTextboxViewModel IdControl { get; set; }
         public LabelTextboxViewModel NameControl { get; set; }
         public LabelTextboxViewModel CostControl { get; set; }
@@ -338,9 +202,129 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
             }
         }
 
-        public void Handle(CheckDirtyStatus message)
+        protected override int CurrentId => GameModel.CurrentArmyUnitDefinitionId;
+
+        public ArmyUnitDetailViewModel(IEventAggregator eventAggregator, IGameModel model)
+            : base(eventAggregator, model)
         {
+            InitialiseView();
+        }
+
+        protected override void InitialiseView()
+        {
+            IdControl = new LabelTextboxViewModel(EventAggregator) { Label = "Id:" };
+            NameControl = new LabelTextboxViewModel(EventAggregator) { Label = "Name:" };
+            CostControl = new LabelTextboxViewModel(EventAggregator) { Label = "Cost:" };
+            MinCountControl = new LabelTextboxViewModel(EventAggregator) { Label = "Min Count:" };
+            MaxCountControl = new LabelTextboxViewModel(EventAggregator) { Label = "Max Count:" };
+            MinYearControl = new LabelTextboxViewModel(EventAggregator) { Label = "Min Year:" };
+            MaxYearControl = new LabelTextboxViewModel(EventAggregator) { Label = "Max Year:" };
+            IsAllyControl = new LabelCheckboxViewModel { Label = "Ally:" };
+            IsGeneralControl = new LabelCheckboxViewModel { Label = "General:" };
+            IsChariotControl = new LabelCheckboxViewModel { Label = "Chariot:" };
+            IsDoubleElementControl = new LabelCheckboxViewModel { Label = "Double Element:" };
+            IsMountedInfantryControl = new LabelCheckboxViewModel { Label = "Mounted Infantry:" };
+            DisciplineTypeControl = new LabelComboboxViewModel { Label = "Discipline Type:", ComboboxItem = EnumHelper.ListOfString<DisciplineTypeEnum>() };
+            UnitTypeControl = new LabelComboboxViewModel { Label = "Unit Type:", ComboboxItem = EnumHelper.ListOfString<UnitTypeEnum>() };
+            DispositionTypeControl = new LabelComboboxViewModel { Label = "Disposition Type:", ComboboxItem = EnumHelper.ListOfString<DispositionTypeEnum>() };
+            GradeTypeControl = new LabelComboboxViewModel { Label = "Grade Type:", ComboboxItem = EnumHelper.ListOfString<GradeTypeEnum>() };
+
+            //base.InitialiseView();
+            //DisciplineData = Enum.GetValues(typeof(DisciplineTypeEnum));
+            //UnitData = Enum.GetValues(typeof(UnitTypeEnum));
+            //DispositionData = Enum.GetValues(typeof(DispositionTypeEnum));
+            //GradeData = Enum.GetValues(typeof(GradeTypeEnum));
+            //ShowAlternativeList = true;
             ViewChanged();
+        }
+
+        protected override void ViewChanged()
+        {
+            CanUpdate = ArmyUnitName != string.Empty && MaxCount != 0;
+            CanCopy = ArmyUnitDefinitionId != 0;
+            CanDelete = ArmyUnitDefinitionId != 0;
+            base.ViewChanged();
+        }
+
+        public override void Copy()
+        {
+            ArmyUnitDefinitionId = 0;
+            base.Copy();
+        }
+
+        public override void ClearDetail()
+        {
+            ArmyUnitDefinitionId = 0;
+            ArmyUnitName = string.Empty;
+            Cost = 0;
+            MinCount = 0;
+            MaxCount = 0;
+            MinYear = 0;
+            MaxYear = 0;
+            IsAlly = false;
+            IsGeneral = false;
+            IsChariot = false;
+            IsDoubleElement = false;
+            IsMountedInfantry = false;
+            DisciplineType = 0;
+            UnitType = 0;
+            DispositionType = 0;
+            GradeType = 0;
+            base.ClearDetail();
+        }
+
+        public override void Update()
+        {
+            var definition = new ArmyUnitDefinition
+            {
+                Id = ArmyUnitDefinitionId,
+                UnitName = ArmyUnitName,
+                Cost = Cost,
+                MinCount = MinCount,
+                MaxCount = MaxCount,
+                MinYear = MinYear,
+                MaxYear = MaxYear,
+                IsAlly = IsAlly,
+                IsGeneral = IsGeneral,
+                IsChariot = IsChariot,
+                IsDoubleElement = IsDoubleElement,
+                IsMountedInfantry = IsMountedInfantry,
+                DisciplineType = DisciplineType,
+                UnitType = UnitType,
+                DispositionType = DispositionType,
+                GradeType = GradeType
+            };
+            ArmyUnitDefinitionId = GameModel.AddArmyUnitDefinition(definition);
+            base.Update();
+        }
+
+        public override void Delete()
+        {
+            GameModel.DeleteArmyUnitDefinition(ArmyUnitDefinitionId);
+            base.Delete();
+        }
+
+        public override void SelectDetail(int currentId)
+        {
+            var item = GameModel.GetArmyUnitDefinition(currentId);
+            if (item == null) return;
+            ArmyUnitDefinitionId = item.Id;
+            ArmyUnitName = item.UnitName;
+            Cost = item.Cost;
+            MinCount = item.MinCount;
+            MaxCount = item.MaxCount;
+            MinYear = item.MinYear;
+            MaxYear = item.MaxYear;
+            IsAlly = item.IsAlly;
+            IsGeneral = item.IsGeneral;
+            IsChariot = item.IsChariot;
+            IsDoubleElement = item.IsDoubleElement;
+            IsMountedInfantry = item.IsMountedInfantry;
+            DisciplineType = item.DisciplineType;
+            UnitType = item.UnitType;
+            DispositionType = item.DispositionType;
+            GradeType = item.GradeType;
+            base.SelectDetail(currentId);
         }
     }
 }

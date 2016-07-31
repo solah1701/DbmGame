@@ -112,7 +112,7 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
             base.InitialiseView();
         }
 
-        protected override void ClearDetail()
+        public override void ClearDetail()
         {
             AllyListId = 0;
             AllyName = string.Empty;
@@ -123,7 +123,7 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
             base.ClearDetail();
         }
 
-        protected override void SelectDetail(int currentId)
+        public override void SelectDetail(int currentId)
         {
             var item = GameModel.GetAlliedArmyDefinition(currentId);
             if (item == null) return;
@@ -136,7 +136,7 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
             base.SelectDetail(currentId);
         }
 
-        protected override void Update()
+        public override void Update()
         {
             var definition = new AlliedArmyDefinition
             {
@@ -151,7 +151,7 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
             base.Update();
         }
 
-        protected override void Delete()
+        public override void Delete()
         {
             GameModel.DeleteAllyDefinition(AllyListId);
             base.Delete();

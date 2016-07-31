@@ -4,7 +4,7 @@ using GameEditor.Wcf.Harness.Wpf.Models;
 
 namespace GameEditor.Wcf.Harness.Wpf.ViewModels.Base
 {
-    public class DetailViewModel : Screen, IHandle<UpdateView>
+    public class DetailViewModel : Screen, IHandle<UpdateView>, IHandle<CheckDirtyStatus>
     {
         public IGameModel GameModel { get; set; }
         public IEventAggregator EventAggregator { get; set; }
@@ -19,11 +19,12 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels.Base
 
         protected virtual void InitialiseView() { ViewChanged(); }
         protected virtual void ViewChanged() { }
-        protected virtual void ClearDetail() { }
-        protected virtual void SelectDetail(int currentId) { }
-        protected virtual void Update() { PublishToUIUpdateView(); }
-        protected virtual void Add() { PublishToUIUpdateView(); }
-        protected virtual void Delete() { ClearDetail(); PublishToUIUpdateView(); }
+        public virtual void ClearDetail() { }
+        public virtual void SelectDetail(int currentId) { }
+        public virtual void Update() { PublishToUIUpdateView(); }
+        public virtual void Add() { PublishToUIUpdateView(); }
+        public virtual void Delete() { ClearDetail(); PublishToUIUpdateView(); }
+        public virtual void Copy() { ViewChanged(); }
 
         protected void PublishToUI(object message) { EventAggregator.PublishOnUIThread(message); }
         protected void PublishToUIUpdateView()
@@ -35,6 +36,11 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels.Base
         {
             if (CurrentId == 0) ClearDetail();
             else SelectDetail(CurrentId);
+            ViewChanged();
+        }
+
+        public void Handle(CheckDirtyStatus message)
+        {
             ViewChanged();
         }
     }

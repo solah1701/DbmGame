@@ -1,6 +1,6 @@
 ﻿namespace GameEditor.Wcf.Harness.Wpf.Views.Interfaces
 {
-    public interface IArmyDetailView
+    public interface IArmyDetailView : IDetailView
     {
         int ArmyBook { get; set; }
         int ArmyId { get; set; }
@@ -9,11 +9,5 @@
         int MaxYear { get; set; }
         int MinYear { get; set; }
         string Notes { get; set; }
-
-        void Add();
-        void Delete();
-        void Update();
-        void SelectDetail(int id);
-        void ClearDetail();
     }
 }

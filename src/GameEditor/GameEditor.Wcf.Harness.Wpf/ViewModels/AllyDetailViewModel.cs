@@ -90,9 +90,6 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
             }
         }
 
-        public bool CanUpdate { get; set; }
-        public bool CanDelete { get; set; }
-
         protected override int CurrentId => GameModel.CurrentAllyArmyDefinitionId;
 
         public AllyDetailViewModel(IEventAggregator eventAggregator, IGameModel gameModel)
@@ -112,7 +109,14 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
             base.InitialiseView();
         }
 
-        public override void ClearDetail()
+        protected override void ViewChanged()
+        {
+            CanUpdate = !string.IsNullOrEmpty(AllyName);
+            CanDelete = AllyListId != 0;
+            base.ViewChanged();
+        }
+
+        public override void Clear()
         {
             AllyListId = 0;
             AllyName = string.Empty;
@@ -120,10 +124,10 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
             List = 0;
             MinYear = 0;
             MaxYear = 0;
-            base.ClearDetail();
+            base.Clear();
         }
 
-        public override void SelectDetail(int currentId)
+        public override void Select(int currentId)
         {
             var item = GameModel.GetAlliedArmyDefinition(currentId);
             if (item == null) return;
@@ -133,7 +137,7 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
             List = item.ArmyList;
             MinYear = item.MinYear;
             MaxYear = item.MaxYear;
-            base.SelectDetail(currentId);
+            base.Select(currentId);
         }
 
         public override void Update()

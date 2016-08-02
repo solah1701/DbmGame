@@ -1,23 +1,32 @@
 ﻿using Caliburn.Micro;
 using GameEditor.Wcf.Harness.Wpf.EventAggregators;
+using GameEditor.Wcf.Harness.Wpf.Models;
 
 namespace GameEditor.Wcf.Harness.Wpf.ViewModels.Base
 {
-    public class ListViewModel : Screen, IHandle<UpdateList>
+    public class ListViewModel : BaseViewModel, IHandle<UpdateList>
     {
-        protected IEventAggregator EventAggregator { get; set; }
         protected bool IsUpdating { get; set; }
 
-        public ListViewModel(IEventAggregator eventAggregator)
+        public ListViewModel(IEventAggregator eventAggregator, IGameModel gameModel)
+            : base(eventAggregator, gameModel)
         {
-            EventAggregator = eventAggregator;
-            EventAggregator.Subscribe(this);
             IsUpdating = false;
         }
 
         public virtual void PopulateList()
         {
-            
+
+        }
+
+        public virtual void Add()
+        {
+            PublishToUIUpdateView();
+        }
+
+        public virtual void Select(int id)
+        {
+            PublishToUIUpdateView();
         }
 
         public void Handle(UpdateList message)

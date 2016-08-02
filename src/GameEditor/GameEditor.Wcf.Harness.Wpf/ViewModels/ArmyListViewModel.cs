@@ -6,10 +6,8 @@ using GameEditor.Wcf.Harness.Wpf.WarGameServiceReference;
 
 namespace GameEditor.Wcf.Harness.Wpf.ViewModels
 {
-    public class ArmyListViewModel : ListViewModel
+    public sealed class ArmyListViewModel : ListViewModel
     {
-        private readonly IGameModel _model;
-
         private ArmyDefinition _selected;
 
         public BindableCollection<ArmyDefinition> ArmyDefinitions { get; set; }
@@ -22,13 +20,12 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
                 if (_selected == value) return;
                 _selected = value;
                 NotifyOfPropertyChange(() => SelectedArmyDefinition);
-                if (!IsUpdating && _selected != null) SelectArmy(_selected.Id);
+                if (!IsUpdating && _selected != null) Select(_selected.Id);
             }
         }
 
-        public ArmyListViewModel(IEventAggregator eventAggregator, IGameModel gameModel) : base(eventAggregator)
+        public ArmyListViewModel(IEventAggregator eventAggregator, IGameModel gameModel) : base(eventAggregator, gameModel)
         {
-            _model = gameModel;
             ArmyDefinitions = new BindableCollection<ArmyDefinition>();
             PopulateList();
         }
@@ -37,30 +34,30 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
         {
 #if !DESIGNMODE
             ArmyDefinitions.Clear();
-            ArmyDefinitions.AddRange(_model.GetArmyDefinitions());
+            ArmyDefinitions.AddRange(GameModel.GetArmyDefinitions());
 #endif
         }
 
-        public void AddArmy()
+        public override void Add()
         {
-            _model.CurrentArmyDefinitionId = 0;
-            _model.CurrentArmyUnitDefinitionId = 0;
-            _model.CurrentAllyArmyDefinitionId = 0;
-            _model.CurrentAllyDefinitionId = 0;
-            _model.CurrentAlternativeUnitDefinitionId = 0;
-            EventAggregator.PublishOnUIThread(new UpdateView());
+            GameModel.CurrentArmyDefinitionId = 0;
+            GameModel.CurrentArmyUnitDefinitionId = 0;
+            GameModel.CurrentAllyArmyDefinitionId = 0;
+            GameModel.CurrentAllyDefinitionId = 0;
+            GameModel.CurrentAlternativeUnitDefinitionId = 0;
+            base.Add();
         }
 
-        public void SelectArmy(int armyId)
+        public override void Select(int armyId)
         {
             // Navigate to Detail page
-            _model.CurrentArmyDefinitionId = armyId;
-            _model.CurrentArmyUnitDefinitionId = 0;
-            _model.CurrentAllyArmyDefinitionId = 0;
-            _model.CurrentAllyDefinitionId = 0;
-            _model.CurrentAlternativeUnitDefinitionId = 0;
-            EventAggregator.PublishOnUIThread(new UpdateView());
+            GameModel.CurrentArmyDefinitionId = armyId;
+            GameModel.CurrentArmyUnitDefinitionId = 0;
+            GameModel.CurrentAllyArmyDefinitionId = 0;
+            GameModel.CurrentAllyDefinitionId = 0;
+            GameModel.CurrentAlternativeUnitDefinitionId = 0;
             EventAggregator.PublishOnUIThread(new UpdateList());
+            base.Select(armyId);
         }
     }
 }

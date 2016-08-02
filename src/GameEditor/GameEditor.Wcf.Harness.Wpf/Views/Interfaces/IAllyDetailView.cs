@@ -1,6 +1,6 @@
 ﻿namespace GameEditor.Wcf.Harness.Wpf.Views.Interfaces
 {
-    public interface IAllyDetailView
+    public interface IAllyDetailView :IDetailView
     {
         int AllyListId { get; set; } 
         string AllyName { get; set; }
@@ -11,11 +11,5 @@
 
         bool CanUpdate { get; set; }
         bool CanDelete { get; set; }
-
-        void Add();
-        void Delete();
-        void Update();
-        void SelectDetail(int id);
-        void ClearDetail();
     }
 }

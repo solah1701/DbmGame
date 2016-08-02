@@ -25,7 +25,7 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
                 if (_selected == value) return;
                 _selected = value;
                 NotifyOfPropertyChange(() => SelectedArmyUnitDefinition);
-                if(!IsUpdating) SelectUnitArmy(_selected.Id);
+                if(!IsUpdating) Select(_selected.Id);
             }
         }
 
@@ -37,7 +37,7 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
             public Color BackgroundColor { get; set; }
         }
 
-        public ArmyUnitListViewModel(IEventAggregator eventAggregator, IGameModel gameModel) : base(eventAggregator)
+        public ArmyUnitListViewModel(IEventAggregator eventAggregator, IGameModel gameModel) : base(eventAggregator, gameModel)
         {
             _model = gameModel;
             ArmyUnitDefinitions = new BindableCollection<ArmyUnitDefinition>();
@@ -63,20 +63,20 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
 #endif
         }
 
-        public void AddArmyUnit()
+        public override void Add()
         {
             // Navigate to Detail page
             _model.CurrentArmyUnitDefinitionId = 0;
             _model.CurrentAlternativeUnitDefinitionId = 0;
-            EventAggregator.PublishOnCurrentThread(new UpdateView());
+            base.Add();
         }
 
-        public void SelectUnitArmy(int armyUnitId)
+        public override void Select(int id)
         {
             // Navigate to Detail page
-            _model.CurrentArmyUnitDefinitionId = armyUnitId;
+            _model.CurrentArmyUnitDefinitionId = id;
             _model.CurrentAlternativeUnitDefinitionId = 0;
-            EventAggregator.PublishOnCurrentThread(new UpdateView());
+            base.Select(id);
         }
     }
 }

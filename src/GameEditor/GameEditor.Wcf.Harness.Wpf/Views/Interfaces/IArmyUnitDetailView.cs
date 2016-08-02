@@ -2,7 +2,7 @@
 
 namespace GameEditor.Wcf.Harness.Wpf.Views.Interfaces
 {
-    public interface IArmyUnitDetailView
+    public interface IArmyUnitDetailView : IDetailView
     {
         int ArmyUnitDefinitionId { get; set; }
         string ArmyUnitName { get; set; }
@@ -20,15 +20,5 @@ namespace GameEditor.Wcf.Harness.Wpf.Views.Interfaces
         UnitTypeEnum UnitType { get; set; }
         DispositionTypeEnum DispositionType { get; set; }
         GradeTypeEnum GradeType { get; set; }
-
-        bool CanUpdate { get; set; }
-        bool CanCopy { get; set; }
-        bool CanDelete { get; set; }
-
-        void Add();
-        void Delete();
-        void Update();
-        void SelectDetail(int id);
-        void ClearDetail();
     }
 }

@@ -28,6 +28,8 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
         public LabelComboboxViewModel DispositionTypeControl { get; set; }
         public LabelComboboxViewModel GradeTypeControl { get; set; }
 
+        public AlternativeUnitViewModel AlternativeTabControl { get; set; }
+
         public int ArmyUnitDefinitionId
         {
             get
@@ -170,43 +172,12 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
             }
         }
 
-        private bool _canUpdate;
-        private bool _canCopy;
-        private bool _canDelete;
-
-        public bool CanUpdate
-        {
-            get { return _canUpdate; }
-            set
-            {
-                if (_canUpdate == value) return;
-                _canUpdate = value; NotifyOfPropertyChange(() => CanUpdate);
-            }
-        }
-        public bool CanCopy
-        {
-            get { return _canCopy; }
-            set
-            {
-                if (_canCopy == value) return;
-                _canCopy = value; NotifyOfPropertyChange(() => CanCopy);
-            }
-        }
-        public bool CanDelete
-        {
-            get { return _canDelete; }
-            set
-            {
-                if (_canDelete == value) return;
-                _canDelete = value; NotifyOfPropertyChange(() => CanDelete);
-            }
-        }
-
         protected override int CurrentId => GameModel.CurrentArmyUnitDefinitionId;
 
-        public ArmyUnitDetailViewModel(IEventAggregator eventAggregator, IGameModel model)
+        public ArmyUnitDetailViewModel(IEventAggregator eventAggregator, IGameModel model, AlternativeUnitViewModel alternativeUnitView)
             : base(eventAggregator, model)
         {
+            AlternativeTabControl = alternativeUnitView;
             InitialiseView();
         }
 
@@ -235,7 +206,7 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
             //DispositionData = Enum.GetValues(typeof(DispositionTypeEnum));
             //GradeData = Enum.GetValues(typeof(GradeTypeEnum));
             //ShowAlternativeList = true;
-            ViewChanged();
+            base.InitialiseView();
         }
 
         protected override void ViewChanged()
@@ -252,7 +223,7 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
             base.Copy();
         }
 
-        public override void ClearDetail()
+        public override void Clear()
         {
             ArmyUnitDefinitionId = 0;
             ArmyUnitName = string.Empty;
@@ -270,7 +241,7 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
             UnitType = 0;
             DispositionType = 0;
             GradeType = 0;
-            base.ClearDetail();
+            base.Clear();
         }
 
         public override void Update()
@@ -304,7 +275,7 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
             base.Delete();
         }
 
-        public override void SelectDetail(int currentId)
+        public override void Select(int currentId)
         {
             var item = GameModel.GetArmyUnitDefinition(currentId);
             if (item == null) return;
@@ -324,7 +295,7 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
             UnitType = item.UnitType;
             DispositionType = item.DispositionType;
             GradeType = item.GradeType;
-            base.SelectDetail(currentId);
+            base.Select(currentId);
         }
     }
 }

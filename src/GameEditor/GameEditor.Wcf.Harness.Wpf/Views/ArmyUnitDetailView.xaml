@@ -12,6 +12,7 @@
             <Button Name="Update" Content="Update" Margin="5"></Button>
             <Button Name="Delete" Content="Delete" Margin="5"></Button>
         </StackPanel>
+        <ContentControl Name="AlternativeTabControl" DockPanel.Dock="Bottom"/>
         <StackPanel>
             <ContentControl Name="IdControl"/>
             <ContentControl Name="NameControl"/>

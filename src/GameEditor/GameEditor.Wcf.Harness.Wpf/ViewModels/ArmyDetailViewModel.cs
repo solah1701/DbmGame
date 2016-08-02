@@ -1,5 +1,4 @@
 ﻿using Caliburn.Micro;
-using GameEditor.Wcf.Harness.Wpf.EventAggregators;
 using GameEditor.Wcf.Harness.Wpf.Extensions;
 using GameEditor.Wcf.Harness.Wpf.Models;
 using GameEditor.Wcf.Harness.Wpf.ViewModels.Base;
@@ -55,7 +54,14 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
             base.InitialiseView();
         }
 
-        public override void ClearDetail()
+        protected override void ViewChanged()
+        {
+            CanUpdate = ArmyName != string.Empty;
+            CanDelete = ArmyId != 0;
+            base.ViewChanged();
+        }
+
+        public override void Clear()
         {
             ArmyId = 0;
             ArmyName = string.Empty;
@@ -64,7 +70,7 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
             MinYear = 0;
             MaxYear = 0;
             Notes = string.Empty;
-            base.ClearDetail();
+            base.Clear();
         }
 
         public override void Update()
@@ -89,7 +95,7 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
             base.Delete();
         }
 
-        public override void SelectDetail(int currentId)
+        public override void Select(int currentId)
         {
             var item = GameModel.GetArmyDefinition(currentId);
             ArmyId = item.Id;
@@ -99,7 +105,7 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
             MinYear = item.MinYear;
             MaxYear = item.MaxYear;
             Notes = item.Notes;
-            base.SelectDetail(currentId);
+            base.Select(currentId);
         }
     }
 }

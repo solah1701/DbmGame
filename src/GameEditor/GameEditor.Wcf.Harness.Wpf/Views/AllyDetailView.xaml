@@ -12,12 +12,12 @@
             <Button Name="Delete" Content="Delete" Margin="5"></Button>
         </StackPanel>
         <StackPanel>
-            <ContentControl Name="AllyListControl"/>
-            <ContentControl Name="AllyNameControl"/>
-            <ContentControl Name="BookControl"/>
-            <ContentControl Name="ListControl"/>
-            <ContentControl Name="MinYearControl"/>
-            <ContentControl Name="MaxYearControl"/>
+            <ContentControl Name="AllyListControl" IsTabStop="False"/>
+            <ContentControl Name="AllyNameControl" IsTabStop="False"/>
+            <ContentControl Name="BookControl" IsTabStop="False"/>
+            <ContentControl Name="ListControl" IsTabStop="False"/>
+            <ContentControl Name="MinYearControl" IsTabStop="False"/>
+            <ContentControl Name="MaxYearControl" IsTabStop="False"/>
         </StackPanel>
     </DockPanel>
 </UserControl>

@@ -4,19 +4,19 @@
              xmlns:local="clr-namespace:GameEditor.Wcf.Harness.Wpf.Views">
     <DockPanel>
         <StackPanel DockPanel.Dock="Top">
-            <ContentControl Name="ArmyIdControl"/>
-            <ContentControl Name="ArmyNameControl"/>
-            <ContentControl Name="ArmyBookControl"/>
-            <ContentControl Name="ArmyListControl"/>
-            <ContentControl Name="MinYearControl"/>
-            <ContentControl Name="MaxYearControl"/>
+            <ContentControl Name="ArmyIdControl" IsTabStop="False"/>
+            <ContentControl Name="ArmyNameControl" IsTabStop="False"/>
+            <ContentControl Name="ArmyBookControl" IsTabStop="False"/>
+            <ContentControl Name="ArmyListControl" IsTabStop="False"/>
+            <ContentControl Name="MinYearControl" IsTabStop="False"/>
+            <ContentControl Name="MaxYearControl" IsTabStop="False"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom">
             <Button Name="Add" Content="Add Unit" Margin="5"></Button>
             <Button Name="Update" Content="Update" Margin="5"></Button>
             <Button Name="Delete" Content="Delete" Margin="5"></Button>
         </StackPanel>
-        <ContentControl Name="NotesControl"/>
+        <ContentControl Name="NotesControl" IsTabStop="False"/>
         <!--<StackPanel Orientation="Horizontal">
             <TextBlock Text="Notes:" Width="50" Margin="5"></TextBlock>
             <TextBox TextWrapping="WrapWithOverflow" Name="Notes" Width="200" Margin="5"></TextBox>

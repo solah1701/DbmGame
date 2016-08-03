@@ -25,7 +25,7 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
                 if (_selected == value) return;
                 _selected = value;
                 NotifyOfPropertyChange(() => SelectedArmyUnitDefinition);
-                if(!IsUpdating) Select(_selected.Id);
+                if (!IsUpdating && _selected != null) Select(_selected.Id);
             }
         }
 
@@ -76,6 +76,7 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
             // Navigate to Detail page
             _model.CurrentArmyUnitDefinitionId = id;
             _model.CurrentAlternativeUnitDefinitionId = 0;
+            PublishToUI(new UpdateList());
             base.Select(id);
         }
     }

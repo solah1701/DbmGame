@@ -12,26 +12,26 @@
             <Button Name="Update" Content="Update" Margin="5"></Button>
             <Button Name="Delete" Content="Delete" Margin="5"></Button>
         </StackPanel>
-        <ContentControl Name="AlternativeTabControl" DockPanel.Dock="Bottom"/>
-        <StackPanel>
-            <ContentControl Name="IdControl"/>
-            <ContentControl Name="NameControl"/>
-            <ContentControl Name="CostControl"/>
-            <ContentControl Name="MinCountControl"/>
-            <ContentControl Name="MaxCountControl"/>
-            <ContentControl Name="MinYearControl"/>
-            <ContentControl Name="MaxYearControl"/>
+        <StackPanel DockPanel.Dock="Top">
+            <ContentControl Name="IdControl" IsTabStop="False"/>
+            <ContentControl Name="NameControl" IsTabStop="False"/>
+            <ContentControl Name="CostControl" IsTabStop="False"/>
+            <ContentControl Name="MinCountControl" IsTabStop="False"/>
+            <ContentControl Name="MaxCountControl" IsTabStop="False"/>
+            <ContentControl Name="MinYearControl" IsTabStop="False"/>
+            <ContentControl Name="MaxYearControl" IsTabStop="False"/>
             <StackPanel Orientation="Horizontal">
-                <ContentControl Name="IsAllyControl"/>
-                <ContentControl Name="IsGeneralControl"/>
-                <ContentControl Name="IsChariotControl"/>
-                <ContentControl Name="IsDoubleElementControl"/>
-                <ContentControl Name="IsMountedInfantryControl"/>
+                <ContentControl Name="IsAllyControl" IsTabStop="False"/>
+                <ContentControl Name="IsGeneralControl" IsTabStop="False"/>
+                <ContentControl Name="IsChariotControl" IsTabStop="False"/>
+                <ContentControl Name="IsDoubleElementControl" IsTabStop="False"/>
+                <ContentControl Name="IsMountedInfantryControl" IsTabStop="False"/>
             </StackPanel>
-            <ContentControl Name="DisciplineTypeControl"/>
-            <ContentControl Name="UnitTypeControl"/>
-            <ContentControl Name="DispositionTypeControl"/>
-            <ContentControl Name="GradeTypeControl"/>
+            <ContentControl Name="DisciplineTypeControl" IsTabStop="False"/>
+            <ContentControl Name="UnitTypeControl" IsTabStop="False"/>
+            <ContentControl Name="DispositionTypeControl" IsTabStop="False"/>
+            <ContentControl Name="GradeTypeControl" IsTabStop="False"/>
         </StackPanel>
+        <ContentControl Name="AlternativeTabControl"/>
     </DockPanel>
 </UserControl>

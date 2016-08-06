@@ -69,5 +69,35 @@ namespace GameEditor.WcfHarness.Wpf.UnitTest
             // Assert
             Assert.IsTrue(AlternativeUnitDetailViewModel.CanUpdate, "AlternativeUnitDetailViewModel.CanUpdate");
         }
+
+        [TestMethod]
+        public void Upgrade_True_Enables_MinCount_MaxCount()
+        {
+            // Arrange
+            var dirtyStatus = new CheckDirtyStatus();
+            AlternativeUnitDetailViewModel.Upgrade = true;
+
+            // Act
+            AlternativeUnitDetailViewModel.Handle(dirtyStatus);
+
+            // Assert
+            Assert.IsTrue(AlternativeUnitDetailViewModel.MaxValueControl.CanTextBox, "AlternativeUnitDetailViewModel.MaxValueControl.CanTextBox");
+            Assert.IsTrue(AlternativeUnitDetailViewModel.MinValueControl.CanTextBox, "AlternativeUnitDetailViewModel.MinValueControl.CanTextBox");
+        }
+
+        [TestMethod]
+        public void Upgrade_False_Disables_MinCount_MaxCount()
+        {
+            // Arrange
+            var dirtyStatus = new CheckDirtyStatus();
+            AlternativeUnitDetailViewModel.Upgrade = false;
+
+            // Act
+            AlternativeUnitDetailViewModel.Handle(dirtyStatus);
+
+            // Assert
+            Assert.IsFalse(AlternativeUnitDetailViewModel.MaxValueControl.CanTextBox, "AlternativeUnitDetailViewModel.MaxValueControl.CanTextBox");
+            Assert.IsFalse(AlternativeUnitDetailViewModel.MinValueControl.CanTextBox, "AlternativeUnitDetailViewModel.MinValueControl.CanTextBox");
+        }
     }
 }

@@ -104,6 +104,7 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
         protected override void ViewChanged()
         {
             AlternativeUnitIdControl.CanTextBox = false;
+            MinValueControl.CanTextBox = MaxValueControl.CanTextBox = Upgrade;
             CanUpdate = !string.IsNullOrEmpty(AlternativeUnitName);
             CanDelete = AlternativeUnitId > 0;
             CanCopy = AlternativeUnitId > 0;

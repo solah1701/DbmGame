@@ -101,6 +101,26 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
             base.InitialiseView();
         }
 
+        protected override void ViewChanged()
+        {
+            AlternativeUnitIdControl.CanTextBox = false;
+            CanUpdate = !string.IsNullOrEmpty(AlternativeUnitName);
+            CanDelete = AlternativeUnitId > 0;
+            CanCopy = AlternativeUnitId > 0;
+            base.ViewChanged();
+        }
+
+        public override void Clear()
+        {
+            AlternativeUnitId = 0;
+            AlternativeUnitName = string.Empty;
+            MinValue = 0;
+            MaxValue = 0;
+            Percent = false;
+            Upgrade = false;
+            base.Clear();
+        }
+
         public override void Select(int currentId)
         {
             var item = GameModel.GetAlternativeUnitDefinition(currentId);

@@ -5,6 +5,6 @@
              xmlns:cal="http://www.caliburnproject.org">
     <DockPanel>
         <TextBlock Name="Label" Width="100" Margin="5" DockPanel.Dock="Left"/>
-        <TextBox Name="TextBox" Margin="5" TextWrapping="{Binding TextWrapping}" cal:Message.Attach="[Event KeyDown] = [Action KeyPressed($executionContext)]" />
+        <TextBox Name="TextBox" Margin="5" TextWrapping="{Binding TextWrapping}" IsEnabled="{Binding CanTextBox}" cal:Message.Attach="[Event KeyDown] = [Action KeyPressed($executionContext)]" />
     </DockPanel>
 </UserControl>

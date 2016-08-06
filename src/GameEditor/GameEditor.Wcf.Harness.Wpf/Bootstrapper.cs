@@ -6,6 +6,7 @@ using System.ComponentModel.Composition.Primitives;
 using System.Dynamic;
 using System.Linq;
 using System.Windows;
+using System.Windows.Controls;
 using Caliburn.Micro;
 
 namespace GameEditor.Wcf.Harness.Wpf
@@ -29,6 +30,14 @@ namespace GameEditor.Wcf.Harness.Wpf
             batch.AddExportedValue(_container);
 
             _container.Compose(batch);
+            //CustomConventions();
+        }
+
+        protected virtual void CustomConventions()
+        {
+            ConventionManager.AddElementConvention<TextBox>(UIElement.IsEnabledProperty, "IsEnabled", "DataContextChanged");
+            ConventionManager.AddElementConvention<FrameworkElement>(Control.IsEnabledProperty, "IsEnabled", "IsEnabled");
+            var baseBindProperties = ViewModelBinder.BindProperties;
         }
 
         protected override object GetInstance(Type service, string key)

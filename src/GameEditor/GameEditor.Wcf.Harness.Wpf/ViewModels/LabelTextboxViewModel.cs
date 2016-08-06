@@ -6,6 +6,7 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
     public class LabelTextboxViewModel : LabelViewModelBase
     {
         private string _textBox;
+        private bool _canTextBox;
         private IEventAggregator _event;
 
         public string TextBox
@@ -19,12 +20,24 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
             }
         }
 
+        public bool CanTextBox
+        {
+            get { return _canTextBox; }
+            set
+            {
+                if (_canTextBox == value) return;
+                _canTextBox = value;
+                NotifyOfPropertyChange(() => CanTextBox);
+            }
+        }
+
         public string TextWrapping { get; set; }
 
         public LabelTextboxViewModel(IEventAggregator eventAggregator)
         {
             _event = eventAggregator;
             TextBox = string.Empty;
+            CanTextBox = true;
         }
 
         public void KeyPressed(ActionExecutionContext context)

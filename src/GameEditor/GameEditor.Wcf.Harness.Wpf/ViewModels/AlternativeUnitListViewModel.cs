@@ -1,7 +1,6 @@
 ﻿using Caliburn.Micro;
 using GameEditor.Wcf.Harness.Wpf.Models;
 using GameEditor.Wcf.Harness.Wpf.ViewModels.Base;
-using GameEditor.Wcf.Harness.Wpf.Views.Interfaces;
 using GameEditor.Wcf.Harness.Wpf.WarGameServiceReference;
 
 namespace GameEditor.Wcf.Harness.Wpf.ViewModels

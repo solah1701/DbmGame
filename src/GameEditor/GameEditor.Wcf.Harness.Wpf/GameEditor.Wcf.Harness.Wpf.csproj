@@ -132,13 +132,13 @@
     <Compile Include="ViewModels\LabelComboboxViewModel.cs" />
     <Compile Include="ViewModels\LabelTextboxViewModel.cs" />
     <Compile Include="ViewModels\LabelViewModelBase.cs" />
-    <Compile Include="Views\Interfaces\IAllyDetailViewModel.cs" />
+    <Compile Include="ViewModels\IAllyDetailViewModel.cs" />
     <Compile Include="Views\Interfaces\IAlternativeScreenTabItem.cs" />
-    <Compile Include="Views\Interfaces\IArmyDetailViewModel.cs" />
+    <Compile Include="ViewModels\IArmyDetailViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="ViewModels\ArmyListTabViewModel.cs" />
     <Compile Include="ViewModels\ArmyUnitTabViewModel.cs" />
-    <Compile Include="Views\Interfaces\IArmyUnitDetailViewModel.cs" />
+    <Compile Include="ViewModels\IArmyUnitDetailViewModel.cs" />
     <Compile Include="Views\Interfaces\IDetailView.cs" />
     <Compile Include="Views\Interfaces\IMainScreenTabItem.cs" />
     <Compile Include="App.xaml.cs">

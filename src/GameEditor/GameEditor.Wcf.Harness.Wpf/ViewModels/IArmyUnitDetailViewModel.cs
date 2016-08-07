@@ -1,6 +1,7 @@
-﻿using GameEditor.Wcf.Harness.Wpf.WarGameServiceReference;
+﻿using GameEditor.Wcf.Harness.Wpf.Views.Interfaces;
+using GameEditor.Wcf.Harness.Wpf.WarGameServiceReference;
 
-namespace GameEditor.Wcf.Harness.Wpf.Views.Interfaces
+namespace GameEditor.Wcf.Harness.Wpf.ViewModels
 {
     public interface IArmyUnitDetailViewModel : IDetailView
     {

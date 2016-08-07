@@ -8,7 +8,7 @@ using GameEditor.Wcf.Harness.Wpf.WarGameServiceReference;
 namespace GameEditor.Wcf.Harness.Wpf.ViewModels
 
 {
-    public class ArmyDetailViewModel : DetailViewModel, IArmyDetailViewModel
+    public sealed class ArmyDetailViewModel : DetailViewModel, IArmyDetailViewModel
     {
         //private int _armyId;
         //private string _armyName;

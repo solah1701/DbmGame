@@ -1,4 +1,6 @@
-﻿namespace GameEditor.Wcf.Harness.Wpf.Views.Interfaces
+﻿using GameEditor.Wcf.Harness.Wpf.Views.Interfaces;
+
+namespace GameEditor.Wcf.Harness.Wpf.ViewModels
 {
     public interface IArmyDetailViewModel : IDetailView
     {

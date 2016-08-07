@@ -7,7 +7,7 @@ using GameEditor.Wcf.Harness.Wpf.WarGameServiceReference;
 
 namespace GameEditor.Wcf.Harness.Wpf.ViewModels
 {
-    public sealed class ArmyUnitDetailViewModel : DetailViewModel, IArmyUnitDetailView
+    public sealed class ArmyUnitDetailViewModel : DetailViewModel, IArmyUnitDetailViewModel
     {
         public LabelTextboxViewModel IdControl { get; set; }
         public LabelTextboxViewModel NameControl { get; set; }
@@ -28,7 +28,7 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
         public LabelComboboxViewModel DispositionTypeControl { get; set; }
         public LabelComboboxViewModel GradeTypeControl { get; set; }
 
-        public AlternativeUnitViewModel AlternativeTabControl { get; set; }
+        public IAlternativeUnitViewModel AlternativeTabControl { get; set; }
 
         public int ArmyUnitDefinitionId
         {
@@ -174,7 +174,7 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
 
         protected override int CurrentId => GameModel.CurrentArmyUnitDefinitionId;
 
-        public ArmyUnitDetailViewModel(IEventAggregator eventAggregator, IGameModel model, AlternativeUnitViewModel alternativeUnitView)
+        public ArmyUnitDetailViewModel(IEventAggregator eventAggregator, IGameModel model, IAlternativeUnitViewModel alternativeUnitView)
             : base(eventAggregator, model)
         {
             AlternativeTabControl = alternativeUnitView;

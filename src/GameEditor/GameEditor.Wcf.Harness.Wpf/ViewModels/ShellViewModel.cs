@@ -3,9 +3,9 @@ using GameEditor.Wcf.Harness.Wpf.Views.Interfaces;
 
 namespace GameEditor.Wcf.Harness.Wpf.ViewModels
 {
-    public class ShellViewModel : Conductor<IMainScreenTabItem>.Collection.OneActive
+    public class ShellViewModel : Conductor<IMainScreenTabItem>.Collection.OneActive, IShellViewModel
     {
-        public ShellViewModel(ArmyListTabViewModel armyListTab, ArmyUnitTabViewModel armyUnitTab)
+        public ShellViewModel(IArmyListTabViewModel armyListTab, IArmyUnitTabViewModel armyUnitTab)
         {
             Items.Add(armyListTab);
             Items.Add(armyUnitTab);

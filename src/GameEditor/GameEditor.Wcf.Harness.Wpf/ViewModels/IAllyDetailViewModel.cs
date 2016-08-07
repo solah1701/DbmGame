@@ -1,6 +1,6 @@
 ﻿namespace GameEditor.Wcf.Harness.Wpf.Views.Interfaces
 {
-    public interface IAllyDetailView : IDetailView
+    public interface IAllyDetailViewModel : IDetailView
     {
         int AllyListId { get; set; }
         string AllyName { get; set; }

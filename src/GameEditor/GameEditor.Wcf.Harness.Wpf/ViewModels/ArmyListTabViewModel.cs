@@ -4,12 +4,12 @@ using GameEditor.Wcf.Harness.Wpf.Views.Interfaces;
 
 namespace GameEditor.Wcf.Harness.Wpf.ViewModels
 {
-    public sealed class ArmyListTabViewModel : Screen, IMainScreenTabItem
+    public sealed class ArmyListTabViewModel : Screen, IArmyListTabViewModel
     {
-        public ArmyListViewModel ArmyList { get; set; }
-        public ArmyDetailViewModel ArmyDetail { get; set; }
+        public IArmyListViewModel ArmyList { get; set; }
+        public IArmyDetailViewModel ArmyDetail { get; set; }
 
-        public ArmyListTabViewModel(ArmyListViewModel armyList, ArmyDetailViewModel armyDetail)
+        public ArmyListTabViewModel(IArmyListViewModel armyList, IArmyDetailViewModel armyDetail)
         {
             DisplayName = "Army List";
             ArmyList = armyList;

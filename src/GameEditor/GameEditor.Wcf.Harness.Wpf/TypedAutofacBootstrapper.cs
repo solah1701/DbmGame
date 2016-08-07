@@ -24,11 +24,18 @@ namespace GameEditor.Wcf.Harness.Wpf
         {
             var builder = new ContainerBuilder();
             // Register View Models
+            //builder.RegisterAssemblyTypes(AssemblySource.Instance.ToArray())
+            //    .Where(type => type.Name.EndsWith("ViewModel"))
+            //    .Where(type => !(string.IsNullOrWhiteSpace(type.Namespace)) && type.Namespace.EndsWith("ViewModels"))
+            //    .Where(type => type.GetInterface(typeof(INotifyPropertyChanged).Name) != null)
+            //    .AsSelf()
+            //    .InstancePerDependency();
+
             builder.RegisterAssemblyTypes(AssemblySource.Instance.ToArray())
                 .Where(type => type.Name.EndsWith("ViewModel"))
                 .Where(type => !(string.IsNullOrWhiteSpace(type.Namespace)) && type.Namespace.EndsWith("ViewModels"))
                 .Where(type => type.GetInterface(typeof(INotifyPropertyChanged).Name) != null)
-                .AsSelf()
+                .AsImplementedInterfaces()
                 .InstancePerDependency();
 
             // Register Views

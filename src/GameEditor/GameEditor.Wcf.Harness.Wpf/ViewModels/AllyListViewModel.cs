@@ -5,7 +5,7 @@ using GameEditor.Wcf.Harness.Wpf.WarGameServiceReference;
 
 namespace GameEditor.Wcf.Harness.Wpf.ViewModels
 {
-    public class AllyListViewModel : ListViewModel
+    public class AllyListViewModel : ListViewModel, IAllyListViewModel
     {
         private AlliedArmyDefinition _selectedAllied;
         public BindableCollection<AlliedArmyDefinition> AlliedArmyDefinitions { get; }

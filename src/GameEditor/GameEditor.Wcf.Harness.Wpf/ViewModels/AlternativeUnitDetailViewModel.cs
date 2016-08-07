@@ -5,7 +5,7 @@ using GameEditor.Wcf.Harness.Wpf.Views.Interfaces;
 
 namespace GameEditor.Wcf.Harness.Wpf.ViewModels
 {
-    public sealed class AlternativeUnitDetailViewModel : DetailViewModel, IAlternativeScreenTabItem
+    public sealed class AlternativeUnitDetailViewModel : DetailViewModel, IAlternativeUnitDetailViewModel
     {
         public LabelTextboxViewModel AlternativeUnitIdControl { get; set; }
         public LabelTextboxViewModel AlternativeUnitNameControl { get; set; }

@@ -4,14 +4,14 @@ using GameEditor.Wcf.Harness.Wpf.Views.Interfaces;
 
 namespace GameEditor.Wcf.Harness.Wpf.ViewModels
 {
-    public sealed class ArmyUnitTabViewModel : Screen, IMainScreenTabItem
+    public sealed class ArmyUnitTabViewModel : Screen, IArmyUnitTabViewModel
     {
-        public ArmyUnitListViewModel ArmyUnitList { get; set; }
-        public ArmyUnitDetailViewModel ArmyUnitDetail { get; set; }
-        public AllyListViewModel AllyList { get; set; }
-        public AllyDetailViewModel AllyDetail { get; set; }
+        public IArmyUnitListViewModel ArmyUnitList { get; set; }
+        public IArmyUnitDetailViewModel ArmyUnitDetail { get; set; }
+        public IAllyListViewModel AllyList { get; set; }
+        public IAllyDetailViewModel AllyDetail { get; set; }
 
-        public ArmyUnitTabViewModel(ArmyUnitListViewModel armyUnitList, ArmyUnitDetailViewModel armyUnitDetail, AllyListViewModel allyList, AllyDetailViewModel allyDetail)
+        public ArmyUnitTabViewModel(IArmyUnitListViewModel armyUnitList, IArmyUnitDetailViewModel armyUnitDetail, IAllyListViewModel allyList, IAllyDetailViewModel allyDetail)
         {
             DisplayName = "Army Unit";
             ArmyUnitList = armyUnitList;

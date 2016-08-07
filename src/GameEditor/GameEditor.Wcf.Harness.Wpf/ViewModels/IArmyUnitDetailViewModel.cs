@@ -2,7 +2,7 @@
 
 namespace GameEditor.Wcf.Harness.Wpf.Views.Interfaces
 {
-    public interface IArmyUnitDetailView : IDetailView
+    public interface IArmyUnitDetailViewModel : IDetailView
     {
         int ArmyUnitDefinitionId { get; set; }
         string ArmyUnitName { get; set; }

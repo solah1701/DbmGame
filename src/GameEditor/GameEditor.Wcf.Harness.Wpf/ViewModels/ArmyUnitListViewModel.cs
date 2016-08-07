@@ -8,7 +8,7 @@ using GameEditor.Wcf.Harness.Wpf.WarGameServiceReference;
 
 namespace GameEditor.Wcf.Harness.Wpf.ViewModels
 {
-    public class ArmyUnitListViewModel : ListViewModel
+    public class ArmyUnitListViewModel : ListViewModel, IArmyUnitListViewModel
     {
         private readonly IGameModel _model;
         private ArmyUnitDefinition _selected;

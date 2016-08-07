@@ -9,18 +9,27 @@ using NSubstitute;
 namespace GameEditor.WcfHarness.Wpf.UnitTest
 {
     [TestClass]
-    public class AlternativeUnitDetailUnitTest
+    public class AlternativeUnitDetailUnitTest : UnitTestBase
     {
         public AlternativeUnitDetailViewModel AlternativeUnitDetailViewModel { get; set; }
-        public IEventAggregator EventAggregator { get; set; }
-        public IGameModel GameModel { get; set; }
 
-        [TestInitialize]
-        public void Init()
+        public override void Init(IEventAggregator eventAggregator, IGameModel gameModel)
         {
-            EventAggregator = Substitute.For<IEventAggregator>();
-            GameModel = Substitute.For<IGameModel>();
             AlternativeUnitDetailViewModel = new AlternativeUnitDetailViewModel(EventAggregator, GameModel);
+        }
+
+        [TestMethod]
+        public void Handle_Sets_AlternativeUnitIdControl_To_Disabled()
+        {
+            // Arrange
+            var dirtyStatus = new CheckDirtyStatus();
+            AlternativeUnitDetailViewModel.AlternativeUnitIdControl.CanTextBox = true;
+
+            // Act
+            AlternativeUnitDetailViewModel.Handle(dirtyStatus);
+
+            // Assert
+            Assert.IsFalse(AlternativeUnitDetailViewModel.AlternativeUnitIdControl.CanTextBox);
         }
 
         [TestMethod]

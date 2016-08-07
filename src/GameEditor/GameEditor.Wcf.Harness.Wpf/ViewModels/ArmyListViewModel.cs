@@ -6,7 +6,7 @@ using GameEditor.Wcf.Harness.Wpf.WarGameServiceReference;
 
 namespace GameEditor.Wcf.Harness.Wpf.ViewModels
 {
-    public sealed class ArmyListViewModel : ListViewModel
+    public sealed class ArmyListViewModel : ListViewModel, IArmyListViewModel
     {
         private ArmyDefinition _selected;
 

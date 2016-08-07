@@ -6,7 +6,7 @@ using GameEditor.Wcf.Harness.Wpf.WarGameServiceReference;
 
 namespace GameEditor.Wcf.Harness.Wpf.ViewModels
 {
-    public sealed class AllyDetailViewModel : DetailViewModel, IAllyDetailView
+    public sealed class AllyDetailViewModel : DetailViewModel, IAllyDetailViewModel
     {
         public LabelTextboxViewModel AllyListControl { get; set; }
         public LabelTextboxViewModel AllyNameControl { get; set; }
@@ -111,6 +111,7 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
 
         protected override void ViewChanged()
         {
+            AllyListControl.CanTextBox = false;
             CanUpdate = !string.IsNullOrEmpty(AllyName);
             CanDelete = AllyListId != 0;
             base.ViewChanged();

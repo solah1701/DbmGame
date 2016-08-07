@@ -6,7 +6,7 @@ using GameEditor.Wcf.Harness.Wpf.WarGameServiceReference;
 
 namespace GameEditor.Wcf.Harness.Wpf.ViewModels
 {
-    public sealed class AlternativeUnitListViewModel : ListViewModel, IAlternativeScreenTabItem
+    public sealed class AlternativeUnitListViewModel : ListViewModel, IAlternativeUnitListViewModel
     {
         private AlternativeUnitDefinition _selected;
         public BindableCollection<AlternativeUnitDefinition> AlternativeUnitDefinitions { get; }

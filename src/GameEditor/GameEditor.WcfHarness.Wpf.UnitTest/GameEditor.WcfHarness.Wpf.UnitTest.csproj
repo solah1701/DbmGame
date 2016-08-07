@@ -66,9 +66,13 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="AllyDetailUnitTest.cs" />
     <Compile Include="AlternativeUnitDetailUnitTest.cs" />
+    <Compile Include="ArmyUnitDetailUnitTest.cs" />
+    <Compile Include="ArmyDetailUnitTest.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnitTestBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GameEditor.Wcf.Harness.Wpf\GameEditor.Wcf.Harness.Wpf.csproj">

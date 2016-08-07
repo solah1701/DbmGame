@@ -7,7 +7,7 @@ using GameEditor.Wcf.Harness.Wpf.Views.Interfaces;
 
 namespace GameEditor.Wcf.Harness.Wpf
 {
-    public class AppBootstrapper : TypedAutofacBootstrapper<ShellViewModel>
+    public class AppBootstrapper : TypedAutofacBootstrapper<IShellViewModel>
     {
         protected override void ConfigureContainer(ContainerBuilder builder)
         {

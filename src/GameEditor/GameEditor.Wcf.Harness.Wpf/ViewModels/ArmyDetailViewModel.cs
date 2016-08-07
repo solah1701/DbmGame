@@ -56,6 +56,7 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
 
         protected override void ViewChanged()
         {
+            ArmyIdControl.CanTextBox = false;
             CanUpdate = ArmyName != string.Empty;
             CanDelete = ArmyId != 0;
             base.ViewChanged();

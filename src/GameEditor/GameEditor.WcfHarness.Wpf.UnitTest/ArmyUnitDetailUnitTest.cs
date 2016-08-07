@@ -16,7 +16,7 @@ namespace GameEditor.WcfHarness.Wpf.UnitTest
         public override void Init(IEventAggregator eventAggregator, IGameModel gameModel)
         {
             AlternativeUnitViewModel = Substitute.For<IAlternativeUnitViewModel>();
-            ArmyUnitDetailViewModel=new ArmyUnitDetailViewModel(eventAggregator, gameModel, AlternativeUnitViewModel);
+            ArmyUnitDetailViewModel = new ArmyUnitDetailViewModel(eventAggregator, gameModel, AlternativeUnitViewModel);
         }
 
         [TestMethod]

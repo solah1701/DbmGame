@@ -211,6 +211,7 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
 
         protected override void ViewChanged()
         {
+            IdControl.CanTextBox = false;
             CanUpdate = ArmyUnitName != string.Empty && MaxCount != 0;
             CanCopy = ArmyUnitDefinitionId != 0;
             CanDelete = ArmyUnitDefinitionId != 0;

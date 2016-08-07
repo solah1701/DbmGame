@@ -13,7 +13,7 @@ namespace GameEditor.WcfHarness.Wpf.UnitTest
 
         public override void Init(IEventAggregator eventAggregator, IGameModel gameModel)
         {
-            ArmyDetailViewModel=new ArmyDetailViewModel(eventAggregator, gameModel);
+            ArmyDetailViewModel = new ArmyDetailViewModel(eventAggregator, gameModel);
         }
 
         [TestMethod]

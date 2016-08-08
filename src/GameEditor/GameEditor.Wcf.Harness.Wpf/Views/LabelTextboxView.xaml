@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:GameEditor.Wcf.Harness.Wpf.Views"
              xmlns:cal="http://www.caliburnproject.org">
     <DockPanel>
-        <TextBlock Name="Label" Width="100" Margin="5" DockPanel.Dock="Left"/>
-        <TextBox Name="TextBox" Margin="5" TextWrapping="{Binding TextWrapping}" IsEnabled="{Binding CanTextBox}" cal:Message.Attach="[Event KeyDown] = [Action KeyPressed($executionContext)]" />
+        <TextBlock Name="Label" Width="100" Margin="2" DockPanel.Dock="Left"/>
+        <TextBox Name="TextBox" Margin="2" TextWrapping="{Binding TextWrapping}" IsEnabled="{Binding CanTextBox}" cal:Message.Attach="[Event KeyDown] = [Action KeyPressed($executionContext)]" />
     </DockPanel>
 </UserControl>

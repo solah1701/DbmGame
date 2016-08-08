@@ -17,6 +17,7 @@
                     <ContentControl Name="PercentControl" IsTabStop="False"/>
                     <ContentControl Name="UpgradeControl" IsTabStop="False"/>
                 </StackPanel>
+                <ContentControl Name="AlternativeIdControl" IsTabStop="False"/>
             </StackPanel>
         </DockPanel>
     </ScrollViewer>

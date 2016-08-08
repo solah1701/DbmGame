@@ -94,6 +94,7 @@
     <Compile Include="EventAggregators\ShowView.cs" />
     <Compile Include="EventAggregators\UpdateList.cs" />
     <Compile Include="EventAggregators\UpdateView.cs" />
+    <Compile Include="Extensions\ArmyDefinitionsExtension.cs" />
     <Compile Include="Extensions\StringExtender.cs" />
     <Compile Include="Helpers\EnumHelper.cs" />
     <Compile Include="MainWindow.xaml.cs">

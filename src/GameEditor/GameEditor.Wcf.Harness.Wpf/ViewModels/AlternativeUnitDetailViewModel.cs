@@ -1,4 +1,6 @@
 ﻿using Caliburn.Micro;
+using GameEditor.Wcf.Harness.Wpf.EventAggregators;
+using GameEditor.Wcf.Harness.Wpf.Extensions;
 using GameEditor.Wcf.Harness.Wpf.Models;
 using GameEditor.Wcf.Harness.Wpf.ViewModels.Base;
 
@@ -7,11 +9,12 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
     public sealed class AlternativeUnitDetailViewModel : DetailViewModel, IAlternativeUnitDetailViewModel
     {
         public LabelTextboxViewModel AlternativeUnitIdControl { get; set; }
-        public LabelTextboxViewModel AlternativeUnitNameControl { get; set; }
+        public LabelComboboxViewModel AlternativeUnitNameControl { get; set; }
         public LabelTextboxViewModel MinValueControl { get; set; }
         public LabelTextboxViewModel MaxValueControl { get; set; }
         public LabelCheckboxViewModel PercentControl { get; set; }
         public LabelCheckboxViewModel UpgradeControl { get; set; }
+        public LabelTextboxViewModel AlternativeIdControl { get; set; }
 
         public int AlternativeUnitId
         {
@@ -28,11 +31,11 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
         }
         public string AlternativeUnitName
         {
-            get { return AlternativeUnitNameControl.TextBox; }
+            get { return AlternativeUnitNameControl.SelectedComboboxItem; }
             set
             {
-                if (AlternativeUnitNameControl.TextBox == value) return;
-                AlternativeUnitNameControl.TextBox = value;
+                if (AlternativeUnitNameControl.SelectedComboboxItem == value) return;
+                AlternativeUnitNameControl.SelectedComboboxItem = value;
             }
         }
         public int MinValue
@@ -79,10 +82,23 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
                 UpgradeControl.CheckBox = value;
             }
         }
+        public int AlternativeId
+        {
+            get
+            {
+                int value;
+                return int.TryParse(AlternativeIdControl.TextBox, out value) ? value : 0;
+            }
+            set
+            {
+                if (AlternativeIdControl.TextBox == value.ToString()) return;
+                AlternativeIdControl.TextBox = value.ToString();
+            }
+        }
 
         protected override int CurrentId => GameModel.CurrentAlternativeUnitDefinitionId;
 
-        public AlternativeUnitDetailViewModel(IEventAggregator eventAggregator, IGameModel gameModel) 
+        public AlternativeUnitDetailViewModel(IEventAggregator eventAggregator, IGameModel gameModel)
             : base(eventAggregator, gameModel)
         {
             DisplayName = "Alt Detail";
@@ -92,17 +108,25 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
         protected override void InitialiseView()
         {
             AlternativeUnitIdControl = new LabelTextboxViewModel(EventAggregator) { Label = "Id:" };
-            AlternativeUnitNameControl = new LabelTextboxViewModel(EventAggregator) { Label = "Name:" };
+            PopulateList();
             MinValueControl = new LabelTextboxViewModel(EventAggregator) { Label = "Min Value:" };
             MaxValueControl = new LabelTextboxViewModel(EventAggregator) { Label = "Max Value:" };
             PercentControl = new LabelCheckboxViewModel { Label = "Percent" };
             UpgradeControl = new LabelCheckboxViewModel { Label = "Upgrade" };
+            AlternativeIdControl = new LabelTextboxViewModel(EventAggregator) { Label = "Alt Id:" };
             base.InitialiseView();
+        }
+
+        private void PopulateList()
+        {
+            var definitions = GameModel.GetArmyUnitDefinitions();
+            AlternativeUnitNameControl = new LabelComboboxViewModel { Label = "Name:", ComboboxItem = definitions.ConvertToStringList(GameModel.CurrentArmyDefinitionId) };
         }
 
         protected override void ViewChanged()
         {
             AlternativeUnitIdControl.CanTextBox = false;
+            AlternativeIdControl.CanTextBox = false;
             MinValueControl.CanTextBox = MaxValueControl.CanTextBox = Upgrade;
             CanUpdate = !string.IsNullOrEmpty(AlternativeUnitName);
             CanDelete = AlternativeUnitId > 0;
@@ -118,6 +142,7 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
             MaxValue = 0;
             Percent = false;
             Upgrade = false;
+            AlternativeId = 0;
             base.Clear();
         }
 
@@ -131,7 +156,14 @@ namespace GameEditor.Wcf.Harness.Wpf.ViewModels
             MaxValue = item.MaxValue;
             Percent = item.Percent;
             Upgrade = item.Upgrade;
+            AlternativeId = item.AlternativeUnitId;
             base.Select(currentId);
+        }
+
+        public override void Handle(UpdateView message)
+        {
+            if (GameModel.CurrentArmyUnitDefinitionId != 0) PopulateList();
+            base.Handle(message);
         }
 
         public void ShowList() { }

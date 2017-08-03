@@ -40,7 +40,7 @@ namespace GameEditor.Wcf.Harness.Presenters
             var count = 0;
             foreach (var armyUnitDefinition in items)
             {
-                var altItem = altItems.Find(a => a.AlternativeUnitId == armyUnitDefinition.Id);
+                var altItem = altItems?.Find(a => a.AlternativeUnitId == armyUnitDefinition.Id);
                 var colour = altItem != null ? Color.Gainsboro : Color.Red;
                 ListIndex.Add(count++, new IndexedItem { Id = armyUnitDefinition.Id, BackgroundColor = colour });
             }

@@ -44,6 +44,7 @@ namespace GameEditor.Wcf.Harness
 
             foreach (ListViewItem item in ArmyListView.Items)
             {
+                if(item.Index >= IndexedItem.Count) continue;
                 item.BackColor = IndexedItem[item.Index].BackgroundColor;
             }
         }

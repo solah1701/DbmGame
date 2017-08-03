@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="GameEditor.Wcf.Harness.Wpf.Views.ArmyUnitTabView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:GameEditor.Wcf.Harness.Wpf.Views">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <GridSplitter Grid.Column="1"/>
+        <DockPanel Grid.Column="0">
+            <ContentControl Name="AllyList" DockPanel.Dock="Bottom"/>
+            <ContentControl Name="ArmyUnitList" />
+        </DockPanel>
+        <DockPanel Grid.Column="2">
+            <ContentControl Name="AllyDetail" DockPanel.Dock="Bottom"/>
+            <ContentControl Name="ArmyUnitDetail" />
+        </DockPanel>
+    </Grid>
+</UserControl>

@@ -7,3 +7,8 @@ C:\Users\Stephen\git\GameEditor Repository\src\GameEditor\GameCore\bin\Debug\Gam
 C:\Users\Stephen\git\GameEditor Repository\src\GameEditor\GameCore\bin\Debug\GameCore.pdb
 C:\Users\Stephen\git\GameEditor Repository\src\GameEditor\GameCore\obj\Debug\GameCore.dll
 C:\Users\Stephen\git\GameEditor Repository\src\GameEditor\GameCore\obj\Debug\GameCore.pdb
+C:\Users\Stephen\git\Online\src\GameEditor\GameCore\bin\Debug\GameCore.dll
+C:\Users\Stephen\git\Online\src\GameEditor\GameCore\bin\Debug\GameCore.pdb
+C:\Users\Stephen\git\Online\src\GameEditor\GameCore\obj\Debug\GameCore.csprojResolveAssemblyReference.cache
+C:\Users\Stephen\git\Online\src\GameEditor\GameCore\obj\Debug\GameCore.dll
+C:\Users\Stephen\git\Online\src\GameEditor\GameCore\obj\Debug\GameCore.pdb

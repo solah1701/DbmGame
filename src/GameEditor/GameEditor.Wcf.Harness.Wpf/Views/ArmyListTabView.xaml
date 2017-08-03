@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="GameEditor.Wcf.Harness.Wpf.Views.ArmyListTabView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:GameEditor.Wcf.Harness.Wpf.Views">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <GridSplitter Grid.Column="1"/>
+        <ContentControl Grid.Column="0" Name="ArmyList" />
+        <DockPanel Grid.Column="2">
+            <ContentControl Name="ArmyDetail" />
+        </DockPanel>
+    </Grid>
+</UserControl>

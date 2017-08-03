@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="b5eaa5f5-04dc-40d0-923d-97aad96fdc79" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:52965/WarGameService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="WarGameService.wsdl" MetadataType="Wsdl" ID="755ff094-2425-41bd-93e9-f009e9902ed5" SourceId="1" SourceUrl="http://localhost:52965/WarGameService.svc?wsdl" />
+    <MetadataFile FileName="WarGameService.disco" MetadataType="Disco" ID="15c7dacb-6d94-4391-865f-e02ba72d3318" SourceId="1" SourceUrl="http://localhost:52965/WarGameService.svc?disco" />
+    <MetadataFile FileName="WarGameService.xsd" MetadataType="Schema" ID="d1a2eede-bce8-424b-8e83-670cc8fab1db" SourceId="1" SourceUrl="http://localhost:52965/WarGameService.svc?xsd=xsd1" />
+    <MetadataFile FileName="WarGameService1.xsd" MetadataType="Schema" ID="a98deabd-1dac-43e6-ae50-3355b38eb4a1" SourceId="1" SourceUrl="http://localhost:52965/WarGameService.svc?xsd=xsd2" />
+    <MetadataFile FileName="WarGameService2.xsd" MetadataType="Schema" ID="dd729900-ee69-4090-8845-5e9a1527a90b" SourceId="1" SourceUrl="http://localhost:52965/WarGameService.svc?xsd=xsd3" />
+    <MetadataFile FileName="WarGameService3.xsd" MetadataType="Schema" ID="493ba003-16e8-4cc8-bb8a-dc889d044d03" SourceId="1" SourceUrl="http://localhost:52965/WarGameService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

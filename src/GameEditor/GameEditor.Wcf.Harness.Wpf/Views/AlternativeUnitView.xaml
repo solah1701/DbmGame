@@ -1,0 +1,8 @@
+﻿<UserControl x:Class="GameEditor.Wcf.Harness.Wpf.Views.AlternativeUnitView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:GameEditor.Wcf.Harness.Wpf.Views">
+    <DockPanel>
+        <TabControl Name="Items"/>
+    </DockPanel>
+</UserControl>

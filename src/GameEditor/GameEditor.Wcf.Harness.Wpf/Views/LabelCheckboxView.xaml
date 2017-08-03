@@ -1,0 +1,9 @@
+﻿<UserControl x:Class="GameEditor.Wcf.Harness.Wpf.Views.LabelCheckboxView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:GameEditor.Wcf.Harness.Wpf.Views">
+    <DockPanel>
+        <TextBlock Name="Label" TextAlignment="Right" Width="{Binding LabelWidth}" Margin="2" DockPanel.Dock="Left" />
+        <CheckBox Name="CheckBox" Margin="2"/>
+    </DockPanel>
+</UserControl>

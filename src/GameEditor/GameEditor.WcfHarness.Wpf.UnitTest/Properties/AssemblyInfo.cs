@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("GameEdito.Wcf.Harness.UnitTest")]
+[assembly: AssemblyTitle("GameEditor.WcfHarness.Wpf.UnitTest")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("GameEdito.Wcf.Harness.UnitTest")]
+[assembly: AssemblyProduct("GameEditor.WcfHarness.Wpf.UnitTest")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("16007c04-53e3-429c-9cde-fa4bce8288ea")]
+[assembly: Guid("347359b2-4362-44ed-82ee-ec333804be5b")]
 
 // Version information for an assembly consists of the following four values:
 //

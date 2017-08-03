@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/GameCore.WcfService.DebellisMultitudinis.Enumerations" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/GameCore.WcfService.DebellisMultitudinis.Enumerations" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="DisciplineTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Regular" />
+      <xs:enumeration value="Irregular" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="DisciplineTypeEnum" nillable="true" type="tns:DisciplineTypeEnum" />
+  <xs:simpleType name="DispositionTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Mounted" />
+      <xs:enumeration value="Foot" />
+      <xs:enumeration value="Naval" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="DispositionTypeEnum" nillable="true" type="tns:DispositionTypeEnum" />
+  <xs:simpleType name="GradeTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Superior" />
+      <xs:enumeration value="Ordinary" />
+      <xs:enumeration value="Inferior" />
+      <xs:enumeration value="Fast" />
+      <xs:enumeration value="Exception" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="GradeTypeEnum" nillable="true" type="tns:GradeTypeEnum" />
+  <xs:simpleType name="UnitTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Elephants" />
+      <xs:enumeration value="Knights" />
+      <xs:enumeration value="Cavalry" />
+      <xs:enumeration value="LightHorse" />
+      <xs:enumeration value="Camelry" />
+      <xs:enumeration value="Expendables" />
+      <xs:enumeration value="Spear" />
+      <xs:enumeration value="Pike" />
+      <xs:enumeration value="Blades" />
+      <xs:enumeration value="Warband" />
+      <xs:enumeration value="Auxilia" />
+      <xs:enumeration value="Bow" />
+      <xs:enumeration value="Psiloi" />
+      <xs:enumeration value="Artillary" />
+      <xs:enumeration value="WarWagons" />
+      <xs:enumeration value="Hordes" />
+      <xs:enumeration value="Baggage" />
+      <xs:enumeration value="Galleys" />
+      <xs:enumeration value="Ships" />
+      <xs:enumeration value="Boats" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="UnitTypeEnum" nillable="true" type="tns:UnitTypeEnum" />
+</xs:schema>
